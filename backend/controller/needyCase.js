@@ -19,7 +19,7 @@ const UpdateNeedyCaseByCaseId = (req, res) => {
 };
 
 
-const getNeedyCaseByUsrtId = (req, res) => {
+const getNeedyCaseByUserId = (req, res) => {
   
 };
 const getNeedyCasebyCategoryId = (req, res) => {
@@ -32,4 +32,4 @@ const getNeedyCasebyCategoryId = (req, res) => {
 
 
 
-module.exports={createNeedyCase,getAllNeedyCase,deletNeedyCase,updateDonerGining,getNeedyCaseByUsrtId,getNeedyCasebyCategoryId,UpdateNeedyCaseByCaseId}
+module.exports={createNeedyCase,getAllNeedyCase,deletNeedyCase,getNeedyCaseByUserId,getNeedyCasebyCategoryId,UpdateNeedyCaseByCaseId}
