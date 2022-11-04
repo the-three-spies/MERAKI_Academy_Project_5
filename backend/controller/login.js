@@ -21,7 +21,6 @@ const login = (req, res) => {
         return res.status(404).json({
           success: false,
           message: `The email doesn't exist`,
-          result:result.rows[0].id
         });
       }
       try {
@@ -43,11 +42,11 @@ const login = (req, res) => {
         console.log("payload", payload);
         //----------options----------
         const options = {
-          expiresIn: "6000m",
+          expiresIn: "1d",
         };
         console.log("options", options);
         //----------secret----------
-        const secret =process.env.SECRET
+        const secret =process.env.SECRET;
         console.log("secret",secret);
         //----------token----------
         const token = await jwt.sign(payload,secret, options);
