@@ -1,5 +1,7 @@
 const pool = require("../models/db");
-
+//You enter a new donation request and take an ID from a token
+//the function receved this value from body(description,amount,address,case_id,deleveryDate,imgePathDoner)
+// jest the user have authorization and authentacation make create new Doner Giving
 const createNewDonerGiving = (req, res) => {
 console.log("mko")
 
@@ -31,7 +33,7 @@ console.log("mko")
 
   
 };
-
+// In this function, you will return all donation requests to donors, regardless of the type of donation or the donor
 const getAllDonerGiving = (req, res) => {
    
         const query = `SELECT * FROM doner_givin  WHERE is_deleted=0 ORDER BY 1;`;
@@ -53,7 +55,7 @@ const getAllDonerGiving = (req, res) => {
             });
           });
 };
-//  update delevery  Date
+//  update delevery  Date If the donor wants to change the delivery time, he can modify and change the time
 const updateDonerGiving=(req, res)=>{
     console.log("lkokll")
     const id = req.params.id;
@@ -89,7 +91,7 @@ const updateDonerGiving=(req, res)=>{
 
 }
 
-
+//If a donation is made, we will delete a building request via SoftDelete
 const deletDonerGiving=(req, res)=>{
     
 const id = req.params.id;
@@ -119,6 +121,7 @@ const id = req.params.id;
       });
     });
 }
+//This is a function that brings all donations to this person, and no one else can see them except to take any of the tokens from authentication
 const getAllDonerGivingByDonerId=(req, res)=>{
     const id = req.token.userId;
     const query = `SELECT * FROM doner_givin WHERE doner_id = $1 AND is_deleted=0;`;
