@@ -9,7 +9,7 @@ const jwt = require("jsonwebtoken");
 const login = (req, res) => {
   const { email, password } = req.body;
   const value = [email.toLowerCase()];
-//select rows with all columns from the table `users` that has the email set to the value
+  //select rows with all columns from the table `users` that has the email set to the value
   const query = `SELECT * FROM users
                  WHERE email=$1 `;
   console.log("values", value, "query", query);
@@ -21,13 +21,16 @@ const login = (req, res) => {
         return res.status(404).json({
           success: false,
           message: `The email doesn't exist`,
-          result:result.rows[0].id
         });
       }
       try {
-        const validPassword = await bcrypt.compare(password, result.rows[0].password);
-        console.log("password", password);
-        console.log("result.rows.password", result.rows[0].password);
+        const validPassword = await bcrypt.compare(
+          password,
+          result.rows[0].password
+        );
+        console.log("password= ", password);
+        console.log("result.rows= .password", result.rows[0].password);
+        console.log("validPassword= ", validPassword);
         if (!validPassword) {
           return res.status(403).json({
             success: false,
@@ -40,24 +43,24 @@ const login = (req, res) => {
           city: result.rows[0].city,
           role: result.rows[0].role_id,
         };
-        console.log("payload", payload);
+        console.log("payload= ", payload);
         //----------options----------
         const options = {
-          expiresIn: "6000m",
+          expiresIn: "1d",
         };
-        console.log("options", options);
+        console.log("options= ", options);
         //----------secret----------
-        const secret =process.env.SECRET
-        console.log("secret",secret);
+        const secret = process.env.SECRET;
+        console.log("secret=", secret);
         //----------token----------
-        const token = await jwt.sign(payload,secret, options);
+        const token = await jwt.sign(payload, secret, options);
         res.status(200).json({
           success: true,
           message: `Valid login credentials`,
           token: token,
-          userId:result.rows[0].id
+          userId: result.rows[0].id,
         });
-        console.log("token", token);
+        console.log("token= ", token);
       } catch (error) {
         throw new Error(error.message);
       }
@@ -70,10 +73,6 @@ const login = (req, res) => {
       });
     });
 };
-
 module.exports = {
   login,
 };
-
-
-//note [write doc. || user_id ||  postman || ]
