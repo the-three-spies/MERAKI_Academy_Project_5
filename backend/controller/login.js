@@ -50,8 +50,10 @@ const login = (req, res) => {
         };
         console.log("options= ", options);
         //----------secret----------
+
         const secret = process.env.SECRET;
         console.log("secret=", secret);
+
         //----------token----------
         const token = await jwt.sign(payload, secret, options);
         res.status(200).json({
