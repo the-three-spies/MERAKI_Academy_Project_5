@@ -35,8 +35,7 @@ console.log("mko")
 };
 // In this function, you will return all donation requests to donors, regardless of the type of donation or the donor
 const getAllDonerGiving = (req, res) => {
-   
-        const query = `SELECT * FROM doner_givin  WHERE is_deleted=0 ORDER BY 1;`;
+        const query = `SELECT doner_givin.*,users.id,users.firstName FROM doner_givin doner_givin INNER JOIN users ON doner_givin.doner_id = users.id WHERE doner_givin.is_deleted=0`;
         pool
           .query(query)
           .then((result) => {
@@ -123,8 +122,9 @@ const id = req.params.id;
 }
 //This is a function that brings all donations to this person, and no one else can see them except to take any of the tokens from authentication
 const getAllDonerGivingByDonerId=(req, res)=>{
-    const id = req.token.userId;
-    const query = `SELECT * FROM doner_givin WHERE doner_id = $1 AND is_deleted=0;`;
+    const id =req.token.userId;
+    const query = `SELECT doner_givin.* ,users.is_deleted FROM doner_givin INNER join users on doner_givin.doner_id =users.id  
+    where doner_givin.doner_id=$1 AND doner_givin.is_deleted=0;`;
     const data = [id];
   
     pool
