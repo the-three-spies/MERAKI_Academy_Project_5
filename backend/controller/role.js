@@ -65,8 +65,38 @@ const createNewRolePermission = (req, res) => {
       });
     });
 };
+
+
+
+const getAllRoles=(req,res)=>{
+const query=`select * from roles where
+id!=1;`
+
+pool
+.query(query)
+.then((result) => {
+  res.status(200).json({
+    success: true,
+    massage: "All the Roles",
+    result: result.rows,
+   
+  });
+})
+.catch((err) => {
+  res.status(500).json({
+    success: false,
+    massage: "server error",
+    err: err,
+  });
+});
+}
+
+
+
+
 module.exports = {
   createNewRole,
   createNewPermission,
   createNewRolePermission,
+  getAllRoles,
 };
