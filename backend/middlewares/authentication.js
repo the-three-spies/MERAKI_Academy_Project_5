@@ -10,8 +10,10 @@ const authentication = (req, res, next) => {
  }
  else{
   token=req.headers.authorization.split(" ").pop();
-  const SECRET =process.env.SECRET;
-  jwt.verify(token,SECRET,(err,result)=>
+
+  const secert =process.env.SECRET;
+  jwt.verify(token,secert,(err,result)=>
+
   {
     if(err)
     {
