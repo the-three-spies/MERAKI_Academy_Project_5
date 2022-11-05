@@ -2,6 +2,7 @@ const jwt = require("jsonwebtoken");
 
 // This function checks if the user logged in,and verfiy token if valid to used it(info inside it) in next function
 const authentication = (req, res, next) => {
+ 
  let token=req.headers.authorization
  if(!token)
  {
@@ -9,8 +10,10 @@ const authentication = (req, res, next) => {
  }
  else{
   token=req.headers.authorization.split(" ").pop();
+
   const secert =process.env.SECRET;
   jwt.verify(token,secert,(err,result)=>
+
   {
     if(err)
     {

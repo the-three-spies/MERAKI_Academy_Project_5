@@ -60,7 +60,11 @@ const getAllNeedyCase = (req, res) => {
 // in order to delete specfic case from database ,but we need soft delete just modifiy is deleted from 0 to 1 by depending on id for that case ,
 const deletNeedyCaseByCaseID = (req, res) => {
   const id = req.params.id;
-  const query = `UPDATE needy_Case SET is_deleted=1 WHERE id=$1;`;
+
+  const query = `UPDATE needy_Case SET is_deleted=1 WHERE id=$1 And amount=0;`;
+
+  
+
   const value = [id];
   pool
     .query(query, value)
