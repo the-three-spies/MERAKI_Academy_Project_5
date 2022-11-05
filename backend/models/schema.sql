@@ -40,7 +40,7 @@ CREATE TABLE users(
 
 
 -- Create a table called **Donations Category ** in the database
-CREATE TABLE donations_Category(
+CREATE TABLE donations_Category (
   id SERIAL NOT NULL,
   title VARCHAR(255),-- clothes , food, money, furniture
   imgePath Text,
@@ -63,8 +63,6 @@ CREATE TABLE needy_Case(
   PRIMARY KEY (id)
 );
 
-
-
 -- Create a table called **doner_order** in the database
 CREATE TABLE doner_givin(
  id SERIAL NOT NULL PRIMARY KEY,
@@ -82,6 +80,4 @@ CREATE TABLE doner_givin(
   FOREIGN KEY (doner_id) REFERENCES users(id),
   PRIMARY KEY (id)
 );
-
-
 

@@ -2,7 +2,11 @@
 // require the connection so it can be used
 // we are destructing the pool out of the exported object
 const pool = require("../models/db");
+
 //------------step2 : excute the func.------------
+//     createNewCategory + createNewCategory
+
+//------------- createNewCategory -------------
 const createNewCategory = (req, res) => {
   //donations_Category:clothes , food, money, furniture
   const { title, imgePath } = req.body;
@@ -13,12 +17,10 @@ const createNewCategory = (req, res) => {
                 (title,imgePath)
                 VALUES ($1,$2)  RETURNING *;`;
   console.log("values= ", values, "query= ", query);
-  //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
   pool
     .query(query, values)
     .then((result) => {
       console.log("result", result);
-
       res.status(201).json({
         success: true,
         message: "donations_Category created successfully",
@@ -31,12 +33,11 @@ const createNewCategory = (req, res) => {
         .json({ success: false, message: "Server Error", err: err.message });
     });
 };
-const getCategory = (req, res) => {
-  //getAllCategory
+//------------- get All Category -------------
+const getCategory = (req, res) => {  
   //selecting (retrieving) rows with  all columns (*) from the table `donations_Category`
   const query = `SELECT *  FROM donations_Category ;`;
   console.log("query= ", query);
-  //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
   pool
     .query(query)
     .then((result) => {
@@ -59,7 +60,5 @@ const getCategory = (req, res) => {
         .json({ success: false, message: "Server Error", err: err.message });
     });
 };
-
 module.exports = { createNewCategory, getCategory };
 
-//NOTE change func Name comp.the doc
