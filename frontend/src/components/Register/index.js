@@ -3,8 +3,13 @@ import "./style.css";
 import axios from "axios";
 import { useEffect } from "react";
 
+import { useDispatch, useSelector } from "react-redux";
+import { setLogin, setLogout, setUserId } from "../../redux/reducers/auth";
+
+//===============================================================
 
 
+  
 const Register = () => {
     //const { isLoggedIn } = useContext(AuthContext);
     //role id
@@ -18,6 +23,25 @@ const Register = () => {
     const [message, setMessage] = useState("");
     const [status, setStatus] = useState(false);
     const[role_id,srtRolrId]=useState(0)
+
+
+    const auth = useSelector((state) => {
+        return {
+          auth: state.auth.isLoggedIn,
+        };
+      });
+      const userId = useSelector((state) => {
+        return {
+          userId: state.auth.userId,
+        };
+      });
+      const token = useSelector((state) => {
+        return {
+          token: state.auth.token,
+        };
+      });
+      const dispatch = useDispatch();
+    
 
  const getAllRoles=()=>{
     axios.get(`http://localhost:5000/roles`).
@@ -48,6 +72,47 @@ console.log("result",result.data.result)
 if (result.data.success) {
     setStatus(true);
     setMessage("The user has been created successfully");
+
+    // /////////////////////////////////
+    axios
+    .post(`http://localhost:5000/login/`, {
+      email,
+      password,
+    })
+    .then((result) => {
+      console.log("m", result.data.role);
+      let roleNavigate = result.data.role;
+      dispatch(setLogin(result.data.token));
+      dispatch(setUserId(result.data.userId));
+      //setMesage(result.data.message);
+
+      console.log("auth", auth);
+      console.log("id", userId);
+      console.log("aut", token);
+      // console.log( "mnmn", token)
+
+      // {
+      //   navgate("/Category");
+      // }
+      console.log(roleNavigate);
+      if (roleNavigate == 1) {
+        console.log("admin");
+        // navgate("/");
+        {
+        }
+      } else if (roleNavigate == 2) {
+        console.log("needy");
+
+        //  navgate("/")
+      } else if (roleNavigate == 3) {
+        console.log("doner");
+
+        // navgate("/")
+      }
+    })
+    
+
+    ///////////////////////////
   } 
 
     })
