@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 
 // import Reducer from "./";HIND
-
+import  authSlice  from "./reducers/auth";
 
 
 
@@ -25,7 +25,8 @@ import { configureStore } from "@reduxjs/toolkit";
 
 
 export default configureStore({
-//   1HIND
+    reducer: {
+        auth:authSlice,
 //   2HIND
 //   3 HIND
 //   4  HIND
@@ -46,5 +47,6 @@ export default configureStore({
 
 
     
-  reducer: {},
+ 
+}
 });
