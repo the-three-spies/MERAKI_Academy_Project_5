@@ -18,8 +18,11 @@ const createTable = () => {
     doner_id INT,
     case_id INT,
     is_deleted SMALLINT DEFAULT 0,
-     deleveryDate date,
+
+    deleveryDate VARCHAR(255),
      imgePathDoner TEXT,
+     category_id INT,
+     FOREIGN KEY (category_id) REFERENCES donations_Category(id),
      FOREIGN KEY(case_id) REFERENCES needy_Case(id),
      FOREIGN KEY (doner_id) REFERENCES users(id),
      PRIMARY KEY (id)
@@ -32,4 +35,4 @@ const createTable = () => {
   });
 };
   
-  //createTable()
+  // createTable()
