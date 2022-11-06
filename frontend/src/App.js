@@ -1,5 +1,24 @@
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
+import Register from "./components/Register";
+import Login from "./components/Login";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function App() {
   return <div className="App">
   
@@ -8,10 +27,10 @@ function App() {
 
 <Routes>
 
-<Route path="" element></Route>
+<Route path="/register" element={<Register/>}></Route>
 
 
-<Route path="" element></Route>
+<Route path="/login" element={<Login/>}></Route>
 
 
 <Route path="" element></Route>
