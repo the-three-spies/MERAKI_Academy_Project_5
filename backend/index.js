@@ -10,8 +10,26 @@ const categoryRouter = require("./routers/categoryRouter");
 
 const app = express();
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //built-in middleware
 app.use(express.json());
+
+
 app.use(cors());
 
 // router middleware
@@ -21,6 +39,19 @@ app.use("/login", loginRouter);
 app.use("/roles", roleRouter);
 app.use("/dontes",donteRouter);
 app.use("/needycase",needyCaseRouter);
+
+
+
+
+
+
+
+
+
+
+
+
+
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
