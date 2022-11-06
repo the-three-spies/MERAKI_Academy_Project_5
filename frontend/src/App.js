@@ -1,7 +1,62 @@
 import "./App.css";
-
+import { Route, Routes } from "react-router-dom";
 function App() {
-  return <div className="App"></div>;
+  return <div className="App">
+  
+    {/* // nav COMPONENT */}
+
+
+<Routes>
+
+<Route path="" element></Route>
+
+
+<Route path="" element></Route>
+
+
+<Route path="" element></Route>
+
+<Route path="" element></Route>
+ 
+ 
+ 
+ 
+ 
+ {/* 
+ 
+ 
+ 
+ <Route path="" element={<Login/>}></Route>
+
+ <Route path="" element={<Login/>}></Route>
+
+ <Route path="" element={<Login/>}></Route>
+
+
+// <Route path="" element={<Login/>}></Route> */} ASEEL ROTER
+
+
+
+
+
+
+
+
+
+{/* <Route path="" element={<Login/>}></Route>
+
+
+<Route path="" element={<Login/>}></Route>
+
+<Route path="" element={<Login/>}></Route>
+
+
+<Route path="" element></Route>  */} WALLA ROUTER
+
+</Routes>
+
+
+  </div>;
 }
 
 export default App;
