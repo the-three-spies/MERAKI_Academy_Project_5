@@ -6,12 +6,12 @@ const createNewDonerGiving = (req, res) => {
 console.log("mko")
 
     
-    const { description,amount,address,case_id,deleveryDate,imgePathDoner } = req.body;
+    const { description,amount,address,case_id,deleveryDate,imgePathDoner,category_id } = req.body;
 
     //console.log(token)
     const doner_id =req.token.userId;
-    const query = `INSERT INTO doner_givin(description,amount,address,deleveryDate,case_id,imgePathDoner,doner_id) VALUES ($1,$2,$3,$4,$5,$6,$7) RETURNING *;`;
-    const data = [description,amount,address,deleveryDate,case_id,imgePathDoner,doner_id];
+    const query = `INSERT INTO doner_givin(description,amount,address,deleveryDate,case_id,imgePathDoner,doner_id) VALUES ($1,$2,$3,$4,$5,$6,$7,$8) RETURNING *;`;
+    const data = [description,amount,address,deleveryDate,case_id,imgePathDoner, doner_id,category_id];
     pool
       .query(query, data)
       .then((result) => {
