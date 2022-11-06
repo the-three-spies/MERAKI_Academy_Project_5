@@ -9,8 +9,31 @@ import { setLogin, setLogout, setUserId } from "../../redux/reducers/auth";
 //===============================================================
 
 
-  
+import { useDispatch, useSelector } from "react-redux";
+import { setLogin, setLogout, setUserId } from "../../redux/reducers/auth";
+
+
 const Register = () => {
+
+
+
+    const auth = useSelector((state) => {
+        return {
+          auth: state.auth.isLoggedIn,
+        };
+      });
+      const userId = useSelector((state) => {
+        return {
+          userId: state.auth.userId,
+        };
+      });
+      const token = useSelector((state) => {
+        return {
+          token: state.auth.token,
+        };
+      });
+      const dispatch = useDispatch();
+    
     //const { isLoggedIn } = useContext(AuthContext);
     //role id
     const [firstName, setFirstName] = useState("");
@@ -73,7 +96,7 @@ if (result.data.success) {
     setStatus(true);
     setMessage("The user has been created successfully");
 
-    // /////////////////////////////////
+
     axios
     .post(`http://localhost:5000/login/`, {
       email,
@@ -84,7 +107,7 @@ if (result.data.success) {
       let roleNavigate = result.data.role;
       dispatch(setLogin(result.data.token));
       dispatch(setUserId(result.data.userId));
-      //setMesage(result.data.message);
+
 
       console.log("auth", auth);
       console.log("id", userId);
@@ -110,9 +133,7 @@ if (result.data.success) {
         // navgate("/")
       }
     })
-    
 
-    ///////////////////////////
   } 
 
     })
