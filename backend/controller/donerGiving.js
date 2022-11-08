@@ -2,26 +2,27 @@ const pool = require("../models/db");
 //You enter a new donation request and take an ID from a token
 //the function receved this value from body(description,amount,address,case_id,deleveryDate,imgePathDoner)
 // jest the user have authorization and authentacation make create new Doner Giving
-const createNewDonerGiving = (req, res) => {
-console.log("mko")
+const createNewDonerGiving = (req, res,next) => {
+// console.log("mko")
 
     
     const { description,amount,address,case_id,deleveryDate,imgePathDoner,category_id } = req.body;
 
     //console.log(token)
     const doner_id =req.token.userId;
-    const query = `INSERT INTO doner_givin(description,amount,address,deleveryDate,case_id,imgePathDoner,doner_id) VALUES ($1,$2,$3,$4,$5,$6,$7,$8) RETURNING *;`;
-    const data = [description,amount,address,deleveryDate,case_id,imgePathDoner, doner_id,category_id];
+    const query = `INSERT INTO doner_givin(description,amount,address,deleveryDate,case_id,imgePathDoner,doner_id,category_id) VALUES ($1,$2,$3,$4,$5,$6,$7,$8) RETURNING *;`;
+    const data = [description,amount,address,deleveryDate,case_id,imgePathDoner,doner_id,category_id];
     pool
       .query(query, data)
       .then((result) => {
-        
-        console.log(result)
-        res.status(200).json({
-          success: true,
-          massage: "New Doner Giving  Created",
-          result: result.rows[0],
-        });
+        // res.status(200).json({
+        //   success: true,
+        //   massage: "New Doner Giving  Created",
+        //   result: result.rows[0],
+        // });
+        req.body={newcase:result.rows[0]}
+   
+        next()
       })
       .catch((err) => {
         res.status(500).json({
@@ -152,5 +153,7 @@ const getAllDonerGivingByDonerId=(req, res)=>{
       });
   
 }
+
+
 
 module.exports={createNewDonerGiving,getAllDonerGiving,updateDonerGiving,deletDonerGiving,getAllDonerGivingByDonerId}

@@ -3,8 +3,8 @@ import "./style.css";
 import axios from "axios";
 import { useEffect } from "react";
 
-import { useDispatch, useSelector } from "react-redux";
-import { setLogin, setLogout, setUserId } from "../../redux/reducers/auth";
+// import { useDispatch, useSelector } from "react-redux";
+// import { setLogin, setLogout, setUserId } from "../../redux/reducers/auth";
 
 //===============================================================
 
@@ -48,22 +48,22 @@ const Register = () => {
     const[role_id,srtRolrId]=useState(0)
 
 
-    const auth = useSelector((state) => {
-        return {
-          auth: state.auth.isLoggedIn,
-        };
-      });
-      const userId = useSelector((state) => {
-        return {
-          userId: state.auth.userId,
-        };
-      });
-      const token = useSelector((state) => {
-        return {
-          token: state.auth.token,
-        };
-      });
-      const dispatch = useDispatch();
+    // const auth = useSelector((state) => {
+    //     return {
+    //       auth: state.auth.isLoggedIn,
+    //     };
+    //   });
+    //   const userId = useSelector((state) => {
+    //     return {
+    //       userId: state.auth.userId,
+    //     };
+    //   });
+    //   const token = useSelector((state) => {
+    //     return {
+    //       token: state.auth.token,
+    //     };
+    //   });
+    //   const dispatch = useDispatch();
     
 
  const getAllRoles=()=>{

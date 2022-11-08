@@ -4,14 +4,21 @@ const pool = require("../models/db");
 const createNeedyCase = (req, res) => {
   const { description, category_id, amount, address } = req.body; // parmeter as we need from creat table requirement
   const needy_id = req.token.userId; // after authenication work correctly ,we can get userid
+  const statusdonation='active';
+  const donation_amount=0;
+  const rest=amount;
   const values = [
     description,
     category_id,
     needy_id,
     amount || null,
     address || null,
+    statusdonation,
+    donation_amount,
+    rest
+ 
   ];
-  const query = `INSERT INTO needy_Case (description,category_id,needy_id,amount,address) VALUES ($1,$2,$3,$4,$5) RETURNING *;`;
+  const query = `INSERT INTO needy_Case (description,category_id,needy_id,amount,address,statusdonation,donation_amount,rest) VALUES ($1,$2,$3,$4,$5,$6,$7,$8) RETURNING *;`;
   pool
     .query(query, values)
     .then((result) => {
@@ -154,7 +161,7 @@ const getNeedyCaseByUserId = (req, res) => {
 const getNeedyCasebyCategoryId = (req, res) => {
   const donationCategory = req.params.id;
   const value = [donationCategory];
-  const query = `SELECT needy_Case.*,users.firstName FROM needy_Case INNER JOIN users ON needy_Case.needy_id = users.id WHERE needy_case.is_deleted=0 AND category_id=$1;`;
+  const query = `SELECT needy_Case.*,users.firstName FROM needy_Case INNER JOIN users ON needy_Case.needy_id = users.id WHERE needy_case.statusdonation='active' AND category_id=$1;`;
   pool
     .query(query, value)
     .then((result) => {

@@ -15,7 +15,7 @@ import  authSlice  from "./reducers/auth";
 
 
 
-// import Reducer from "./"; WALAA
+import donationReducer from '../redux/reducers/doner'
 
 
 
@@ -40,7 +40,7 @@ export default configureStore({
 
 
 
-//   1 WALAA
+donation:donationReducer,
 //   2 WALAA
 //   3 WALAA
 //   4 WALAA

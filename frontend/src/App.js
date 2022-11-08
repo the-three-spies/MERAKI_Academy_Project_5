@@ -16,9 +16,8 @@ import Login from "./components/Login";
 
 
 
-
-
-
+import DonationOrder from "./components/CreateDonation";
+import MyDonationList from "./components/DashboardDoner";
 function App() {
   return <div className="App">
   
@@ -62,15 +61,15 @@ function App() {
 
 
 
-{/* <Route path="" element={<Login/>}></Route>
-
+<Route path="/donate" element={<DonationOrder/>}></Route>
+<Route path="/mydonation" element={<MyDonationList/>}></Route>
+{/* 
+ <Route path="" element={<Login/>}></Route>
 
 <Route path="" element={<Login/>}></Route>
 
-<Route path="" element={<Login/>}></Route>
 
-
-<Route path="" element></Route>  */} WALLA ROUTER
+<Route path="" element></Route>  WALLA ROUTER */}
 
 </Routes>
 
