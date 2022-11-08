@@ -9,30 +9,33 @@ import {
   deleteNeedyCase,
 } from "../../redux/reducers/Needy";
 //---------------- The Needy ----------------
-const TheNeedy = () => {
+const NeedyByUserId = () => {
   const dispatch = useDispatch();
   const [description, setTitle] = useState("");
   const [amount, setAmount] = useState("");
   const [address, setAddress] = useState("");
-
+  //useSelector
   const { reduxaddnewneddy } = useSelector((state) => {
     return {
       reduxaddnewneddy: state.needy.needy,
     };
   });
-  const { CategoryId } = useSelector((state) => {
+  const { token } = useSelector((state) => {
     return {
-      CategoryId: state.category.CategoryId,
+      token: state.auth.token,
     };
   });
   //---------------- Set The Needy ----------------
   useEffect(() => {
-    console.log("gdfsdd", CategoryId);
     axios
-      .get("http://localhost:5000/needycase")
+      .get("http://localhost:5000/needycase/myCase", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
       .then((result) => {
-        console.log("set result", result.data.result);
-        dispatch(setNeedyCase(result.data.result));
+        console.log("set result", result.data.cases);
+        dispatch(setNeedyCase(result.data.cases));
         console.log("get", reduxaddnewneddy);
       })
       .catch((err) => {
@@ -63,4 +66,4 @@ const TheNeedy = () => {
   );
 };
 
-export default TheNeedy;
+export default NeedyByUserId;

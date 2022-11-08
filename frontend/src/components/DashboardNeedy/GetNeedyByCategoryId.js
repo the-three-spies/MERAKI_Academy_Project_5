@@ -9,12 +9,13 @@ import {
   deleteNeedyCase,
 } from "../../redux/reducers/Needy";
 //---------------- The Needy ----------------
-const TheNeedy = () => {
+const NeedyByCategoy = (id) => {
+  console.log("id", id);
   const dispatch = useDispatch();
   const [description, setTitle] = useState("");
   const [amount, setAmount] = useState("");
   const [address, setAddress] = useState("");
-
+  //useSelector
   const { reduxaddnewneddy } = useSelector((state) => {
     return {
       reduxaddnewneddy: state.needy.needy,
@@ -22,17 +23,20 @@ const TheNeedy = () => {
   });
   const { CategoryId } = useSelector((state) => {
     return {
-      CategoryId: state.category.CategoryId,
+      CategoryId: state.category.categoryId,
     };
   });
   //---------------- Set The Needy ----------------
   useEffect(() => {
-    console.log("gdfsdd", CategoryId);
+    //console.log("id", myId);
+    //console.log("id", myId);
+    console.log("CategoryId", CategoryId);
     axios
-      .get("http://localhost:5000/needycase")
+      .get(`http://localhost:5000/needycase/needyCategory/${CategoryId}`)
       .then((result) => {
-        console.log("set result", result.data.result);
-        dispatch(setNeedyCase(result.data.result));
+        console.log("set result", result.data.cases);
+        console.log("set result", result.data.cases);
+        dispatch(setNeedyCase(result.data.cases));
         console.log("get", reduxaddnewneddy);
       })
       .catch((err) => {
@@ -63,4 +67,4 @@ const TheNeedy = () => {
   );
 };
 
-export default TheNeedy;
+export default NeedyByCategoy;
