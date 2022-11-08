@@ -10,7 +10,7 @@ console.log("mko")
 
     //console.log(token)
     const doner_id =req.token.userId;
-    const query = `INSERT INTO doner_givin(description,amount,address,deleveryDate,case_id,imgePathDoner,doner_id) VALUES ($1,$2,$3,$4,$5,$6,$7,$8) RETURNING *;`;
+    const query = `INSERT INTO doner_givin(description,amount,address,deleveryDate,case_id,imgePathDoner,doner_id,category_id) VALUES ($1,$2,$3,$4,$5,$6,$7,$8) RETURNING *;`;
     const data = [description,amount,address,deleveryDate,case_id,imgePathDoner, doner_id,category_id];
     pool
       .query(query, data)
