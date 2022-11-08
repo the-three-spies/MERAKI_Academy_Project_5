@@ -8,7 +8,8 @@ import  authSlice  from "./reducers/auth";
 
 
 // import Reducer from "./";ASEEL
-
+import needySlice from './reducers/Needy';
+import categorySlice from './reducers/category';
 
 
 
@@ -16,7 +17,6 @@ import  authSlice  from "./reducers/auth";
 
 
 // import Reducer from "./"; WALAA
-
 
 
 
@@ -33,8 +33,8 @@ export default configureStore({
 
 
 
-//   1 ASEEL
-//   2 ASEEL
+needy : needySlice,
+category:categorySlice
 //   3 ASSEL
 //   4 ASSEL
 

@@ -1,0 +1,26 @@
+/* global style
+:root{
+    --main-color:wheate;
+    --primary-color:gray;
+  }
+  
+  *{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'fira sans','Droid Sans' 'Helvetica Neue', sans-serif;
+  }
+  
+  body{
+    background-color: var(--main-color);
+  }
+  
+  ul{
+    list-style: none;
+  
+  }
+  input:focus{
+    outline: none;
+  }
+
+   */
