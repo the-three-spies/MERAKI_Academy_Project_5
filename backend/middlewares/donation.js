@@ -1,11 +1,12 @@
 const pool = require("../models/db");
 
 const UpdateNeedyCase = (req, res,next) => {
-    const value=[req.body.newcase.amount,req.body.newcase.case_id,req.body.category_id]
+    const value=[req.body.newcase.amount,req.body.newcase.case_id,req.body]
    
-    if(req.body.category_id!='3')
+    if(req.body.newcase.category_id!='3')
     {
       next()
+      return 
     }
     
      const query = `UPDATE needy_Case SET rest=rest-$1 ,donation_amount=donation_amount+$1 WHERE id=$2 RETURNING *;`;

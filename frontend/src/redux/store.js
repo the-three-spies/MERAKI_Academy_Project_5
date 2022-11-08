@@ -34,7 +34,7 @@ export default configureStore({
 
 
 needy : needySlice,
-category:categorySlice
+category:categorySlice,
 //   3 ASSEL
 //   4 ASSEL
 
