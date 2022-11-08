@@ -19,7 +19,7 @@ const donerSlice=createSlice({
             {
                 if( element.id===action.payload.id)
                 {
-                    rertun ({...element,deleverydate:action.payload.deleverydate})
+                    return ({...element,deleverydate:action.payload.deleverydate})
 
                 }
                 return element

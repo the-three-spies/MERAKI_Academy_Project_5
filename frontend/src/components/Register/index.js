@@ -9,8 +9,6 @@ import { setLogin, setLogout, setUserId } from "../../redux/reducers/auth";
 //===============================================================
 
 
-import { useDispatch, useSelector } from "react-redux";
-import { setLogin, setLogout, setUserId } from "../../redux/reducers/auth";
 
 
 const Register = () => {
