@@ -61,7 +61,7 @@ const getAllNeedyCase = (req, res) => {
 const deletNeedyCaseByCaseID = (req, res) => {
   const id = req.params.id;
 
-  const query = `UPDATE needy_Case SET is_deleted=1 WHERE id=$1 And amount=0;`;
+  const query = `UPDATE needy_case  SET is_deleted=1 WHERE id=$1 OR amount=0;`;
 
   
 
