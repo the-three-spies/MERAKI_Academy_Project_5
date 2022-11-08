@@ -1,6 +1,6 @@
-/* global style
+/* global style*/
 :root{
-    --main-color:wheate;
+    --main-color:white;
     --primary-color:gray;
   }
   
@@ -22,5 +22,3 @@
   input:focus{
     outline: none;
   }
-
-   */
