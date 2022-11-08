@@ -3,8 +3,8 @@ import "./style.css";
 import axios from "axios";
 import { useEffect } from "react";
 
-
-
+import { useDispatch, useSelector } from "react-redux";
+import { setLogin, setLogout, setUserId } from "../../redux/reducers/auth";
 
 //===============================================================
 
@@ -15,6 +15,21 @@ import { setLogin, setLogout, setUserId } from "../../redux/reducers/auth";
 
 const Register = () => {
 
+
+
+    
+    //const { isLoggedIn } = useContext(AuthContext);
+    //role id
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [age, setAge] = useState(0);
+    const [city, setCity] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [roles, setRoles] = useState("");
+    const [message, setMessage] = useState("");
+    const [status, setStatus] = useState(false);
+    const[role_id,srtRolrId]=useState(0)
 
 
     const auth = useSelector((state) => {
@@ -34,21 +49,6 @@ const Register = () => {
       });
       const dispatch = useDispatch();
     
-    //const { isLoggedIn } = useContext(AuthContext);
-    //role id
-    const [firstName, setFirstName] = useState("");
-    const [lastName, setLastName] = useState("");
-    const [age, setAge] = useState(0);
-    const [city, setCity] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [roles, setRoles] = useState("");
-    const [message, setMessage] = useState("");
-    const [status, setStatus] = useState(false);
-    const[role_id,srtRolrId]=useState(0)
-
-
-
 
  const getAllRoles=()=>{
     axios.get(`http://localhost:5000/roles`).

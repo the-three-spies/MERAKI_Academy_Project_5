@@ -16,7 +16,7 @@ import categorySlice from './reducers/category';
 
 
 
-// import Reducer from "./"; WALAA
+import donationReducer from '../redux/reducers/doner'
 
 
 
@@ -40,7 +40,7 @@ category:categorySlice
 
 
 
-//   1 WALAA
+donation:donationReducer,
 //   2 WALAA
 //   3 WALAA
 //   4 WALAA
