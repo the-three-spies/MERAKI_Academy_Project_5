@@ -107,7 +107,7 @@ if (result.data.success) {
       } else if (roleNavigate == 2) {
         console.log("needy");
 
-        //  navgate("/")
+         navgate("/Showcategories")
       } else if (roleNavigate == 3) {
         console.log("doner");
 
@@ -209,7 +209,7 @@ google.accounts.id.renderButton(
         } else if (roleNavigate == 2) {
           console.log("needy");
 
-          //  navgate("/")
+            navgate("/Showcategories")
         } else if (roleNavigate == 3) {
           console.log("doner");
 

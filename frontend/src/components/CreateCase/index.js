@@ -27,7 +27,7 @@ const AddNeedy = ({ id }) => {
   const [address, setAddress] = useState("");
   const [category_id, setCategory_id] = useState("");
   const [message, setMessage] = useState("");
-  //useSelector
+  const [catogeyStatus,SetcatogeyStatus]=useState(true);
   const { reduxaddnewneddy } = useSelector((state) => {
     return {
       reduxaddnewneddy: state.needy.needy,
@@ -70,6 +70,9 @@ const AddNeedy = ({ id }) => {
         console.log(result.data.result);
         setMessage("Your Case has been created successfully");
         dispatch(addNeedyCase(result.data.result)); //{description,category_id,amout,address}
+
+        result.data.result.category_id==3?SetcatogeyStatus(false):SetcatogeyStatus(true)
+        console.log(catogeyStatus)
         console.log("add,", reduxaddnewneddy);
       }
     } catch (error) {

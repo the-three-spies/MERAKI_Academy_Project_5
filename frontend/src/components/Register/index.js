@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import "./style.css";
 import axios from "axios";
 import { useEffect } from "react";
-
+import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setLogin, setLogout, setUserId } from "../../redux/reducers/auth";
 
@@ -14,7 +14,7 @@ import { setLogin, setLogout, setUserId } from "../../redux/reducers/auth";
 const Register = () => {
 
 
-
+ const navgate=useNavigate()
     
     //const { isLoggedIn } = useContext(AuthContext);
     //role id
@@ -108,7 +108,7 @@ if (result.data.success) {
       } else if (roleNavigate == 2) {
         console.log("needy");
 
-        //  navgate("/")
+        navgate("/Showcategories")
       } else if (roleNavigate == 3) {
         console.log("doner");
 
