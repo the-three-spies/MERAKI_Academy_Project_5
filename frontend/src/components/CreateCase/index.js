@@ -45,8 +45,15 @@ const AddNeedy = ({ id }) => {
       CategoryId: state.category.categoryId,
     };
   });
+  const cat=()=>{
+  CategoryId==3?SetcatogeyStatus(false):SetcatogeyStatus(true)
+  }
+  useEffect(()=>{
+cat()
+  },[])
   //---------------- handleNeedyCase ----------------
   const handleNeedyCase = async (e) => {
+    
     console.log("CategoryId", CategoryId);
     console.log("asdfghjkl");
     //e.preventDefault();
@@ -109,15 +116,93 @@ const AddNeedy = ({ id }) => {
   //---------------- return ----------------
   //description~~>text  category_id~~>num  amout~~>number  address~~>text
   return (
-    <>
-      {/*  <form onSubmit={handleNeedyCase}> */}
+    <div>
+     
+    {catogeyStatus?
+    <div className="donationDeveveyThing">
+    
+    
+    <div> 
+{/*  */}
+
+
+
+        
+   
+
+
+        {/* <div className="of"> */}
+          <h1>Add a New Needy Order</h1>
+      
+      
+          <label>
+                <b>Needy Department</b>
+              </label>
+              <br></br>
+              <input className="spicalityinput"
+                onChange={(e) => {
+                  setAddress(e.target.value);
+                }}
+                type="text"
+                placeholder="Enter you Address"
+                
+                required
+              ></input>
+              <br></br>
+      
+      <label>
+                <b> Description</b>
+              </label>
+              <br></br>
+              <textarea className="Description"  rows={5}
+               
+      
+                onChange={(e) => {
+                  setDescription(e.target.value);
+                }}
+                type="input"
+                placeholder="Enter medical Description"
+                
+                required
+              ></textarea>
+         {/* <br></br> */}
+         <button className="adddonationDEveyThingBtn" onClick={handleNeedyCase}>create</button>
+
+{/* </div> */}
+
+
+
+{/*  */}
+    </div>
+    <div>
+    <img
+          className="imganotherCategory"
+          src="https://img.freepik.com/free-vector/flat-ramadan-charity-background-with-muslim-people-giving-money-food-hungry-homeless-illustration_1284-61988.jpg?w=740&t=st=1668002902~exp=1668003502~hmac=46f23104694f5994698ad99f55eeec7f5b19e601fd1b6d1ecb607adf1e598bee"
+          alt="pic"
+        ></img>
+
+    </div>
+    </div>
+      :<div>
+        <input className="spicalityinput"
+                onChange={(e) => {
+                  setAmount(e.target.value);
+                }}
+                type="text"
+                placeholder="Enter you Amount you need"
+                
+                required
+              ></input>
       <textarea
+
         placeholder="description"
         onChange={(e) => setDescription(e.target.value)}
       ></textarea>
-      <button onClick={handleNeedyCase}>create</button>
-      {/* </form> */}
-    </>
+      <button className="adddonationDEveyThingBtn" onClick={handleNeedyCase}>create</button>
+     </div>
+      
+    }
+    </div>
   );
 };
 export default AddNeedy;
