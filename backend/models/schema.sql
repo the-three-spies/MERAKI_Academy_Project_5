@@ -58,6 +58,9 @@ CREATE TABLE needy_Case(
   amount FLOAT,
   Address VARCHAR(255),
   is_deleted SMALLINT DEFAULT 0,
+   statusdonation VARCHAR(255),
+    donation_amount INT,
+    rest INT,
   FOREIGN KEY (category_id) REFERENCES donations_Category(id),
   FOREIGN KEY (needy_id) REFERENCES users(id),
   PRIMARY KEY (id)

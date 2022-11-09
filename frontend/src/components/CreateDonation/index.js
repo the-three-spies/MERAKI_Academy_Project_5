@@ -5,23 +5,31 @@ import axios from "axios";
 import { compose } from "@reduxjs/toolkit";
 import { useDispatch, useSelector } from "react-redux";
 import { addDonationOrder } from "../../redux/reducers/doner";
-
+import { setCategory } from "../../redux/reducers/category";
+import "./style.css";
 const DonationOrder = () => {
   const dispatch = useDispatch();
   const [donationCategory, setdonationCategory] = useState([]);
-  const [Message, setMessage] = useState("");
-  const [idcategory, setidcategory] = useState("");
+  const [message, setMessage] = useState("");
+  const [idcategory, setidcategory] = useState(null);
   const [needCase, setneedCase] = useState([]);
-  const [case_id, setcase_id] = useState("");
+  const [case_id, setcase_id] = useState(null);
   const [deleveryDate, setdeleveryDate] = useState(null);
   const [imgePathDoner, setimgePathDoner] = useState(null);
   const [amount, setamount] = useState(null);
   const [address, setaddress] = useState(null);
+  const [status, setStatus] = useState(false);
   const {token} = useSelector((state) => {
     return {
       token: state.auth.token,
     };
   });
+  // const {needy}=useSelector((state)=>
+  // {
+  //   return{
+  //     needy:state.needy.needy
+  //   }
+  // })
   const getallCategory = async () => {
     try {
       const result = await axios.get(`http://localhost:5000/categories`);
@@ -45,6 +53,7 @@ const DonationOrder = () => {
 
       if (result.data.success) {
         setneedCase(result.data.cases);
+    
       } else {
         throw Error;
       }
@@ -78,17 +87,16 @@ const DonationOrder = () => {
   
 
       if (result.data.success) {
-
-        setMessage(result.data.message);
+        setStatus(true);
+        setMessage("thank you form our heart , the process of donation done");
         dispatch(addDonationOrder(result.data.result))
       } else {
         throw Error;
       }
     } catch (error) {
-      if (error.response && error.response.data) {
-        return setMessage(
-          "Error happened while sending your order,plz try again"
-        );
+      if (!error.response.data.success) {
+        setStatus(false);
+        setMessage(error.response.data.message);
       }
     }
   };
@@ -102,32 +110,43 @@ const DonationOrder = () => {
   return (
     <>
       <h1>form donation</h1>
-
-      <select
-        onChange={(e) => {
-          setidcategory(e.target.value);
-        }}
-      >
-        <option value={""}>select section that you donate at</option>
+<div className="category">
+      {/* {donationCategory &&
+          donationCategory.map((category, i) => {
+            return (
+              <div><img src={category.imgepath}></img>
+              <p>{category.title}</p>
+              <button onClick={()=>{setCategory(category.id)}}> choose case</button>
+              </div>
+            )
+          })} */}
+          <select onChange={(e) => {
+                setidcategory(e.target.value);
+            }}>
+          <option value={'null'}>select section that you donate at</option>
         {donationCategory &&
           donationCategory.map((category, i) => {
             return <option value={category.id}>{category.title}</option>;
           })}
       </select>
+          </div>
+      {needCase.length==0 && idcategory?<p> No cases at this section</p>:""}
       {needCase &&
         needCase.map((need, i) => {
           return (
             <div>
               <p>case :{need.description}</p>
-              {need.amount ? <p>{need.amount}</p> : ""}
+              <img src=""></img>
+              {need.amount ?<p>{need.amount}</p> : ""}
               <button
                 onClick={() => {
                   setcase_id(need.id);
                 }}
               >
                 choose Case
-              </button>
-              {need.category_id == "3" ? (
+              </button> </div> )})} 
+
+              {idcategory && needCase.length>0 && case_id== "3" ? (
                 <div>
                   <input
                     placeholder="input money that you wanted"
@@ -137,7 +156,9 @@ const DonationOrder = () => {
                   ></input>
                 </div>
               ) : (
-                <div>
+                <div></div>
+              )}
+              { needCase.length>0 && idcategory== "3" ?<div>
                   <label for="date">choose date as you like:</label>
                   <input
                     type="date"
@@ -159,17 +180,18 @@ const DonationOrder = () => {
                       setaddress(e.target.value);
                     }}
                   ></input>
-                </div>
-              )}
-            </div>
-          );
-        })}
+                </div>:""}
+        
+      
       {idcategory && (
         <button  onClick={handelDonate}>
           {" "}
           Donte
         </button>
       )}
+      {status
+        ? message && <div className="SuccessMessage">{message}</div>
+        : message && <div className="ErrorMessage">{message}</div>}
     </>
   );
 };
