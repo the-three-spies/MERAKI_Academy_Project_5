@@ -30,7 +30,7 @@ const donerSlice=createSlice({
         {
             state.donation=state.donation.filter((element,i)=>
             {
-                return(element.id!=action.payload.id)
+                return element.id !== action.payload;
             })
         },
         setNeedcase:(state,action)=>

@@ -1,7 +1,7 @@
 const pool = require("../models/db");
 
 const UpdateNeedyCase = (req, res,next) => {
-    const value=[req.body.newcase.amount,req.body.newcase.case_id,req.body]
+    const value=[req.body.newcase.amount,req.body.newcase.case_id]
    
     if(req.body.newcase.category_id!='3')
     {

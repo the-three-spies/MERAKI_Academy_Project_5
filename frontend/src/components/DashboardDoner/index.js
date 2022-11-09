@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect,useState } from "react";
-import { setDonationOrder } from "../../redux/reducers/doner";
+import { setDonationOrder,deleteDonationOrder } from "../../redux/reducers/doner";
 import axios from "axios";
 const MyDonationList = () => {
   const dispatch = useDispatch();
@@ -38,6 +38,24 @@ const {token} = useSelector((state) => {
 
   //===============================================================
 
+   //===============================================================
+ const handeldeleted = async (id) => {
+  try {
+    const result = await axios.delete(`http://localhost:5000/dontes/${id}`)
+    if (result.data.success) {
+    dispatch(deleteDonationOrder(id));
+      setMessage("");
+    } else throw Error;
+  } catch (error) {
+    if (error.response && error.response.data)  {
+      return setMessage(error.response.data.message);
+    }
+    setMessage("Error happened while Get Data, please try again");
+  }
+};
+
+//===============================================================
+
   useEffect(() => {
     getmydonation();
   }, []);
@@ -52,7 +70,8 @@ const {token} = useSelector((state) => {
             <div>
               <p>{donate.description}</p>
             <button>update donation</button>
-            <button> remove from my list</button>
+            
+            <button onClick={()=>{handeldeleted(donate.id)}}> remove from my list</button>
             </div>
           );
         })}
