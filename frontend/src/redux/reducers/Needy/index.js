@@ -40,6 +40,16 @@ export const needySlice = createSlice({
       state.setNeedyId = action.payload;
       //localStorage.setItem("setNeedyId", action.payload);
     },
+    updateActive:(state, action)=>{
+      state.needy=state.needy.map((elem,i)=>{
+        if(elem.id==action.payload){
+          return {...elem,statusdonation :'INactive'} 
+        }
+
+       return elem
+      })
+
+    },
   },
 });
 
@@ -49,6 +59,7 @@ export const {
   updateNeedyCase,
   deleteNeedyCase,
   setNeedyId,
+  updateActive,
 } = needySlice.actions;
 
 export default needySlice.reducer;
