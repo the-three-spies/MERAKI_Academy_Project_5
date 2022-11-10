@@ -1,6 +1,6 @@
 const express = require("express");
 
-const {  getAllNeedyCase, createNeedyCase,getNeedyCaseByUserId,getNeedyCasebyCategoryId,UpdateNeedyCaseByCaseId, deletNeedyCaseByCaseID } = require("../controller/needyCase");
+const {  getAllNeedyCase, createNeedyCase,getNeedyCaseByUserId,getNeedyCasebyCategoryId,UpdateNeedyCaseByCaseId, deletNeedyCaseByCaseID, unActiveOrder } = require("../controller/needyCase");
 const authentication = require("../middlewares/authentication");
 const authorization = require("../middlewares/authorization")
 
@@ -17,5 +17,5 @@ needyCaseRouter.get("/myCase",authentication, getNeedyCaseByUserId);
 needyCaseRouter.get("/needyCategory/:id", getNeedyCasebyCategoryId);
 needyCaseRouter.put("/:id",authentication,authorization('Update_Case'), UpdateNeedyCaseByCaseId);
 needyCaseRouter.delete("/:id",deletNeedyCaseByCaseID)
-
+needyCaseRouter.put("/unactive/:id",unActiveOrder)
 module.exports = needyCaseRouter;

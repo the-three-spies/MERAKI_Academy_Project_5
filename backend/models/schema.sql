@@ -65,22 +65,39 @@ CREATE TABLE needy_Case(
 
 -- Create a table called **doner_order** in the database
 CREATE TABLE doner_givin(
- id SERIAL NOT NULL PRIMARY KEY,
- description TEXT,
- amount FLOAT,
- address VARCHAR(255),
- 
- doner_id INT,
- case_id INT,
- is_deleted SMALLINT DEFAULT 0,
-category_id INT,
-  FOREIGN KEY (category_id) REFERENCES donations_Category(id),
-  deleveryDate VARCHAR(255),
-  imgePathDoner TEXT,
-  FOREIGN KEY(case_id) REFERENCES needy_Case(id),
-  FOREIGN KEY (doner_id) REFERENCES users(id),
-  PRIMARY KEY (id)
-);
+    id SERIAL NOT NULL ,
+    description TEXT,
+    amount FLOAT,
+    address VARCHAR(255),
+    doner_id INT,
+    case_id INT,
+    is_deleted SMALLINT DEFAULT 0,
+
+    deleveryDate VARCHAR(255),
+     imgePathDoner TEXT,
+     category_id INT,
+     FOREIGN KEY (category_id) REFERENCES donations_Category(id),
+     FOREIGN KEY(case_id) REFERENCES needy_Case(id),
+     FOREIGN KEY (doner_id) REFERENCES users(id),
+     PRIMARY KEY (id)
+   );
+
+
+   `CREATE TABLE needy_Case(
+    id SERIAL NOT NULL,
+    description TEXT,
+    category_id INT,
+    needy_id INT,
+    amount FLOAT,
+    Address VARCHAR(255),
+    is_deleted SMALLINT DEFAULT 0,
+     statusdonation VARCHAR(255),
+      donation_amount INT,
+      rest INT,
+    FOREIGN KEY (category_id) REFERENCES donations_Category(id),
+    FOREIGN KEY (needy_id) REFERENCES users(id),
+    PRIMARY KEY (id)
+  );`
 
 
 
