@@ -64,8 +64,8 @@ cat()
         {
           description,
           category_id: CategoryId,
-          amout: 5,
-          address: "4554",
+          amount,
+          address,
         },
         {
           headers: {
@@ -73,7 +73,9 @@ cat()
           },
         }
       );
+      
       if (result.data.result) {
+        console.log("hind");
         console.log(result.data.result);
         setMessage("Your Case has been created successfully");
         dispatch(addNeedyCase(result.data.result)); //{description,category_id,amout,address}
@@ -198,7 +200,9 @@ cat()
         placeholder="description"
         onChange={(e) => setDescription(e.target.value)}
       ></textarea>
+      
       <button className="adddonationDEveyThingBtn" onClick={handleNeedyCase}>create</button>
+      {message}
      </div>
       
     }

@@ -15,10 +15,31 @@ import Contact from './components/Contact/Contact'
 import Footer from './components/Footer/Footer'
 import DonationOrder from "./components/CreateDonation";
 import MyDonationList from "./components/DashboardDoner";
+import NavBar from "./components/Navbar";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function App() {
   return <div className="App">
   
-    {/* // nav COMPONENT */}
+   
 
 
 <Routes>
