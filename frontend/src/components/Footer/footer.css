@@ -4,7 +4,7 @@
     justify-content: space-between;
     padding:30px;
     background-color: #1a2649;
-
+    flex-wrap: wrap;
 }
 .footer-item{
     color: white;
@@ -45,3 +45,59 @@
     color: #1a2649;
     font-size: 32px;
 }
+/**/
+/* .footer-item .select-box-wrapper{
+    display: flex;
+    flex-direction: column;
+} */
+.select-box{
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+.select-box-label{
+    font-weight: 500;
+    margin: 7px;
+    font-size: 21px;
+}
+.select-box-input{
+    padding: 10px 15px;
+    border: none;
+    font-size: 7px;
+    border-radius: 7px;
+    outline: none;
+}
+/* .footer-item .select-box-wrapper-img{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+.img{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 5px;
+    justify-content: space-between;
+    justify-content: space-around;
+    float: left;
+} */
+.name-footer-image{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap:5%;
+}
+/* Note from 27 until 81 need edit*/
+
+/*copyright*/
+.footer-copyright{
+    color: white;
+    font-size: 17px;
+    margin-top: 25px;
+}
+/* media query footer*/
+@media (max-width:720px) {
+    .footer{
+        flex-direction: column;
+    }
+}
+
+/* note : still need edit */

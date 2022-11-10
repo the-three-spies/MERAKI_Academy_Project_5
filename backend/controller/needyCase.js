@@ -2,6 +2,7 @@ const { query } = require("express");
 const pool = require("../models/db");
 // by this function , you can user(as needy ) creat case ,in order other people can help him,
 const createNeedyCase = (req, res) => {
+  console.log("hindhfgdsjf")
   const { description, category_id, amount, address } = req.body; // parmeter as we need from creat table requirement
   const needy_id = req.token.userId; // after authenication work correctly ,we can get userid
   const statusdonation='active';
@@ -18,6 +19,7 @@ const createNeedyCase = (req, res) => {
     rest|| null
  
   ];
+  console.log(values)
   const query = `INSERT INTO needy_Case (description,category_id,needy_id,amount,address,statusdonation,donation_amount,rest) VALUES ($1,$2,$3,$4,$5,$6,$7,$8) RETURNING *;`;
   pool
     .query(query, values)
@@ -29,6 +31,7 @@ const createNeedyCase = (req, res) => {
       });
     })
     .catch((err) => {
+      console.log(err)
       res.status(500).json({
         success: false,
         massage: "Server error",
@@ -132,7 +135,8 @@ const UpdateNeedyCaseByCaseId = (req, res) => {
 const getNeedyCaseByUserId = (req, res) => {
   const id = req.token.userId;
   const value = [id];
-  const query = `SELECT needy_case.description,needy_id,amount,address,donations_Category.title FROM needy_case INNER JOIN donations_Category ON needy_Case.category_id = donations_Category.id WHERE needy_case.is_deleted=0 AND needy_case.needy_id=$1;`;
+  const query=`SELECT needy_case.*,donations_Category.title FROM needy_case INNER JOIN donations_Category ON needy_Case.category_id = donations_Category.id WHERE needy_case.is_deleted=0 AND needy_case.needy_id=$1;`
+  // const query = `SELECT needy_case.description,needy_id,amount,address,donations_Category.title FROM needy_case INNER JOIN donations_Category ON needy_Case.category_id = donations_Category.id WHERE needy_case.is_deleted=0 AND needy_case.needy_id=$1;`;
   pool
     .query(query, value)
     .then((result) => {
@@ -186,6 +190,38 @@ const getNeedyCasebyCategoryId = (req, res) => {
       });
     });
 };
+const unActiveOrder=(req,res)=>{
+  const id = req.params.id;
+const query=`UPDATE needy_case
+SET statusdonation = 'Inactive'
+WHERE  id=$1 returning *;`
+const value = [id];
+  pool
+    .query(query, value)
+    .then((result) => {
+      if (result.rowCount === 0) {
+        res.status(404).json({
+          success: false,
+          massage: `The case for id: ${id} is not found`,
+          err: err,
+        });
+      } else {
+        res.status(200).json({
+          success: true,
+          massage: `Succeeded to Inactive case with id: ${id}`,
+        });
+      }
+    })
+    .catch((err) => {
+      res.status(500).json({
+        success: false,
+        massage: "Server Error",
+        err: err,
+      });
+    });
+
+}
+
 
 module.exports = {
   createNeedyCase,
@@ -194,4 +230,5 @@ module.exports = {
   getNeedyCaseByUserId,
   getNeedyCasebyCategoryId,
   UpdateNeedyCaseByCaseId,
+  unActiveOrder,
 };
