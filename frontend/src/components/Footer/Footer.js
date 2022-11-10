@@ -9,16 +9,16 @@ const Footer =()=>{
         {/* <h2 className="contact-form-title">Find a cause that ignites your heart</h2> */}
         <div className='name-footer-image'>
         <div className='footer-imgs'>
-         <img className='footer-img' src= 'http://khairah-react.themepresss.com/static/media/6.a66bb585.jpg'  alt=""/>
+         <img className='footer-img' src= 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTssM6QpTo5OihQoKsG-VqSAfuVOk3Hjxa8Cw&usqp=CAU'  alt=""/>
          </div>
          <div className='footer-imgs'>
-         <img className='footer-img' src= 'http://khairah-react.themepresss.com/static/media/6.a66bb585.jpg'  alt=""/>
+         <img className='footer-img' src= 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0N01pf13TjrY524osbD9Cy_o1EVmrWhMyOQ&usqp=CAU'  alt=""/>
          </div>
          <div className='footer-imgs'>
-         <img className='footer-img' src= 'http://khairah-react.themepresss.com/static/media/6.a66bb585.jpg'  alt=""/>
+         <img className='footer-img' src= 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRj2t2CT7g1ly6sBm96zRxS6qta8GJw7_Cxww&usqp=CAU'  alt=""/>
          </div>
          <div className='footer-imgs'>
-         <img className='footer-img' src= 'http://khairah-react.themepresss.com/static/media/6.a66bb585.jpg'  alt=""/>
+         <img className='footer-img' src= 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTssM6QpTo5OihQoKsG-VqSAfuVOk3Hjxa8Cw&usqp=CAU'  alt=""/>
          </div>
          </div>
          </div>

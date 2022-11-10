@@ -4,7 +4,6 @@ import Footer from '../Footer/Footer'
 const Contact = () => {
   return (
     <section className="contact">
-      <Header />
       <div className="contact-wrapper">
         <div className="contact-item">
           <div className="contact-item-icon">
