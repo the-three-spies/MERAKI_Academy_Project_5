@@ -1,0 +1,27 @@
+.mainMonyDispayCatigory{
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 20px;
+width: 100%;
+}
+
+ .secandMmainMonyDispayCatigory{
+
+    display: grid;
+   
+    width: 100%; 
+  gap: 5%;
+} 
+
+.firstthings{
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    border: 2px rgb(122, 137, 141) solid;
+}
+
+.firstmone{
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    border: 2px red solid;
+    border: 2px rgb(122, 137, 141) solid;
+}

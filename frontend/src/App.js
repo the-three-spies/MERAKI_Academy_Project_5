@@ -16,10 +16,31 @@ import AddNeedy from "./components/CreateCase";
 
 import DonationOrder from "./components/CreateDonation";
 import MyDonationList from "./components/DashboardDoner";
+import NavBar from "./components/Navbar";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function App() {
   return <div className="App">
   
-    {/* // nav COMPONENT */}
+   
 
 
 <Routes>

@@ -146,11 +146,12 @@ setRoles(result.data.result)
 
 useEffect(()=>{
   getAllRoles()
-google.accounts.id.initialize({
+
+google?.accounts.id.initialize({
     client_id:"749189994493-dks574gt6fsuoi1hh45skrrjn64jqith.apps.googleusercontent.com",
     callback:handleCallbackResponse
 });
-google.accounts.id.renderButton(
+google?.accounts.id.renderButton(
 
     document.getElementById("sinInDiv"),
     {theme:"outline",size:"large"}
