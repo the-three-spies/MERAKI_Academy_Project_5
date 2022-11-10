@@ -15,7 +15,6 @@ import Contact from './components/Contact/Contact'
 import Footer from './components/Footer/Footer'
 import DonationOrder from "./components/CreateDonation";
 import MyDonationList from "./components/DashboardDoner";
-import NavBar from "./components/Navbar";
 
 
 
@@ -23,6 +22,11 @@ import NavBar from "./components/Navbar";
 
 
 
+
+
+import NavBar from "./components/Navbar/index";
+import InterfaceHeader from './components/InterfaceHeader/InterfaceHeader'
+import Services from './components/Services/Services'
 
 
 
@@ -44,16 +48,15 @@ function App() {
 
 <Routes>
 
-<Route path="/register" element={<Register/>}></Route>
+{/* <Route path="/register" element={<Register/>}></Route> */}
 
 
-<Route path="/login" element={<Login/>}></Route>
+{/* <Route path="/login" element={<Login/>}></Route> */}
 
 
 <Route path="" element></Route>
 
 <Route path="" element></Route>
- 
  
  
  
@@ -64,10 +67,10 @@ function App() {
 <Route path="/dashboardneedy" element={<TheNeedy/>}></Route>
 <Route path="/NeedyCaseById" element={<NeedyByUserId/>}></Route>
 <Route path="/NeedyCaseByCategory/:id" element={<NeedyByCategoy/>}></Route>
-<Route path="/header" element={<Header/>}></Route>
 <Route path="/header" element={<Navbar/>}></Route>
-<Route path="/contact" element={<Contact/>}></Route>
-<Route path="/footer" element={<Footer/>}></Route>
+<Route path="/register"element={<><Register/><Footer/></>}/>
+<Route path="/login"element={<><Login/><Footer/></>}/>
+<Route path="/home" element={<><Header/><InterfaceHeader/><Services/><Footer/></>}/>
 
  {/* 
  <Route path="" element={<Login/>}></Route>
