@@ -1,16 +1,18 @@
+
 /* global style*/
+
 :root{
     --main-color:aqua;
     --primary-color:gray;
   }
   
-  *{
+
     box-sizing: border-box;
     padding: 0;
     margin: 0;
     /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'fira sans','Droid Sans' 'Helvetica Neue', sans-serif; */
-    font-family: century;
-  }
+    /* font-family: century; */
+
   
   body{
     background-color: var(--main-color);
