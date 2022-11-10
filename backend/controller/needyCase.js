@@ -15,7 +15,7 @@ const createNeedyCase = (req, res) => {
     address || null,
     statusdonation,
     donation_amount,
-    rest
+    rest|| null
  
   ];
   const query = `INSERT INTO needy_Case (description,category_id,needy_id,amount,address,statusdonation,donation_amount,rest) VALUES ($1,$2,$3,$4,$5,$6,$7,$8) RETURNING *;`;

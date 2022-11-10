@@ -13,8 +13,33 @@ import Header from "./components/Header/header"
 import Navbar from './components/Header/navbar'
 import Contact from './components/Contact/Contact'
 import Footer from './components/Footer/Footer'
+
+
+
+
+
+
+
+
+
+
+
+
+
 import DonationOrder from "./components/CreateDonation";
 import MyDonationList from "./components/DashboardDoner";
+import Material from "./components/CreateDonation/materrial";
+import Money from "./components/CreateDonation/money";
+
+
+
+
+
+
+
+
+
+
 function App() {
   return <div className="App">
   
@@ -32,7 +57,6 @@ function App() {
 <Route path="" element></Route>
 
 <Route path="" element></Route>
- 
  
  
  
@@ -63,6 +87,9 @@ function App() {
 
 <Route path="/donate" element={<DonationOrder/>}></Route>
 <Route path="/mydonation" element={<MyDonationList/>}></Route>
+<Route path="/materialdonation/:id" element={<Material/>}></Route>
+<Route path="/monydonation/:id" element={<Money/>}></Route>
+
 {/* 
  <Route path="" element={<Login/>}></Route>
 

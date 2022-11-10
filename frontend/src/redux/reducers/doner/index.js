@@ -2,7 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const donerSlice=createSlice({
     name:"donation",
     initialState:{
-        donation:[]
+        donation:[],
+        cateagory:[]
     },
     reducers:{
         setDonationOrder:(state,action)=>
@@ -36,8 +37,12 @@ const donerSlice=createSlice({
         setNeedcase:(state,action)=>
         {
             state.donation=action.payload
+        },
+        setIDCateogory:(state,action)=>
+        {
+            state.cateagory=action.payload
         }
     }
 })
-export const {setDonationOrder,addDonationOrder,updatDonationOrder,deleteDonationOrder}=donerSlice.actions
+export const {setDonationOrder,addDonationOrder,updatDonationOrder,deleteDonationOrder,setIDCateogory}=donerSlice.actions
 export default donerSlice.reducer
