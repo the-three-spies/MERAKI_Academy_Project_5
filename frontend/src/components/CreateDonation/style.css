@@ -1,4 +1,30 @@
- .category {
-   display: flex;
-   justify-content: space-between};
- 
+.container-donate {
+  display: flex;
+  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  background-color: #fff;
+}
+.adddonate{
+  width: 50vw;
+  height: 80vh;
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3vh;
+}
+
+  
+.img_donate img {
+  width: 60vw;
+  display: block;
+  height: 80vh;
+
+}
+.list-category{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 23vw;
+}

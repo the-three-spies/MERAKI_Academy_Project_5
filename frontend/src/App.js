@@ -13,10 +13,31 @@ import Header from "./components/Header/header"
 import Navbar from './components/Header/navbar'
 import Contact from './components/Contact/Contact'
 import Footer from './components/Footer/Footer'
+
+
+
+
+
+
+
+
+
+
+
+
+
 import DonationOrder from "./components/CreateDonation";
 import MyDonationList from "./components/DashboardDoner";
+
 import Banner from './components/Banner/Banner'
 import About from "./components/About/About";
+
+
+import Material from "./components/CreateDonation/materrial";
+import Money from "./components/CreateDonation/money";
+
+
+
 
 
 
@@ -28,6 +49,7 @@ import About from "./components/About/About";
 import NavBar from "./components/Navbar/index";
 import InterfaceHeader from './components/InterfaceHeader/InterfaceHeader'
 import Services from './components/Services/Services'
+
 
 
 
@@ -89,6 +111,9 @@ function App() {
 
 <Route path="/donate" element={<DonationOrder/>}></Route>
 <Route path="/mydonation" element={<MyDonationList/>}></Route>
+<Route path="/materialdonation/:id" element={<Material/>}></Route>
+<Route path="/monydonation/:id" element={<Money/>}></Route>
+
 {/* 
  <Route path="" element={<Login/>}></Route>
 
