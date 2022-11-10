@@ -15,7 +15,8 @@ import Contact from './components/Contact/Contact'
 import Footer from './components/Footer/Footer'
 import DonationOrder from "./components/CreateDonation";
 import MyDonationList from "./components/DashboardDoner";
-
+import Banner from './components/Banner/Banner'
+import About from "./components/About/About";
 
 
 
@@ -70,8 +71,9 @@ function App() {
 <Route path="/header" element={<Navbar/>}></Route>
 <Route path="/register"element={<><Register/><Footer/></>}/>
 <Route path="/login"element={<><Login/><Footer/></>}/>
-<Route path="/home" element={<><Header/><InterfaceHeader/><Services/><Footer/></>}/>
-
+<Route path="/home" element={<><Header/><InterfaceHeader/><Banner/><Services/><Footer/></>}/>
+<Route path="/Contact"element={<><Header/><Banner/><Contact/><Footer/></>}/>
+<Route path="/about"element={<><Header/><About/><Banner/><Footer/></>}/>
  {/* 
  <Route path="" element={<Login/>}></Route>
 

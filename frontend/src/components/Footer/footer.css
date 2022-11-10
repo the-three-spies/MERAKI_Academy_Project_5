@@ -3,7 +3,7 @@
     align-items: flex-start;
     justify-content: space-between;
     padding:30px;
-    background-color: #1a2649;
+    background-color: gray;
     flex-wrap: wrap;
 }
 .footer-item{
@@ -85,6 +85,13 @@
     grid-template-columns: 1fr 1fr;
     gap:5%;
 }
+.footer-img{
+height:70%;
+width: 70%;
+justify-content: space-between;
+padding: 1px ;
+}
+
 /* Note from 27 until 81 need edit*/
 
 /*copyright*/
