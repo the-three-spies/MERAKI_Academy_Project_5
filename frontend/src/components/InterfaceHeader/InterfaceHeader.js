@@ -17,8 +17,8 @@ const InterfaceHeader = () => {
         <button className="search-box-btn">Search</button>
       </div>
       <div className="interface-header-title">
-        <h2>Nawa</h2>
-        <h1>For Given </h1>
+        <h1>Fitrat Insan</h1>
+        <h2>Donation Community </h2>
       </div>
     </div>
   );

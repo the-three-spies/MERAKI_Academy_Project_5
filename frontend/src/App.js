@@ -13,10 +13,9 @@ import Header from "./components/Header/header"
 import Navbar from './components/Header/navbar'
 import Contact from './components/Contact/Contact'
 import Footer from './components/Footer/Footer'
-
-
-
-
+import CardCategory from './components/CardCategory/CardCategory'
+import OurTeam from './components/OurTeam/OurTeam'
+import FAQs from './components/FAQs/FAQs'
 
 
 
@@ -93,9 +92,11 @@ function App() {
 <Route path="/header" element={<Navbar/>}></Route>
 <Route path="/register"element={<><Register/><Footer/></>}/>
 <Route path="/login"element={<><Login/><Footer/></>}/>
-<Route path="/home" element={<><Header/><InterfaceHeader/><Banner/><Services/><Footer/></>}/>
-<Route path="/Contact"element={<><Header/><Banner/><Contact/><Footer/></>}/>
+<Route path="/home" element={<><Header/><InterfaceHeader/><CardCategory/><Banner/><OurTeam/><Services/><Footer/></>}/>
+<Route path="/Contact"element={<><Header/><Banner/><Contact/><Services/><Footer/></>}/>
 <Route path="/about"element={<><Header/><About/><Banner/><Footer/></>}/>
+<Route path="/ourTeam"element={<><Header/><OurTeam/><Banner/><Services/><Footer/></>}/>
+<Route path="/FAQs"element={<><Header/><FAQs/><Footer/></>}/>
  {/* 
  <Route path="" element={<Login/>}></Route>
 
