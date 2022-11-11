@@ -17,9 +17,20 @@
   align-items: center;
 }
 .logo-img {
-  width: 60px;
+
+  width: 4.5em;
+  height: 4.5em;
+  /* background-color: #a993ff; */
+  padding: 0.5em;
+  border-radius: 50%;
+  margin: 0 auto 0 auto;
+  /* width: 60px;
+  border-radius: 37px;
+  padding-right: 7px; */
 }
 .logo-text{
+  /* width: 5em;
+  height: 5em; */
   display: flex;
   flex-direction: column;
 }
