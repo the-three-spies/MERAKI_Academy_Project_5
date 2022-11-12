@@ -11,7 +11,7 @@ import {
   updateActive
 } from "../../redux/reducers/Needy";
 //---------------- The Needy ----------------
-const NeedyByUserId = () => {
+const NeedyMonyByUserId = () => {
   const dispatch = useDispatch();
   const [description, setTitle] = useState("");
   const [amount, setAmount] = useState("");
@@ -46,27 +46,27 @@ console.log("hind")
 
 }
 
-  // const deleteCase =(id)=>{
+  const deleteCase =(id)=>{
 
-  //   axios.delete(`http://localhost:5000/needycase/${id}`)
-  //   .then((then)=>{
-  //   const arrayMony= mony.filter((elem)=>{
-  //       return(elem.id!=id)
-  //     })
-  //   setMony(arrayMony)
-  //   })
-  //   .catch((err)=>{
+    axios.delete(`http://localhost:5000/needycase/${id}`)
+    .then((then)=>{
+    const arrayMony= mony.filter((elem)=>{
+        return(elem.id!=id)
+      })
+    setMony(arrayMony)
+    })
+    .catch((err)=>{
     
-  //   })
+    })
 
-  // }
+  }
 
 
   const deleteTingsCase =(id)=>{
 
     axios.delete(`http://localhost:5000/needycase/${id}`)
     .then((then)=>{
-    const arrayTings= things.filter((elem)=>{
+    const arrayTings= mony.filter((elem)=>{
         return(elem.id!=id)
       })
     setThings(arrayTings)
@@ -115,75 +115,40 @@ console.log("hind")
   }   
      
 
-const diplayMoneyCaseToUser=()=>{
-//   axios
-//       .get("http://localhost:5000/needycase/myCase", {
-//         headers: {
-//           Authorization: `Bearer ${token}`,
-//         },
-//       })
-//       .then((result) => {
-//         console.log("set result", result.data.cases);
-//         // result.data.cases.title==mony?setMony.push(result.data.cases):setThings.push(result.data.cases)
-//        dispatch(setNeedyCase(result.data.cases));
-//         result.data.cases&&  result.data.cases.map((elm,i)=>{
-// if(elm.title==="money"){
-//  mony.push(elm)
-// }else{
-//   things.push(elm)
-//   console.log("result.data.cases",result.data.cases[0].title)
-// }
-// })
-        
-//         console.log("mony",mony)
-//         console.log("things",things)
-      
-//         console.log("get", reduxaddnewneddy);
-//       })
-//       .catch((err) => {
-//         console.log(err);
-//       });
-
-}
-const diplayTingsCaseToUser=()=>{
-  
-}
-
-
   useEffect(() => {
     gitMoneyCaseToUser()
     gitThingsCaseToUser()
-    diplayMoneyCaseToUser()
   }, []);
   const navigate = useNavigate();
   //---------------- return ----------------
   return (
-   
-      <div className="secandMmainMonyDispayCatigory">
-
-      {things&& things?.map((element, i) => {
+   // <div className="mainMonyDispayCatigory">
+      
+       <div  className="secandMmainMonyDispayCatigory">
+      {mony&&mony.map((element, i) => {
         return (
-          
-          <div className="firstthings">
-           
-            <div>
-           <img className="imgCategory" src="./assets/images/pic4.png"></img>
-           </div>
-           <div>
-           <p>{element.title}</p>
+          <div className="firstmone">
+            <div >
+
+             <img className="imgCategory"  src="./assets/images/pic5.png" alt="thinhimg"></img>
+             </div>
+             <div>
+            <p>{element.title}</p>
             <p>{element.description}</p>
-            
-            <p>{element. statusdonation}</p>
-            <p>{element.address}</p>
-            <button onClick={()=>{deleteTingsCase(element.id)}} >Delete</button>
-            </div>
+            <p>{element.amount}</p>
+            <p>{element.rest}</p>
+           
+            <p>{element.donation_amount}</p>
+            <p>{element.statusdonation}</p>
+            <button onClick={()=>{deleteCase(element.id)}}>Delete</button>
+            {/* <button onClick={()=>{convertCaseUnactive(element.id)}} >It was received</button> */}
+          </div>
           </div>
         );
       })}
-      </div>
-      
-   
+    </div>
+    //</div>
   );
 };
 
-export default NeedyByUserId;
+export default NeedyMonyByUserId;
