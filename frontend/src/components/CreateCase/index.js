@@ -18,7 +18,7 @@ import { useFormik } from "formik";
 
 //---------------- add Needy ----------------
 const AddNeedy = ({ id }) => {
-  //   const navigate = useNavigate();
+     const navigate = useNavigate();
   console.log("id", id);
   const dispatch = useDispatch();
   //useState
@@ -77,12 +77,20 @@ cat()
       if (result.data.result) {
         console.log("hind");
         console.log(result.data.result);
+       
         setMessage("Your Case has been created successfully");
         dispatch(addNeedyCase(result.data.result)); //{description,category_id,amout,address}
+        if(result.data.result.category_id==3){
+          navigate("/NeedyCaseById")
+        }
+        else{
+          // navigate("/NeedyCaseById")
+        }
 
         result.data.result.category_id==3?SetcatogeyStatus(false):SetcatogeyStatus(true)
         console.log(catogeyStatus)
         console.log("add,", reduxaddnewneddy);
+      
       }
     } catch (error) {
       if (!error.response.data.success) {
@@ -121,10 +129,10 @@ cat()
     <div>
      
     {catogeyStatus?
-    <div className="donationDeveveyThing">
+    <div className=" mainShow donationDeveveyThing ">
     
     
-    <div> 
+    <div className="mainShow"> 
 {/*  */}
 
 
@@ -138,7 +146,7 @@ cat()
       
       
           <label>
-                <b>Needy Department</b>
+                <b>Address</b>
               </label>
               <br></br>
               <input className="spicalityinput"
@@ -167,7 +175,7 @@ cat()
                 
                 required
               ></textarea>
-         {/* <br></br> */}
+         <br></br>
          <button className="adddonationDEveyThingBtn" onClick={handleNeedyCase}>create</button>
 
 {/* </div> */}
@@ -185,7 +193,15 @@ cat()
 
     </div>
     </div>
-      :<div>
+      :<div className="mainShow">
+       <div className="mainShow">
+          <h1>Add a New Needy Order</h1>
+      
+      
+      <label>
+            <b>Amount</b>
+          </label>
+          <br></br>
         <input className="spicalityinput"
                 onChange={(e) => {
                   setAmount(e.target.value);
@@ -195,17 +211,23 @@ cat()
                 
                 required
               ></input>
-      <textarea
+      <textarea className="Description"
 
         placeholder="description"
         onChange={(e) => setDescription(e.target.value)}
       ></textarea>
-      
+      <br></br>
       <button className="adddonationDEveyThingBtn" onClick={handleNeedyCase}>create</button>
       {message}
+      </div>
+      <div>
+<img src="https://img.freepik.com/free-vector/people-carrying-donation-charity-related-icons_53876-43091.jpg" className="imganotherCategory"></img>
+
+      </div>
      </div>
-      
+     
     }
+    
     </div>
   );
 };

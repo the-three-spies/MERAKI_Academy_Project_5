@@ -46,36 +46,103 @@ console.log("hind")
 
 }
 
+  const deleteCase =(id)=>{
+
+    axios.delete(`http://localhost:5000/needycase/${id}`)
+    .then((then)=>{
+    const arrayMony= mony.filter((elem)=>{
+        return(elem.id!=id)
+      })
+    setMony(arrayMony)
+    })
+    .catch((err)=>{
+    
+    })
+
+  }
 
 
-const diplayMoneyCaseToUser=()=>{
-  axios
-      .get("http://localhost:5000/needycase/myCase", {
+  const deleteTingsCase =(id)=>{
+
+    axios.delete(`http://localhost:5000/needycase/${id}`)
+    .then((then)=>{
+    const arrayTings= mony.filter((elem)=>{
+        return(elem.id!=id)
+      })
+    setThings(arrayTings)
+    })
+    .catch((err)=>{
+    
+    })
+
+  }
+
+  const gitMoneyCaseToUser=()=>{
+  
+    axios
+      .get("http://localhost:5000/needycase/monyCase", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       })
-      .then((result) => {
-        console.log("set result", result.data.cases);
-        // result.data.cases.title==mony?setMony.push(result.data.cases):setThings.push(result.data.cases)
-        dispatch(setNeedyCase(result.data.cases));
-        result.data.cases&&  result.data.cases.map((elm,i)=>{
-if(elm.title==="money"){
-  mony.push(elm)
-}else{
-  things.push(elm)
-  console.log("result.data.cases",result.data.cases[0].title)
-}
-})
-        
-        console.log("mony",mony)
-        console.log("mony2",things)
-      
-        console.log("get", reduxaddnewneddy);
+      .then((result)=>{
+        setMony(result.data.cases)
+        console.log(result)
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err)=>{
+
+        console.log(err)
+      })
+  }
+  const gitThingsCaseToUser=()=>{
+
+
+    axios
+      .get("http://localhost:5000/needycase/thingCase", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((result)=>{
+        setThings(result.data.cases)
+        console.log(result)
+      })
+      .catch((err)=>{
+
+        console.log(err)
+      })
+
+  }   
+     
+
+const diplayMoneyCaseToUser=()=>{
+//   axios
+//       .get("http://localhost:5000/needycase/myCase", {
+//         headers: {
+//           Authorization: `Bearer ${token}`,
+//         },
+//       })
+//       .then((result) => {
+//         console.log("set result", result.data.cases);
+//         // result.data.cases.title==mony?setMony.push(result.data.cases):setThings.push(result.data.cases)
+//        dispatch(setNeedyCase(result.data.cases));
+//         result.data.cases&&  result.data.cases.map((elm,i)=>{
+// if(elm.title==="money"){
+//  mony.push(elm)
+// }else{
+//   things.push(elm)
+//   console.log("result.data.cases",result.data.cases[0].title)
+// }
+// })
+        
+//         console.log("mony",mony)
+//         console.log("things",things)
+      
+//         console.log("get", reduxaddnewneddy);
+//       })
+//       .catch((err) => {
+//         console.log(err);
+//       });
 
 }
 const diplayTingsCaseToUser=()=>{
@@ -84,6 +151,8 @@ const diplayTingsCaseToUser=()=>{
 
 
   useEffect(() => {
+    gitMoneyCaseToUser()
+    gitThingsCaseToUser()
     diplayMoneyCaseToUser()
   }, []);
   const navigate = useNavigate();
@@ -92,11 +161,11 @@ const diplayTingsCaseToUser=()=>{
     <div className="mainMonyDispayCatigory">
       <div className="secandMmainMonyDispayCatigory">
 
-      {things&& things.map((element, i) => {
+      {things&& things?.map((element, i) => {
         return (
           <div className="firstthings">
             <div>
-           <img src="./assets/images/pic4.png"></img>
+           <img className="imgCategory" src="./assets/images/pic4.png"></img>
            </div>
            <div>
             <p>{element.title}</p>
@@ -104,19 +173,19 @@ const diplayTingsCaseToUser=()=>{
             
             <p>{element. statusdonation}</p>
             <p>{element.address}</p>
-            <button onClick={()=>{convertCaseUnactive(element.id)}} >It was received</button>
+            <button onClick={()=>{deleteTingsCase(element.id)}} >Delete</button>
             </div>
           </div>
         );
       })}
       </div>
        <div  className="secandMmainMonyDispayCatigory">
-      {mony.map((element, i) => {
+      {mony&&mony.map((element, i) => {
         return (
           <div className="firstmone">
             <div >
 
-             <img src="https://image.shutterstock.com/image-vector/people-throw-gold-coins-into-260nw-1336223207.jpg" alt="thinhimg"></img>
+             <img className="imgCategory"  src="./assets/images/pic5.png" alt="thinhimg"></img>
              </div>
              <div>
             <p>{element.title}</p>
@@ -126,8 +195,8 @@ const diplayTingsCaseToUser=()=>{
            
             <p>{element.donation_amount}</p>
             <p>{element.statusdonation}</p>
-            <button >Delete</button>
-            <button onClick={()=>{convertCaseUnactive(element.id)}} >It was received</button>
+            <button onClick={()=>{deleteCase(element.id)}}>Delete</button>
+            {/* <button onClick={()=>{convertCaseUnactive(element.id)}} >It was received</button> */}
           </div>
           </div>
         );
