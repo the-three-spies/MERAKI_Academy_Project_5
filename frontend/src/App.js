@@ -25,6 +25,7 @@ import FAQs from './components/FAQs/FAQs'
 
 
 
+
 import DonationOrder from "./components/CreateDonation";
 import MyDonationList from "./components/DashboardDoner";
 
@@ -50,7 +51,7 @@ import InterfaceHeader from './components/InterfaceHeader/InterfaceHeader'
 import Services from './components/Services/Services'
 import OurStory from "./components/OurStory/OurStory";
 
-
+import NewSoct from "./components/Socket";
 
 
 
@@ -98,10 +99,17 @@ function App() {
 <Route path="/about"element={<><Header/><About/><Footer/></>}/>
 <Route path="/ourTeam"element={<><Header/><OurTeam/><Banner/><Services/><Footer/></>}/>
 <Route path="/FAQs"element={<><Header/><FAQs/><Footer/></>}/>
+
+
+
+
+<Route path="/NewSoct" element={<NewSoct/>}  ></Route>
+
 <Route path="/ourStory"element={<><Header/><OurStory/><Footer/></>}/>
 
+
  {/* 
- <Route path="" element={<Login/>}></Route>
+ <Route path="/" element={<NewSoct/>}  ></Route>
 
  <Route path="" element={<Login/>}></Route>
 
