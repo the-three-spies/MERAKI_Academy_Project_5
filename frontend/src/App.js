@@ -96,7 +96,7 @@ function App() {
 <Route path="/register"element={<><Register/><Footer/></>}/>
 <Route path="/login"element={<><Login/><Footer/></>}/>
 <Route path="/home" element={<><Header/><InterfaceHeader/><CardCategory/><Banner/><OurTeam/><Services/><Footer/></>}/>
-<Route path="/Contact"element={<><Header/><Banner/><Contact/><Services/><Footer/></>}/>
+<Route path="/Contact"element={<><Header/><Contact/><Footer/></>}/>
 <Route path="/about"element={<><Header/><About/><Footer/></>}/>
 <Route path="/ourTeam"element={<><Header/><OurTeam/><Banner/><Services/><Footer/></>}/>
 <Route path="/FAQs"element={<><Header/><FAQs/><Footer/></>}/>
