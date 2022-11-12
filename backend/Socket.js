@@ -29,6 +29,8 @@ const socket = require('socket.io');
 const io = socket(server);
 
 io.on('connection', function(socket) {
+  alert("hind")
+  console.log("rasha")
   socket.on('SEND_MESSAGE', function(data) {
     console.log(socket.id)
     io.emit('RECEIVE_MESSAGE', data);

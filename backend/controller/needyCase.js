@@ -222,6 +222,66 @@ const value = [id];
 
 }
 
+const getNeedyMoneyCaseByUserId = (req, res) => {
+  const id = req.token.userId;
+  const value = [id];
+  const query=`SELECT needy_case.*,donations_Category.title FROM needy_case INNER JOIN donations_Category ON needy_Case.category_id = donations_Category.id WHERE needy_case.is_deleted=0 AND needy_case.needy_id=$1 And category_id=3;`
+  // const query = `SELECT needy_case.description,needy_id,amount,address,donations_Category.title FROM needy_case INNER JOIN donations_Category ON needy_Case.category_id = donations_Category.id WHERE needy_case.is_deleted=0 AND needy_case.needy_id=$1;`;
+  pool
+    .query(query, value)
+    .then((result) => {
+      if (result.rows.length === 0) {
+        res.status(404).json({
+          success: false,
+          massage: "There is no Cases for you",
+        });
+      } else {
+        res.status(200).json({
+          success: true,
+          massage: `The Cases for user ${id}`,
+          cases: result.rows,
+        });
+      }
+    })
+    .catch((err) => {
+      res.status(500).json({
+        success: false,
+        massage: "Server Error",
+        err: err,
+      });
+    });
+};
+
+const getNeedyThingsCaseByUserId = (req, res) => {
+  const id = req.token.userId;
+  const value = [id];
+  const query=`SELECT needy_case.*,donations_Category.title FROM needy_case INNER JOIN donations_Category ON needy_Case.category_id = donations_Category.id WHERE needy_case.is_deleted=0 AND needy_case.needy_id=$1 AND category_id!=3;`
+  // const query = `SELECT needy_case.description,needy_id,amount,address,donations_Category.title FROM needy_case INNER JOIN donations_Category ON needy_Case.category_id = donations_Category.id WHERE needy_case.is_deleted=0 AND needy_case.needy_id=$1;`;
+  pool
+    .query(query, value)
+    .then((result) => {
+      if (result.rows.length === 0) {
+        res.status(404).json({
+          success: false,
+          massage: "There is no Cases for you",
+        });
+      } else {
+        res.status(200).json({
+          success: true,
+          massage: `The Cases for user ${id}`,
+          cases: result.rows,
+        });
+      }
+    })
+    .catch((err) => {
+      console.log(err)
+      res.status(500).json({
+        success: false,
+        massage: "Server Error",
+        err: err,
+      });
+    });
+};
 
 module.exports = {
   createNeedyCase,
@@ -231,4 +291,7 @@ module.exports = {
   getNeedyCasebyCategoryId,
   UpdateNeedyCaseByCaseId,
   unActiveOrder,
+  getNeedyMoneyCaseByUserId,
+  getNeedyThingsCaseByUserId,
 };
+
