@@ -13,6 +13,7 @@ const MyDonationList = () => {
 const [Message, setMessage] = useState("")
 const [newdate, setnewdate] = useState("")
 const [idupdate, setidupdate] = useState("")
+const [deleverydate, setDeleverydate] = useState("")
 const {token} = useSelector((state) => {
   return {
     token: state.auth.token,
@@ -37,8 +38,6 @@ const {token} = useSelector((state) => {
       setMessage("Error happened while Get Data, please try again");
     }
   };
-
-
    //===============================================================
  const handeldeleted = async (id) => {
   console.log(id)
@@ -55,9 +54,7 @@ const {token} = useSelector((state) => {
     setMessage("Error happened while Get Data, please try again");
   }
 };
-
 //===============================================================
-
    //===============================================================
    const handleupdatedate= async (id) => {
     try {
@@ -73,17 +70,12 @@ const {token} = useSelector((state) => {
       setMessage("Error happened while Get Data, please try again");
     }
   };
-  
   //===============================================================
-  
-
   useEffect(() => {
     getmydonation();
   }, []);
-
   return (
     <>
-    
       <div>MyDonationList</div>
       {donation &&
         donation.map((donate, i) => {
@@ -92,9 +84,8 @@ const {token} = useSelector((state) => {
               <p>{donate.description}</p>
             {donate.amount!=='null'?<p>Amount donation:{donate.amount}</p>:""}
             {donate.address!=='null'?<div><p> your address:{donate.address}</p><p>Donation deadline: {donate.deleverydate}</p></div>:""}
-
             <p>Donation Section:{donate.category_id}</p>
-           {donate.deleverydate!=='null'?<div><span> you can update Donation deadline</span><button onClick={()=>setidupdate(donate.id)}>update donation</button></div>:""} 
+           {donate.deleverydate!=='null'?<div><span> you can update Donation deadline</span><button onClick={()=>setidupdate(donate.id)}>update donation</button></div>:""}
             {idupdate==donate.id?<div> <input
                     type="date"
                     onChange={(e) => {
@@ -110,5 +101,4 @@ const {token} = useSelector((state) => {
     </>
   );
 };
-
 export default MyDonationList;

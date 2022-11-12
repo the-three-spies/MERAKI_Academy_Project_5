@@ -19,10 +19,10 @@ const Header = () => {
   return ( //1.header //2.navbar //3.change the nav to list menu for resopnsive desigin
     <header className="header">
       <div className="logo">
-      <img src= 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDg6PYnf1y2G8hfjkGRQBiLsCEQE7zsd_i7Q&usqp=CAU'  alt="img" className="logo-img"/>
+      <img src= 'https://res.cloudinary.com/dqsg0zf1r/image/upload/v1668184372/project5/fitrat_iNsan22_x8fcjb.png'  alt="img" className="logo-img"/>
       <div className="logo-text">
-        <b>Nawa</b>
-        <b>Given</b>
+        <b>Fitrat</b>
+        <b>Insan</b>
         <b>Donation</b>
       </div>
       </div>
@@ -31,6 +31,7 @@ const Header = () => {
           <li onClick={()=>{setToggle(false)}} className="navbar-link">Category</li> 
           <li onClick={()=>{setToggle(false)}} className="navbar-link">Contact Us</li>
           <li onClick={()=>{setToggle(false)}} className="navbar-link">About Us</li>
+          <li onClick={()=>{setToggle(false)}} className="navbar-link">Our Team</li>
           <li onClick={()=>{setToggle(false)}} className="navbar-link">Our Story</li>
           <li onClick={()=>{setToggle(false)}} className="navbar-link">FAQs</li>
         </ul>
@@ -54,4 +55,8 @@ export default Header;
  * now need to make the element column style ..> navbar-links
  * 3.style in the css
  * 4. in step two we apear the element now need to hide it after clicking on any element <li onClick={()=>{setToggle(false)}} className="navbar-link">Category</li> this wil close the menu after clicking on any element 
+ */
+
+/**
+ * https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDg6PYnf1y2G8hfjkGRQBiLsCEQE7zsd_i7Q&usqp=CAU
  */
