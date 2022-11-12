@@ -2,50 +2,38 @@ import "./contact.css";
 import Header from "../Header/header";
 import Footer from '../Footer/Footer'
 const Contact = () => {
-  return (
-    <section className="contact">
-      <div className="contact-wrapper">
-        <div className="contact-item">
-          <div className="contact-item-icon">
-            <i className="bi bi-house-fill">Adress</i>
-          </div>
-          <p className="contact-item-text">Jordan-Amman</p>
-        </div>
-        <div className="contact-item">
-          <div className="contact-item-icon">
-            <i className="bi bi-telephone-fill">Phone</i>
-          </div>
-          <p className="contact-item-text">123-456-789</p>
-        </div>
-        <div className="contact-item">
-          <div className="contact-item-icon">
-            <i className="bi bi-envelope-fill">Email</i>
-          </div>
-          <p className="contact-item-text">info@donation.com</p>
-        </div>
-      </div>
-      <form onSubmit={e => e.preventDefault()} className="contact-form">
-        <h2 className="contact-form-title">Contact Us Form</h2>
-        <h2 className="contact-form-title">We'd love to hear from you.</h2>
-        <div className="contact-input-wrapper">
-          <input type="text" placeholder="Name" />
-          <input type="text" placeholder="Subject" />
-          <input type="text" placeholder="Email" />
-        </div>
-        <textarea
-          className="contact-textarea"
-          placeholder="Your Message"
-          rows="5"
-        ></textarea>
-        <button className="contact-btn">Send</button>
+  return (<div className="contact-body">
+    {/* alert message success */}
+    {/* <div className="alert-success">
+      <span> Message Sent! Thank you for contacting us.</span>
+    </div> */}
+     {/* alert message error */}
+     {/* <div className="alert-error">
+      <span> Something went wrong! please try again</span>
+     </div> */}
+  <div className="contact-section">
+    <div className="contact-info">
+      <div><i class="bi bi-geo-alt-fill"></i>Amman, Amman, Jordan</div>
+      <div><i class="bi bi-envelope-fill"></i>nawaforgiving@gmail.com</div>
+      <div><i class="bi bi-telephone-fill"></i>+123 456 789</div>
+      <div><i class="bi bi-clock-fill"></i>Sun -Fri 8:00 Am to 5:00 pm</div>
+    </div>
+    <div className="contact-form">
+      <h2>Contact Us</h2>
+      <h2>We'd love to hear from you.</h2>
+      <form className="contact" action="" method="post">
+        <input type="textt" name="name" className="text-boxx" placeholder="Your Name" required/>
+        <input type="emaill" name="email" className="text-boxx" placeholder="Your Email" required/>
+        <textarea name="message" rows="5" placeholder="your Message" required></textarea>
+        <input type="submit" name="submit" className="send-btn" value="send"/>
       </form>
-      {/* <Footer/> */}
-    </section>
+    </div>
+  </div>
+  </div>
   );
 };
 export default Contact;
-//still need
-// | columns 
-//vaildition
-//map
-//footer
+// NOTE : still need
+// 1.vaildition [ALERT MESSAGE]
+// 2.map
+
