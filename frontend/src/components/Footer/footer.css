@@ -1,13 +1,16 @@
+.contact-form-title{
+    color: #545454;
+}
 .footer{
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
     padding:30px;
-    background-color: gray;
+    background-color:  #efefef;
     flex-wrap: wrap;
 }
 .footer-item{
-    color: white;
+    color: #545454;
     padding: 20px;
 }
 .footer-item-title{
@@ -96,7 +99,7 @@ padding: 1px ;
 
 /*copyright*/
 .footer-copyright{
-    color: white;
+    color: #545454;
     font-size: 17px;
     margin-top: 25px;
 }

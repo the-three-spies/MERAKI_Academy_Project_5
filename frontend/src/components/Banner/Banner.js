@@ -9,7 +9,7 @@ const Banner = () => {
         </div>
         <img
           className="banner-img"
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0N01pf13TjrY524osbD9Cy_o1EVmrWhMyOQ&usqp=CAU"
+          src="https://res.cloudinary.com/dqsg0zf1r/image/upload/v1668097554/samples/project%205/fitrat_iNsan_wn8qlh.png"
           alt="img"
         />
       </div>
@@ -17,3 +17,4 @@ const Banner = () => {
   );
 };
 export default Banner;
+// https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0N01pf13TjrY524osbD9Cy_o1EVmrWhMyOQ&usqp=CAU

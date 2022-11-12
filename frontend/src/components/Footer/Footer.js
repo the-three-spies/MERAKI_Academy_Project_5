@@ -4,8 +4,11 @@ const Footer =()=>{
     return (<footer className='footer'>
 
          <div className='footer-item select-box-wrapper-img'>
-         <h2 className="contact-form-title">Nawa Given</h2>
+            <div >
+            <h2 className="contact-form-title">Nawa Given</h2>
         <h2 className="contact-form-title">Together we make change happen</h2>
+            </div>
+
         {/* <h2 className="contact-form-title">Find a cause that ignites your heart</h2> */}
         <div className='name-footer-image'>
         <div className='footer-imgs'>

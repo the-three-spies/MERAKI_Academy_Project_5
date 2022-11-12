@@ -87,7 +87,7 @@ function App() {
  
 <Route path="/AddNeedy/:id" element={<AddNeedy/>}></Route>
 <Route path="/categories" element={<AddCategory/>}></Route>
-<Route path="/Showcategories" element={<TheCategory/>}></Route>
+<Route path="/Showcategories" element={<><Header/><TheCategory/><Footer/></>}></Route>
 <Route path="/dashboardneedy" element={<TheNeedy/>}></Route>
 <Route path="/NeedyCaseById" element={<NeedyByUserId/>}></Route>
 <Route path="/NeedyCaseByCategory/:id" element={<NeedyByCategoy/>}></Route>
@@ -100,12 +100,14 @@ function App() {
 <Route path="/ourTeam"element={<><Header/><OurTeam/><Banner/><Services/><Footer/></>}/>
 <Route path="/FAQs"element={<><Header/><FAQs/><Footer/></>}/>
 
+<Route path="/ourStory"element={<><Header/><OurStory/><OurTeam/><Banner/><Footer/></>}/>
+
+
 
 
 
 <Route path="/NewSoct" element={<NewSoct/>}  ></Route>
 
-<Route path="/ourStory"element={<><Header/><OurStory/><Footer/></>}/>
 
 
  {/* 
