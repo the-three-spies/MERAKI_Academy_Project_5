@@ -140,7 +140,7 @@ return(
 <div className=" mainRegisterDiv">
 
 <div>
-    //img
+<img className="" src="./assets/images/pic2.png" alt="pic"></img>
 </div>
 <div className="Form">
         {true ? (

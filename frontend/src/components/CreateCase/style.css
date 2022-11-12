@@ -29,3 +29,8 @@ height: 400px;
     opacity: 0.9;
     
   }
+
+  .mainShow{
+    padding: 1%;
+    border: 5px  rgb(20, 104, 146) solid;
+  }
