@@ -81,10 +81,10 @@ cat()
         setMessage("Your Case has been created successfully");
         dispatch(addNeedyCase(result.data.result)); //{description,category_id,amout,address}
         if(result.data.result.category_id==3){
-          navigate("/NeedyCaseById")
+          navigate("/NeedyMonyByUserId")
         }
         else{
-          // navigate("/NeedyCaseById")
+           navigate("/NeedyCaseById")
         }
 
         result.data.result.category_id==3?SetcatogeyStatus(false):SetcatogeyStatus(true)

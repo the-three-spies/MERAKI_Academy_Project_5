@@ -52,6 +52,7 @@ import Services from './components/Services/Services'
 import OurStory from "./components/OurStory/OurStory";
 
 import NewSoct from "./components/Socket";
+import NeedyMonyByUserId from "./components/NeedyByUserid/MonyCase";
 
 
 
@@ -104,8 +105,8 @@ function App() {
 
 
 
-
-
+NeedyMonyByUserId
+<Route path="/NeedyMonyByUserId"element={<NeedyMonyByUserId/>}/>
 <Route path="/NewSoct" element={<NewSoct/>}  ></Route>
 
 
