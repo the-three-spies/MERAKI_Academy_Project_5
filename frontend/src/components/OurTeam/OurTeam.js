@@ -3,9 +3,9 @@ import "./ourTeam.css";
 const OurTeam = () => {
   return (
     <section>
-      <div className="row-title">
+      {/* <div className="row-title">
         <h1 className="row-header-title">Our Team</h1>
-      </div>
+      </div> */}
       <div className="row">
         {/* column Walla */}
         <div className="column">

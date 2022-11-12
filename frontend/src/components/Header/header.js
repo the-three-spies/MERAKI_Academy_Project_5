@@ -5,7 +5,7 @@ import axios from "axios";
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import { setLogin, setUserId, setLogout } from "../../redux/reducers/auth";
 import { useDispatch, useSelector } from "react-redux";
-import HeaderTop from "./headerTop";
+// import HeaderTop from "./headerTop";
 const Header = () => {
   //------------------------------------- here will make navbar and logo
   //navigate
@@ -18,24 +18,42 @@ const Header = () => {
   //------------- return -------------
   return ( //1.header //2.navbar //3.change the nav to list menu for resopnsive desigin
     <header className="header">
-      <div className="logo">
+  
+
+<div className="logo">
       <img src= 'https://res.cloudinary.com/dqsg0zf1r/image/upload/v1668184372/project5/fitrat_iNsan22_x8fcjb.png'  alt="img" className="logo-img"/>
       <div className="logo-text">
+        <Link to="/home" className="header-middle-logo">
         <b>Fitrat</b>
         <b>Insan</b>
-        <b>Donation</b>
+        {/* <b>Donation</b> */}
+        </Link>
+
       </div>
       </div>
+
       <nav style={{clipPath: toggle && "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }} className="navbar">
         <ul className="navbar-links">
-          <li onClick={()=>{setToggle(false)}} className="navbar-link">Category</li> 
-          <li onClick={()=>{setToggle(false)}} className="navbar-link">Contact Us</li>
-          <li onClick={()=>{setToggle(false)}} className="navbar-link">About Us</li>
-          <li onClick={()=>{setToggle(false)}} className="navbar-link">Our Team</li>
-          <li onClick={()=>{setToggle(false)}} className="navbar-link">Our Story</li>
-          <li onClick={()=>{setToggle(false)}} className="navbar-link">FAQs</li>
+        <Link to="/Showcategories" className="navbar-link" onClick={()=>{setToggle(false)}}>Category</Link>
+        <Link to="/contact" className="navbar-link" onClick={()=>{setToggle(false)}}>Contact Us</Link>
+        <Link to="/about" className="navbar-link" onClick={()=>{setToggle(false)}}>About Us</Link>
+        <Link to="/ourStory" className="navbar-link" onClick={()=>{setToggle(false)}}>Our Story</Link>
+        <Link to="/ourTeam" className="navbar-link" onClick={()=>{setToggle(false)}}>Our Team</Link>
+        <Link to="/FAQs" className="navbar-link" onClick={()=>{setToggle(false)}}>FAQs</Link>
+          {/* <li onClick={()=>{setToggle(false)}} className="navbar-link">FAQs</li> */}
         </ul>
       </nav>
+      {/* ----login logout---- */}
+      <div className="header-top-links-inout">
+          <Link to="/login" className="header-top-link">
+            <i className="bi bi-person"></i>
+            Login
+          </Link>
+          <Link to="/register" className="header-top-link">
+            logout
+          </Link>
+        </div>
+
       <div onClick={()=> setToggle(prev=>!prev)} className="header-menu">
         {toggle ?<i className="bi bi-x-lg"></i>: <i className="bi bi-list"></i>}
       </div>
