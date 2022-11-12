@@ -58,9 +58,9 @@ const {token} = useSelector((state) => {
    //===============================================================
    const handleupdatedate= async (id) => {
     try {
-      const result = await axios.put(`http://localhost:5000/dontes/${id}`,{newdate:deleverydate})
+      const result = await axios.put(`http://localhost:5000/dontes/${id}`,{deleverydate:newdate})
       if (result.data.success) {
-      dispatch(updatDonationOrder({id,deleverydate}));
+      dispatch(updatDonationOrder({id,newdate}));
         setMessage("");
       } else throw Error;
     } catch (error) {
@@ -91,7 +91,9 @@ const {token} = useSelector((state) => {
                     onChange={(e) => {
                       setnewdate(e.target.value);
                     }}
-                  ></input><button onClick={()=>{handleupdatedate(donate.deleverydate)}}>take update</button></div>:""}
+                  ></input><button onClick={()=>{handleupdatedate(donate.id);setidupdate(
+                    ''
+                  )}}>take update</button></div>:""}
             <button onClick={()=>{handeldeleted(donate.id)}}> remove from my list</button>
             </div>
           );

@@ -16,6 +16,7 @@ const Material = () => {
   const [address, setaddress] = useState(null);
   const [image, setImage] = useState(null);
   const [selectedImage, setSelectedImage] = useState(null);
+  const [ url, setUrl ] = useState("");
   const { token } = useSelector((state) => {
     return {
       token: state.auth.token,
@@ -40,12 +41,28 @@ const Material = () => {
       };
     });
   };
-  const uploadImage = async (file) => {
-    const base64 = await convertBase64(file);
-    console.log(base64);
-    setImage(base64);
-    console.log(image);
-  };
+  const uploadImage = () => {
+    // const base64 = await convertBase64(file);
+    // console.log(base64);
+    // setImage(base64);
+    // console.log(image);
+    const data = new FormData()
+data.append("file", image)
+data.append("upload_preset", "y6jygqdj")
+data.append("cloud_name","dqsg0zf1r")
+fetch("https://api.cloudinary.com/v1_1/dqsg0zf1r/image/upload",{
+method:"post",
+body: data
+})
+.then(resp => resp.json())
+.then(data => {
+setUrl(data.url)
+console.log(data.url)
+})
+.catch(err => console.log(err))
+}
+
+  
   //===============================================================
 
   const getallNeedCase = async (id) => {
@@ -71,7 +88,7 @@ const Material = () => {
       description,
       address,
       deleveryDate,
-      imgePathDoner: image,
+      imgePathDoner: url,
       category_id: cateagory.id,
       case_id,
     };
@@ -135,14 +152,16 @@ const Material = () => {
                     }}
                   ></input>
                   <label for="data">choose img to what you donte:</label>
-                  <input
+                  {/* <input
                     type="file"
                     onChange={(event) => {
                       // setimgePathDoner(e.target.value);
                       console.log("ll",event.target.files[0]);
                       uploadImage(event.target.files[0]);
                       console.log("m",image)
-                      setSelectedImage(event.target.files[0]);}} ></input>
+                      setSelectedImage(event.target.files[0]);}} ></input> */}
+                      <input type="file" onChange= {(e)=> setImage(e.target.files[0])}></input>
+<button onClick={uploadImage}>Upload</button>
                       {selectedImage && (
   <div>
   {/* <img alt="not fount" width={"20%"} src={`./assets/images/${selectedImage}`  }></img> */}
