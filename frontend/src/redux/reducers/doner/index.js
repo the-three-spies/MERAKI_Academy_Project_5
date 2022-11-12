@@ -20,7 +20,7 @@ const donerSlice=createSlice({
             {
                 if( element.id===action.payload.id)
                 {
-                    return ({...element,deleverydate:action.payload.deleverydate})
+                    return ({...element,deleverydate:action.payload.newdate})
 
                 }
                 return element

@@ -7,10 +7,11 @@ const roleRouter = require("./routers/roleRouter");
 const donteRouter = require("./routers/donerGivingRouter");
 const needyCaseRouter = require("./routers/needyCaseRouter");
 const categoryRouter = require("./routers/categoryRouter");
+const adminRouter = require("./routers/adminRouter");
+const emailRouter = require("./routers/emailRouter");
 
 const app = express();
-
-
+const nodemailer = require('nodemailer');
 
 
 
@@ -39,8 +40,8 @@ app.use("/login", loginRouter);
 app.use("/roles", roleRouter);
 app.use("/dontes",donteRouter);
 app.use("/needycase",needyCaseRouter);
-
-
+app.use("/admin",adminRouter)
+app.use("/email",emailRouter)
 
 
 

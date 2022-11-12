@@ -2,7 +2,7 @@ const { query } = require("express");
 const pool = require("../models/db");
 // by this function , you can user(as needy ) creat case ,in order other people can help him,
 const createNeedyCase = (req, res) => {
-  console.log("hindhfgdsjf")
+
   const { description, category_id, amount, address } = req.body; // parmeter as we need from creat table requirement
   const needy_id = req.token.userId; // after authenication work correctly ,we can get userid
   const statusdonation='active';
