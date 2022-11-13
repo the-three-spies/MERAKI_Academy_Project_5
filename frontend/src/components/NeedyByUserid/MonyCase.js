@@ -130,17 +130,19 @@ console.log("hind")
           <div className="firstmone">
             <div >
 
-             <img className="imgCategory"  src="./assets/images/pic5.png" alt="thinhimg"></img>
+             <img className="imgCategoryMomy"  src="./assets/images/pic5.png" alt="thinhimg"></img>
              </div>
              <div>
-            <p>{element.title}</p>
-            <p>{element.description}</p>
-            <p>{element.amount}</p>
-            <p>{element.rest}</p>
+            <p><h1>Category:{element.title}</h1></p>
+
+            <hr></hr>
+            <p className="decshowcatigory"> <h4>Description:</h4> {element.description}</p>
+            <p><h4>Amount:</h4>{element.amount}</p>
+            <p><h4>Rest:</h4> {element.rest}</p>
            
-            <p>{element.donation_amount}</p>
+            <p><h4>Donation Amount:</h4>{element.donation_amount}</p>
             <p>{element.statusdonation}</p>
-            <button onClick={()=>{deleteCase(element.id)}}>Delete</button>
+            <button className="ptndeletCase" onClick={()=>{deleteCase(element.id)}}>Delete</button>
             {/* <button onClick={()=>{convertCaseUnactive(element.id)}} >It was received</button> */}
           </div>
           </div>

@@ -53,8 +53,11 @@ import OurStory from "./components/OurStory/OurStory";
 
 import NewSoct from "./components/Socket";
 import NeedyMonyByUserId from "./components/NeedyByUserid/MonyCase";
+
 import HomeCardCategory from "./components/CardCategory/Homecardcategory";
 import AddNeedy2 from "./components/CreateCase/AddNeedy2";
+
+import NavbarNew from "./components/Navbar/index";
 
 
 
@@ -88,11 +91,15 @@ function App() {
  
  
  
-<Route path="/AddNeedy/:id" element={<><Header/><AddNeedy/><Footer/></>}></Route>
+
+
+
+<Route path="/AddNeedy/:id" element={<><Header/><NavbarNew/><AddNeedy/><Footer/></>}></Route>
+
 <Route path="/categories" element={<AddCategory/>}></Route>
 <Route path="/Showcategories" element={<><Header/><TheCategory/><Footer/></>}></Route>
 <Route path="/dashboardneedy" element={<TheNeedy/>}></Route>
-<Route path="/NeedyCaseById" element={<NeedyByUserId/>}></Route>
+<Route path="/NeedyCaseById" element={<><Header/><NavbarNew/><NeedyByUserId/><Footer/></> }></Route>
 <Route path="/NeedyCaseByCategory/:id" element={<NeedyByCategoy/>}></Route>
 <Route path="/header" element={<Navbar/>}></Route>
 <Route path="/register"element={<><Register/><Footer/></>}/>
@@ -108,8 +115,8 @@ function App() {
 
 
 NeedyMonyByUserId
-<Route path="/NeedyMonyByUserId"element={<NeedyMonyByUserId/>}/>
-<Route path="/NewSoct" element={<NewSoct/>}  ></Route>
+<Route path="/NeedyMonyByUserId"element={<><Header/><NavbarNew/><NeedyMonyByUserId/><Footer/></>}/>
+<Route path="/NewSoct" element={<><Header/><NewSoct/></>}  ></Route>
 
 
 

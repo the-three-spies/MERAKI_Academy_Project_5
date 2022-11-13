@@ -140,13 +140,14 @@ return(
 <div className=" mainRegisterDiv">
 
 <div>
-<img className="" src="./assets/images/pic2.png" alt="pic"></img>
+<img className="imgRegister" src="./assets/images/pic2.png" alt="pic"></img>
 </div>
 <div className="Form">
         {true ? (
           <>
-            <p className="Title">Register:</p>
-           
+            <h1>Register</h1>
+        <p>Please enter your Information to Register </p>
+        <hr></hr>
               <br />
               <input
                 type="text"
@@ -209,7 +210,7 @@ return(
                 onChange={(e) => setPassword(e.target.value)}
               />
               <br />
-              <button onClick={AddNewUse}>Register</button>
+              <button className="registerbtn" onClick={AddNewUse}>Register</button>
               <br />
            
             {status

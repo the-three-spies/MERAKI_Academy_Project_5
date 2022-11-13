@@ -1,5 +1,6 @@
 .mainMonyDispayCatigory{
 display: grid;
+flex-wrap: wrap;
 grid-template-columns: 1fr 1fr;
 gap: 20px;
 width: 100%;
@@ -10,24 +11,51 @@ width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
     width: 100%; 
+    flex-wrap: wrap;
   gap: 5%;
 } 
 
 .firstthings{
     display: grid;
+    flex-wrap: wrap;
     grid-template-columns: 1fr 1fr; 
-    border: 2px rgb(122, 137, 141) solid;
-    height: 200px;
+    border: 10px  palevioletred solid;
+    height: 400px;
 }
-
+h4{
+  color: palevioletred;
+}
 .firstmone{
     display: grid;
+    flex-wrap: wrap;
     grid-template-columns: 1fr 1fr; 
-    border: 2px red solid;
-    border: 2px rgb(122, 137, 141) solid;
-    height: 200px;
+    /* border: 2px red solid; */
+    border: 2px pink solid;
+    height: 420px;
 }
 .imgCategory{
-height: 195px;
+height: 350px;
+width: 95%;
+
+}
+.decshowcatigory{
+  width: 98%;
+  height: 150px;
+}
+.ptndeletCase{
+  background-color: palevioletred;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 90%;
+    opacity: 0.9;
+}
+.imgCategoryMomy{
+
+  height: 400px;
+  width: 95%;
+
 
 }

@@ -24,13 +24,26 @@ const server = app.listen(3001, function(res) {
   console.log('Server is running');
 });
 
-const socket = require('socket.io');
+//const socket = require('socket.io');
 
-const io = socket(server);
+//const io = socket(server);
+
+
+
+const io = require("socket.io")(server, {
+  cors: {
+    origin: "http://localhost:3000",
+    methods: ["GET", "POST"]
+  }
+});
 
 io.on('connection', function(socket) {
-  socket.on('SEND_MESSAGE', function(data) {
+  
+  console.log("rasha")
+  // console.log("hind")
+ // socket.on('SEND_MESSAGE', function(data) {
+    //alert("Hello! I am an alert box!!");
     console.log(socket.id)
-    io.emit('RECEIVE_MESSAGE', data);
-  });
+    io.emit('RECEIVE_MESSAGE', "data");
+ // });
 });
