@@ -53,7 +53,12 @@ import OurStory from "./components/OurStory/OurStory";
 
 import NewSoct from "./components/Socket";
 import NeedyMonyByUserId from "./components/NeedyByUserid/MonyCase";
+
+import HomeCardCategory from "./components/CardCategory/Homecardcategory";
+import AddNeedy2 from "./components/CreateCase/AddNeedy2";
+
 import NavbarNew from "./components/Navbar/index";
+
 
 
 
@@ -86,7 +91,11 @@ function App() {
  
  
  
+
+
+
 <Route path="/AddNeedy/:id" element={<><Header/><NavbarNew/><AddNeedy/><Footer/></>}></Route>
+
 <Route path="/categories" element={<AddCategory/>}></Route>
 <Route path="/Showcategories" element={<><Header/><TheCategory/><Footer/></>}></Route>
 <Route path="/dashboardneedy" element={<TheNeedy/>}></Route>
@@ -95,12 +104,12 @@ function App() {
 <Route path="/header" element={<Navbar/>}></Route>
 <Route path="/register"element={<><Register/><Footer/></>}/>
 <Route path="/login"element={<><Login/><Footer/></>}/>
-<Route path="/home" element={<><Header/><InterfaceHeader/><CardCategory/><Banner/><OurTeam/><Services/><Footer/></>}/>
+<Route path="/home" element={<><Header/><InterfaceHeader/><HomeCardCategory/><Banner/><OurTeam/><Services/><Footer/></>}/>
 <Route path="/Contact"element={<><Header/><Contact/><Footer/></>}/>
 <Route path="/about"element={<><Header/><About/><Footer/></>}/>
 <Route path="/ourTeam"element={<><Header/><OurTeam/><Banner/><Services/><Footer/></>}/>
 <Route path="/FAQs"element={<><Header/><FAQs/><Footer/></>}/>
-
+<Route path="AddNeedy2/:id"element={<><Header/><AddNeedy2/><Footer/></>}></Route>
 <Route path="/ourStory"element={<><Header/><OurStory/><OurTeam/><Banner/><Footer/></>}/>
 
 
@@ -124,10 +133,11 @@ NeedyMonyByUserId
 
 
 
-<Route path="/donate" element={<DonationOrder/>}></Route>
-<Route path="/mydonation" element={<MyDonationList/>}></Route>
-<Route path="/materialdonation/:id" element={<Material/>}></Route>
-<Route path="/monydonation/:id" element={<Money/>}></Route>
+
+<Route path="/donate" element={<><Header/><InterfaceHeader/><DonationOrder/><Banner/><OurTeam/><Services/><Footer/></>}/>
+<Route path="/mydonation" element={<><Header/><MyDonationList/><Footer/></>}></Route>
+<Route path="/materialdonation/:id" element={<><Header/><Material/><Footer/></>}/>
+<Route path="/monydonation/:id" element={<><Header/><Money/><Footer/></>}/>
 
 {/* 
  <Route path="" element={<Login/>}></Route>

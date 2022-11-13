@@ -1,3 +1,97 @@
+.donate_card_category_container{
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  background: whitesmoke;
+  align-items: center;
+
+}
+.donate_card_category_wrapper{
+  height: 450px; /*500*/
+  margin: 30px; /*50*/
+  box-shadow: 5px 5px 20px black; 
+  overflow: hidden;
+  position: relative;
+  /* flex-wrap: wrap; */
+}
+.donate_card_category_image{
+  height: 450px; /*500*/
+  width: 350px; /*350*/
+  border-radius: 3px;
+  transition: .5s;
+}
+.donate_card_category_intro{
+  height: 70px;/*200px*/
+  width: 350px; 
+  padding: 6px;
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 240px;
+  background: rgb(27,27,27,0.5);
+  color: white;
+  transition: .5s;
+  /* position: fixed; */
+
+  left:0px; 
+  top:-20px;
+  margin-top: 20px;
+/* margin-top:200px; */
+}
+.donate_card_category_intro_title{
+  margin: 10px;
+  font-size: 40px;
+}
+.donate_card_category_intro_p{
+  font-size: 20px;
+  margin: 20px;
+  visibility: hidden;
+  opacity: 0;
+}
+span{
+  font-weight: bold;
+}
+.donate_card_category_wrapper:hover{
+  cursor: pointer;
+}
+.donate_card_category_wrapper:hover .donate_card_category_intro{
+  height: 220px;
+  bottom: 240px;
+  /* background: #CDD3CC ; */
+  box-shadow:#6E726D;
+}
+.donate_card_category_wrapper:hover .donate_card_category_intro_p{
+  opacity: 1;
+  visibility: visible;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .container-donate {
   display: flex;
   justify-content: space-between;
