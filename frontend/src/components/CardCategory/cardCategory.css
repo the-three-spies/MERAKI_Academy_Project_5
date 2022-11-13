@@ -25,7 +25,8 @@
 .card-item-body{
     padding: 15px 10px;
     color: pink;
-    height: 310px;
+    height: 100px; ;
+    /* 310px */
     display: flex;
     flex-direction: column;
     justify-content: space-between;

@@ -5,11 +5,11 @@ const Banner = () => {
     <div className="banner">
       <div className="banner-wrapper">
         <div className="banner-banner">
-          <h1 className="banner-banner-title">Fitrat Insan For Donation</h1>
+          <h1 className="banner-banner-title">A House Of Givivig & Power Generosity</h1>
         </div>
         <img
           className="banner-img"
-          src="https://res.cloudinary.com/dqsg0zf1r/image/upload/v1668097554/samples/project%205/fitrat_iNsan_wn8qlh.png"
+          src="https://i.pinimg.com/236x/3b/f8/6e/3bf86ee82fbdefdb4f412c205caae6e6.jpg"
           alt="img"
         />
       </div>
