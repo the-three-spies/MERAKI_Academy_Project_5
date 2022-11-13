@@ -1,6 +1,7 @@
 const pool=require('../models/db')
 // function that return all email for doner 
 const getemaildoner = (req, res,next) => {  
+  const date=req.body.date;
     const query = `SELECT email FROM users WHERE  role_id='3';`;
     pool
       .query(query)
@@ -22,7 +23,7 @@ const getemaildoner = (req, res,next) => {
      {
 doneremail.push(e.email)
      })
-req.body={email:doneremail}       
+req.body={email:doneremail,date:date}       
         next()
       })
       .catch((err) => {

@@ -8,7 +8,7 @@ import jwt_decode from "jwt-decode"
 import axios from "axios";
 
 import { useDispatch, useSelector } from "react-redux";
-import { setLogin, setLogout, setUserId } from "../../redux/reducers/auth";
+import { setLogin, setLogout, setSataRole, setUserId } from "../../redux/reducers/auth";
 
 //===============================================================
 
@@ -192,7 +192,9 @@ google?.accounts.id.renderButton(
         dispatch(setLogin(result.data.token));
         dispatch(setUserId(result.data.userId));
         setMesage(result.data.message);
-
+//walaa add
+dispatch(setSataRole(result.data.role))
+//
         console.log("auth", auth);
         console.log("id", userId);
         console.log("aut", token);
@@ -204,7 +206,7 @@ google?.accounts.id.renderButton(
         console.log(roleNavigate);
         if (roleNavigate == 1) {
           console.log("admin");
-          // navgate("/");
+          navgate("/admin");
           {
           }
         } else if (roleNavigate == 2) {

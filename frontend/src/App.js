@@ -1,5 +1,6 @@
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
+import { useSelector } from "react-redux";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import CreateCase from './components/CreateCase'
@@ -53,9 +54,13 @@ import OurStory from "./components/OurStory/OurStory";
 
 import NewSoct from "./components/Socket";
 import NeedyMonyByUserId from "./components/NeedyByUserid/MonyCase";
+import AdminPanel from "./components/DashboardAdmin";
+import Navigation from "./components/Navigation";
+import Sidebar from "./components/DashboardAdmin/Sidebar";
 
+import MyResponsivePie from './components/DashboardAdmin/pie'
 
-
+import MyResponsivePie1 from './components/DashboardAdmin/pie2'
 
 
 
@@ -66,17 +71,28 @@ import NeedyMonyByUserId from "./components/NeedyByUserid/MonyCase";
 
 
 function App() {
-  return <div className="App">
-  
+  const {stateRole} = useSelector((state) => {
+    return {
+        stateRole: state.auth.stateRole,
+    };
+  });
+  return (
    
+  <div className="App">
 
+     {/* {stateRole!='1'?<Navigation />:<Sidebar/>}  */}
+
+<Navigation/>
+<MyResponsivePie/>
+<MyResponsivePie1/>
+<Sidebar/>
 
 <Routes>
 
-{/* <Route path="/register" element={<Register/>}></Route> */}
+<Route path="/register" element={<Register/>}></Route> 
 
-
-{/* <Route path="/login" element={<Login/>}></Route> */}
+<Route path="/login" element={<Login/>}></Route>
+{/* {/*  */}
 
 
 <Route path="" element></Route>
@@ -129,6 +145,9 @@ NeedyMonyByUserId
 <Route path="/materialdonation/:id" element={<Material/>}></Route>
 <Route path="/monydonation/:id" element={<Money/>}></Route>
 
+
+
+
 {/* 
  <Route path="" element={<Login/>}></Route>
 
@@ -137,10 +156,22 @@ NeedyMonyByUserId
 
 <Route path="" element></Route>  WALLA ROUTER */}
 
+ {/* {
+  stateRole=='1'?<> 
+  
+  <Route path="/admin" element={<Pie/>}/>
+
+  
+  </>:""
+} */}
+ 
+ 
+
+
 </Routes>
 
-
-  </div>;
+  </div>
+);
 }
 
 export default App;
