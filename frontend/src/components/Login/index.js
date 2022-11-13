@@ -210,7 +210,7 @@ google?.accounts.id.renderButton(
         } else if (roleNavigate == 2) {
           console.log("needy");
 
-            navgate("/home")
+            navgate("/Showcategories")
         } else if (roleNavigate == 3) {
           console.log("doner");
 
@@ -327,7 +327,7 @@ google?.accounts.id.renderButton(
                 onChange={(e) => setPassword(e.target.value)}
               />
               <br />
-              <button onClick={AddNewUse}>Register</button>
+              <button  className="registerbtn" onClick={AddNewUse}>Register</button>
               <br />
            
             {status
