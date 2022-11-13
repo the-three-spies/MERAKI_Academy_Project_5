@@ -95,7 +95,8 @@
     top: 100%;
     right: 0;
     width: 100%;
-    background-color:aqua;
+    background-color:#efefef; 
+    /* aqua */
     clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); /* this will put the navbar in the most top so we cant see in the screen*/
   }
   .navbar-links{

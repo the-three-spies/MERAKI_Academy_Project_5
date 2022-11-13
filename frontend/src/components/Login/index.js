@@ -212,7 +212,7 @@ dispatch(setSataRole(result.data.role))
         } else if (roleNavigate == 2) {
           console.log("needy");
 
-            navgate("/home")
+            navgate("/Showcategories")
         } else if (roleNavigate == 3) {
           console.log("doner");
 
@@ -329,7 +329,7 @@ dispatch(setSataRole(result.data.role))
                 onChange={(e) => setPassword(e.target.value)}
               />
               <br />
-              <button onClick={AddNewUse}>Register</button>
+              <button  className="registerbtn" onClick={AddNewUse}>Register</button>
               <br />
            
             {status

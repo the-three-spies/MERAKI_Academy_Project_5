@@ -170,12 +170,14 @@ const diplayTingsCaseToUser=()=>{
            <img className="imgCategory" src="./assets/images/pic4.png"></img>
            </div>
            <div>
-           <p>{element.title}</p>
-            <p>{element.description}</p>
+           <p> <h1>Category:{element.title}</h1>
+           </p>
+           <hr></hr>
+            <p className="decshowcatigory"> <h4>Description:</h4> {element.description}</p>
             
-            <p>{element. statusdonation}</p>
-            <p>{element.address}</p>
-            <button onClick={()=>{deleteTingsCase(element.id)}} >Delete</button>
+            <p><h4>Status Donation:</h4> {element.statusdonation}</p>
+            <p><h4>Address:</h4>{element.address}</p>
+            <button className="ptndeletCase" onClick={()=>{deleteTingsCase(element.id)}} >Delete</button>
             </div>
           </div>
         );
