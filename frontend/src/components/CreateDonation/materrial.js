@@ -56,7 +56,8 @@ body: data
 })
 .then(resp => resp.json())
 .then(data => {
-setUrl(data.url)
+// setUrl(data.url)
+handelDonate(data.url)
 console.log(data.url)
 })
 .catch(err => console.log(err))
@@ -82,7 +83,7 @@ console.log(data.url)
   };
   //===============================================================
 
-  const handelDonate = async () => {
+  const handelDonate = async (url) => {
     let information = {
       amount: null,
       description,
@@ -164,7 +165,7 @@ console.log(data.url)
                       console.log("m",image)
                       setSelectedImage(event.target.files[0]);}} ></input> */}
                       <input type="file" onChange= {(e)=> setImage(e.target.files[0])}></input>
-<button onClick={uploadImage}>Upload</button>
+{/* <button onClick={uploadImage}>Upload</button> */}
                       {selectedImage && (
   <div>
   {/* <img alt="not fount" width={"20%"} src={`./assets/images/${selectedImage}`  }></img> */}
@@ -182,7 +183,8 @@ console.log(data.url)
                   ></input>
                     <input type="text" placeholder="input you message about your donation"onChange={(e)=>{setdescription(e.target.value)}}/> 
                 </div>
-        <button onClick={handelDonate}> Donate Now</button>
+                <img src={url}></img>
+        <button onClick={uploadImage}> Donate Now</button>
    
       {status
         ? message && <div className="SuccessMessage">{message}</div>

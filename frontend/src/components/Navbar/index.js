@@ -1,7 +1,4 @@
 
-
-
-
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
@@ -41,3 +38,4 @@ const NavbarNew = () => {
 };
 
 export default NavbarNew;
+

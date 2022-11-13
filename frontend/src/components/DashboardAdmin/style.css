@@ -1,0 +1,16 @@
+.admin_panal{
+    display: grid;
+    grid-template-columns: 11rem auto 20rem;
+    border-radius: 2%;
+    height: 97%;
+    width: 97%;
+    overflow: hidden;
+}
+
+.admin_board{
+    color: #fff; 
+    width:20vw;
+    
+    height: 60vh;;
+    }
+   

@@ -1,6 +1,6 @@
 const pool = require("../models/db");
 const getNumNeedCase = (req, res) => {  
-    const query = `SELECT donations_Category.title,COUNT(needy_Case.id) AS NumberOfCases FROM needy_Case
+    const query = `SELECT donations_Category.title AS label,COUNT(needy_Case.id) AS value FROM needy_Case
     LEFT JOIN donations_Category ON needy_Case.category_id =donations_Category.id
     GROUP BY title;`;
     pool
@@ -26,7 +26,7 @@ const getNumNeedCase = (req, res) => {
       });
   };
   const getNumdonationOrder = (req, res) => {  
-    const query = `SELECT donations_Category.title,COUNT(doner_givin.id) AS NumberOfDonationOrder FROM doner_givin
+    const query = `SELECT donations_Category.title AS label,COUNT(doner_givin.id) AS value FROM doner_givin
     LEFT JOIN donations_Category ON doner_givin.category_id =donations_Category.id
     GROUP BY title;`
     pool

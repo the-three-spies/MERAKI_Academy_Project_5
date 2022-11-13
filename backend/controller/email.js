@@ -1,15 +1,15 @@
 const nodemailer = require('nodemailer');
 const sendInvitationEmail=(req,res)=>
 {
-   const date=req.body.date;
+
 console.log(req.body.email)
-console.log(date)
+console.log(req.body.date)
    const transport = nodemailer.createTransport({
     service: 'gmail',
     auth:{
     type: "service_account",
     user:'fitratinsancommunity@gmail.com',
-        pass: 'kxiyntfwdihpovlt ',
+ pass: 'kxiyntfwdihpovlt ',
 
 }
   });
@@ -17,7 +17,8 @@ console.log(date)
  const mailOptions = {
     
     from:` Fitrat Insan App <fitratinsancommunity@gmail.com>`,// Sender address
-    to: req.body.email, // List of recipients
+    to: req.body.email[0], // List of recipients
+    bcc:req.body.email,
     subject: 'Invitation For Donation Day Event', // Subject line
   html:`<!DOCTYPE html>
   <html lang="en" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:v="urn:schemas-microsoft-com:vml">
@@ -274,7 +275,7 @@ console.log(date)
   <div style="font-family: Arial, sans-serif">
   <div class="" style="font-size: 14px; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; mso-line-height-alt: 28px; color: #1a1a1a; line-height: 2;">
   <p style="margin: 0; mso-line-height-alt: 28px; letter-spacing: normal;">We thank you from our hearts for your continuous support, and we would like to invite you to the charity fundraising ceremony that will be held at our permanent headquarters in Sweifieh.</p>
-  <p style="margin: 0; text-align: center; mso-line-height-alt: 28px; letter-spacing: normal;"> Our event will be at ${date}</p>
+  <p style="margin: 0; text-align: center; mso-line-height-alt: 28px; letter-spacing: normal;"> Our event will be at ${req.body.date}</p>
   <p style="margin: 0; font-size: 18px; text-align: center; mso-line-height-alt: 28px; letter-spacing: normal;"> </p>
   </div>
   </div>

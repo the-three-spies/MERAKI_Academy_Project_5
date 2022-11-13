@@ -29,6 +29,7 @@ const {token} = useSelector((state) => {
       });
       if (result.data.success) {
       dispatch(setDonationOrder(result.data.result));
+      console.log(result.data.result)
         setMessage("");
       } else throw Error;
     } catch (error) {
@@ -95,6 +96,7 @@ const {token} = useSelector((state) => {
                     ''
                   )}}>take update</button></div>:""}
             <button onClick={()=>{handeldeleted(donate.id)}}> remove from my list</button>
+            <img src={donate.imgepathdoner}></img>
             </div>
           );
         })}
