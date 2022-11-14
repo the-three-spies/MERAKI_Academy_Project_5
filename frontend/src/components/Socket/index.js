@@ -48,17 +48,25 @@ import "./Socket.css"
 
 import io from "socket.io-client";
 import { useEffect, useState } from "react";
-
+import { useSelector } from "react-redux";
 //const socket = io.connect("http://localhost:3001");
 const socket = io("http://localhost:3001",{autoConnect:false});
 function NewSoct() {
+  const {auth ,userId,token,stateRole }= useSelector((state) => {
+    return {
+      auth: state.auth.isLoggedIn,
+      userId: state.auth.userId,
+      token: state.auth.token,
+      stateRole:state.auth.stateRole,
+    };
+  });
   //Room State
   const [room, setRoom] = useState("");
 
   // Messages States
   const [message, setMessage] = useState("");
   const [messageReceived, setMessageReceived] = useState([]);
-
+  const [messagesend, setMessageSend] = useState("");
   const joinRoom = () => {
     // setRoom("Admin")
     if (room === "") {
@@ -70,15 +78,15 @@ function NewSoct() {
   },[])
 
   const sendMessage = () => {
-    socket.emit("send_message", { message, room,HIND:"HIND" });
-
+    socket.emit("send_message", { message, room,userId,stateRole});
+    setMessageSend(stateRole)
   };
   let newArray=[]
 
   socket.on("receive_message", (data) => {
      
     newArray.push(data.message)
-    setMessageReceived([...messageReceived,data.message,data.HIND]);
+    setMessageReceived([...messageReceived,data.message,data.userId]);
     //console.log(newArray)
    //// setMessageReceived(data.message);
     // {messageReceived.map((elem)=>{
@@ -129,10 +137,17 @@ socket.connect()
       <h1> Message:</h1>
       <br></br>
       {/* {messageReceived} */}
+    
      {messageReceived&&messageReceived.map((elem,i)=>{
+      
+      console.log( "kop",stateRole)
      return(
       <>
-     <div><img className="socitImage" src="./assets/images/pic2.png"/>{elem}</div>
+
+
+{messagesend==1 && stateRole!=1 ?
+
+     <div><img className="socitImage" src="./assets/images/pic2.png"/>{elem}</div>:<div><img className="socitImage" src="./assets/images/pic4.png"/>{elem}</div>}
    
      </>
      
