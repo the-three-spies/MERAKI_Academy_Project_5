@@ -64,11 +64,65 @@ span{
   opacity: 1;
   visibility: visible;
 }
+.container-donate{
+  display: flex;
+  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  margin-bottom: 15vh;
+  height: 220vh;
+}
+.adddonate{
+  width: 80vw;
+  height:150vh;
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3vh;
+ border: #6E726D solid 3px;
+}
+.input {
+  padding: 1.9vh;
+  margin-bottom: 3vh;
+  width:5vw;
+  border-radius: 2%;
+  border: 3px solid #ccc;
+  font-size: calc(0.5rem + 0.8vw);
+}
+
+.button {
+  width:16vw;
+  margin-top: 3vh;
+  padding: 2vh;
+  border-radius: 4%;
+border: #e60b63;
+background-color:#e60b63;
+color: #fff;
+font-size: calc(0.5rem + 0.8vw);
+margin-bottom: 3vh;
+}
+.img_donat img {
+  width: 40vw;
+  display: block;
+  height: 80vh;
+}
+.case_needy{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  font-family: "Roboto", sans-serif;
+  gap: 3vh;
+  height:90vhl
 
 
-
-
-
+}
+.img_case{
+width:15vw;
+}
+.true{
+  background-color: rgb(33, 224, 74);
+}
 
 
 

@@ -1,68 +1,80 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-
-import * as FaIcons from "react-icons/fa";
+import { useNavigate, Link } from "react-router-dom";
+// import {
+//   UilEstate,
+//   UilClipboardAlt,
+//   UilUsersAlt,
+//   UilPackage,
+//   UilChart,
+//   UilSignOutAlt,
+// } from "@iconscout/react-unicons";
 import * as AiIcons from "react-icons/ai";
-import * as IoIcons from "react-icons/io";
-import * as RiIcons from "react-icons/ri";
+
 const Sidebar = () => {
+  const [selcet, setselcet] = useState(0);
+  const navigate=useNavigate()
   const SidebarData = [
     {
       title: "Dashboard",
-      path: "/dashboard",
-      icon: <AiIcons.AiFillHome />,
+      path: "/admin/dashboard",
+      // icon: <AiIcons.AiFillHome />,
     },
     {
       title: "Needy Cases",
-      path: "/needy_case",
-      icon: <IoIcons.IoIosPaper />,
+      path: "/admin/needy_case",
+      // icon: <UilClipboardAlt />,
     },
     {
       title: "Donation Order",
-      path: "/donation_order",
-      icon: <IoIcons.IoIosPaper />,
+      path: "/admin/donation_order",
+      // icon: <UilUsersAlt/>,
     },
 
     {
       title: "Users",
-      path: "/users",
-      icon: <IoIcons.IoIosPaper />,
+      path: "/admin/users",
+      // icon: <UilPackage />,
     },
     {
       title: "Contact",
-      path: "/contact",
-      icon: <FaIcons.FaPhone />,
+      path: "/admin/contact",
+      // icon: <UilChart/>,
     },
     {
       title: "Events",
-      path: "/events",
-      icon: <FaIcons.FaEnvelopeOpenText />,
+      path: "/admin/events",
+      // icon: <FaIcons.FaEnvelopeOpenText />,
     },
     {
       title: "Support",
-      path: "/support",
-      icon: <IoIcons.IoMdHelpCircle />,
+      path: "/admin/support",
+      // icon: <IoIcons.IoMdHelpCircle />,
     },
   ];
 
   return (
     <>
-    <div className="contianer">
-{
-SidebarData.map((e,i)=>
-{
-  return (<div> 
-
-    <div onClick={()=>navigate(e.path)}>{e.title}</div>
-    <span>{e.icon}</span>
-
-    </div>)
-})
-}
-    </div>
+          <div className="slid">
+        {SidebarData.map((e,index) => {
+          return (
+            <div
+              className={selcet === index ? "menuItem active" : "menuItem"}
+              onClick={() =>{ setselcet(index);
+                // navigate(e.path)
+              }
+              }
+            >
+              {/* <item.icon /> */}
+              <span>{e.title}</span>
+            </div>
+          );
+        })}
+        </div>
     </>
-  )
+  );
+
  
+
 };
 
 export default Sidebar;

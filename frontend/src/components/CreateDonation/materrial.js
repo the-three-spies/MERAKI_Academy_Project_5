@@ -11,12 +11,12 @@ const Material = () => {
   const [case_id, setcase_id] = useState(null);
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState(false);
-  const [description, setdescription] = useState("")
+  const [description, setdescription] = useState("");
   const [deleveryDate, setdeleveryDate] = useState(null);
   const [address, setaddress] = useState(null);
   const [image, setImage] = useState(null);
   const [selectedImage, setSelectedImage] = useState(null);
-  const [ url, setUrl ] = useState("");
+  const [url, setUrl] = useState("");
   const { token } = useSelector((state) => {
     return {
       token: state.auth.token,
@@ -46,24 +46,23 @@ const Material = () => {
     // console.log(base64);
     // setImage(base64);
     // console.log(image);
-    const data = new FormData()
-data.append("file", image)
-data.append("upload_preset", "y6jygqdj")
-data.append("cloud_name","dqsg0zf1r")
-fetch("https://api.cloudinary.com/v1_1/dqsg0zf1r/image/upload",{
-method:"post",
-body: data
-})
-.then(resp => resp.json())
-.then(data => {
-// setUrl(data.url)
-handelDonate(data.url)
-console.log(data.url)
-})
-.catch(err => console.log(err))
-}
+    const data = new FormData();
+    data.append("file", image);
+    data.append("upload_preset", "y6jygqdj");
+    data.append("cloud_name", "dqsg0zf1r");
+    fetch("https://api.cloudinary.com/v1_1/dqsg0zf1r/image/upload", {
+      method: "post",
+      body: data,
+    })
+      .then((resp) => resp.json())
+      .then((data) => {
+        // setUrl(data.url)
+        handelDonate(data.url);
+        console.log(data.url);
+      })
+      .catch((err) => console.log(err));
+  };
 
-  
   //===============================================================
 
   const getallNeedCase = async (id) => {
@@ -122,15 +121,14 @@ console.log(data.url)
     getallNeedCase(cateagory.id);
   }, []);
 
-          //===============================================================
-          
-
-
+  //===============================================================
 
   return (
     <>
-      <h1>Money form Donation</h1>
+    
+      <h1>Material Form Donation</h1>
       <h2>{cateagory.title}</h2>
+
       {needCase &&
         needCase.map((need, i) => {
           return (
@@ -148,47 +146,40 @@ console.log(data.url)
           );
         })}
       <div>
-                  <label for="date">choose date as you like:</label>
-                  <input
-                    type="date"
-                    onChange={(e) => {
-                      setdeleveryDate(e.target.value);
-                    }}
-                  ></input>
-                  <label for="data">choose img to what you donte:</label>
-                  {/* <input
-                    type="file"
-                    onChange={(event) => {
-                      // setimgePathDoner(e.target.value);
-                      console.log("ll",event.target.files[0]);
-                      uploadImage(event.target.files[0]);
-                      console.log("m",image)
-                      setSelectedImage(event.target.files[0]);}} ></input> */}
-                      <input type="file" onChange= {(e)=> setImage(e.target.files[0])}></input>
-{/* <button onClick={uploadImage}>Upload</button> */}
-                      {selectedImage && (
-  <div>
-  {/* <img alt="not fount" width={"20%"} src={`./assets/images/${selectedImage}`  }></img> */}
-  <img className="spicImg" alt="not fount"  src={URL.createObjectURL(selectedImage)} />
-  <br />
-  <button className="registerbtnmove" onClick={()=>setSelectedImage(null)}>Remove</button>
-  </div>
-)}
-                  <input
-                    type="text"
-                    placeholder="input your address"
-                    onChange={(e) => {
-                      setaddress(e.target.value);
-                    }}
-                  ></input>
-                    <input type="text" placeholder="input you message about your donation"onChange={(e)=>{setdescription(e.target.value)}}/> 
-                </div>
-                <img src={url}></img>
-        <button onClick={uploadImage}> Donate Now</button>
-   
+        <label for="date">choose date as you like:</label>
+        <input
+          type="date"
+          onChange={(e) => {
+            setdeleveryDate(e.target.value);
+          }}
+        ></input>
+        <label for="data">choose img to what you donte:</label>
+        <input
+          type="file"
+          onChange={(e) => setImage(e.target.files[0])}
+        ></input>
+        <input
+          type="text"
+          placeholder="input your address"
+          onChange={(e) => {
+            setaddress(e.target.value);
+          }}
+        ></input>
+        <input
+          type="text"
+          placeholder="input you message about your donation"
+          onChange={(e) => {
+            setdescription(e.target.value);
+          }}
+        />
+      </div>
+      <img src={url}></img>
+      <button onClick={uploadImage}> Donate Now</button>
       {status
         ? message && <div className="SuccessMessage">{message}</div>
         : message && <div className="ErrorMessage">{message}</div>}
+      
+      <div><img src="https://res.cloudinary.com/dqsg0zf1r/image/upload/v1668205254/project5/Give-back_fg14vc.png"></img></div>
     </>
   );
 };

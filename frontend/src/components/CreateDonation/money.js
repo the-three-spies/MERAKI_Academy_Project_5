@@ -5,12 +5,14 @@ import { addDonationOrder } from "../../redux/reducers/doner";
 import axios from 'axios';
 import { useState,useEffect } from 'react';
 const Money = () => {
+  const imagecase=['https://res.cloudinary.com/dqsg0zf1r/image/upload/v1668430984/person2_peh2ws.png','https://res.cloudinary.com/dqsg0zf1r/image/upload/v1668431004/per4_lx4ufh.png','https://res.cloudinary.com/dqsg0zf1r/image/upload/v1668430984/person333_bqjeif.png','https://res.cloudinary.com/dqsg0zf1r/image/upload/v1668430984/pers3_op46c2.png']
   const [needCase, setneedCase] = useState([]);
   const [amount, setamount] = useState(0)
   const [case_id, setcase_id] = useState(null);
   const [description, setdescription] = useState("")
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState(false);
+  const [clickon, setclickon] = useState()
   const dispatch = useDispatch();
   const {token} = useSelector((state) => {
     return {
@@ -81,36 +83,45 @@ const Money = () => {
   
     
   }, [])
-  
+        //===============================================================
+
   return (
     <>
     <h1>Money form Donation</h1>
-<h2>
- {cateagory.title}
-</h2>
+      <div className="container-donate">
+       <div className="adddonate">
+        <div  className='case_needy'>
    {needCase && needCase.map((need, i) => {
         return (
           <div>
             <p>case :{need.description}</p>
-            <img src=""></img>
-            <span>amount required:{need.amount}</span>
-            <span>amount donation:{need.donation_amount}</span>
-            <span>Remaining amount:{need.rest}</span>
-            <button
+            <img src={imagecase[i]} className='img_case'></img>
+            <p>amount Required:{need.amount}</p>
+            <p>amount donation:{need.donation_amount}</p>
+            <p>Remaining amount:{need.rest}</p>
+            <button className={clickon==need.id?'true':""}
               onClick={() => {
                 setcase_id(need.id);
+                setclickon(need.id)
               }}
             > choose Case
             </button> </div> )})}
+            </div>
 
-    <div> <input type="number" placeholder="input you mony would you donation" min="0" max="50"  onChange={(e)=>{setamount(e.target.value)}}/>
+    <div> <input type="number" placeholder="input you money would you donation" min="1" max="50" className='input' onChange={(e)=>{setamount(e.target.value)}}/>
     <input type="text" placeholder="input you message about your donation"onChange={(e)=>{setdescription(e.target.value)}}/> 
     <button onClick={handelDonate}> Donate Now</button>
     </div>
     {status
         ? message && <div className="SuccessMessage">{message}</div>
         : message && <div className="ErrorMessage">{message}</div>}
+       
 
+        </div>
+        <div className="img_donat">
+          <img src="https://res.cloudinary.com/dqsg0zf1r/image/upload/v1668431477/vecteezy_donation-awareness-illustration-01_gb1120_zpkumh.jpg"></img>
+        </div>
+        </div>
             </>
   )
 

@@ -78,4 +78,29 @@ const getNumNeedCase = (req, res) => {
           .json({ success: false, message: "Server Error", err: err.message });
       });
   };
-  module.exports={getNumNeedCase,getNumdonationOrder,getUserNumdonationOrder}
+  const getNumActiveCase = (req, res) => {  
+    const query = `SELECT  needy_case.statusdonation AS label,COUNT(needy_Case.id) AS value FROM needy_Case
+    GROUP BY statusdonation`;
+    pool
+      .query(query)
+      .then((result) => {
+        console.log("result= ", result);
+        if (result.rows.length === 0) {
+          return res.status(404).json({
+            success: false,
+            message: "no cases found found",
+          });
+        }
+        res.status(200).json({
+          success: true,
+          message: "All cases group by statusdonation ",
+          result: result.rows,
+        });
+      })
+      .catch((err) => {
+        res
+          .status(500)
+          .json({ success: false, message: "Server Error", err: err.message });
+      });
+  };
+  module.exports={getNumNeedCase,getNumdonationOrder,getUserNumdonationOrder,getNumActiveCase}

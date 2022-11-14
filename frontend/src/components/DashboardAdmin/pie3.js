@@ -11,23 +11,20 @@ export const color = [
     
   ];
 
-const MyResponsivePie = () => {
+const MyResponsivePie3 = () => {
  //===============================================================
 const [data,setdata]=useState([]);
- const getNumNeedCase = async () => {
+ const getNumActivCase = async () => {
 
   try {
-    const result = await axios.get(`http://localhost:5000/admin/numcase`);
+    const result = await axios.get(`http://localhost:5000/admin/numberofActiv`);
     if (result.data.success) {
-
-      //add change 
-      
+   
         const newdata=result.data.result.map((e,i)=>
         {
           return ({...e,color:color[i],id:e.label})
     
         })
-        console.log(newdata)
       setdata(newdata)
       
     } else {
@@ -42,7 +39,7 @@ const [data,setdata]=useState([]);
   //===============================================================
 
 useEffect(() => {
- getNumNeedCase()
+    getNumActivCase()
 
  
 }, [])
@@ -94,4 +91,4 @@ useEffect(() => {
 );
   }
 
-export default MyResponsivePie;
+export default MyResponsivePie3;
