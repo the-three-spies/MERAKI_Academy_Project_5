@@ -216,7 +216,7 @@ dispatch(setSataRole(result.data.role))
         } else if (roleNavigate == 3) {
           console.log("doner");
 
-          // navgate("/")
+          navgate("/donate")
         }
       })
       .catch((err) => {

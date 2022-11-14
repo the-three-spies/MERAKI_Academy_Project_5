@@ -91,6 +91,7 @@ function App() {
   return (
    
   <div className="App">
+    <Navigation/>
 
      {/* {stateRole!='1'?<Navigation />:<Sidebar/>}  */}
 
@@ -156,8 +157,8 @@ ApiPagination
 
 <Route path="/donate" element={<><DonationOrder/><Banner/><Footer/></>}/>
 <Route path="/mydonation" element={<><Header/><MyDonationList/><Footer/></>}></Route>
-<Route path="/materialdonation/:id" element={<><Material/><Footer/></>}/>
-<Route path="/monydonation/:id" element={<><Money/><Footer/></>}/>
+<Route path="/materialdonation/:id" element={<><Material/></>}/>
+<Route path="/monydonation/:id" element={<><Money/></>}/>
 
  <Route path="/admin" element={<AdminPanel/>}>
   <Route path="/admin/dashboard" element={<MainDashboard/>}/>

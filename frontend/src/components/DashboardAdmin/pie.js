@@ -6,9 +6,7 @@ export const color = [
      "hsl(8, 70%, 50%)",
      "hsl(104, 70%, 50%)",
     "hsl(122, 70%, 50%)",
-     "hsl(111, 70%, 50%)",
-    "hsl(186, 70%, 50%)"
-    
+    "hsl(104, 70%, 50%)"    
   ];
 
 const MyResponsivePie = () => {
