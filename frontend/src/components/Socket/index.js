@@ -44,13 +44,13 @@
 // export default NewSoct;
 
 
-
+import "./Socket.css"
 
 import io from "socket.io-client";
 import { useEffect, useState } from "react";
 
-const socket = io.connect("http://localhost:3001");
-
+//const socket = io.connect("http://localhost:3001");
+const socket = io("http://localhost:3001",{autoConnect:false});
 function NewSoct() {
   //Room State
   const [room, setRoom] = useState("");
@@ -60,49 +60,85 @@ function NewSoct() {
   const [messageReceived, setMessageReceived] = useState([]);
 
   const joinRoom = () => {
-    if (room !== "") {
+    // setRoom("Admin")
+    if (room === "") {
       socket.emit("join_room", room);
     }
   };
+  useEffect(()=>{
+    socket.emit("join_room", room);
+  },[])
 
   const sendMessage = () => {
-    socket.emit("send_message", { message, room });
+    socket.emit("send_message", { message, room,HIND:"HIND" });
 
   };
-  //let newArray=[]
+  let newArray=[]
+
+  socket.on("receive_message", (data) => {
+     
+    newArray.push(data.message)
+    setMessageReceived([...messageReceived,data.message,data.HIND]);
+    //console.log(newArray)
+   //// setMessageReceived(data.message);
+    // {messageReceived.map((elem)=>{
+    //   console.log(elem)
+    //   return(<div><br>{elem}</br></div>)
+    //         })}
+   // console.log("newArray",messageReceived)
+  });
+
+  // useEffect(() => {}
+  //   socket.on("receive_message", (data) => {
+     
+  //     newArray.push(data.message)
+  //     setMessageReceived(newArray);
+  //     //console.log(newArray)
+  //    //// setMessageReceived(data.message);
+  //     // {messageReceived.map((elem)=>{
+  //     //   console.log(elem)
+  //     //   return(<div><br>{elem}</br></div>)
+  //     //         })}
+  //    // console.log("newArray",messageReceived)
+  //   });
+  // }, [socket,setMessageReceived]);
+
+
+
   useEffect(() => {
-    socket.on("receive_message", (data) => {
-      
-     // newArray.push(data.message)
-      //console.log(newArray)
-      setMessageReceived(data.message);
-      // {messageReceived.map((elem)=>{
-      //   console.log(elem)
-      //   return(<div><br>{elem}</br></div>)
-      //         })}
-     // console.log("newArray",messageReceived)
-    });
-  }, [socket]);
+
+socket.connect()
+
+  },[])
   return (
     <div className="App">
       <input
         placeholder="Room Number..."
         onChange={(event) => {
-          setRoom(event.target.value);
+          setRoom("event.target.value");
         }}
       />
       <button onClick={joinRoom}> Join Room</button>
       <input
         placeholder="Message..."
         onChange={(event) => {
-          setMessage(event.target.value);
+           setMessage(event.target.value);
         }}
       />
       <button onClick={sendMessage}> Send Message</button>
       <h1> Message:</h1>
       <br></br>
-      {messageReceived}
+      {/* {messageReceived} */}
+     {messageReceived&&messageReceived.map((elem,i)=>{
+     return(
+      <>
+     <div><img className="socitImage" src="./assets/images/pic2.png"/>{elem}</div>
+   
+     </>
      
+     )
+
+     })}
       <br></br>
     </div>
   );
