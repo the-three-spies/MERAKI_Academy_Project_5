@@ -26,7 +26,6 @@ import FAQs from './components/FAQs/FAQs'
 
 
 
-
 import DonationOrder from "./components/CreateDonation";
 import MyDonationList from "./components/DashboardDoner";
 
@@ -124,7 +123,7 @@ function App() {
 <Route path="/header" element={<Navbar/>}></Route>
 <Route path="/register"element={<><Register/><Footer/></>}/>
 <Route path="/login"element={<><Login/><Footer/></>}/>
-<Route path="/home" element={<><Header/><InterfaceHeader/><HomeCardCategory/><Banner/><OurTeam/><Services/><Footer/></>}/>
+<Route path="/home" element={<><Header/><InterfaceHeader/><HomeCardCategory/><Banner/><Footer/></>}/>
 <Route path="/Contact"element={<><Header/><Contact/><Footer/></>}/>
 <Route path="/about"element={<><Header/><About/><Footer/></>}/>
 <Route path="/ourTeam"element={<><Header/><OurTeam/><Banner/><Services/><Footer/></>}/>

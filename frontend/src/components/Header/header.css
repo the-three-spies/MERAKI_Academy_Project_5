@@ -50,7 +50,7 @@
 }
 .navbar-link{
   margin: 0 15px;
-  font-size: 21px;
+  font-size: 15px;
   font-weight: 500;
   color: #545454;
   cursor: pointer;
@@ -83,6 +83,12 @@
   display: none; /* make it none bc in the laptop screen we dont want it to appear. need it to appear later in another small screens (when dealing with media queries) */
 }
 /* Media Queries*/
+@media (max-width:820px){
+  .navbar-link{
+    font-size: 18px;
+    margin: 15px 0;
+  }
+}
 @media (max-width:720px){
   .header{
     justify-content: space-between;
@@ -107,5 +113,6 @@
   }
   .navbar-link{
     margin: 15px 0;
+    font-size: 15px;
   }
 }
