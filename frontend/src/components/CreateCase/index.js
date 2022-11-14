@@ -28,6 +28,8 @@ const AddNeedy = ({ id }) => {
   const [category_id, setCategory_id] = useState("");
   const [message, setMessage] = useState("");
   const [catogeyStatus,SetcatogeyStatus]=useState(true);
+  const [latitude, setLatitude] = useState("");
+  const [longitude, setLongitude] = useState("");
   const { reduxaddnewneddy } = useSelector((state) => {
     return {
       reduxaddnewneddy: state.needy.needy,
@@ -51,6 +53,26 @@ const AddNeedy = ({ id }) => {
   useEffect(()=>{
 cat()
   },[])
+  const API_endPoint=`https://api.openweathermap.org/data/2.5/weather?`
+  const API_key="d75b0956686943dc457c3ea7fc57159e"
+
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition((position)=>{
+      setLongitude(position.coords.longitude)
+      setLatitude(position.coords.latitude)
+
+      console.log("pos",position.coords)
+    })
+    let API_finalendpoint=`${API_endPoint}lat=${latitude}&lon=${longitude}&exclude=hourly,daily&appid=${API_key}`
+    console.log("kpoint",API_finalendpoint)
+    axios.get(`${API_endPoint}lat=${latitude}&lon=${longitude}&appid=${API_key}&lang=${longitude}`).then((result)=>{
+      console.log("m",result)
+    }).catch((err)=>{
+      console.log(err)
+    })
+    
+  }, [latitude,longitude]);
   //---------------- handleNeedyCase ----------------
   const handleNeedyCase = async (e) => {
     

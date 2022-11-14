@@ -44,65 +44,116 @@
 // export default NewSoct;
 
 
-
+import "./Socket.css"
 
 import io from "socket.io-client";
 import { useEffect, useState } from "react";
-
-const socket = io.connect("http://localhost:3001");
-
+import { useSelector } from "react-redux";
+//const socket = io.connect("http://localhost:3001");
+const socket = io("http://localhost:3001",{autoConnect:false});
 function NewSoct() {
+  const {auth ,userId,token,stateRole }= useSelector((state) => {
+    return {
+      auth: state.auth.isLoggedIn,
+      userId: state.auth.userId,
+      token: state.auth.token,
+      stateRole:state.auth.stateRole,
+    };
+  });
   //Room State
   const [room, setRoom] = useState("");
 
   // Messages States
   const [message, setMessage] = useState("");
   const [messageReceived, setMessageReceived] = useState([]);
-
+  const [messagesend, setMessageSend] = useState("");
   const joinRoom = () => {
-    if (room !== "") {
+    // setRoom("Admin")
+    if (room === "") {
       socket.emit("join_room", room);
     }
   };
+  useEffect(()=>{
+    socket.emit("join_room", room);
+  },[])
 
   const sendMessage = () => {
-    socket.emit("send_message", { message, room });
-
+    socket.emit("send_message", { message, room,userId,stateRole});
+    setMessageSend(stateRole)
   };
-  //let newArray=[]
+  let newArray=[]
+
+  socket.on("receive_message", (data) => {
+     
+    newArray.push(data.message)
+    setMessageReceived([...messageReceived,data.message,data.userId]);
+    //console.log(newArray)
+   //// setMessageReceived(data.message);
+    // {messageReceived.map((elem)=>{
+    //   console.log(elem)
+    //   return(<div><br>{elem}</br></div>)
+    //         })}
+   // console.log("newArray",messageReceived)
+  });
+
+  // useEffect(() => {}
+  //   socket.on("receive_message", (data) => {
+     
+  //     newArray.push(data.message)
+  //     setMessageReceived(newArray);
+  //     //console.log(newArray)
+  //    //// setMessageReceived(data.message);
+  //     // {messageReceived.map((elem)=>{
+  //     //   console.log(elem)
+  //     //   return(<div><br>{elem}</br></div>)
+  //     //         })}
+  //    // console.log("newArray",messageReceived)
+  //   });
+  // }, [socket,setMessageReceived]);
+
+
+
   useEffect(() => {
-    socket.on("receive_message", (data) => {
-      
-     // newArray.push(data.message)
-      //console.log(newArray)
-      setMessageReceived(data.message);
-      // {messageReceived.map((elem)=>{
-      //   console.log(elem)
-      //   return(<div><br>{elem}</br></div>)
-      //         })}
-     // console.log("newArray",messageReceived)
-    });
-  }, [socket]);
+
+socket.connect()
+
+  },[])
   return (
     <div className="App">
       <input
         placeholder="Room Number..."
         onChange={(event) => {
-          setRoom(event.target.value);
+          setRoom("event.target.value");
         }}
       />
       <button onClick={joinRoom}> Join Room</button>
       <input
         placeholder="Message..."
         onChange={(event) => {
-          setMessage(event.target.value);
+           setMessage(event.target.value);
         }}
       />
       <button onClick={sendMessage}> Send Message</button>
       <h1> Message:</h1>
       <br></br>
-      {messageReceived}
+      {/* {messageReceived} */}
+    
+     {messageReceived&&messageReceived.map((elem,i)=>{
+      
+      console.log( "kop",stateRole)
+     return(
+      <>
+
+
+{messagesend==1 && stateRole!=1 ?
+
+     <div><img className="socitImage" src="./assets/images/pic2.png"/>{elem}</div>:<div><img className="socitImage" src="./assets/images/pic4.png"/>{elem}</div>}
+   
+     </>
      
+     )
+
+     })}
       <br></br>
     </div>
   );
