@@ -1,5 +1,6 @@
 import React from 'react'
 import { Navigate, useNavigate } from "react-router-dom";
+import "./style.css";
 import { useDispatch, useSelector } from "react-redux";
 import { addDonationOrder } from "../../redux/reducers/doner";
 import axios from 'axios';
