@@ -69,7 +69,11 @@ import NavbarNew from "./components/Navbar/index";
 
 
 import MyResponsivePie1 from './components/DashboardAdmin/pie2'
+
+import MainDashboard from "./components/DashboardAdmin/MainDashboard";
+
 import ApiPagination from "./components/ApiPganation";
+
 
 
 
@@ -90,10 +94,7 @@ function App() {
 
      {/* {stateRole!='1'?<Navigation />:<Sidebar/>}  */}
 
-{/* <Navigation/>
-<MyResponsivePie/>
-<MyResponsivePie1/>
-<Sidebar/> */}
+
 
 <Routes>
 
@@ -153,10 +154,14 @@ ApiPagination
 
 
 
-<Route path="/donate" element={<><Header/><InterfaceHeader/><DonationOrder/><Banner/><OurTeam/><Services/><Footer/></>}/>
+<Route path="/donate" element={<><DonationOrder/><Banner/><Footer/></>}/>
 <Route path="/mydonation" element={<><Header/><MyDonationList/><Footer/></>}></Route>
-<Route path="/materialdonation/:id" element={<><Header/><Material/><Footer/></>}/>
-<Route path="/monydonation/:id" element={<><Header/><Money/><Footer/></>}/>
+<Route path="/materialdonation/:id" element={<><Material/><Footer/></>}/>
+<Route path="/monydonation/:id" element={<><Money/><Footer/></>}/>
+
+ <Route path="/admin" element={<AdminPanel/>}>
+  <Route path="/admin/dashboard" element={<MainDashboard/>}/>
+ </Route>
 
 
 
@@ -172,7 +177,6 @@ ApiPagination
  {/* {
   stateRole=='1'?<> 
   
-  <Route path="/admin" element={<Pie/>}/>
 
   
   </>:""

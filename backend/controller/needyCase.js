@@ -136,7 +136,6 @@ const getNeedyCaseByUserId = (req, res) => {
   const id = req.token.userId;
   const value = [id];
   const query=`SELECT needy_case.*,donations_Category.title FROM needy_case INNER JOIN donations_Category ON needy_Case.category_id = donations_Category.id WHERE needy_case.is_deleted=0 AND needy_case.needy_id=$1;`
-  // const query = `SELECT needy_case.description,needy_id,amount,address,donations_Category.title FROM needy_case INNER JOIN donations_Category ON needy_Case.category_id = donations_Category.id WHERE needy_case.is_deleted=0 AND needy_case.needy_id=$1;`;
   pool
     .query(query, value)
     .then((result) => {

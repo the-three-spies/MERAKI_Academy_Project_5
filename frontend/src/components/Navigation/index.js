@@ -24,37 +24,52 @@ const Navigation = () => {
 
   return (
     <>
-    {!token?<>
+{!token?<>
     <div className="header2">
     <div><img src="https://res.cloudinary.com/dqsg0zf1r/image/upload/v1668184372/project5/fitrat_iNsan22_x8fcjb.png"></img></div>
     <div className="linkhome">
       <Link to="/home"> Home</Link> 
      <Link to="/about"> Our Story </Link> 
-   <Link to="/team"> Our Team </Link>
-   {/* <Link to="/team"> Our story </Link> */}
+   <Link to="/team">FAQs</Link>
    <Link to="/team">Contact us </Link>
+     <Link to="/login"> login <BsPersonCircle/></Link> 
 
-  <Link to="/signin"> login <BsPersonCircle/></Link> 
+   </div>
+  </div>
+  </>:""}  
+
+  
+  { stateRole==3?<>
+    <div className="header2">
+    <div><img src="https://res.cloudinary.com/dqsg0zf1r/image/upload/v1668184372/project5/fitrat_iNsan22_x8fcjb.png"></img></div>
+    <div className="linkhome">
+      <Link to="/home"> Home</Link> 
+     <Link to="/donate">  Donat </Link>
+   <Link to="/team"> My Donation </Link>
+  <Link to="/signin"> log Out <BsPersonCircle/></Link> 
   </div>
   </div>
-  </>:""}
+  </>:""}  
+
+  {/* { isloggedin?  <> <Link to="/home"> Home</Link> 
+ <Link to="/addservice"> Booking Service </Link>
+<Link to="/dashboard"> My Dashboard</Link> 
+ {/* <Link to="/"> My profile</Link>  */}
+ {/* <div className="logout" onClick={() => {
+    navigate("/signin"); localStorage.removeItem("token"); localStorage.removeItem("statelogin"); setisloggedin(false);settoken("");setstatelogin("")
+  }}>log out<RiUserShared2Fill/></div> </>  :"" */} 
+
+  
 
 {/* 
- {
-    stateRole==1? <div className='admin_board'>
-             <div onClick={()=>navigate('/dashboard')}> Dashboard </div>
-            <div><Link to="/">Users</Link> </div>         
-             <div><Link to="/"> Contact</Link> </div>
-             <div><Link to="/"> Invitation</Link>  </div>   
-        <div> <Link to="/"> Sechedual</Link> </div>
+//   stateRole==3?<div className='header'>
+//   <div><Link to="/">My in-kind Donation list </Link> </div>         
+//              <div><Link to="/"> My money donation list</Link> </div>
+//              <div><Link to="/"> Add Donation</Link>  </div> 
+//   </div>:"" */}
 
-
-
-
-    </div>
-  :<h1> hello</h1>
-}  */}
-</>    )
+</>    
+)
 }
 
 export default Navigation
