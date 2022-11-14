@@ -1,7 +1,27 @@
 import "./contact.css";
 import Header from "../Header/header";
 import Footer from '../Footer/Footer'
+// import React, { useRef } from 'react';
+// import emailjs from '@emailjs/browser';
 const Contact = () => {
+  // const form = useRef();
+
+  // const sendEmail = (e) => {
+  //   e.preventDefault();
+
+  //   emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form.current, 'YOUR_PUBLIC_KEY')
+  //     .then((result) => {
+  //         console.log(result.text);
+  //     }, (error) => {
+  //         console.log(error.text);
+  //     });
+  // };
+
+
+
+
+
+
   return (<div className="contact-body">
     {/* alert message success */}
     {/* <div className="alert-success">
@@ -18,10 +38,11 @@ const Contact = () => {
       <div><i class="bi bi-telephone-fill"></i>+123 456 789</div>
       <div><i class="bi bi-clock-fill"></i>Sun -Fri 8:00 Am to 5:00 pm</div>
     </div>
-    <div className="contact-form">
+    <div className="contact-form" >
       <h2>Contact Us</h2>
       <h2>We'd love to hear from you.</h2>
-      <form className="contact" action="" method="post">
+      <form className="contact" action="" method="post"  > 
+      {/* ref={form} onSubmit={sendEmail} */}
         <input type="textt" name="name" className="text-boxx" placeholder="Your Name" required/>
         <input type="emaill" name="email" className="text-boxx" placeholder="Your Email" required/>
         <textarea name="message" rows="5" placeholder="your Message" required></textarea>

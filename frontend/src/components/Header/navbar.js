@@ -58,7 +58,6 @@ const Navbar = ({ toggle, setToggle }) => {
                 onClick={() => setToggle(false)}
               >
                 {element.title}
-                {/* {element.imgePath} */}
               </Link >
             );
           })}</li>

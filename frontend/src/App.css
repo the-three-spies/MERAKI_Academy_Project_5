@@ -18,7 +18,7 @@
 
 body{
   background-color: var(--main-color);
-  padding: 2%;
+  /* padding: 2%; */
 }
 
 ul{

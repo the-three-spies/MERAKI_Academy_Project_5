@@ -86,13 +86,24 @@
 .name-footer-image{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap:5%;
+    padding: 0 0px;
+    align-items: center;
+    flex-wrap: wrap;
+    /* gap:5%; */
+    /* display:block;
+    align-items: right;
+    line-height:10px;
+    float:left */
+}
+.footer-imgs{
+    display: flex;
+    justify-content: center;
 }
 .footer-img{
 height:70%;
 width: 70%;
-justify-content: space-between;
-padding: 1px ;
+justify-content: center;
+/* padding: 1px ; */
 }
 
 /* Note from 27 until 81 need edit*/

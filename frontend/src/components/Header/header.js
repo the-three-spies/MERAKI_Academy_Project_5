@@ -12,9 +12,14 @@ const Header = () => {
   const navigate = useNavigate();
   //useState
   const [toggle, setToggle] = useState(false);
+  const [showLoginLogout, setShowLoginLogout] = useState(false);
   //useSelector
   //------------- search bar -------------
   const search = () => {};
+//------------- 2. show Login Logout -------------
+    const showLoginLogoutHandler = () => {
+      setShowLoginLogout((prev) => !prev);
+    };
   //------------- return -------------
   return ( //1.header //2.navbar //3.change the nav to list menu for resopnsive desigin
     <header className="header">
@@ -34,7 +39,7 @@ const Header = () => {
 
       <nav style={{clipPath: toggle && "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }} className="navbar">
         <ul className="navbar-links">
-        <Link to="/Showcategories" className="navbar-link" onClick={()=>{setToggle(false)}}>Category</Link>
+        {/* <Link to="/Showcategories" className="navbar-link" onClick={()=>{setToggle(false)}}>Category</Link> */}
         <Link to="/contact" className="navbar-link" onClick={()=>{setToggle(false)}}>Contact Us</Link>
         <Link to="/about" className="navbar-link" onClick={()=>{setToggle(false)}}>About Us</Link>
         <Link to="/ourStory" className="navbar-link" onClick={()=>{setToggle(false)}}>Our Story</Link>
@@ -45,13 +50,14 @@ const Header = () => {
       </nav>
       {/* ----login logout---- */}
       <div className="header-top-links-inout">
+      {/* {showLoginLogout ? (onClick={showLoginLogoutHandler}):(onClick={showLoginLogoutHandler})} */}
           <Link to="/login" className="header-top-link">
-            <i className="bi bi-person"></i>
+            {/* <i className="bi bi-person"></i> */}
             Login
           </Link>
-          <Link to="/register" className="header-top-link">
+          {/* <Link to="/register" className="header-top-link">
             logout
-          </Link>
+          </Link> */}
         </div>
 
       <div onClick={()=> setToggle(prev=>!prev)} className="header-menu">

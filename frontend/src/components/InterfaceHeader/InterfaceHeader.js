@@ -5,7 +5,7 @@ import "./interfaceHeader.css";
 const InterfaceHeader = () => {
   return (
     <div className="interface-header">
-      <div className="search-box">
+      {/* <div className="search-box">
         <div className="input-wrapper">
           <i className="bi bi-search"></i>
           <input
@@ -15,7 +15,7 @@ const InterfaceHeader = () => {
           />
         </div>
         <button className="search-box-btn">Search</button>
-      </div>
+      </div> */}
       <div className="interface-header-title">
         <h1>Fitrat Insan</h1>
         <h2>Donation Community </h2>
