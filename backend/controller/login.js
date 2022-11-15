@@ -42,6 +42,7 @@ const login = (req, res) => {
           userId: result.rows[0].id,
           city: result.rows[0].city,
           role: result.rows[0].role_id,
+          firstName:result.rows[0].firstname,
         };
         console.log("payload= ", payload);
         //----------options----------
@@ -62,9 +63,9 @@ const login = (req, res) => {
           token: token,
           userId: result.rows[0].id,
 
-          role:result.rows[0].role_id
+          role:result.rows[0].role_id,
 
-          
+          firstName:result.rows[0].firstname,
 
         });
         console.log("token= ", token);
