@@ -5,7 +5,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useNavigate,Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { setLogin, setLogout, setUserId } from "../../redux/reducers/auth";
+import { setLogin, setLogout, setUserId,setSataUserName,setSataRole } from "../../redux/reducers/auth";
 
 //===============================================================
 
@@ -90,7 +90,8 @@ if (result.data.success) {
       let roleNavigate = result.data.role;
       dispatch(setLogin(result.data.token));
       dispatch(setUserId(result.data.userId));
-
+      dispatch(setSataUserName(result.data.firstName));
+      dispatch(setSataRole(result.data.role))
 
       console.log("auth", auth);
       console.log("id", userId);

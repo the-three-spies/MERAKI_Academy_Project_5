@@ -9,7 +9,7 @@ import jwt_decode from "jwt-decode";
 import axios from "axios";
 
 import { useDispatch, useSelector } from "react-redux";
-import { setLogin, setLogout, setSataRole, setUserId } from "../../redux/reducers/auth";
+import { setLogin, setLogout, setSataRole, setUserId ,setSataUserName} from "../../redux/reducers/auth";
 
 //===============================================================
 
@@ -30,10 +30,13 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [num, setNum] = useState(1);
   const { auth, userId, token } = useSelector((state) => {
+ const {auth ,userId,token,userName,stateRole }= useSelector((state) => {
     return {
       auth: state.auth.isLoggedIn,
       userId: state.auth.userId,
       token: state.auth.token,
+      userName:state.auth.userName,
+      stateRole:state.auth.stateRole,
     };
   });
 
@@ -61,50 +64,44 @@ const Login = () => {
         password,
         role_id,
       })
-      .then((result) => {
-        console.log("hind");
-        console.log(result);
-        console.log(result.data.success);
-        //console.log("result",result.data.result)
-        if (result.data.success) {
-          setStatus(true);
-          setMessage("The user has been created successfully");
 
-          axios
-            .post(`http://localhost:5000/login/`, {
-              email: googleToken.email,
-              password,
-            })
-            .then((result) => {
-              console.log("m", result.data.role);
-              let roleNavigate = result.data.role;
-              dispatch(setLogin(result.data.token));
-              dispatch(setUserId(result.data.userId));
+    .then((result)=>{
+      console.log("hind")
+      console.log(result)
+      console.log(result.data.success)
+//console.log("result",result.data.result)
+if (result.data.success) {
+    setStatus(true);
+    setMessage("The user has been created successfully");
+    
 
-              console.log("auth", auth);
-              console.log("id", userId);
-              console.log("aut", token);
-              // console.log( "mnmn", token)
+    axios
+    .post(`http://localhost:5000/login/`, {
+      email:googleToken.email,
+      password,
+    })
+    .then((result) => {
+      console.log("m", result.data);
+      let roleNavigate = result.data.role;
+      dispatch(setLogin(result.data.token));
+      dispatch(setUserId(result.data.userId));
+      dispatch(setSataUserName(result.data.firstName));
+      dispatch(setSataUserName(result.data.firstName));
+      dispatch(setSataRole(result.data.role))
+      console.log("auth", auth);
+      console.log("id", userId);
+      console.log("aut", token);
+      console.log("aut", token);
+      // console.log( "mnmn", token)
 
-              // {
-              //   navgate("/Category");
-              // }
-              console.log(roleNavigate);
-              if (roleNavigate == 1) {
-                console.log("admin");
-                // navgate("/");
-                {
-                }
-              } else if (roleNavigate == 2) {
-                console.log("needy");
-
-                navgate("/home");
-              } else if (roleNavigate == 3) {
-                console.log("doner");
-
-                // navgate("/")
-              }
-            });
+      // {
+      //   navgate("/Category");
+      // }
+      console.log(roleNavigate);
+      if (roleNavigate == 1) {
+        console.log("admin");
+        // navgate("/");
+        {
         }
       })
       .catch((err) => {
@@ -171,17 +168,19 @@ const Login = () => {
         password,
       })
       .then((result) => {
-        console.log("m", result.data.role);
+        console.log("m", result.data);
         let roleNavigate = result.data.role;
         dispatch(setLogin(result.data.token));
         dispatch(setUserId(result.data.userId));
+        
         setMesage(result.data.message);
-//walaa add
+        dispatch(setSataUserName(result.data.firstName));
 dispatch(setSataRole(result.data.role))
 //
         console.log("auth", auth);
         console.log("id", userId);
         console.log("aut", token);
+        console.log("autname", userName);
         // console.log( "mnmn", token)
 
         // {
