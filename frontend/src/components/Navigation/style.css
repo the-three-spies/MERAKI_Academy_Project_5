@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&family=Satisfy&display=swap');
 
-.header {
+/* .header {
     height: 6vh;
     background-color:#080708;
     background-color:#847D7D; 
@@ -9,7 +9,7 @@
     justify-content: space-around;
     align-items: center;
     padding-top: 5px;
-  }
+  } */
   
   .header2 {
     display: grid;

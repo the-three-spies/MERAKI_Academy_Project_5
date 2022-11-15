@@ -8,7 +8,7 @@ import jwt_decode from "jwt-decode"
 import axios from "axios";
 
 import { useDispatch, useSelector } from "react-redux";
-import { setLogin, setLogout, setSataRole, setUserId } from "../../redux/reducers/auth";
+import { setLogin, setLogout, setSataRole, setUserId ,setSataUserName} from "../../redux/reducers/auth";
 
 //===============================================================
 
@@ -28,11 +28,13 @@ const Login = () => {
   const[role_id,srtRolrId]=useState(0)
 const [googleToken,setGoogleToken]=useState("")
 
-  const {auth ,userId,token }= useSelector((state) => {
+  const {auth ,userId,token,userName,stateRole }= useSelector((state) => {
     return {
       auth: state.auth.isLoggedIn,
       userId: state.auth.userId,
       token: state.auth.token,
+      userName:state.auth.userName,
+      stateRole:state.auth.stateRole,
     };
   });
 
@@ -84,14 +86,16 @@ if (result.data.success) {
       password,
     })
     .then((result) => {
-      console.log("m", result.data.role);
+      console.log("m", result.data);
       let roleNavigate = result.data.role;
       dispatch(setLogin(result.data.token));
       dispatch(setUserId(result.data.userId));
-
-
+      dispatch(setSataUserName(result.data.firstName));
+      dispatch(setSataUserName(result.data.firstName));
+      dispatch(setSataRole(result.data.role))
       console.log("auth", auth);
       console.log("id", userId);
+      console.log("aut", token);
       console.log("aut", token);
       // console.log( "mnmn", token)
 
@@ -187,17 +191,19 @@ google?.accounts.id.renderButton(
         password,
       })
       .then((result) => {
-        console.log("m", result.data.role);
+        console.log("m", result.data);
         let roleNavigate = result.data.role;
         dispatch(setLogin(result.data.token));
         dispatch(setUserId(result.data.userId));
+        
         setMesage(result.data.message);
-//walaa add
+        dispatch(setSataUserName(result.data.firstName));
 dispatch(setSataRole(result.data.role))
 //
         console.log("auth", auth);
         console.log("id", userId);
         console.log("aut", token);
+        console.log("autname", userName);
         // console.log( "mnmn", token)
 
         // {
