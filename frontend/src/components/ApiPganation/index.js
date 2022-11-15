@@ -30,7 +30,7 @@ useEffect(()=>{
         <div className="user">
           <h3>{user.title}</h3>
           <h3>{user.price}</h3>
-          <h3>{ <img src={user.image} ></img>}</h3>
+          <h3>{ <img className="imageAPIE" src={user.image} ></img>}</h3>
         </div>
       );
     });
