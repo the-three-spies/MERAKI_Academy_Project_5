@@ -3,9 +3,7 @@ import MyResponsivePie from "./pie";
 import MyResponsivePie1 from "./pie2";
 import MyResponsivePie3 from "./pie3";
 import { useState } from "react";
-import "./index.css";
 import NeedCase from "./needytable";
-// import { DatePicker } from 'react-responsive-datepicker'
 
 const MainDashboard = () => {
 

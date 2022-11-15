@@ -12,7 +12,7 @@ const Footer =()=>{
         {/* <h2 className="contact-form-title">Find a cause that ignites your heart</h2> */}
         <div className='name-footer-image'>
         <div className='footer-imgs'>
-         <img className='footer-img' src= 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTssM6QpTo5OihQoKsG-VqSAfuVOk3Hjxa8Cw&usqp=CAU'  alt=""/>
+         <img className='footer-img' src= 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6r5wG-tgfCBvKgXk7FiknB7nUcd48tHx-Uw&usqp=CAU'  alt=""/>
          </div>
          <div className='footer-imgs'>
          <img className='footer-img' src= 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0N01pf13TjrY524osbD9Cy_o1EVmrWhMyOQ&usqp=CAU'  alt=""/>

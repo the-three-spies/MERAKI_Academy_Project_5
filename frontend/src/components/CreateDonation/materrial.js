@@ -2,9 +2,11 @@ import React from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addDonationOrder } from "../../redux/reducers/doner";
+import "./style.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
 const Material = () => {
+  const imagecase=['https://res.cloudinary.com/dqsg0zf1r/image/upload/v1668430984/person2_peh2ws.png','https://res.cloudinary.com/dqsg0zf1r/image/upload/v1668431004/per4_lx4ufh.png','https://res.cloudinary.com/dqsg0zf1r/image/upload/v1668430984/person333_bqjeif.png','https://res.cloudinary.com/dqsg0zf1r/image/upload/v1668430984/pers3_op46c2.png']
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [needCase, setneedCase] = useState([]);
@@ -15,7 +17,6 @@ const Material = () => {
   const [deleveryDate, setdeleveryDate] = useState(null);
   const [address, setaddress] = useState(null);
   const [image, setImage] = useState(null);
-  const [selectedImage, setSelectedImage] = useState(null);
   const [url, setUrl] = useState("");
   const { token } = useSelector((state) => {
     return {
@@ -28,24 +29,7 @@ const Material = () => {
     };
   });
   //===============================================================
-
-  const convertBase64 = (file) => {
-    return new Promise((resolve, reject) => {
-      const fileReader = new FileReader();
-      fileReader.readAsDataURL(file);
-      fileReader.onload = () => {
-        resolve(fileReader.result);
-      };
-      fileReader.onerror = (error) => {
-        reject(error);
-      };
-    });
-  };
   const uploadImage = () => {
-    // const base64 = await convertBase64(file);
-    // console.log(base64);
-    // setImage(base64);
-    // console.log(image);
     const data = new FormData();
     data.append("file", image);
     data.append("upload_preset", "y6jygqdj");
@@ -128,13 +112,15 @@ const Material = () => {
     
       <h1>Material Form Donation</h1>
       <h2>{cateagory.title}</h2>
-
+<div className="container-donate">
+<div className="adddonate">
+        <div  className='case_needy'>
       {needCase &&
         needCase.map((need, i) => {
           return (
             <div>
               <p>case :{need.description}</p>
-              <img src=""></img>
+              <img src={imagecase[i]}></img>
               <button
                 onClick={() => {
                   setcase_id(need.id);
@@ -145,6 +131,7 @@ const Material = () => {
             </div>
           );
         })}
+        </div>
       <div>
         <label for="date">choose date as you like:</label>
         <input
@@ -178,7 +165,12 @@ const Material = () => {
       {status
         ? message && <div className="SuccessMessage">{message}</div>
         : message && <div className="ErrorMessage">{message}</div>}
+      </div>
       
+      <div className="img_donat">
+          <img src="https://res.cloudinary.com/dqsg0zf1r/image/upload/v1668431477/vecteezy_donation-awareness-illustration-01_gb1120_zpkumh.jpg"></img>
+        </div>
+        </div>
       <div><img src="https://res.cloudinary.com/dqsg0zf1r/image/upload/v1668205254/project5/Give-back_fg14vc.png"></img></div>
     </>
   );

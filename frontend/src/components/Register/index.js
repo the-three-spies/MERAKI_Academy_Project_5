@@ -1,8 +1,9 @@
 import React, { useContext, useState } from "react";
-import "./style.css";
+// import "./style.css";
+import './register.css';
 import axios from "axios";
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setLogin, setLogout, setUserId,setSataUserName,setSataRole } from "../../redux/reducers/auth";
 
@@ -137,6 +138,64 @@ useEffect(()=>{
 getAllRoles()
 },[])
 
+  //-------------return desigin----------------
+  return(
+    <div className="form_wrapper_register">
+
+      <form onSubmit={(event)=>event.preventDefault()} className="register_form">
+      <h1 className="form-title">Register</h1>
+      <input
+                  type="text_register"
+                  placeholder="First Name"
+                  onChange={(e) => setFirstName(e.target.value)}
+                />
+                              <input
+                  type="text_register"
+                  placeholder="Last Name"
+                  onChange={(e) => setLastName(e.target.value)}
+                />
+                              <input
+                  type="number_register"
+                  placeholder="Age"
+                  onChange={(e) => setAge(e.target.value)}
+                />
+                    <input
+                  type="text_register"
+                  placeholder="City"
+                  onChange={(e) => setCity(e.target.value)}
+                />
+                            <input type="text_register" name="" list="role" placeholder="Role"/>
+            <datalist id="role">
+            { roles.length>0&&  roles.map((elem, i) => {
+             return (
+            <option
+             value={elem.id}>
+             {elem.role}
+            </option>
+             );
+             })}
+            </datalist>
+        <input onChange={(e) => {
+              setEmail(e.target.value);
+            }} type="emaill" placeholder="Email"/>
+        <input onChange={(e) => {
+              setPassword(e.target.value);
+            }} type="passwordd" placeholder="Password"/>
+
+        <button onClick={AddNewUse} className="form_register_btn">Register</button>
+        {status
+                ? message && <div className="alert_success">{message}</div>
+                : message && <div className="alert_error">{message}</div>}
+      </form>
+      <div className="form_footer">
+        Already have an account?{" "}
+        <Link to="/login" className="Form_Link">
+          Login
+        </Link>
+      </div>
+    </div>
+  )
+  //-------------return desigin----------------
 return(
 <div className=" mainRegisterDiv">
 
@@ -228,6 +287,6 @@ return(
 
 )
 
-
+//------------------------------------
 }
 export default Register  
