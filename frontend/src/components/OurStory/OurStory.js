@@ -9,9 +9,9 @@ const OurStory = () => {
         By creating innovative fundraising technology, we empower people, companies, and nonprofits to support the causes they care about in the moments when they feel inspired and uplift communities everywhere.
         </p>
         <div className="ourStory-values">
-            <span>given</span>
-            <span>Power Generosity</span>
-            <span>Optimism</span>
+            <span>Given</span>
+            <span>Generosity</span>
+            <span>Tender</span>
         </div>
     </div>
     </div>

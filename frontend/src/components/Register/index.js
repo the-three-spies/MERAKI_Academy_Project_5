@@ -164,6 +164,7 @@ getAllRoles()
                   onChange={(e) => setCity(e.target.value)}
                 />
                             <input type="text_register" name="" list="role" placeholder="Role"/>
+                            {/* <div class="box"> */}
             <datalist id="role">
             { roles.length>0&&  roles.map((elem, i) => {
              return (
@@ -174,6 +175,7 @@ getAllRoles()
              );
              })}
             </datalist>
+            {/* </div> */}
         <input onChange={(e) => {
               setEmail(e.target.value);
             }} type="emaill" placeholder="Email"/>

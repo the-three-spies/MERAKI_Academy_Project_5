@@ -1,86 +1,61 @@
-.interface-header{
-    /* background: url(./assets/images/pic3.png);  */
-    /* background: url("https://images.pexels.com/photos/271168/pexels-photo-271168.jpeg?auto=compress&cs=tinysrgb&w=600") no-repeat; */
-    /* background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0N01pf13TjrY524osbD9Cy_o1EVmrWhMyOQ&usqp=CAU") no-repeat; */
-    /* background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRj2t2CT7g1ly6sBm96zRxS6qta8GJw7_Cxww&usqp=CAU") no-repeat; */
-    background: url("https://i.pinimg.com/236x/46/b0/9a/46b09a6ff9272abf2be532394d105064.jpg") no-repeat;
-    
-    background-size: cover; /*mean 100%*/
-    width: 100%;
-    height: calc(100vh-100px); /* by using method calc to Subtract the header from  background area*/
-    /* height: 300%; */
-    padding: 30px;
+.interface_header {
+  background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0AmH50gXqHzeDNeSG7q-wX2gnpsf-jrqXZQ&usqp=CAU")
+    no-repeat;
+  background-size: cover; /*mean 100%*/
+  width: 100%;
+  /* height: calc(
+    100vh-100px); by using method calc to Subtract the header from  background area */
+  height: 900%;
+  padding: 120px;
+  /* position: absolute; */
 }
-/* search-box */
-.search-box{
-    width: 100%;
-    height: 60px;
-    position: relative;
-    background-color: white;
-    border-radius: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 10px;
+.interface_header_title {
+  color: white;
+  margin-top: 220px;
+  position: relative;
+  text-align: center;
+  padding: 10px;
+  /* margin: 10px; */
 }
-.input-wrapper{
-    width: 95%;
-    height: 100%;
+.interface_header_title h1 {
+  font-size: 80px;
+  font-family: "shadows intro Light", sans-serif !important;
+  text-align: center;
+  top: 3px;
+  
 }
-.input-wrapper .bi-search{
-    font-size: 21px;
+.interface_header_title h2 {
+  margin-top: -17px;
+  font-family: "Source Sans Pro", sans-serif;
+  font-style: 25px;
+  text-align: center;
+  font-weight: 400;
+  margin: 10px;
 }
-.search-box-input{
-    width: 90%;
-    height: 100%;
-    border-radius: 60px;
-    border: none;
-    outline: none;
-    padding-left: 10px;
-    font-size: 21px;
+.a {
+  margin-top: 20px;
+  font-size: 18px;
+  font-family: "Source Sans Pro", sans-serif !important;
+  position: relative !important;
 }
-.search-box-btn{
-    background-color: gray;
-    font-size: 17px;
-    font-weight: bold;
-    cursor: pointer;
-    border: none;
-    color: white;
-    padding: 12px 21px;
-    border-radius: 60px;
+.btttttttttttn {
+  display: inline-block;
+  width: 200px;
+  font-weight: bold;
+  padding: 10px;
+  color: #fff;
+  bottom: 4px solid #fff;
+  text-align: center;
+  outline: none;
+  text-decoration: none;
+  background-color: #fff;
+  color: #000;
+  transition: background-color 0.2s ease-out, color 0.2s ease-out;
+  position: relative;
 }
-/* title */
-.interface-header-title{
-    color: white;
-    margin-top: 220px;
-}
-.interface-header-title h2{
-    font-size: 40px;
-}
-.interface-header-title h1{  /*h1*/
-    font-size: 70px;
-}
-/* Media Queries*/
-@media (max-width:720px){
-    .interface-header{
-        padding: 21px;
-    }
-    .interface-header-title h2{
-        font-size: 30px;
-    }
-    .interface-header-title h1{  
-        font-size: 50px;
-    }
-    .search-box-input{
-        font-size: 17px;
-    }
-}
-@media (max-width:400px){
-    .search-box-input{
-        font-size: 14px;
-    }
-    .search-box-btn{
-        padding: 12px 15px;
-        font-size: 15px;
-    }
+.btttttttttttn:hover,
+.btttttttttttn:active {
+  background-color: rgb(250, 250, 250);
+  color: #000;
+  transition: background-color 0.3s ease-oui, color 0.3s ease-in;
 }

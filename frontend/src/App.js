@@ -72,6 +72,7 @@ import MyResponsivePie1 from './components/DashboardAdmin/pie2'
 import MainDashboard from "./components/DashboardAdmin/MainDashboard";
 
 import ApiPagination from "./components/ApiPganation";
+import SetImages from "./components/Banner/SetImages";
 
 
 
@@ -97,15 +98,15 @@ function App() {
 
 <Routes>
 
-<Route path="/register" element={<Register/>}></Route> 
+{/* <Route path="/register" element={<Register/>}></Route>  */}
 
 {/* <Route path="/login" element={<Login/>}></Route> */}
 {/* {/*  */}
 
 
-<Route path="" element></Route>
+{/* <Route path="" element></Route>
 
-<Route path="" element></Route>
+<Route path="" element></Route> */}
  
  
  
