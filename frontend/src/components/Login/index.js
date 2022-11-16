@@ -5,7 +5,9 @@ import "./login.css";
 import jwt_decode from "jwt-decode";
 //const bcrypt = require("bcrypt");
 //const jwt = require("jsonwebtoken");
-
+// import { ToastContainer, toast } from 'react-toastify'; 
+// import 'react-toastify/dist/ReactToastify.css';
+//111111111111111111111111111111111111111111111111111111111111111
 import axios from "axios";
 
 import { useDispatch, useSelector } from "react-redux";
@@ -51,6 +53,7 @@ const Login = () => {
 
    
 
+
     var decoded = jwt_decode(response.credential);
     setGoogleToken(decoded);
     console.log("userInfo", decoded.email);
@@ -94,6 +97,7 @@ const Login = () => {
               dispatch(setUserId(result.data.userId));
               dispatch(setSataUserName(result.data.firstName));
         dispatch(setSataRole(result.data.role))
+
 
 
 
@@ -231,6 +235,7 @@ const Login = () => {
         dispatch(setLogin(result.data.token));
         dispatch(setUserId(result.data.userId));
         setMesage(result.data.message);
+
 
 
         dispatch(setSataUserName(result.data.firstName));
@@ -408,6 +413,7 @@ console.log("xcv")
   //-----------------
   return (
     <div className="mainloginDev">
+      {/* <ToastContainer/> 22222222222222222222 */}
       <div className="imgregester imglogin">
         <img className="" src="./assets/images/login1.png" alt="pic"></img>
       </div>

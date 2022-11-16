@@ -8,6 +8,8 @@
     padding:30px;
     background-color:  #efefef;
     flex-wrap: wrap;
+   /* position: relative; */
+  margin-top: 5%;
 }
 .footer-item{
     color: #545454;
@@ -89,21 +91,22 @@
     padding: 0 0px;
     align-items: center;
     flex-wrap: wrap;
-    /* gap:5%; */
+    width: 50%;
+    gap:5%;
+    margin-top: 2%;
     /* display:block;
     align-items: right;
     line-height:10px;
     float:left */
 }
 .footer-imgs{
+   
     display: flex;
     justify-content: center;
+    
 }
 .footer-img{
-height:70%;
-width: 70%;
-justify-content: center;
-/* padding: 1px ; */
+    width: 100%;
 }
 
 /* Note from 27 until 81 need edit*/

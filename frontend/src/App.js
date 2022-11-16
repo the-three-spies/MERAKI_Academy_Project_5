@@ -97,8 +97,11 @@ function App() {
   return (
    
   <div className="App">
+
+ 
 {/* <SlidCenter/> */}
 {/* <Navigation/> */}
+
 
      {/* {stateRole!='1'?<Navigation />:<Sidebar/>}  */}
 
@@ -145,7 +148,7 @@ function App() {
 NeedyMonyByUserId
 <Route path="/NeedyMonyByUserId"element={<><Header/><NavbarNew/><NeedyMonyByUserId/><Footer/></>}/>
 <Route path="/NewSoct" element={<><NewSoct/></>}  ></Route>
-<Route path="/ApiPag" element={<><ApiPagination/></>}  ></Route>
+<Route path="/ApiPag" element={<><Header/><ApiPagination/><Footer/></>}  ></Route>
 ApiPagination
 
  {/* 

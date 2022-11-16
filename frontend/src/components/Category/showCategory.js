@@ -5,7 +5,8 @@ import { useNavigate } from "react-router-dom";
 import category, { setCategory,setCategoryId } from "../../redux/reducers/category";
 import AddNeedy from "../CreateCase";
 import NeedyByCategoy from "../DashboardNeedy/GetNeedyByCategoryId";
-import "./style.css";
+// import "./style.css";
+
 //---------------- AddCategory ----------------
 const TheCategory = () => {
   const dispatch = useDispatch();
@@ -42,89 +43,39 @@ const TheCategory = () => {
   const navigate = useNavigate();
   //---------------- return ----------------
   return (
-    // <div className=" categoySHOW">
-    //    { newCategory.map((element, i) => {
-    //     return (
-    //       <div>
-
-            
-    //         {/* <ul> */}
-    //           {element.title}
-    //          { <img className="imgaCategory " src={element.imgepath}></img>  }
-    //           <button onClick={()=>{
-    //              console.log(element.id)
-    //         dispatch( setCategoryId(element.id))
-    //        // navigate(`/NeedyCaseByCategory/${element.id}` )
-
-    //         navigate(`/AddNeedy/${element.id}`);
-
-
-
-
-    //         //navigate("/dashboardneedy" )
-        
-    //     }}>SHOW More</button> 
-    //         {/* </ul> */}
-          
-          
-    //       </div >
-    //     );
-    //   })}
-    // </div>
-
-
-
-    <div>
-    <h1 className="reservationH1">Choose the department you want to enter the aid application in</h1>
-    
-    <div className=" DivCate container">
-    
-    { newCategory.length>0&&  newCategory.map((elem, i) => {
-                  return (
-                    <div className=" containerr "
-                      value={elem._id}
-    
-                      // textContent={elem.specialty}
-                    >
-                      <div>
-                     <h3> {elem.title}</h3>
-                     </div>
-                      <br></br>
-                      <hr className="hrspicality"></hr>
-                      <br></br>
-                      {/* <div>
-                      <p className="pw">{elem.description}</p>
-                      </div> */}
-                      <br></br>
-                      <div>
-                        
-                 <img className="imgCatiegory" src={ elem.imgepath}></img>
-                      </div>
-                      <button onClick={()=>{
-                       
-                       
-                        dispatch( setCategoryId(elem.id))
-    //        // navigate(`/NeedyCaseByCategory/${element.id}` )
-
-    //   
-    
-                      navigate(`/AddNeedy/${elem.id}`);
-                      }}  className="registerbtnadd ">Add new needy order</button>
-                      </div>
-                  );
-                })}
-    
+    <div className="body-body-body">
+      {/* <h1 className="contact-form" >Choose the department you want to enter the aid application in</h1> */}
+      <h1 className="header-cardcategory" >Choose the section where you want to asked </h1>
+      
+      {/* className="reservationH1" */}
+      <div className="home-card-category-container">
+        {newCategory.length > 0 &&
+          newCategory.map((item) => (
+            <div className="card-category-wrapper">
+              <img
+                src={item.imgepath}
+                alt={item.title}
+                className="card-category-image"
+              />
+              <div className="card-category-intro">
+                <h1 className="card-category-intro-title">{item.title}</h1>
+                <p
+                  className="card-category-intro-p"
+                  onClick={() => {
+                    dispatch(setCategoryId(item.id));
+                    navigate(`/AddNeedy2/${item.id}`);
+                  }}
+                >
+ here are our donations in the <br></br>
+                  <span>'{item.title}'</span>
+                  section .<br></br>
+                  <br></br>click here to fill out a form <br/> and get help.
+                </p>
+              </div>
+            </div>
+          ))}
+      </div>
     </div>
-    </div>
-
-
-
-
-
-
-
-
-
   );
 };
 export default TheCategory;

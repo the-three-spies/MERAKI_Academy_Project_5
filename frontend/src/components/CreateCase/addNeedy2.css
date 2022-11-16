@@ -15,17 +15,6 @@
     justify-content: center;
     align-items: center;
 }
-/* .add_needy_img_info{
-    color: #fff;
-    max-width: 500px;
-    line-height: 65px;
-    padding-left: 50px;
-    font-size: 18px;
-}
-.add_needy_img_info i{
-    margin-right: 20px;
-    font-size: 25px;
-} */
 .add_needy_form{
     max-width: 700px;
     margin-right: 50px;
@@ -34,15 +23,15 @@
     flex: 1;
 }
 .add_needy_form h2{
-    color: #fff;
+    color: gray;
     text-align: center;
     font-size: 35px;
     text-transform: uppercase;
     margin-bottom: 30px;
 }
 .add_needy_form .text_box_add_needy{
-    background: #000;
-    color: #fff;
+    background: #fff;
+    color: #111111;
     border: none;
     width: calc(50% - 10px);
     height: 50px;
@@ -52,17 +41,19 @@
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
     opacity: 0.9;
+    font-size: 18px;
+    font-weight: bold;
 }
 .add_needy_form .text_box_add_needy:first-child{
     margin-right: 15px;
 }
 .add_needy_form textarea{
-    background: #000;
-    color: #fff;
+    background: #fff;
+    color: #111111;
     border: none;
     width: 100%;
     padding: 12px;
-    font-size: 15px;
+    font-size: 21px;
     min-height: 200px;
     max-height: 400px;
     resize: vertical;
@@ -71,6 +62,9 @@
     margin-bottom: 20px;
     opacity: 0.9;
     resize: none;
+    outline: none;
+    font-weight: bold;
+    
 }
 .add_needy_form .send-btn{
     background: white;
@@ -85,17 +79,19 @@
     text-transform: uppercase;
     letter-spacing: 2px;
     float: right;
+    
 }
 .add_needy_form .send-btn:hover{
-    /* background: #545454; */
-    background-color: #292929;
-    color: white;
+    background-color: #f1eaea;
+    color: rgb(59, 57, 57);
     transition: .3s;
     cursor: pointer;
+    
 }
 .add_needy_form .send-btn{
-    background: #111111;
-    color: white;
+    background:white ;
+    color: #111111;
+    font-weight: bold;
 }
 /* ALERT MESSAGE SUCCESS*/
 .alert-success{
@@ -110,6 +106,19 @@
     border-left: 8px solid #3ad66e;
     border-radius: 4px;
 }
+ .text_box_add_needy::placeholder { 
+    color: #111111;
+    opacity: 1;
+    font-weight: bold;
+    font-size: 15px;
+  }
+  textarea::placeholder {
+    color: #111111;
+    opacity: 1;
+    font-weight: bold;
+    font-size: 18px;
+  }
+
 /* ALERT MESSAGE ERROR*/
 .alert-error{
     z-index: 1;
@@ -137,4 +146,8 @@
     .add_needy_form .text_box_add_needy{
         width: 100%;
     }
+}
+.gnfgfgh{
+    margin-left: 11%;
+  
 }

@@ -1,8 +1,15 @@
 import "./contact.css";
 import Header from "../Header/header";
 import Footer from '../Footer/Footer'
+
+import { BsEmojiAngryFill } from "react-icons/bs";
+// import { ToastContainer, toast } from 'react-toastify'; 
+// import 'react-toastify/dist/ReactToastify.css';
+
+
 import React, { useRef } from 'react';
 import emailjs from '@emailjs/browser';
+
 const Contact = () => {
   const form = useRef();
 
@@ -18,8 +25,17 @@ const Contact = () => {
   };
 
 
+//   if(name.trim === ""){
+//     return TransformStream.error("Name Is Required")
+//   }
+// if(email.trim === ""){
+//   return TransformStream.error("Email Is Required")
+// }
+// if(description.trim === ""){
+//   return TransformStream.error("Description Is Required")
+// }
 
-
+// console.log(name,email,description)
 
 
   return (<div className="contact-body">
@@ -31,6 +47,9 @@ const Contact = () => {
      {/* <div className="alert-error">
       <span> Something went wrong! please try again</span>
      </div> */}
+
+
+     {/* <ToastContainer theme="colored" />  //this for desigin theme*/}
   <div className="contact-section">
     <div className="contact-info">
       <div><i class="bi bi-geo-alt-fill"></i>Amman, Amman, Jordan</div>
