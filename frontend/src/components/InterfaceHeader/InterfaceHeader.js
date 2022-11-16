@@ -4,21 +4,11 @@ import "./interfaceHeader.css";
 // put interface title in interface bg
 const InterfaceHeader = () => {
   return (
-    <div className="interface-header">
-      {/* <div className="search-box">
-        <div className="input-wrapper">
-          <i className="bi bi-search"></i>
-          <input
-            className="search-box-input"
-            type="search"
-            placeholder="search .."
-          />
-        </div>
-        <button className="search-box-btn">Search</button>
-      </div> */}
-      <div className="interface-header-title">
-        <h1>Fitrat Insan</h1>
-        <h2>Donation Community </h2>
+<div className="interface_header">
+ <div className="interface_header_title">
+        <h1 className="inner_container_h1">Fitrat Insan</h1>
+        <h2 className="inner_container_h2">A House Of Givivig & Power Generosity</h2>
+        <a className="btttttttttttn" href="">ClICk HERE</a>
       </div>
     </div>
   );
@@ -31,3 +21,5 @@ export default InterfaceHeader;
  * 3. title
  * div
  */
+
+

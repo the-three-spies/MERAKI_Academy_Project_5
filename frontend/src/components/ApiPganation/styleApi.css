@@ -2,6 +2,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr  ;
     align-items: center;
+    flex-wrap: wrap;
     justify-content: center;
     flex-direction: column;
     width: 100vw;
@@ -10,7 +11,7 @@
   .user {
     border: 2px solid black;
     border-radius: 10px;
-    background-color: #b3e3ff;
+    background-color: #ecae44;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,7 +20,10 @@
     height: 300px;
     margin: 20px;
   }
-  
+  .imageAPIE{
+    height: 200PX;
+    width: 100%;
+  }
   .paginationBttns {
     width: 80%;
     height: 40px;
@@ -32,22 +36,22 @@
     padding: 10px;
     margin: 8px;
     border-radius: 5px;
-    border: 1px solid #2b2eff;
-    color: #2b2eff;
+    border: 1px solid #ff802b;
+    color:  #ff802b;
     cursor: pointer;
   }
   
   .paginationBttns a:hover {
     color: white;
-    background-color: #2b2eff;
+    background-color:  #ff802b;
   }
   
   .paginationActive a {
     color: white;
-    background-color: #2b2eff;
+    background-color:  #ff802b;
   }
   
   .paginationDisabled a {
-    color: grey;
-    background-color: grey;
+    color: rgb(13, 7, 7);
+    background-color: rgb(7, 4, 4);
   }

@@ -9,7 +9,7 @@ import { useNavigate, Link } from "react-router-dom";
 //   UilChart,
 //   UilSignOutAlt,
 // } from "@iconscout/react-unicons";
-import * as AiIcons from "react-icons/ai";
+// import * as AiIcons from "react-icons/ai";
 
 const Sidebar = () => {
   const [selcet, setselcet] = useState(0);

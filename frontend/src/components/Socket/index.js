@@ -52,11 +52,12 @@ import { useSelector } from "react-redux";
 //const socket = io.connect("http://localhost:3001");
 const socket = io("http://localhost:3001",{autoConnect:false});
 function NewSoct() {
-  const {auth ,userId,token,stateRole }= useSelector((state) => {
+  const {auth ,userId,token,stateRole,userName }= useSelector((state) => {
     return {
       auth: state.auth.isLoggedIn,
       userId: state.auth.userId,
       token: state.auth.token,
+      userName:state.auth.userName,
       stateRole:state.auth.stateRole,
     };
   });
@@ -78,7 +79,7 @@ function NewSoct() {
   },[])
 
   const sendMessage = () => {
-    socket.emit("send_message", { message, room,userId,stateRole});
+    socket.emit("send_message", { message, room,userId,stateRole,userName});
     setMessageSend(stateRole)
   };
   let newArray=[]
@@ -86,7 +87,7 @@ function NewSoct() {
   socket.on("receive_message", (data) => {
      
     newArray.push(data.message)
-    setMessageReceived([...messageReceived,data.message,data.userId]);
+    setMessageReceived([...messageReceived,data.userName,data.message]);
     //console.log(newArray)
    //// setMessageReceived(data.message);
     // {messageReceived.map((elem)=>{
@@ -119,15 +120,18 @@ socket.connect()
 
   },[])
   return (
-    <div className="App">
-      <input
+    <div className="SOCITSYLE">
+      <h2> Message:</h2>
+      <hr></hr>
+      <div className="nsegesdiv">
+      {/* <input
         placeholder="Room Number..."
         onChange={(event) => {
           setRoom("event.target.value");
         }}
       />
-      <button onClick={joinRoom}> Join Room</button>
-      <input
+      <button onClick={joinRoom}> Join Room</button> */}
+      {/* <input
         placeholder="Message..."
         onChange={(event) => {
            setMessage(event.target.value);
@@ -135,9 +139,9 @@ socket.connect()
       />
       <button onClick={sendMessage}> Send Message</button>
       <h1> Message:</h1>
-      <br></br>
+      <br></br> */}
       {/* {messageReceived} */}
-    
+      
      {messageReceived&&messageReceived.map((elem,i)=>{
       
       console.log( "kop",stateRole)
@@ -145,9 +149,10 @@ socket.connect()
       <>
 
 
-{messagesend==1 && stateRole!=1 ?
+{/* {messagesend==1 && stateRole!=1 ? */}
 
-     <div><img className="socitImage" src="./assets/images/pic2.png"/>{elem}</div>:<div><img className="socitImage" src="./assets/images/pic4.png"/>{elem}</div>}
+     <div><img className="socitImage" src="./assets/images/pic2.png"/>{elem}</div>
+     {/* :<div><img className="socitImage" src="./assets/images/pic4.png"/>{elem}</div>} */}
    
      </>
      
@@ -155,6 +160,18 @@ socket.connect()
 
      })}
       <br></br>
+      </div>
+<div className="messagSend">
+      <input className="socketText"
+        placeholder="Message..."
+        onChange={(event) => {
+           setMessage(event.target.value);
+        }}
+      />
+      <button className="btnSoct" onClick={sendMessage}> Send Message</button>
+      
+      <br></br>
+    </div>
     </div>
   );
 }

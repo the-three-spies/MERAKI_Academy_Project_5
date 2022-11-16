@@ -4,7 +4,7 @@ const About = () => {
     <div className="about-body">
       <section className="about">
         <div className="main">
-          <img src="https://res.cloudinary.com/dqsg0zf1r/image/upload/v1668097554/samples/project%205/fitrat_iNsan_wn8qlh.png"/>
+          <img  src="https://res.cloudinary.com/dqsg0zf1r/image/upload/v1668097554/samples/project%205/fitrat_iNsan_wn8qlh.png"/>
           <div className="all-text">
             <h4>About Us</h4>
             <h1>A House Of Givivig & Power Generosity</h1>
