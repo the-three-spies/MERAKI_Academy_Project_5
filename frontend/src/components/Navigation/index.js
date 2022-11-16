@@ -24,49 +24,41 @@ const Navigation = () => {
 
   return (
     <>
-{!token?<>
-    <div className="header2">
-    <div><img src="https://res.cloudinary.com/dqsg0zf1r/image/upload/v1668184372/project5/fitrat_iNsan22_x8fcjb.png"></img></div>
+      {/* {stateRole=='1'?"":<div className="header_top">
+        <div className="icon-left">
+         <span><ImClock/> 24/24 Sunday-Thursday</span> 
+        
+        </div>
+        <div className="icon-right">
+         <span> <BsFillEnvelopeFill/>fitratinsancommunity@gmail.com</span>
+         <span><BsLightbulbFill/></span>
+       <span><BsLightbulbOffFill/></span>
+        </div>
+      </div>}
+
+      {stateRole!=='1'?<div className="header2">
+    <div><img src="https://res.cloudinary.com/dqsg0zf1r/image/upload/v1668471086/fitrat_Insan_1_egi4bg.png"></img></div>
     <div className="linkhome">
       <Link to="/home"> Home</Link> 
      <Link to="/about"> Our Story </Link> 
    <Link to="/team">FAQs</Link>
    <Link to="/team">Contact us </Link>
      <Link to="/login"> login <BsPersonCircle/></Link> 
+</div>
+   </div>:""} */}
+   {
+    stateRole==3? <div className="headerneedy">
+    <Link to="/donate" className="navbar-link"> Donate Now</Link> 
+   <Link to="/mythingdonation" className="navbar-link"> My in-kind donations</Link> 
+ <Link to="/mymonydonation" className="navbar-link">My cash donations</Link>
+ <Link to="/NewSoct" className="navbar-link">Chat </Link>
 
-   </div>
-  </div>
-  </>:""}  
-
-  
-  { stateRole==3?<>
-    <div className="header2">
-    <div><img src="https://res.cloudinary.com/dqsg0zf1r/image/upload/v1668184372/project5/fitrat_iNsan22_x8fcjb.png"></img></div>
-    <div className="linkhome">
-      <Link to="/home"> Home</Link> 
-     <Link to="/donate">  Donat </Link>
-   <Link to="/team"> My Donation </Link>
-  <Link to="/signin"> log Out <BsPersonCircle/></Link> 
-  </div>
-  </div>
-  </>:""}  
-
-  {/* { isloggedin?  <> <Link to="/home"> Home</Link> 
- <Link to="/addservice"> Booking Service </Link>
-<Link to="/dashboard"> My Dashboard</Link> 
- {/* <Link to="/"> My profile</Link>  */}
- {/* <div className="logout" onClick={() => {
-    navigate("/signin"); localStorage.removeItem("token"); localStorage.removeItem("statelogin"); setisloggedin(false);settoken("");setstatelogin("")
-  }}>log out<RiUserShared2Fill/></div> </>  :"" */} 
+ </div>:""
+   }
 
   
+  
 
-{/* 
-//   stateRole==3?<div className='header'>
-//   <div><Link to="/">My in-kind Donation list </Link> </div>         
-//              <div><Link to="/"> My money donation list</Link> </div>
-//              <div><Link to="/"> Add Donation</Link>  </div> 
-//   </div>:"" */}
 
 </>    
 )

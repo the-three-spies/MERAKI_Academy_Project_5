@@ -25,11 +25,13 @@ const Login = () => {
   const [roles, setRoles] = useState("");
   const [massage, setMessage] = useState("");
   const [statusGO, setStatusGO] = useState(true);
+
   const [status, setStatus] = useState(true);
   const [role_id, srtRolrId] = useState(0);
   const [googleToken, setGoogleToken] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [num, setNum] = useState(1);
+
   const {auth ,userId,token,userName,stateRole }= useSelector((state) => {
     return {
       auth: state.auth.isLoggedIn,
@@ -41,9 +43,14 @@ const Login = () => {
   });
 
 
+
+
   const google = window.google;
   function handleCallbackResponse(response) {
     console.log("googleToken", response.credential);
+
+   
+
     var decoded = jwt_decode(response.credential);
     setGoogleToken(decoded);
     console.log("userInfo", decoded.email);
@@ -65,6 +72,7 @@ const Login = () => {
         password,
         role_id,
       })
+
       .then((result) => {
         console.log("hind");
         console.log(result);
@@ -86,6 +94,46 @@ const Login = () => {
               dispatch(setUserId(result.data.userId));
               dispatch(setSataUserName(result.data.firstName));
         dispatch(setSataRole(result.data.role))
+
+
+
+              console.log("auth", auth);
+              console.log("id", userId);
+              console.log("aut", token);
+              // console.log( "mnmn", token)
+
+              // {
+              //   navgate("/Category");
+              // }
+              console.log(roleNavigate);
+              if (roleNavigate == 1) {
+                console.log("admin");
+                navgate("/admin/dashboard");
+                {
+                }
+              } else if (roleNavigate == 2) {
+                console.log("needy");
+
+                navgate("/Showcategories")
+              } else if (roleNavigate == 3) {
+                console.log("doner");
+
+                navgate("/donate")
+              }
+            });
+
+        }
+      } else if (roleNavigate == 2) {
+        console.log("needy");
+
+         navgate("/home")
+      } else if (roleNavigate == 3) {
+        console.log("doner");
+
+        // navgate("/")
+      }
+    })
+
 
 
               console.log("auth", auth);
@@ -183,11 +231,12 @@ const Login = () => {
         dispatch(setLogin(result.data.token));
         dispatch(setUserId(result.data.userId));
         setMesage(result.data.message);
-//walaa add
-dispatch(setSataRole(result.data.role))
-dispatch(setSataUserName(result.data.firstName));
 
-//
+
+        dispatch(setSataUserName(result.data.firstName));
+        dispatch(setSataRole(result.data.role))
+
+
         console.log("auth", auth);
         console.log("id", userId);
         console.log("aut", token);
@@ -199,7 +248,7 @@ dispatch(setSataUserName(result.data.firstName));
         console.log(roleNavigate);
         if (roleNavigate == 1) {
           console.log("admin");
-          navgate("/admin");
+          navgate("/admin/dashboard");
           {
           }
         } else if (roleNavigate == 2) {

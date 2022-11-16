@@ -37,7 +37,7 @@ const Sidebar = () => {
       // icon: <UilPackage />,
     },
     {
-      title: "Contact",
+      title: "Chat",
       path: "/admin/contact",
       // icon: <UilChart/>,
     },
@@ -59,14 +59,14 @@ const Sidebar = () => {
         {SidebarData.map((e,index) => {
           return (
             <div
-              className={selcet === index ? "menuItem active" : "menuItem"}
+              className="menuItem"
               onClick={() =>{ setselcet(index);
                 navigate(e.path)
               }
               }
             >
               {/* <item.icon /> */}
-              <span>{e.title}</span>
+              <p>{e.title}</p>
             </div>
           );
         })}
