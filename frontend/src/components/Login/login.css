@@ -9,8 +9,6 @@
     /* background: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url("https://images.pexels.com/photos/6646865/pexels-photo-6646865.jpeg?auto=compress&cs=tinysrgb&w=600") ; */
     background-size: cover;
     font-family: 'Roboto', sans-serif !important;
-
-
     background: linear-gradient(rgba(17, 5, 5, 0.58), rgba(1, 1, 23, 0.58)),
   url("https://images.pexels.com/photos/271168/pexels-photo-271168.jpeg?auto=compress&cs=tinysrgb&w=600");
 background-size: cover;
@@ -75,9 +73,6 @@ background-position: center center;
 ::placeholder{
     color: white;
 }
-
-
-
 .form_login_btn{
     background: white;
     font-weight: bold;
@@ -99,7 +94,6 @@ background-position: center center;
     font-size: 20px;
     font-weight: 600;
     font-family: 'Roboto', sans-serif !important;
-    
 }
 .Form_Link{
     text-decoration: none;
@@ -123,7 +117,6 @@ datalist {
     overflow-x: hidden;
     overflow-y: auto;
   }
-  
   datalist option {
     font-size: 0.8em;
     padding: 0.3em 1em;
@@ -140,7 +133,7 @@ datalist {
     position: fixed;
     right: 0;
     top: 10px;
-    border-left: 8px solid #3ad66e;
+    border-left: 8px solid #3AD66E;
     border-radius: 4px;
 } */
 /* ALERT MESSAGE ERROR*/
@@ -156,7 +149,3 @@ datalist {
     border-left: 8px solid #FFA502;
     border-radius: 4px;
 } */
-
-
-
-
