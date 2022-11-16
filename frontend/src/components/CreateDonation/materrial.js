@@ -5,6 +5,7 @@ import { addDonationOrder } from "../../redux/reducers/doner";
 import "./style.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import Navigation from "../Navigation";
 const Material = () => {
   const imagecase=['https://res.cloudinary.com/dqsg0zf1r/image/upload/v1668430984/person2_peh2ws.png','https://res.cloudinary.com/dqsg0zf1r/image/upload/v1668431004/per4_lx4ufh.png','https://res.cloudinary.com/dqsg0zf1r/image/upload/v1668430984/person333_bqjeif.png','https://res.cloudinary.com/dqsg0zf1r/image/upload/v1668430984/pers3_op46c2.png']
   const dispatch = useDispatch();
@@ -18,6 +19,10 @@ const Material = () => {
   const [address, setaddress] = useState(null);
   const [image, setImage] = useState(null);
   const [url, setUrl] = useState("");
+  const [clickon, setclickon] = useState("");
+  const [selectedImage, setSelectedImage] = useState(null);
+
+
   const { token } = useSelector((state) => {
     return {
       token: state.auth.token,
@@ -109,7 +114,7 @@ const Material = () => {
 
   return (
     <>
-    
+    <Navigation/>
       <h1>Material Form Donation</h1>
       <h2>{cateagory.title}</h2>
 <div className="container-donate">
@@ -118,16 +123,18 @@ const Material = () => {
       {needCase &&
         needCase.map((need, i) => {
           return (
-            <div>
+            <div className="info_case">
               <p>case :{need.description}</p>
-              <img src={imagecase[i]}></img>
-              <button
+              <img className='img_case' src={imagecase[i]}></img>
+             <div> <button className={clickon==need.id?'true':""}
                 onClick={() => {
-                  setcase_id(need.id);
+                  setcase_id(need.id);setclickon(need.id)
+
                 }}
               >
-                choose Case
+              choose Case
               </button>
+              </div>
             </div>
           );
         })}
@@ -140,11 +147,23 @@ const Material = () => {
             setdeleveryDate(e.target.value);
           }}
         ></input>
+        </div>
+        <div>
         <label for="data">choose img to what you donte:</label>
         <input
           type="file"
-          onChange={(e) => setImage(e.target.files[0])}
+          onChange={(e) => {setImage(e.target.files[0])  
+             setSelectedImage(e.target.files[0]);}}
         ></input>
+        </div>
+        {selectedImage && (
+      <div className="for_donat" >
+      <img className="img_for_donat" alt="not found"  src={URL.createObjectURL(selectedImage)} />
+      <br />
+      <button className="registerbtnmove" onClick={()=>setSelectedImage(null)}>Remove</button>
+      </div>
+    )}
+        <div>
         <input
           type="text"
           placeholder="input your address"
@@ -152,6 +171,8 @@ const Material = () => {
             setaddress(e.target.value);
           }}
         ></input>
+        </div>
+        <div>
         <input
           type="text"
           placeholder="input you message about your donation"
@@ -160,15 +181,21 @@ const Material = () => {
           }}
         />
       </div>
-      <img src={url}></img>
-      <button onClick={uploadImage}> Donate Now</button>
+      {url && (
+      <div>
+<img className="spicddImg" alt="notfount"  src={url} />
+      <br />
+      <button className="registerbtnmove" onClick={()=>setImage(null)}>Remove</button>
+      </div>
+    )}
+      <button className="button" onClick={uploadImage}> Donate Now</button>
       {status
         ? message && <div className="SuccessMessage">{message}</div>
         : message && <div className="ErrorMessage">{message}</div>}
       </div>
       
       <div className="img_donat">
-          <img src="https://res.cloudinary.com/dqsg0zf1r/image/upload/v1668431477/vecteezy_donation-awareness-illustration-01_gb1120_zpkumh.jpg"></img>
+          <img src="https://res.cloudinary.com/dqsg0zf1r/image/upload/v1668536755/people-donate-food-tiny-characters-put-grocery-product-charity-box-volunteer-community-help-poor-holiday-food-drive-vector-concept_102902-4744_mjravs.webp"></img>
         </div>
         </div>
       <div><img src="https://res.cloudinary.com/dqsg0zf1r/image/upload/v1668205254/project5/Give-back_fg14vc.png"></img></div>

@@ -1,4 +1,6 @@
 import "./header.css";
+import "./header.css";
+
 import Navbar from "./navbar";
 import { useState, useEffect } from "react";
 import axios from "axios";

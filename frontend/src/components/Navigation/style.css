@@ -1,50 +1,48 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&family=Satisfy&display=swap');
 
-/* .header {
+ .header_top {
     height: 6vh;
-    background-color:#080708;
-    background-color:#847D7D; 
-    ;
+ /* background-color: #000; */
     display: flex;
     justify-content: space-around;
     align-items: center;
     padding-top: 5px;
-  } */
+  }
   
   .header2 {
+    font-size: 16px;
     display: grid;
    grid-template-columns: 1fr 2fr;
     align-items: center;
     justify-content:space-between;
-    height: 13vh;
-    padding-bottom: 10px;
-    background-color: #F8BDC1;
+    height: 12vh;
+    /* padding-bottom: 10px; */
+    background-color: black;
+    /* background-color: #F8BDC1; */
     /* background-color: #FFDCBA; */
   
     column-gap: 0.1vw;
+    opacity: 0.9;
   }
   .header2 img{
-  height:13vh;
+  height:12vh;
   width: 10vw;
   }
   
   .linkhome {
-  display: grid;
+  /* display: grid;
   font-family:'Roboto', sans-serif;
   font-weight: 500;
-  font-size: calc(1rem + 0.8vw);
+  font-size: calc(0.7rem + 0.6vw);
   grid-template-columns: 1fr 1fr 1fr 2fr 1fr ;
   justify-content: center;
   align-items: center;
-  column-gap: 2vw;
+  column-gap: 2vw; */
+  /* background-color: #000; */
   }
- a{
+ /* a{
     color: #fff; 
-    /* color: #847D7D; */
-    /* color:  #FF2E21; */
-    color:#382B2C;
-    color: #785B5D;
-    color: #664E4F;
+  color: #fff;
   text-decoration: underline;
   justify-content: center;
   align-self: center;
@@ -53,4 +51,4 @@
   text-decoration: none;
   font-family:'Roboto', sans-serif;
 
-  }
+  } */
