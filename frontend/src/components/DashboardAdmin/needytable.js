@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import axios from "axios"
 import "./style.css"
 import { useState, useEffect } from 'react'
+import Sidebar from './Sidebar'
 //===============================================================
 
 const NeedCase = () => {
@@ -38,7 +39,8 @@ const NeedCase = () => {
 
     return (
         <>
-            <div className='container_tabel'></div>
+       
+            <div className='container_tabel'>
             <h1>All Needy Cases</h1>
             <table>
                 <tr></tr><th># num </th> <th>user Name</th> <th>Help Order </th> <th> Section Name </th> <th> Status of Order</th> <th> Amount Needed</th><th> Amount Donation</th><th> Reset</th> <th> Address</th>  <th> Address</th> 
@@ -58,7 +60,7 @@ const NeedCase = () => {
                 
             </table>
 
-            <div>{message ? <p>{message}</p> : ""}</div>
+</div>
         </>
     )
 }

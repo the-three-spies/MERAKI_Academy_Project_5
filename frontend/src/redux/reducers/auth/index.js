@@ -5,8 +5,10 @@ export const authSlice = createSlice({
     token:localStorage.getItem("token")||null,
     userId:localStorage.getItem("userId")||null,
     isLoggedIn:localStorage.getItem("token")?true:false,
+
     stateRole:localStorage.getItem("stateRole")||null,// add walaa
     userName:localStorage.getItem("UserName")||null
+
   },
   reducers: {
     setLogin: (state, action) => {

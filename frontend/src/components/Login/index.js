@@ -112,17 +112,17 @@ axios.post(`http://localhost:5000/register`, {
               console.log(roleNavigate);
               if (roleNavigate == 1) {
                 console.log("admin");
-                // navgate("/");
+                navgate("/admin/dashboard");
                 {
                 }
               } else if (roleNavigate == 2) {
                 console.log("needy");
 
-                navgate("/home");
+                navgate("/Showcategories")
               } else if (roleNavigate == 3) {
                 console.log("doner");
 
-                // navgate("/")
+                navgate("/donate")
               }
             });
 
@@ -220,6 +220,7 @@ google?.accounts.id.renderButton(
         dispatch(setSataUserName(result.data.firstName));
         dispatch(setSataRole(result.data.role))
 
+
         console.log("auth", auth);
         console.log("id", userId);
         console.log("aut", token);
@@ -232,7 +233,7 @@ google?.accounts.id.renderButton(
         console.log(roleNavigate);
         if (roleNavigate == 1) {
           console.log("admin");
-          navgate("/admin");
+          navgate("/admin/dashboard");
           {
           }
         } else if (roleNavigate == 2) {
