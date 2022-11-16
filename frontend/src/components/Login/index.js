@@ -10,6 +10,7 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setLogin, setLogout, setSataRole, setUserId ,setSataUserName} from "../../redux/reducers/auth";
 
+
 //===============================================================
 
 const Login = () => {
@@ -24,9 +25,12 @@ const Login = () => {
   const [roles, setRoles] = useState("");
   const [massage, setMessage] = useState("");
   const [statusGO, setStatusGO] = useState(true);
-  const[status,setStatus]=useState(true)
-  const[role_id,srtRolrId]=useState(0)
-const [googleToken,setGoogleToken]=useState("")
+
+  const [status, setStatus] = useState(true);
+  const [role_id, srtRolrId] = useState(0);
+  const [googleToken, setGoogleToken] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [num, setNum] = useState(1);
 
   const {auth ,userId,token,userName,stateRole }= useSelector((state) => {
     return {
@@ -39,9 +43,12 @@ const [googleToken,setGoogleToken]=useState("")
   });
 
 
-    const google = window.google
-  function  handleCallbackResponse(response){
-    console.log("googleToken",response.credential)
+
+  const google = window.google;
+  function handleCallbackResponse(response) {
+    console.log("googleToken", response.credential);
+
+   
     var decoded = jwt_decode(response.credential);
 setGoogleToken(decoded)
 console.log("userInfo", decoded.email);
@@ -70,43 +77,55 @@ axios.post(`http://localhost:5000/register`, {
         password,
       role_id,
       })
-    .then((result)=>{
-      console.log("hind")
-      console.log(result)
-      console.log(result.data.success)
-//console.log("result",result.data.result)
-if (result.data.success) {
-    setStatus(true);
-    setMessage("The user has been created successfully");
-    
 
-    axios
-    .post(`http://localhost:5000/login/`, {
-      email:googleToken.email,
-      password,
-    })
-    .then((result) => {
-      console.log("m", result.data);
-      let roleNavigate = result.data.role;
-      dispatch(setLogin(result.data.token));
-      dispatch(setUserId(result.data.userId));
-      dispatch(setSataUserName(result.data.firstName));
-      dispatch(setSataUserName(result.data.firstName));
-      dispatch(setSataRole(result.data.role))
-      console.log("auth", auth);
-      console.log("id", userId);
-      console.log("aut", token);
-      console.log("aut", token);
-      // console.log( "mnmn", token)
+      .then((result) => {
+        console.log("hind");
+        console.log(result);
+        console.log(result.data.success);
+        //console.log("result",result.data.result)
+        if (result.data.success) {
+          setStatus(true);
+          setMessage("The user has been created successfully");
 
-      // {
-      //   navgate("/Category");
-      // }
-      console.log(roleNavigate);
-      if (roleNavigate == 1) {
-        console.log("admin");
-        // navgate("/");
-        {
+          axios
+            .post(`http://localhost:5000/login/`, {
+              email: googleToken.email,
+              password,
+            })
+            .then((result) => {
+              console.log("m", result.data.role);
+              let roleNavigate = result.data.role;
+              dispatch(setLogin(result.data.token));
+              dispatch(setUserId(result.data.userId));
+              dispatch(setSataUserName(result.data.firstName));
+        dispatch(setSataRole(result.data.role))
+
+
+              console.log("auth", auth);
+              console.log("id", userId);
+              console.log("aut", token);
+              // console.log( "mnmn", token)
+
+              // {
+              //   navgate("/Category");
+              // }
+              console.log(roleNavigate);
+              if (roleNavigate == 1) {
+                console.log("admin");
+                // navgate("/");
+                {
+                }
+              } else if (roleNavigate == 2) {
+                console.log("needy");
+
+                navgate("/home");
+              } else if (roleNavigate == 3) {
+                console.log("doner");
+
+                // navgate("/")
+              }
+            });
+
         }
       } else if (roleNavigate == 2) {
         console.log("needy");
@@ -197,9 +216,10 @@ google?.accounts.id.renderButton(
         dispatch(setUserId(result.data.userId));
         
         setMesage(result.data.message);
+
         dispatch(setSataUserName(result.data.firstName));
         dispatch(setSataRole(result.data.role))
-//
+
         console.log("auth", auth);
         console.log("id", userId);
         console.log("aut", token);
