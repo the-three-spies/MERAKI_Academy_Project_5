@@ -14,6 +14,18 @@ const Header = () => {
   const [toggle, setToggle] = useState(false);
   const [showLoginLogout, setShowLoginLogout] = useState(false);
   //useSelector
+  const {auth ,userId,token,userName,stateRole ,isLoggedIn}= useSelector((state) => {
+    return {
+      auth: state.auth.isLoggedIn,
+      userId: state.auth.userId,
+      token: state.auth.token,
+      userName:state.auth.userName,
+      stateRole:state.auth.stateRole,
+      isLoggedIn:state.auth.isLoggedIn,
+    };
+  });
+  //useDispatch
+  const dispacth = useDispatch()
   //------------- search bar -------------
   const search = () => {};
 //------------- 2. show Login Logout -------------
@@ -45,21 +57,23 @@ const Header = () => {
         <Link to="/ourStory" className="navbar-link" onClick={()=>{setToggle(false)}}>Our Story</Link>
         <Link to="/ourTeam" className="navbar-link" onClick={()=>{setToggle(false)}}>Our Team</Link>
         <Link to="/FAQs" className="navbar-link" onClick={()=>{setToggle(false)}}>FAQs</Link>
+        <Link to="/ApiPag" className="navbar-link" onClick={()=>{setToggle(false)}}>Api Pag</Link>
           {/* <li onClick={()=>{setToggle(false)}} className="navbar-link">FAQs</li> */}
         </ul>
       </nav>
       {/* ----login logout---- */}
+      {!isLoggedIn ?
       <div className="header-top-links-inout">
       {/* {showLoginLogout ? (onClick={showLoginLogoutHandler}):(onClick={showLoginLogoutHandler})} */}
           <Link to="/login" className="header-top-link">
             {/* <i className="bi bi-person"></i> */}
             Login
           </Link>
-          {/* <Link to="/register" className="header-top-link">
-            logout
-          </Link> */}
+          <Link to="/register" className="header-top-link">
+            Register
+          </Link>
         </div>
-
+: <div> <Link to="/login" onClick={()=>{ dispacth(setLogout())}} > Logout</Link></div>}
       <div onClick={()=> setToggle(prev=>!prev)} className="header-menu">
         {toggle ?<i className="bi bi-x-lg"></i>: <i className="bi bi-list"></i>}
       </div>

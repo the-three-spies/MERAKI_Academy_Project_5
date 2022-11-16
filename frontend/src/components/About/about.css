@@ -19,6 +19,7 @@
 
 .about-body{
     font-family: 'Dosis', sans-serif;
+    
 }
 .about{
     height: 100vh;
@@ -64,7 +65,7 @@
 }
 .all-text p{
     font-family: 'Roboto', sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     color:#777777;
     line-height: 30px;
     margin-bottom: 35px;

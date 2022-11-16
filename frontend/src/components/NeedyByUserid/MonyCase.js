@@ -2,7 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import "./style.css"
+// import "./style.css"
+import './needyByUserId.css'
 import {
   setNeedyCase,
   addNeedyCase,
@@ -120,37 +121,65 @@ console.log("hind")
     gitThingsCaseToUser()
   }, []);
   const navigate = useNavigate();
-  //---------------- return ----------------
+  //----------------DESIGIN return DESIGIN----------------
   return (
-   // <div className="mainMonyDispayCatigory">
+        <div  className="case_order_summery">
+          <h1>YOUR MONEY ORDER</h1>
+          {/* <div className="caseorder-summery-title"> YOUR MONEY ORDER </div> */}
+       {mony&&mony.map((element, i) => {
+         return (
+           <div className="maiDivMonyTow">
+                <div class="order_item">
+                <p><span>{element.description}</span></p>
+      <p><span>Amout</span> <span>${element.amount}</span></p>
+      <hr></hr>
+      <p><span>Rest</span> <span>${element.rest}</span></p>
+      <hr></hr>
+      <p><span>Donate Amout</span> <span>${element.donation_amount}</span></p>
+      <hr></hr>
+      <p><span> status</span> <span>{element.statusdonation}</span></p>
+      <hr></hr>
+      <p><span> </span> <span><button onClick={()=>{deleteCase(element.id)}}  ><i class="bi bi-trash-fill"></i></button></span></p>
       
-       <div  className="secandMmainMonyDispayCatigory">
-      {mony&&mony.map((element, i) => {
-        return (
-          <div className="firstmone">
-            <div >
-
-             <img className="imgCategoryMomy"  src="./assets/images/pic5.png" alt="thinhimg"></img>
-             </div>
-             <div>
-            <p><h1>Category:{element.title}</h1></p>
-
-            <hr></hr>
-            <p className="decshowcatigory"> <h4>Description:</h4> {element.description}</p>
-            <p><h4>Amount:</h4>{element.amount}</p>
-            <p><h4>Rest:</h4> {element.rest}</p>
-           
-            <p><h4>Donation Amount:</h4>{element.donation_amount}</p>
-            <p>{element.statusdonation}</p>
-            <button className="ptndeletCase" onClick={()=>{deleteCase(element.id)}}>Delete</button>
-            {/* <button onClick={()=>{convertCaseUnactive(element.id)}} >It was received</button> */}
-          </div>
-          </div>
-        );
-      })}
     </div>
-    //</div>
-  );
+    <div className="divImageMonynew   plus"><img src="./assets/images/pic5.png" ></img></div>
+            
+           </div>
+           
+         );
+       })}
+     </div>
+   );
+
+
+  //----------------DESIGIN return DESIGIN----------------
+  //---------------- return ----------------
+  // return (
+  //      <div  className="secandMmainMonyDispayCatigory">
+  //     {mony&&mony.map((element, i) => {
+  //       return (
+  //         <div className="firstmone">
+  //           <div >
+
+  //            <img className="imgCategoryMomy"  src="./assets/images/pic5.png" alt="thinhimg"></img>
+  //            </div>
+  //            <div>
+  //           <p><h1>Category:{element.title}</h1></p>
+
+  //           <hr></hr>
+  //           <p className="decshowcatigory"> <h4>Description:</h4> {element.description}</p>
+  //           <p><h4>Amount:</h4>{element.amount}</p>
+  //           <p><h4>Rest:</h4> {element.rest}</p>
+           
+  //           <p><h4>Donation Amount:</h4>{element.donation_amount}</p>
+  //           <p>{element.statusdonation}</p>
+  //           <button className="ptndeletCase" onClick={()=>{deleteCase(element.id)}}>Delete</button>
+  //         </div>
+  //         </div>
+  //       );
+  //     })}
+  //   </div>
+  // );
 };
 
-export default NeedyMonyByUserId;
+export default NeedyMonyByUserId

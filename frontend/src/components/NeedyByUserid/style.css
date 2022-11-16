@@ -1,4 +1,4 @@
-.mainMonyDispayCatigory{
+/* .mainMonyDispayCatigory{
 display: grid;
 flex-wrap: wrap;
 grid-template-columns: 1fr 1fr;
@@ -29,7 +29,6 @@ h4{
     display: grid;
     flex-wrap: wrap;
     grid-template-columns: 1fr 1fr; 
-    /* border: 2px red solid; */
     border: 2px pink solid;
     height: 420px;
 }
@@ -58,4 +57,4 @@ width: 95%;
   width: 95%;
 
 
-}
+} */

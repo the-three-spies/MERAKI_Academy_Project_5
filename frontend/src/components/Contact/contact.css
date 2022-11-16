@@ -4,6 +4,7 @@
     font-family: "poppins", sans-serif;
     min-height: 100Vh;
     background: url('https://res.cloudinary.com/dqsg0zf1r/image/upload/v1668097554/samples/project%205/fitrat_iNsan_wn8qlh.png');
+    /* background-color: gray ; */
     background-size: cover;
     display: flex;
     justify-content: center;
@@ -16,7 +17,7 @@
     align-items: center;
 }
 .contact-info{
-    color: #fff;
+    color: #111111; ;  /*#fff*/
     max-width: 500px;
     line-height: 65px;
     padding-left: 50px;
@@ -34,20 +35,20 @@
     flex: 1;
 }
 .contact-form h2{
-    color: #fff;
+    color: #111111 ; /*hsl(0, 0%, 96%)*/
     text-align: center;
     font-size: 35px;
     text-transform: uppercase;
     margin-bottom: 30px;
 }
 .contact-form .text-boxx{
-    background: #000;
-    color: #fff;
+    background: #fff;
+    color: black;
     border: none;
     width: calc(50% - 10px);
     height: 50px;
     padding: 12px;
-    font-size: 15px;
+    font-size: 17px;
     border-radius: 5px;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
@@ -57,12 +58,12 @@
     margin-right: 15px;
 }
 .contact-form textarea{
-    background: #000;
-    color: #fff;
+    background: #fff;
+    color: black;
     border: none;
     width: 100%;
     padding: 12px;
-    font-size: 15px;
+    font-size: 17px;
     min-height: 200px;
     max-height: 400px;
     resize: vertical;
@@ -71,9 +72,21 @@
     margin-bottom: 20px;
     opacity: 0.9;
     resize: none;
+    outline: none;
 }
+.text-boxx::placeholder { 
+    color: black;
+    opacity: 1;
+  }
+.textarea::placeholder { 
+    color: black;
+    opacity: 1;
+  }
+  textarea::-webkit-input-placeholder {
+    color: black;
+  }
 .contact-form .send-btn{
-    background: white;
+    background: #FFF5EB;
     padding: 20px 32px;
     font-size: 16px;
     font-weight: bold;
@@ -89,13 +102,13 @@
 .contact-form .send-btn:hover{
     /* background: #545454; */
     background-color: #292929;
-    color: white;
+    color: #FFF5EB;
     transition: .3s;
     cursor: pointer;
 }
 .contact-form .send-btn{
-    background: #111111;
-    color: white;
+    background: #f5f5f5;
+    color: #111111;
 }
 /* ALERT MESSAGE SUCCESS*/
 .alert-success{
