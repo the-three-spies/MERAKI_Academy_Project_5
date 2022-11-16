@@ -68,6 +68,7 @@ function NewSoct() {
   const [message, setMessage] = useState("");
   const [messageReceived, setMessageReceived] = useState([]);
   const [messagesend, setMessageSend] = useState("");
+  const [info, setInfo] = useState([]);
   const joinRoom = () => {
     // setRoom("Admin")
     if (room === "") {
@@ -79,8 +80,10 @@ function NewSoct() {
   },[])
 
   const sendMessage = () => {
-    socket.emit("send_message", { message, room,userId,stateRole,userName});
-    setMessageSend(stateRole)
+    socket.emit("send_message", { message, room,userId,stateRole,userName,src:"./assets/images/pic2.png"});
+    setMessageSend(userId)
+    
+    console.log("sender",userId)
   };
   let newArray=[]
 
@@ -88,6 +91,10 @@ function NewSoct() {
      
     newArray.push(data.message)
     setMessageReceived([...messageReceived,data.userName,data.message]);
+    setInfo([data.userName,data.message,data.userId,data.stateRole])
+    console.log("new", info)//,data.userId,data.stateRole
+
+    console.log("rceved",data.userId)
     //console.log(newArray)
    //// setMessageReceived(data.message);
     // {messageReceived.map((elem)=>{
@@ -117,50 +124,34 @@ function NewSoct() {
   useEffect(() => {
 
 socket.connect()
-
+// console.log("mmmmmmmjjhjhj",messageReceived)
   },[])
   return (
     <div className="SOCITSYLE">
       <h2> Message:</h2>
       <hr></hr>
-      <div className="nsegesdiv">
-      {/* <input
-        placeholder="Room Number..."
-        onChange={(event) => {
-          setRoom("event.target.value");
-        }}
-      />
-      <button onClick={joinRoom}> Join Room</button> */}
-      {/* <input
-        placeholder="Message..."
-        onChange={(event) => {
-           setMessage(event.target.value);
-        }}
-      />
-      <button onClick={sendMessage}> Send Message</button>
-      <h1> Message:</h1>
-      <br></br> */}
-      {/* {messageReceived} */}
+      {
+      messageReceived&&messageReceived.map((elem)=>{
+        console.log("mmmm",messageReceived[2])
+        console.log("mmmmmmmjjhjhj",messagesend)
+        if(messagesend !==info[2]){
+         return <div className="bhbh">
+          <img className="socitImage" src="./assets/images/pic2.png"></img>
+          {elem}
+          
+          </div>
+        }else if(messagesend ==info[2]){
+        return  <div>
+          <img className="socitImage" src="./assets/images/pic5.png"></img>
+          {elem}
+          
+          </div>
+        }
+
+
+      })
       
-     {messageReceived&&messageReceived.map((elem,i)=>{
-      
-      console.log( "kop",stateRole)
-     return(
-      <>
-
-
-{/* {messagesend==1 && stateRole!=1 ? */}
-
-     <div><img className="socitImage" src="./assets/images/pic2.png"/>{elem}</div>
-     {/* :<div><img className="socitImage" src="./assets/images/pic4.png"/>{elem}</div>} */}
-   
-     </>
-     
-     )
-
-     })}
-      <br></br>
-      </div>
+      }
 <div className="messagSend">
       <input className="socketText"
         placeholder="Message..."
