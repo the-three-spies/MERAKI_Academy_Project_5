@@ -30,6 +30,7 @@ const AddNeedy = ({ id }) => {
   const [catogeyStatus,SetcatogeyStatus]=useState(true);
   const [latitude, setLatitude] = useState("");
   const [longitude, setLongitude] = useState("");
+  const [newAdress,setNewAdress]=useState("")
   const { reduxaddnewneddy } = useSelector((state) => {
     return {
       reduxaddnewneddy: state.needy.needy,
@@ -68,11 +69,17 @@ cat()
     console.log("kpoint",API_finalendpoint)
     axios.get(`${API_endPoint}lat=${latitude}&lon=${longitude}&appid=${API_key}&lang=${longitude}`).then((result)=>{
       console.log("m",result)
+      setNewAdress(result.data.name)
+      console.log("new",result.data.name)
+      console.log("new",newAdress)
     }).catch((err)=>{
       console.log(err)
     })
-    
+   
   }, [latitude,longitude]);
+  const AdderssfromGoogleLocation=()=>{
+    setAddress(newAdress)
+  }
   //---------------- handleNeedyCase ----------------
   const handleNeedyCase = async (e) => {
     
@@ -177,7 +184,7 @@ cat()
                 }}
                 type="text"
                 placeholder="Enter you Address"
-                
+                value={address}
                 required
               ></input>
               <br></br>
@@ -199,7 +206,7 @@ cat()
               ></textarea>
          <br></br>
          <button className="adddonationDEveyThingBtn" onClick={handleNeedyCase}>create</button>
-
+         <button onClick={ AdderssfromGoogleLocation} className="adddonationDEveyThingBtn" >Adress From Google</button>
 {/* </div> */}
 
 
@@ -240,6 +247,7 @@ cat()
       ></textarea>
       <br></br>
       <button className="adddonationDEveyThingBtn" onClick={handleNeedyCase}>create</button>
+     
       {message}
       </div>
       <div>

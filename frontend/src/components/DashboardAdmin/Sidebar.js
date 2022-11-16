@@ -61,7 +61,7 @@ const Sidebar = () => {
             <div
               className={selcet === index ? "menuItem active" : "menuItem"}
               onClick={() =>{ setselcet(index);
-                // navigate(e.path)
+                navigate(e.path)
               }
               }
             >
