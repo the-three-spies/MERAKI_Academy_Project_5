@@ -25,11 +25,11 @@
     display: grid;
     height: 97%;
     width: 97%;
-    border-radius: 2rem;
+    /* border-radius: 2rem; */
     gap: 16px;
     grid-template-columns: 11rem auto 10rem;
     overflow: hidden;
-    border-radius: 2px;
+    /* border-radius: 2px; */
 
   }
   .slid {
@@ -39,7 +39,9 @@
     padding-top: 4rem;
     background-color: #040807;
     color: #fff;
+    
   }
+
   .menuItem:hover {
     cursor: pointer;
   }
@@ -48,6 +50,7 @@
     position: absolute;
     bottom: 2.3rem;
     width: 100%;
+    height: 15vh
   }
   
   .active {
@@ -74,10 +77,10 @@
   table {
     width:100%;
     border-collapse: collapse;
-    height: 100vh;;
+    height: 60vh;;
       }
       table th{
-          font-size: calc(0.5rem+0.5vh);
+          font-size: calc(0.5rem+0.3vh);
           background-color:#080708;
           /* background-color: #1E3888; */
           color: #fff;
@@ -110,3 +113,7 @@
     .container_admin_dash{
     }    
     
+    .menuItem{
+      height: 13vh;
+padding-left: 10px;
+    }

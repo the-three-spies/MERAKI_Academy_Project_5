@@ -43,8 +43,22 @@ const donerSlice=createSlice({
         setIDCateogory:(state,action)=>
         {
             state.cateagory=action.payload
-        }
+        },
+        setMoneyDonation:(state,action)=>
+        {
+            state.donation=state.donation.filter((element,i)=>
+            {
+                return element.category_id=='3'
+            })
+        },
+        setMaterialDonation:(state,action)=>
+        {
+            state.donation=state.donation.filter((element,i)=>
+            {
+                return element.category_id!=='3'
+            })
+        },
     }
 })
-export const {setDonationOrder,addDonationOrder,updatDonationOrder,deleteDonationOrder,setIDCateogory}=donerSlice.actions
+export const {setDonationOrder,addDonationOrder,updatDonationOrder,deleteDonationOrder,setMoneyDonation,setIDCateogory,setMaterialDonation}=donerSlice.actions
 export default donerSlice.reducer

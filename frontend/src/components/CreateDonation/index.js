@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useDispatch} from "react-redux";
+import Navigation from "../Navigation";
 import { setIDCateogory } from "../../redux/reducers/doner";
 import "./style.css";
 const DonationOrder = () => {
@@ -45,6 +46,8 @@ const DonationOrder = () => {
   }, []);
   //===============================================================
   return (
+    <>
+    {/* <Navigation/> */}
     <div className="aonate_body_donate">
       <div className="donate_card_category_container">
         {donationCategory.length  &&
@@ -73,6 +76,7 @@ const DonationOrder = () => {
           ))}
       </div>
     </div>
+    </>
   );
 
 

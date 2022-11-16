@@ -18,7 +18,8 @@ import CardCategory from './components/CardCategory/CardCategory'
 import OurTeam from './components/OurTeam/OurTeam'
 import FAQs from './components/FAQs/FAQs'
 
-
+import MaterialDonation from "./components/DashboardDoner/Material";
+import MoneyDonationList from "./components/DashboardDoner/Money";
 
 
 
@@ -27,7 +28,7 @@ import FAQs from './components/FAQs/FAQs'
 
 
 import DonationOrder from "./components/CreateDonation";
-import MyDonationList from "./components/DashboardDoner";
+// import MyDonationList from "./components/DashboardDoner";
 
 import Banner from './components/Banner/Banner'
 import About from "./components/About/About";
@@ -73,6 +74,12 @@ import MainDashboard from "./components/DashboardAdmin/MainDashboard";
 
 import ApiPagination from "./components/ApiPganation";
 
+import SlidCenter from "./components/Home";
+import Events from "./components/DashboardAdmin/Events";
+
+import SetImages from "./components/Banner/SetImages";
+
+
 
 
 
@@ -90,7 +97,11 @@ function App() {
   return (
    
   <div className="App">
-    {/* <Navigation/> */}
+
+ 
+{/* <SlidCenter/> */}
+{/* <Navigation/> */}
+
 
      {/* {stateRole!='1'?<Navigation />:<Sidebar/>}  */}
 
@@ -98,15 +109,15 @@ function App() {
 
 <Routes>
 
-<Route path="/register" element={<Register/>}></Route> 
+{/* <Route path="/register" element={<Register/>}></Route>  */}
 
 {/* <Route path="/login" element={<Login/>}></Route> */}
 {/* {/*  */}
 
 
-<Route path="" element></Route>
+{/* <Route path="" element></Route>
 
-<Route path="" element></Route>
+<Route path="" element></Route> */}
  
  
  
@@ -154,15 +165,21 @@ ApiPagination
 
 
 
-<Route path="/donate" element={<><DonationOrder/><Banner/><Footer/></>}/>
-<Route path="/mydonation" element={<><Header/><MyDonationList/><Footer/></>}></Route>
+<Route path="/donate" element={<><Header/><DonationOrder/><Banner/><Footer/></>}/>
+{/* <Route path="/mydonation" element={<><Header/><MyDonationList/><Footer/></>}></Route> */}
 <Route path="/materialdonation/:id" element={<><Material/></>}/>
 <Route path="/monydonation/:id" element={<><Money/></>}/>
+<Route path="/mymonydonation" element={<><Header/> <Navigation/><MoneyDonationList/><Footer/></>}></Route>
+<Route path="/mythingdonation" element={<><Header/><Navigation/>< MaterialDonation/><Footer/></>}></Route>
 
- <Route path="/admin" element={<AdminPanel/>}>
-  <Route path="/admin/dashboard" element={<MainDashboard/>}/>
- </Route>
+<Route path="/NewSoct" element={<><NewSoct/></>}  ></Route>
 
+ {/* <Route path="/admin" element={<AdminPanel/>}/> */}
+  <Route path="/admin/dashboard" element={<AdminPanel/>}/>
+  <Route path="/admin/events" element={<Events/>}/>
+  <Route path="/admin/needy_case" element={<MainDashboard/>}/>
+  <Route path="/admin/donation_order" element={<MainDashboard/>}/>
+  <Route path="/admin/donation_order" element={<MainDashboard/>}/>
 
 
 

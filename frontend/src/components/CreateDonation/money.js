@@ -3,6 +3,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 import "./style.css";
 import { useDispatch, useSelector } from "react-redux";
 import { addDonationOrder } from "../../redux/reducers/doner";
+import Navigation from '../Navigation';
 import axios from 'axios';
 import { useState,useEffect } from 'react';
 const Money = () => {
@@ -13,7 +14,7 @@ const Money = () => {
   const [description, setdescription] = useState("")
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState(false);
-  const [clickon, setclickon] = useState()
+  const [clickon, setclickon] = useState("")
   const dispatch = useDispatch();
   const {token} = useSelector((state) => {
     return {
@@ -88,6 +89,8 @@ const Money = () => {
 
   return (
     <>
+        <Navigation/>
+
     <h1>Money form Donation</h1>
       <div className="container-donate">
        <div className="adddonate">
@@ -109,10 +112,11 @@ const Money = () => {
             </button> </div> )})}
             </div>
 
-    <div> <input type="number" placeholder="input you money would you donation" min="1" max="50" className='input' onChange={(e)=>{setamount(e.target.value)}}/>
-    <input type="text" placeholder="input you message about your donation"onChange={(e)=>{setdescription(e.target.value)}}/> 
-    <button onClick={handelDonate}> Donate Now</button>
-    </div>
+    <div className='info_donate'><label>input you money would you donation</label> <input type="number" placeholder="$" min="1" max="50"  onChange={(e)=>{setamount(e.target.value)}}/></div>
+    <div>
+    <label>write a message if you wante about you dination</label><input type="text" placeholder=" your message about your donation"onChange={(e)=>{setdescription(e.target.value)}}/> </div>
+    <div><button className="button" onClick={handelDonate}> Donate Now</button></div>
+    
     {status
         ? message && <div className="SuccessMessage">{message}</div>
         : message && <div className="ErrorMessage">{message}</div>}
