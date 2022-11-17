@@ -1,5 +1,5 @@
 import "./App.css";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes,Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Register from "./components/Register";
 import Login from "./components/Login";
@@ -21,7 +21,7 @@ import FAQs from './components/FAQs/FAQs'
 import MaterialDonation from "./components/DashboardDoner/Material";
 import MoneyDonationList from "./components/DashboardDoner/Money";
 
-
+import "@stripe/stripe-js";
 
 
 
@@ -78,6 +78,10 @@ import SlidCenter from "./components/Home";
 import Events from "./components/DashboardAdmin/Events";
 
 import SetImages from "./components/Banner/SetImages";
+
+import Checkout from "./components/payMent/Checkout";
+import Success from "./components/payMent/Success";
+import Cancel from "./components/payMent/Cancel";
 
 
 
@@ -142,6 +146,9 @@ function App() {
 <Route path="/FAQs"element={<><Header/><FAQs/><Footer/></>}/>
 <Route path="AddNeedy2/:id"element={<><Header/><AddNeedy2/><Footer/></>}></Route>
 <Route path="/ourStory"element={<><Header/><OurStory/><OurTeam/><Banner/><Footer/></>}/>
+<Route exact path="/" element={<Navigate replace to="/home" />}>
+   </Route>
+
 
 
 
@@ -149,10 +156,9 @@ NeedyMonyByUserId
 <Route path="/NeedyMonyByUserId"element={<><Header/><NavbarNew/><NeedyMonyByUserId/><Footer/></>}/>
 <Route path="/NewSoct" element={<><NewSoct/></>}  ></Route>
 <Route path="/ApiPag" element={<><Header/><ApiPagination/><Footer/></>}  ></Route>
-ApiPagination
-
+<Route path="/check" element={<Checkout />} />
  {/* 
- <Route path="/" element={<NewSoct/>}  ></Route>
+
 
  <Route path="" element={<Login/>}></Route>
 
@@ -200,7 +206,8 @@ ApiPagination
 } */}
  
  
-
+ <Route path="success" element={<Success />} />
+          <Route path="cancel" element={<Cancel />} />
 
 </Routes>
 
