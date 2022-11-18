@@ -167,8 +167,8 @@ ApiPagination
 
 <Route path="/donate" element={<><Header/><DonationOrder/><Banner/><Footer/></>}/>
 {/* <Route path="/mydonation" element={<><Header/><MyDonationList/><Footer/></>}></Route> */}
-<Route path="/materialdonation/:id" element={<><Material/></>}/>
-<Route path="/monydonation/:id" element={<><Money/></>}/>
+<Route path="/materialdonation/:id" element={<><Header/><Navigation/><Material/><Footer/></>}/>
+<Route path="/monydonation/:id" element={<><Header/><Navigation/><Money/><Footer/></>}/>
 <Route path="/mymonydonation" element={<><Header/> <Navigation/><MoneyDonationList/><Footer/></>}></Route>
 <Route path="/mythingdonation" element={<><Header/><Navigation/>< MaterialDonation/><Footer/></>}></Route>
 

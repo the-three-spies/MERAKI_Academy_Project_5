@@ -167,7 +167,7 @@ const AddNeedy2 = ({ id }) => {
       <h2>post here what you need</h2>
       <h2>And we will hear you</h2>
       <form className="add_needy" action="" method="post">
-        <input type="text_add_needy" name="name" className="text_box_add_needy" placeholder="The anout" onChange={(e) => {
+        <input type="text_add_needy" name="name" className="text_box_add_needy" placeholder="The amout" onChange={(e) => {
                 setAmount(e.target.value);
               }}   required/>
         <textarea name="message" rows="5" placeholder="description your case" onChange={(e) => {
