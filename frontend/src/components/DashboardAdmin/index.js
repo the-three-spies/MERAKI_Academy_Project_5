@@ -1,17 +1,15 @@
 import React from 'react'
-import "./style.css";
-// import { Outlet } from 'react-router-dom';
-// import Navigation from '../Navigation';
+import Maindashboard from './Maindash';
 import Sidebar from './Sidebar';
-import MainDashboard from './MainDashboard';
-// import Calender from './Calender';
+import "./style.css";
 const AdminPanel = () => {
   return (
     <>
     <div className='admin_panal'>
       <div className='container_panel'>
-<Sidebar/>
-<MainDashboard/>
+        <Sidebar/>
+        <Maindashboard/>
+        
       </div>
       </div>
     </>

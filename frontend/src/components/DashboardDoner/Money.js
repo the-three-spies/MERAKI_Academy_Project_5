@@ -1,43 +1,23 @@
 import React from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect,useState } from "react";
-import { setDonationOrder,deleteDonationOrder, updatDonationOrder,setMaterialDonation} from "../../redux/reducers/doner";
+import { deleteMoneyoderr, setDonationMoney} from "../../redux/reducers/doner";
 import axios from "axios";
  
  //===============================================================
 const MoneyDonationList = () => {
   const dispatch = useDispatch();
-  // const { donation } = useSelector((state) => {
-  //   return {
-  //     donation: state.donation.donation,
-  //   };
-  // });
+  const { moneyDonation} = useSelector((state) => {
+    return {
+      moneyDonation: state.donation.moneyDonation,
+    };
+  });
   const {token} = useSelector((state) => {
     return {
       token: state.auth.token,
     };
   });
     const [Message, setMessage] = useState("");
-    const [moneyDonation, setmoneyDonation] = useState([])
-       //===============================================================
-       const getmydonation = async () => {
-        try {
-          const result = await axios.get("http://localhost:5000/dontes/myDonition", {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          });
-          if (result.data.success) {
-          dispatch(setDonationOrder(result.data.result));
-            setMessage("");
-          } else throw Error;
-        } catch (error) {
-          if (error.response && error.response.data)  {
-            return setMessage(error.response.data.message);
-          }
-          setMessage("Error happened while Get Data, please try again");
-        }
-      };
        //==================================================================
     const getmyMoneyonation = async () => {
       try {
@@ -47,7 +27,7 @@ const MoneyDonationList = () => {
           },
         });
         if (result.data.success) {
-          setmoneyDonation(result.data.cases)
+          dispatch(setDonationMoney(result.data.cases))
           setMessage("");
         } else throw Error;
       } catch (error) {
@@ -62,7 +42,7 @@ const MoneyDonationList = () => {
   try {
     const result = await axios.delete(`http://localhost:5000/dontes/${id}`)
     if (result.data.success) {
-    dispatch(deleteDonationOrder(id));
+     dispatch(deleteMoneyoderr(id));
       setMessage("");
     } else throw Error;
   } catch (error) {
@@ -74,7 +54,6 @@ const MoneyDonationList = () => {
 };
    //===============================================================
     useEffect(() => {
-      getmydonation()
       getmyMoneyonation();
           }, [])
             

@@ -1,5 +1,5 @@
 const express = require("express");
-const { getNumNeedCase, getNumdonationOrder, getUserNumdonationOrder, getNumActiveCase, getCounter, getSearchAllNeedyCase, } = require("../controller/admin");
+const { getNumNeedCase, getNumdonationOrder, getUserNumdonationOrder, getNumActiveCase, getCounter, getSearchAllNeedyCase, getlastNeedyCase, } = require("../controller/admin");
 
 
 
@@ -11,6 +11,7 @@ adminRouter.get("/numorderDonationUser",getUserNumdonationOrder)
 adminRouter.get("/numberofActiv",getNumActiveCase)
 adminRouter.get("/counter",getCounter)
 adminRouter.get("/search_2",getSearchAllNeedyCase)
+adminRouter.get("/lastcase",getlastNeedyCase)
 
 
 module.exports = adminRouter

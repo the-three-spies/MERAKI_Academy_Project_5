@@ -62,9 +62,10 @@ const updateDonerGiving=(req, res)=>{
     console.log("lkokll")
     const id = req.params.id;
     let { deleveryDate } = req.body;
-  
-    const query = `UPDATE doner_givin SET deleveryDate = COALESCE($1, deleveryDate) WHERE id=$2 AND is_deleted = 0  RETURNING *;`;
     const data = [deleveryDate || null, id];
+
+    const query = `UPDATE doner_givin SET deleveryDate = COALESCE($1, deleveryDate) WHERE id=$2 AND is_deleted = 0  RETURNING *;`;
+
     pool
       .query(query, data)
       .then((result) => {

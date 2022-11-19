@@ -1,10 +1,10 @@
 import React from 'react'
 import Sidebar from './Sidebar';
 import "./style.css";
-const User = () => {
+const NeedyCase = () => {
   return (
-    <>
-    <div className='admin_panal'>
+  <>
+  <div className='admin_panal'>
       <div className='container_panel'>
         <Sidebar/>        
       </div>
@@ -13,4 +13,4 @@ const User = () => {
   )
 }
 
-export default User
+export default NeedyCase

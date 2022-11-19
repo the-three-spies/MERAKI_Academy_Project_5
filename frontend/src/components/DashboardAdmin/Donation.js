@@ -1,7 +1,7 @@
 import React from 'react'
 import Sidebar from './Sidebar';
 import "./style.css";
-const User = () => {
+const Donation = () => {
   return (
     <>
     <div className='admin_panal'>
@@ -11,6 +11,7 @@ const User = () => {
       </div>
     </>
   )
+
 }
 
-export default User
+export default Donation

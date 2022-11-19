@@ -1,13 +1,11 @@
 import React, { useContext, useState, useEffect, useRef } from "react";
 import { useNavigate, Link } from "react-router-dom";
 // import "./style.css";
-import "./login.css";
+import "./login.css"
 import jwt_decode from "jwt-decode";
 //const bcrypt = require("bcrypt");
 //const jwt = require("jsonwebtoken");
-// import { ToastContainer, toast } from 'react-toastify'; 
-// import 'react-toastify/dist/ReactToastify.css';
-//111111111111111111111111111111111111111111111111111111111111111
+
 import axios from "axios";
 
 import { useDispatch, useSelector } from "react-redux";
@@ -27,13 +25,11 @@ const Login = () => {
   const [roles, setRoles] = useState("");
   const [massage, setMessage] = useState("");
   const [statusGO, setStatusGO] = useState(true);
-
   const [status, setStatus] = useState(true);
   const [role_id, srtRolrId] = useState(0);
   const [googleToken, setGoogleToken] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [num, setNum] = useState(1);
-
   const {auth ,userId,token,userName,stateRole }= useSelector((state) => {
     return {
       auth: state.auth.isLoggedIn,
@@ -45,15 +41,9 @@ const Login = () => {
   });
 
 
-
-
   const google = window.google;
   function handleCallbackResponse(response) {
     console.log("googleToken", response.credential);
-
-   
-
-
     var decoded = jwt_decode(response.credential);
     setGoogleToken(decoded);
     console.log("userInfo", decoded.email);
@@ -75,7 +65,6 @@ const Login = () => {
         password,
         role_id,
       })
-
       .then((result) => {
         console.log("hind");
         console.log(result);
@@ -97,8 +86,6 @@ const Login = () => {
               dispatch(setUserId(result.data.userId));
               dispatch(setSataUserName(result.data.firstName));
         dispatch(setSataRole(result.data.role))
-
-
 
 
               console.log("auth", auth);
@@ -123,45 +110,6 @@ const Login = () => {
                 console.log("doner");
 
                 navgate("/donate")
-              }
-            });
-
-        }
-      } else if (roleNavigate == 2) {
-        console.log("needy");
-
-         navgate("/home")
-      } else if (roleNavigate == 3) {
-        console.log("doner");
-
-        // navgate("/")
-      }
-    })
-
-
-
-              console.log("auth", auth);
-              console.log("id", userId);
-              console.log("aut", token);
-              // console.log( "mnmn", token)
-
-              // {
-              //   navgate("/Category");
-              // }
-              console.log(roleNavigate);
-              if (roleNavigate == 1) {
-                console.log("admin");
-                // navgate("/");
-                {
-                }
-              } else if (roleNavigate == 2) {
-                console.log("needy");
-
-                navgate("/Showcategories")
-              } else if (roleNavigate == 3) {
-                console.log("doner");
-
-                // navgate("/")
               }
             });
         }
@@ -235,13 +183,11 @@ const Login = () => {
         dispatch(setLogin(result.data.token));
         dispatch(setUserId(result.data.userId));
         setMesage(result.data.message);
+//walaa add
+dispatch(setSataRole(result.data.role))
+dispatch(setSataUserName(result.data.firstName));
 
-
-
-        dispatch(setSataUserName(result.data.firstName));
-        dispatch(setSataRole(result.data.role))
-
-
+//
         console.log("auth", auth);
         console.log("id", userId);
         console.log("aut", token);
@@ -263,7 +209,7 @@ const Login = () => {
         } else if (roleNavigate == 3) {
           console.log("doner");
 
-          // navgate("/")
+          navgate("/donate")
         }
       })
       .catch((err) => {
@@ -413,7 +359,6 @@ console.log("xcv")
   //-----------------
   return (
     <div className="mainloginDev">
-      {/* <ToastContainer/> 22222222222222222222 */}
       <div className="imgregester imglogin">
         <img className="" src="./assets/images/login1.png" alt="pic"></img>
       </div>

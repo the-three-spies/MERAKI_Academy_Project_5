@@ -1,7 +1,7 @@
 import React from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate, useNavigate ,useParams} from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { addDonationOrder } from "../../redux/reducers/doner";
+import { addDonationThingOrder } from "../../redux/reducers/doner";
 import "./style.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
@@ -22,17 +22,13 @@ const Material = () => {
   const [clickon, setclickon] = useState("");
   const [selectedImage, setSelectedImage] = useState(null);
 
-
+  const params = useParams();
   const { token } = useSelector((state) => {
     return {
       token: state.auth.token,
     };
   });
-  const { cateagory } = useSelector((state) => {
-    return {
-      cateagory: state.donation.cateagory,
-    };
-  });
+  const cateagory=params.id;
   //===============================================================
   const uploadImage = () => {
     const data = new FormData();
@@ -45,7 +41,6 @@ const Material = () => {
     })
       .then((resp) => resp.json())
       .then((data) => {
-        // setUrl(data.url)
         handelDonate(data.url);
         console.log(data.url);
       })
@@ -78,7 +73,7 @@ const Material = () => {
       address,
       deleveryDate,
       imgePathDoner: url,
-      category_id: cateagory.id,
+      category_id: cateagory,
       case_id,
     };
     try {
@@ -93,7 +88,7 @@ const Material = () => {
       if (result.data.success) {
         setStatus(true);
         setMessage("thank you form our heart , the process of donation done");
-        dispatch(addDonationOrder(result.data.result));
+        dispatch(addDonationThingOrder(result.data.result));
       } else {
         throw Error;
       }
@@ -107,7 +102,7 @@ const Material = () => {
   //===============================================================
 
   useEffect(() => {
-    getallNeedCase(cateagory.id);
+    getallNeedCase(cateagory);
   }, []);
 
   //===============================================================

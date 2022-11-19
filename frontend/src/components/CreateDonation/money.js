@@ -1,14 +1,15 @@
 import React from 'react'
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 import "./style.css";
 import { useDispatch, useSelector } from "react-redux";
-import { addDonationOrder } from "../../redux/reducers/doner";
+import { addDonationMoneyOrder, addDonationOrder } from "../../redux/reducers/doner";
 import Navigation from '../Navigation';
 import axios from 'axios';
 import { useState,useEffect } from 'react';
 const Money = () => {
   const imagecase=['https://res.cloudinary.com/dqsg0zf1r/image/upload/v1668430984/person2_peh2ws.png','https://res.cloudinary.com/dqsg0zf1r/image/upload/v1668431004/per4_lx4ufh.png','https://res.cloudinary.com/dqsg0zf1r/image/upload/v1668430984/person333_bqjeif.png','https://res.cloudinary.com/dqsg0zf1r/image/upload/v1668430984/pers3_op46c2.png']
   const [needCase, setneedCase] = useState([]);
+  const params = useParams();
   const [amount, setamount] = useState(0)
   const [case_id, setcase_id] = useState(null);
   const [description, setdescription] = useState("")
@@ -21,11 +22,9 @@ const Money = () => {
       token: state.auth.token,
     };
   });
-  const {cateagory}=useSelector((state) => {
-    return {
-      cateagory: state.donation.cateagory,
-    };
-  });
+
+  const cateagory = params.id;
+
       //===============================================================
 
   const getallNeedCase = async (id) => {
@@ -54,7 +53,7 @@ const Money = () => {
       case_id,
       deleveryDate:null,
       imgePathDoner:null,
-      category_id:cateagory.id
+      category_id:cateagory
     };
     try {
       const result = await axios.post(
@@ -69,7 +68,7 @@ const Money = () => {
       if (result.data.success) {
         setStatus(true);
         setMessage("thank you form our heart , the process of donation done");
-        dispatch(addDonationOrder(result.data.result))
+        dispatch(addDonationMoneyOrder(result.data.result))
       } else {
         throw Error;
       }
@@ -81,7 +80,7 @@ const Money = () => {
     }
   };
   useEffect(() => {
-  getallNeedCase(cateagory.id)
+  getallNeedCase(cateagory)
   
     
   }, [])
