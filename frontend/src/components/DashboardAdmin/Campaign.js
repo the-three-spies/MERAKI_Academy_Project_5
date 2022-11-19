@@ -1,19 +1,18 @@
 import React from 'react'
-import Maindashboard from './Maindash';
 import Sidebar from './Sidebar';
 import "./style.css";
-const AdminPanel = () => {
+const AddCampaign = () => {
   return (
+  
     <>
     <div className='admin_panal'>
       <div className='container_panel'>
-        <Sidebar/>
-        <Maindashboard/>
-        
+        <Sidebar/>  
+        <div>Add Campaign</div>      
       </div>
       </div>
     </>
   )
 }
 
-export default AdminPanel
+export default AddCampaign

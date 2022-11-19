@@ -85,25 +85,41 @@ CREATE TABLE doner_givin(
      PRIMARY KEY (id)
    );
 
+`CREATE TABLE needy_Case(
+  id SERIAL NOT NULL,
+  description TEXT,
+  category_id INT,
+  needy_id INT,
+  amount FLOAT,
+  Address VARCHAR(255),
+  is_deleted SMALLINT DEFAULT 0,
+   statusdonation VARCHAR(255),
+    donation_amount INT,
+    rest INT,
+    created_at TIMESTAMP NOW(),
+  FOREIGN KEY (category_id) REFERENCES donations_Category(id),
+  FOREIGN KEY (needy_id) REFERENCES users(id),
+  PRIMARY KEY (id)
+);`
 
-   `CREATE TABLE needy_Case(
-    id SERIAL NOT NULL,
+`CREATE TABLE doner_givin(
+    id SERIAL NOT NULL ,
     description TEXT,
-    category_id INT,
-    needy_id INT,
     amount FLOAT,
-    Address VARCHAR(255),
+    address VARCHAR(255),
+    doner_id INT,
+    case_id INT,
     is_deleted SMALLINT DEFAULT 0,
-     statusdonation VARCHAR(255),
-      donation_amount INT,
-      rest INT,
-    FOREIGN KEY (category_id) REFERENCES donations_Category(id),
-    FOREIGN KEY (needy_id) REFERENCES users(id),
-    PRIMARY KEY (id)
-  );`
 
-
-
+    deleveryDate VARCHAR(255),
+     imgePathDoner TEXT,
+     category_id INT,
+         created_at TIMESTAMP NOW(),
+     FOREIGN KEY (category_id) REFERENCES donations_Category(id),
+     FOREIGN KEY(case_id) REFERENCES needy_Case(id),
+     FOREIGN KEY (doner_id) REFERENCES users(id),
+     PRIMARY KEY (id)
+   );
 
 
 
