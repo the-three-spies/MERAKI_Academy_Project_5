@@ -50,7 +50,6 @@ import Money from "./components/CreateDonation/money";
 
 import NavBar from "./components/Navbar/index";
 import InterfaceHeader from './components/InterfaceHeader/InterfaceHeader'
-import Services from './components/Services/Services'
 import OurStory from "./components/OurStory/OurStory";
 
 import NewSoct from "./components/Socket";
@@ -79,11 +78,18 @@ import ApiPagination from "./components/ApiPganation";
 import SlidCenter from "./components/Home";
 // import Events from "./components/DashboardAdmin/Events";
 
-import SetImages from "./components/Banner/SetImages";
 
 import Checkout from "./components/payMent/Checkout";
 import Success from "./components/payMent/Success";
 import Cancel from "./components/payMent/Cancel";
+
+import Video from "./components/Header/Video";
+import OurImapct from "./components/OurImapct/OurImpact";
+import OurValues from "./components/OurValues/OurValues";
+import VideoNav from "./components/Header/VideoNav";
+
+
+
 import Analytics from "./components/DashboardAdmin/Analytics";
 import User from './components/DashboardAdmin/User'
 import Maindashboard from "./components/DashboardAdmin/Maindash";
@@ -92,6 +98,7 @@ import AddCampaign from "./components/DashboardAdmin/Campaign";
 import NeedyCase from "./components/DashboardAdmin/NeedyCase";
 import Donation from "./components/DashboardAdmin/Donation"
 import ChatAdmin from "./components/DashboardAdmin/chat";
+
 
 
 
@@ -142,18 +149,18 @@ function App() {
 <Route path="/categories" element={<AddCategory/>}></Route>
 <Route path="/Showcategories" element={<><Header/><TheCategory/><Footer/></>}></Route>
 <Route path="/dashboardneedy" element={<TheNeedy/>}></Route>
-<Route path="/NeedyCaseById" element={<><NavbarNew/><NeedyByUserId/><Footer/></> }></Route>
+<Route path="/NeedyCaseById" element={<><Header/><NavbarNew/><NeedyByUserId/><Footer/></> }></Route>
 <Route path="/NeedyCaseByCategory/:id" element={<NeedyByCategoy/>}></Route>
 <Route path="/header" element={<Navbar/>}></Route>
 <Route path="/register"element={<><Register/><Footer/></>}/>
 <Route path="/login"element={<><Login/><Footer/></>}/>
-<Route path="/home" element={<><Header/><InterfaceHeader/><HomeCardCategory/><Banner/><Footer/></>}/>
+<Route path="/home" element={<><VideoNav/><Video/><HomeCardCategory/><OurImapct/><OurValues/><Footer/></>}/>
 <Route path="/Contact"element={<><Header/><Contact/><Footer/></>}/>
 <Route path="/about"element={<><Header/><About/><Footer/></>}/>
-<Route path="/ourTeam"element={<><Header/><OurTeam/><Banner/><Services/><Footer/></>}/>
+<Route path="/ourTeam"element={<><Header/><OurTeam/><Banner/><Footer/></>}/>
 <Route path="/FAQs"element={<><Header/><FAQs/><Footer/></>}/>
 <Route path="AddNeedy2/:id"element={<><Header/><AddNeedy2/><Footer/></>}></Route>
-<Route path="/ourStory"element={<><Header/><OurStory/><OurTeam/><Banner/><Footer/></>}/>
+<Route path="/ourStory"element={<><Header/><OurStory/><OurTeam/><Footer/></>}/>
 <Route exact path="/" element={<Navigate replace to="/home" />}>
    </Route>
 
@@ -162,7 +169,7 @@ function App() {
 
 NeedyMonyByUserId
 <Route path="/NeedyMonyByUserId"element={<><Header/><NavbarNew/><NeedyMonyByUserId/><Footer/></>}/>
-<Route path="/NewSoct" element={<><NewSoct/></>}  ></Route>
+<Route path="/NewSoct" element={<><Header/><NavbarNew/><NewSoct/><Footer/></>}  ></Route>
 <Route path="/ApiPag" element={<><Header/><ApiPagination/><Footer/></>}  ></Route>
 <Route path="/check" element={<Checkout />} />
  {/* 

@@ -27,11 +27,18 @@
     text-align: center;
     font-size: 35px;
     text-transform: uppercase;
-    margin-bottom: 30px;
+    margin-bottom: 8px;
+
+
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    color: #2c3a47;
+    font-family: poppins;
 }
 .add_needy_form .text_box_add_needy{
     background: #fff;
-    color: #111111;
+    color: #2c3a47;
     border: none;
     width: calc(50% - 10px);
     height: 50px;
@@ -43,13 +50,15 @@
     opacity: 0.9;
     font-size: 18px;
     font-weight: bold;
+    box-shadow: 5px 5px 20px rgb(156, 147, 147);
+    font-family: poppins;
 }
 .add_needy_form .text_box_add_needy:first-child{
     margin-right: 15px;
 }
 .add_needy_form textarea{
     background: #fff;
-    color: #111111;
+    color: #2c3a47;
     border: none;
     width: 100%;
     padding: 12px;
@@ -64,21 +73,24 @@
     resize: none;
     outline: none;
     font-weight: bold;
-    
+    box-shadow: 5px 5px 20px rgb(156, 147, 147);
+    font-family: poppins;
 }
 .add_needy_form .send-btn{
     background: white;
-    padding: 20px 32px;
+    padding: 20px 61px;
     font-size: 16px;
     font-weight: bold;
-    color: #111111;
+    color: #2c3a47;
     border: none;
     outline: none;
     box-shadow: 0px 16px 32px 0px rgb(0 0 0 /6%);
     border-radius: 5px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    /* text-transform: uppercase; */
+    letter-spacing: 1px;
     float: right;
+    box-shadow: 5px 5px 20px rgb(156, 147, 147);
+    font-family: poppins;
     
 }
 .add_needy_form .send-btn:hover{
@@ -90,7 +102,7 @@
 }
 .add_needy_form .send-btn{
     background:white ;
-    color: #111111;
+    color: #2c3a47;
     font-weight: bold;
 }
 /* ALERT MESSAGE SUCCESS*/
@@ -107,13 +119,13 @@
     border-radius: 4px;
 }
  .text_box_add_needy::placeholder { 
-    color: #111111;
+    color: #2c3a47;
     opacity: 1;
     font-weight: bold;
     font-size: 15px;
   }
   textarea::placeholder {
-    color: #111111;
+    color: #2c3a47;
     opacity: 1;
     font-weight: bold;
     font-size: 18px;

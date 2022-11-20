@@ -7,7 +7,7 @@
     justify-content: start;
 }
 .donate_MaterialOrder_summery h1{
-    position: relative;
+    /* position: relative; */
     margin-top: 50px;
   left: 30%;
   color: #000;
@@ -37,8 +37,9 @@
  margin: 2% 5%;
  /* padding: 19px; */
  border-radius: 5px;
- background: linear-gradient(45deg,#fbda61,#FF5757);
+ /* background: linear-gradient(45deg,#fbda61,#FF5757); */
  box-shadow: rgba(100, 100, 111, 0.2)0 7px 29px 0;
+ background: #e0a0a0;
 }
 .material_box .edit_donate{
     width: 25px;
@@ -82,11 +83,15 @@
 }
 .material_box h3{
     margin: 3px;
+    color: #2c2c2c;
+    font-weight: bold;
 }
 .material_box p{
     margin: 3px;
     font-size: 20px;
-    color: #fff;
+    color: #2c2c2c;
+    font-weight: bold;
+
 }
 .material_box input{
     margin: 3px;

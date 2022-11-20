@@ -144,7 +144,8 @@ const MaterialDonation = () => {
                     <i class="bi bi-trash-fill"></i>
                   </button>
         <img src={donate.imgepathdoner} className="img_donate_img"></img>
-        <h3>${donate.amount}</h3>
+        {/* <h3>${donate.deleveryDate}</h3> */}
+        <p>Dilevery time:{donate.deleverydate}</p>  
         <p>{donate.description}</p>
         {idupdate == donate.id ? (
                 <div>
@@ -188,7 +189,8 @@ const MaterialDonation = () => {
                 Description: {donate.description}
               </p>
               <img src={donate.imgepathdoner}></img>
-              <p>Dilevery time:{donate.deleverydate}</p>
+              <p>Dilevery time:{donate.deleverydate}</p>  
+              {/* **** */}
               <p> you can update Donation deadline </p>
               <button onClick={() => setidupdate(donate.id)}>
                 update donation

@@ -1,0 +1,51 @@
+.impact_card{
+    font-family: "ubuntu" sans-serif;
+    text-decoration: none;
+    height: 40vh;
+    width: 100%;
+    /* background: u; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    /* display: flex; */
+    align-items: center;
+    justify-content: space-around;
+
+
+
+    /* height: 90vh; */
+    /* font-family: poppins;
+    width: 1170px;
+    margin: 5% auto; */
+}
+
+.impact_footer{
+    /* background: #f4f4f4; */
+    padding: 60px 10px;
+    width: 120%;
+    height: 160px;
+}
+.numbersss{
+    display: flex;
+    align-items: center;
+}
+.itemssss{
+    flex: 1;
+    text-transform: uppercase;
+    font-size: 18px;
+    color: #e0a0a0;
+    font-weight: bold;
+    
+}
+.itemssss span{
+    display: block;
+    color: #2c3a47;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+.border{
+    width: 1px;
+    height: 70px;
+    background: #bbb;
+}
