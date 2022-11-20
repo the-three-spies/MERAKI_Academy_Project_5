@@ -7,9 +7,12 @@ import {ImCalendar} from "react-icons/im"
 import {IoSettingsOutline} from "react-icons/io5"
 import {CiLogin} from "react-icons/ci"
 import {GrAdd} from "react-icons/gr"
+import { setLogin, setUserId, setLogout } from "../../redux/reducers/auth";
+import { useDispatch } from "react-redux";
 const Sidebar = () => {
   const [selcet, setselcet] = useState(0);
   const navigate=useNavigate()
+  const dispacth=useDispatch()
 
   const SidebarData = [
     {

@@ -104,7 +104,7 @@ if (result.data.success) {
       console.log(roleNavigate);
       if (roleNavigate == 1) {
         console.log("admin");
-        // navgate("/");
+        navgate("/admin/dashboard");
         {
         }
       } else if (roleNavigate == 2) {
@@ -114,7 +114,7 @@ if (result.data.success) {
       } else if (roleNavigate == 3) {
         console.log("doner");
 
-        // navgate("/")
+        navgate("/donate")
       }
     })
 

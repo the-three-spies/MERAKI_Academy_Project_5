@@ -27,11 +27,17 @@ useEffect(()=>{
     .slice(pagesVisited, pagesVisited + usersPerPage)
     .map((user) => {
       return (
-        <div className="user">
-          <h3>{user.title}</h3>
-          <h3>{user.price}</h3>
-          <h3>{ <img className="imageAPIE" src={user.image} ></img>}</h3>
+        
+        <div className="user book ">
+        
+           <img src={user.image}></img>
+                  <div className="book_info">
+                  <h4 className="book_title">{user.title}</h4>
+                  <p className="book_price">{user.price}</p>
+                  <button className="book_btn" >Buy Now</button>
+                  </div>
         </div>
+      
       );
     });
 
@@ -43,11 +49,15 @@ useEffect(()=>{
 
   return (
     <>
+    <div>  <h2>Donation Books</h2>
+        <h3>Buy it... And saving a child from starving</h3>
+</div>
+    <div className="books_container">
     <div className="maimpagination">
         
       {displayUsers}
 
-      </div>
+      </div >
       <ReactPaginate
         previousLabel={"Previous"}
         nextLabel={"Next"}
@@ -59,7 +69,7 @@ useEffect(()=>{
         disabledClassName={"paginationDisabled"}
         activeClassName={"paginationActive"}
       />
-    
+    </div>
     </>
   );
 }
