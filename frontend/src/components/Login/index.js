@@ -109,7 +109,9 @@ const Login = () => {
               } else if (roleNavigate == 3) {
                 console.log("doner");
 
+
                 navgate("/donate")
+
               }
             });
         }

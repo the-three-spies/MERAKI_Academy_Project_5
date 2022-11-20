@@ -17,7 +17,7 @@ console.log(req.body.date)
  const mailOptions = {
     
     from:` Fitrat Insan App <fitratinsancommunity@gmail.com>`,// Sender address
-    to: req.body.email[0], // List of recipients
+    to: req.body.email, // List of recipients
     bcc:req.body.email,
     subject: 'Invitation For Donation Day Event', // Subject line
   html:`<!DOCTYPE html>

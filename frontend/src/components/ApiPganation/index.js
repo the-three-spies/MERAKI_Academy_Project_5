@@ -19,7 +19,10 @@ useEffect(()=>{
     .slice(pagesVisited, pagesVisited + usersPerPage)
     .map((user) => {
       return (
+
+        
         <div className="user book ">
+        
            <img src={user.image}></img>
                   <div className="book_info">
                   <h4 className="book_title">{user.title}</h4>
@@ -27,6 +30,7 @@ useEffect(()=>{
                   <button className="book_btn" >Buy Now</button>
                   </div>
         </div>
+      
       );
     });
   const pageCount = Math.ceil(users.length / usersPerPage);
@@ -41,6 +45,7 @@ useEffect(()=>{
     <div className="books_container">
     <div className="maimpagination">
       {displayUsers}
+
       </div >
       <ReactPaginate
         previousLabel={"Previous"}

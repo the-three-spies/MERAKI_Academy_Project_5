@@ -54,6 +54,8 @@ useEffect(() => {
   
    return (
     <div className="chart"> 
+            <span> All Donation Order By Section</span>
+
   <ResponsivePie
     data={data}
     margin={{ top: 40, right: 80, bottom: 80, left: 80 }}

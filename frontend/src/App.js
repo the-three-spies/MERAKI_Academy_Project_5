@@ -28,6 +28,7 @@ import "@stripe/stripe-js";
 
 
 import DonationOrder from "./components/CreateDonation";
+
 // import MyDonationList from "./components/DashboardDoner";
 
 import Banner from './components/Banner/Banner'
@@ -53,38 +54,50 @@ import OurStory from "./components/OurStory/OurStory";
 
 import NewSoct from "./components/Socket";
 import NeedyMonyByUserId from "./components/NeedyByUserid/MonyCase";
-import AdminPanel from "./components/DashboardAdmin";
+// import AdminPanel from "./components/DashboardAdmin";
 import Navigation from "./components/Navigation";
-import Sidebar from "./components/DashboardAdmin/Sidebar";
+// import Sidebar from "./components/DashboardAdmin/Sidebar";
 
 
-import MyResponsivePie from './components/DashboardAdmin/pie'
+
+// import MyResponsivePie from './components/DashboardAdmin/pie'
 
 import HomeCardCategory from "./components/CardCategory/Homecardcategory";
 import AddNeedy2 from "./components/CreateCase/AddNeedy2";
 
 import NavbarNew from "./components/Navbar/index";
 
+import AdminPanel from "./components/DashboardAdmin";
 
+// import MyResponsivePie1 from './components/DashboardAdmin/pie2'
 
-import MyResponsivePie1 from './components/DashboardAdmin/pie2'
-
-import MainDashboard from "./components/DashboardAdmin/MainDashboard";
+// import MainDashboard from "./components/DashboardAdmin/MainDashboard";
 
 import ApiPagination from "./components/ApiPganation";
 
 import SlidCenter from "./components/Home";
-import Events from "./components/DashboardAdmin/Events";
+// import Events from "./components/DashboardAdmin/Events";
 
 
 import Checkout from "./components/payMent/Checkout";
 import Success from "./components/payMent/Success";
 import Cancel from "./components/payMent/Cancel";
+
 import Video from "./components/Header/Video";
 import OurImapct from "./components/OurImapct/OurImpact";
 import OurValues from "./components/OurValues/OurValues";
 import VideoNav from "./components/Header/VideoNav";
 
+
+
+import Analytics from "./components/DashboardAdmin/Analytics";
+import User from './components/DashboardAdmin/User'
+import Maindashboard from "./components/DashboardAdmin/Maindash";
+import Events from "./components/DashboardAdmin/Events";
+import AddCampaign from "./components/DashboardAdmin/Campaign";
+import NeedyCase from "./components/DashboardAdmin/NeedyCase";
+import Donation from "./components/DashboardAdmin/Donation"
+import ChatAdmin from "./components/DashboardAdmin/chat";
 
 
 
@@ -182,12 +195,16 @@ NeedyMonyByUserId
 
 <Route path="/NewSoct" element={<><NewSoct/></>}  ></Route>
 
- {/* <Route path="/admin" element={<AdminPanel/>}/> */}
-  <Route path="/admin/dashboard" element={<AdminPanel/>}/>
-  <Route path="/admin/events" element={<Events/>}/>
-  <Route path="/admin/needy_case" element={<MainDashboard/>}/>
-  <Route path="/admin/donation_order" element={<MainDashboard/>}/>
-  <Route path="/admin/donation_order" element={<MainDashboard/>}/>
+<Route path="/admin/dashboard" element={<AdminPanel/>}/>
+ <Route path="/admin/users" element={<User/>}/>
+ <Route path="/admin/needy_case" element={<NeedyCase/>}/>
+ <Route path="/admin/donation_order" element={<Donation/>}/>
+ <Route path="/admin/analytics" element={<Analytics/>}/>
+ <Route path="/admin/events" element={<Events/>}/>
+ <Route path="/admin/support" element={<AddCampaign/>}/>
+ <Route path="/admin/chat" element={<ChatAdmin/>}/>
+
+
 
 
 
