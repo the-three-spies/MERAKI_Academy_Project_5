@@ -91,6 +91,7 @@ import Events from "./components/DashboardAdmin/Events";
 import AddCampaign from "./components/DashboardAdmin/Campaign";
 import NeedyCase from "./components/DashboardAdmin/NeedyCase";
 import Donation from "./components/DashboardAdmin/Donation"
+import ChatAdmin from "./components/DashboardAdmin/chat";
 
 
 
@@ -194,6 +195,8 @@ NeedyMonyByUserId
  <Route path="/admin/analytics" element={<Analytics/>}/>
  <Route path="/admin/events" element={<Events/>}/>
  <Route path="/admin/support" element={<AddCampaign/>}/>
+ <Route path="/admin/chat" element={<ChatAdmin/>}/>
+
 
 
 

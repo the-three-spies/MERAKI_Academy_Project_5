@@ -96,7 +96,7 @@ CREATE TABLE doner_givin(
    statusdonation VARCHAR(255),
     donation_amount INT,
     rest INT,
-    created_at TIMESTAMP NOW(),
+   created_at TIMESTAMP DEFAULT now(),
   FOREIGN KEY (category_id) REFERENCES donations_Category(id),
   FOREIGN KEY (needy_id) REFERENCES users(id),
   PRIMARY KEY (id)
@@ -114,12 +114,12 @@ CREATE TABLE doner_givin(
     deleveryDate VARCHAR(255),
      imgePathDoner TEXT,
      category_id INT,
-         created_at TIMESTAMP NOW(),
+   created_at TIMESTAMP DEFAULT now(),
      FOREIGN KEY (category_id) REFERENCES donations_Category(id),
      FOREIGN KEY(case_id) REFERENCES needy_Case(id),
      FOREIGN KEY (doner_id) REFERENCES users(id),
      PRIMARY KEY (id)
-   );
+   );`
 
 
 

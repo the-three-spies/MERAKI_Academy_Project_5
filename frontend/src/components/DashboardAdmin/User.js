@@ -5,6 +5,8 @@ import { useState,useEffect} from 'react';
 import axios from 'axios'
 const User = () => {
 const [user, setUser] = useState([])
+const [message, setMessage] = useState("");
+const [status, setStatus] = useState(false);
 //===============================================================
 const infoUser = async () => {
   try {
@@ -12,13 +14,16 @@ const infoUser = async () => {
       ))
       if (result.data.success) {
           setUser(result.data.result)
+          setStatus(true);
+          setMessage("")
       }
       else { throw Error }
   }
   catch (error) {
-      {
-console.log(error)
-      }
+    if (!error.response.data.success) {
+      setStatus(false);
+      setMessage(error.response.data.message);
+    }
 
   }
 }
@@ -32,9 +37,10 @@ infoUser()
     <>
     <div className='admin_panal'>
       <div className='container_panel'>
-        <Sidebar/>   
+        <Sidebar/> 
+        <div className='main_dashbored'>
+        <h1> User at FitratInsan App</h1>  
         <div className='latest_Case'>
-            <h1> Recent updates Needy Cases</h1>
             <table>
                 <tr> <th>user Name</th> <th>user lastName </th><th> Age</th> <th> city</th> <th> Email</th><th> Role</th> </tr>
                 {
@@ -50,7 +56,11 @@ infoUser()
                 }
                 
             </table>
-            </div>     
+            </div> 
+            {status
+            ? message && <div className="SuccessMessage">{message}</div>
+            : message && <div className="ErrorMessage">{message}</div>}    
+      </div>
       </div>
       </div>
     </>
