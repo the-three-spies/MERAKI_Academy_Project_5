@@ -4,9 +4,9 @@
     justify-content: left;
     align-items: center;
     min-height: 100vh;
-    background: linear-gradient(45deg,#fbda61,#FF5757);
+    /* background: linear-gradient(45deg,#fbda61,#FF5757); */
     /* padding-top: 175px; */
-
+background: #fff;
 }
 .map{
     display: grid;
@@ -14,7 +14,7 @@
     grid-gap: 20px;
     align-items: stretch;
     padding-top: 150px;
-
+    row-gap: 10vh;
 
     position: relative;
     width: 75%;
@@ -44,7 +44,7 @@
     height: 190px;
     background: #fff;
     border-radius: 20px;
-    box-shadow: 0 35px 80px rgba(0,0,0,0.15);
+    box-shadow: 0 35px 80px rgba(92, 38, 95, 0.15);
     transition: 0.5s;
     padding: 20px;
 }
@@ -56,7 +56,7 @@
     margin-right: 10px;
 }
 .info_donate input{
-    background: #FF5757   ;
+    background: #e0a0a0   ;
     width: 100px;
     font-size: 15px;
     border: none;
@@ -80,7 +80,7 @@
     outline: none;
     font-size: 15px ; /*1em*/
     font-weight: 500;
-    background: #FF5757;
+    background: #e0a0a0;
     color: #fff;
     cursor: pointer;
 }
@@ -94,7 +94,7 @@
     box-shadow: 0 35px 80px rgba(0,0,0,0.15);
     transition: 0.5s;
     padding: 20px;
-    
+    /* box-shadow:rgba(199, 140, 140, 0.5); */
     
 }
 .chooseImg_donate{
@@ -110,7 +110,7 @@
     outline: none;
     font-size: 15px ; /*1em*/
     font-weight: 500;
-    background: #FF5757;
+    background: #e0a0a0;
     color: #fff;
     cursor: pointer;
     
@@ -127,7 +127,7 @@
     height: 390px; /* 190||490||390 if we dont need hover just take the hover height and replace it here that will stop the hover animation dont forgrt to remove the height from the hover to stop it*/
     background: #fff;
     border-radius: 20px;
-    box-shadow: 0 35px 80px rgba(0,0,0,0.15);
+    box-shadow: 0 35px 80px rgba(63, 6, 6, 0.15);
     transition: 0.5s;
     /* margin-bottom: 7px; */
 }
@@ -143,7 +143,7 @@
     height: 150px;
     background: #fff;
     border-radius: 20px;
-    box-shadow: 0 15px 50px rgba(0,0,0,0.35);
+    box-shadow: 0 15px 50px rgba(106, 94, 94, 0.35);
     overflow: hidden; /*radius*/
     transition: 0.5s;
 }
@@ -220,7 +220,7 @@
     outline: none;
     font-size: 1em;
     font-weight: 500;
-    background: #FF5757;
+    background: #e0a0a0;
     color: #fff;
     cursor: pointer;
 }

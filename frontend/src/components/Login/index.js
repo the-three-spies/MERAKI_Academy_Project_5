@@ -99,7 +99,7 @@ const Login = () => {
               console.log(roleNavigate);
               if (roleNavigate == 1) {
                 console.log("admin");
-                // navgate("/");
+                navgate("/admin/dashboard");
                 {
                 }
               } else if (roleNavigate == 2) {
@@ -109,7 +109,7 @@ const Login = () => {
               } else if (roleNavigate == 3) {
                 console.log("doner");
 
-                // navgate("/")
+                navgate("/donate")
               }
             });
         }
@@ -199,7 +199,7 @@ dispatch(setSataUserName(result.data.firstName));
         console.log(roleNavigate);
         if (roleNavigate == 1) {
           console.log("admin");
-          navgate("/admin");
+          navgate("/admin/dashboard");
           {
           }
         } else if (roleNavigate == 2) {
@@ -209,7 +209,7 @@ dispatch(setSataUserName(result.data.firstName));
         } else if (roleNavigate == 3) {
           console.log("doner");
 
-          // navgate("/")
+          navgate("/donate")
         }
       })
       .catch((err) => {

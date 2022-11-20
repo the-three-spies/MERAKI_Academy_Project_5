@@ -41,7 +41,16 @@
 .logo-text b {
   /* color: var(--main-color); */
   color: #545454;
+  font-size: 18px;
+
+
+  font-size: 22px;
+  font-weight: 500;
+  color: #545454;
+  cursor: pointer;
+  text-decoration: none;
 }
+
 /*navbar style*/
 .navbar-links{
   display: flex;
@@ -115,4 +124,11 @@
     margin: 15px 0;
     font-size: 15px;
   }
+}
+.logout{
+  font-size: 22px;
+  font-weight: 500;
+  color: #545454;
+  cursor: pointer;
+  text-decoration: none;
 }

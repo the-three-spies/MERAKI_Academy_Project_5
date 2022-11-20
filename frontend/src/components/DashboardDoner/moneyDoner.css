@@ -12,10 +12,10 @@
     z-index: 1010101010
 }
 .donate_order_summery h1{
-    position: relative;
+    /* position: relative; */
     margin-top: 50px;
   left: 40%;
-  color: #000;
+  color: #2c2c2c;
 }
 .donateOrder_item{
     flex: 25%;
@@ -24,8 +24,9 @@
     height: 250px;
     border-radius: 5px;
     /* background: #FF5757; */
-    background: linear-gradient(45deg,#fbda61,#FF5757);
+    /* background: linear-gradient(45deg,#fbda61,#FF5757); */
     box-shadow: rgba(100, 100, 111, 0.2)0 7px 29px 0;
+    background: #e0a0a0;
 }
 .donateOrder_item hr{
     margin-bottom: 25px;
@@ -39,7 +40,7 @@
     justify-content: space-between;
     margin-bottom: 30px;
     font-size: 20px;
-    color: #fff;
+    color: #2c2c2c;
   }
   .donateOrder_item button{
     color: #fff;
