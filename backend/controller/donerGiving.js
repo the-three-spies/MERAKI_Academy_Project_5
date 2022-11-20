@@ -38,7 +38,8 @@ const createNewDonerGiving = (req, res,next) => {
 };
 // In this function, you will return all donation requests to donors, regardless of the type of donation or the donor
 const getAllDonerGiving = (req, res) => {
-        const query = `SELECT doner_givin.*,users.id,users.firstName FROM doner_givin doner_givin INNER JOIN users ON doner_givin.doner_id = users.id WHERE doner_givin.is_deleted=0`;
+        // const query = `SELECT doner_givin.*,users.id,users.firstName FROM doner_givin doner_givin INNER JOIN users ON doner_givin.doner_id = users.id WHERE doner_givin.is_deleted=0`;
+       const query= `SELECT doner_givin.*,donations_Category.title,users.firstName FROM doner_givin INNER JOIN donations_Category ON doner_givin.category_id = donations_Category.id INNER JOIN users ON doner_givin.doner_id = users.id`
         pool
           .query(query)
           .then((result) => {

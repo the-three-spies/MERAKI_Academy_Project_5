@@ -104,7 +104,7 @@ const getNumNeedCase = (req, res) => {
       });
   };
   const getCounter = (req, res) => {  
-    const query = `SELECT COUNT(id) FROM users ;SELECT COUNT(id)  FROM doner_givin;
+    const query = `SELECT COUNT(id) FROM users ;SELECT COUNT(id) FROM doner_givin;
     SELECT COUNT(id) FROM needy_Case;`
     pool
       .query(query)
@@ -125,8 +125,8 @@ const getNumNeedCase = (req, res) => {
   };
  
     const getSearchAllNeedyCase = (req, res) => {
-      const name=req.query.name
-      const query = `SELECT needy_Case.*,users.firstName,donations_Category.title FROM needy_Case INNER JOIN donations_Category ON needy_Case.category_id = donations_Category.id INNER JOIN users ON needy_Case.needy_id = users.id WHERE users.firstName like 'name%';`;
+      const name=req.query.name;
+      const query = `SELECT needy_Case.*,users.firstName,donations_Category.title FROM needy_Case INNER JOIN donations_Category ON needy_Case.category_id = donations_Category.id INNER JOIN users ON needy_Case.needy_id = users.id WHERE users.firstName like '${name}%';`;
       pool
         .query(query)
         .then((result) => {
@@ -208,6 +208,32 @@ const getNumNeedCase = (req, res) => {
           });
         });
     };
+    const getState = (req, res) => {  
+      const query = `select extract(hour from created_at) as x, 
+      count(id) as y
+     from  needy_Case
+     group by extract(hour from created_at )
+     order by 1;select extract(hour from created_at) as x, 
+     count(id) as y
+ from  doner_givin
+ group by extract(hour from created_at )
+ order by 1;`
+      pool
+        .query(query)
+        .then((result) => {
+          res.status(200).json({
+            success: true,
+            message: "state count in last Month",
+            result: {0:result[0].rows,1:result[1].rows}
+          });
+         
+         
+        })
+        .catch((err) => {
+          res
+            .status(500)
+            .json({ success: false, message: "Server Error", err: err.message });
+        });
+    };
 
-
-  module.exports={getNumNeedCase,getNumdonationOrder,getUserNumdonationOrder,getNumActiveCase,getCounter,getSearchAllNeedyCase,getlasetNeedyCase,getinfoUser}
+  module.exports={getNumNeedCase,getNumdonationOrder,getUserNumdonationOrder,getNumActiveCase,getCounter,getSearchAllNeedyCase,getlasetNeedyCase,getinfoUser,getState}
