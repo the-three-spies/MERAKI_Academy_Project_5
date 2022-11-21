@@ -17,7 +17,7 @@
 }
 .card-category-image{
     height: 450px; /*500*/
-    width: 350px; /*350*/
+    width: 300px; /*350*/
     border-radius: 3px;
     transition: .5s;
 }

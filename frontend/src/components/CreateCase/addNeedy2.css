@@ -20,7 +20,8 @@
     /* height: 200px; */
     float: right;
     background-color: #efefef;
-    padding: 100px;
+    padding: 55px;
+    height: 110vh;
   }
   .ourStory-inner-container h2{
     margin-bottom: 100px;
