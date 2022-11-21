@@ -2,7 +2,7 @@
     height: 90vh;
     font-family: poppins;
     width: 1170px;
-    margin: 5% auto;
+    margin: auto;
     /* background:#f4f4f4; */
 
 
@@ -25,7 +25,7 @@
     position: relative;
     width: 31%;
     height: 320px;
-    background: #fff;
+    /* background: #efefef; */
     box-sizing: border-box;
     padding: 0 15px;
     /* transition: .5s; */
@@ -34,7 +34,7 @@
     margin: 0 10px;
     text-align: center;
     /* background: #f4f4f4; */
-    background:#e0a0a0  ;
+    background: #efefef;  ;
 }
 
 .ourValues_line{
@@ -42,7 +42,7 @@
     height: 3px;
     background: #fff;
     margin: 0 auto 60px auto;
-    background:#fff;
+    background:#efefef;
 }
 .single_value p{
     color: #2c3a47;

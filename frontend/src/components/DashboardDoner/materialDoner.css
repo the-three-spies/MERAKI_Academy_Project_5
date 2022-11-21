@@ -10,7 +10,7 @@
     /* position: relative; */
     margin-top: 50px;
   left: 30%;
-  color: #000;
+  color: #545454;
 }
 .mmaapp{
     display: grid;
@@ -39,14 +39,14 @@
  border-radius: 5px;
  /* background: linear-gradient(45deg,#fbda61,#FF5757); */
  box-shadow: rgba(100, 100, 111, 0.2)0 7px 29px 0;
- background: #e0a0a0;
+ background: #efefef;
 }
 .material_box .edit_donate{
     width: 25px;
     position: absolute;
     left: 40px;
     top: 40px;
-    color: #fff;
+    color: #545454;
     text-decoration: none;
     display: block;
     text-align: center;
@@ -62,7 +62,7 @@
     position: absolute;
     right: 40px;
     top: 40px;
-    color: #fff;
+    color: crimson;
     text-decoration: none;
     display: block;
     text-align: center;
@@ -79,17 +79,17 @@
     background: #fff;
     /* padding: 6px;
     margin-top: 40px; */
-    
+    height: 125px;
 }
 .material_box h3{
     margin: 3px;
-    color: #2c2c2c;
+    color: #545454;
     font-weight: bold;
 }
 .material_box p{
     margin: 3px;
     font-size: 20px;
-    color: #2c2c2c;
+    color: #545454;
     font-weight: bold;
 
 }

@@ -15,7 +15,7 @@
     /* position: relative; */
     margin-top: 50px;
   left: 40%;
-  color: #2c2c2c;
+  color: #545454;
 }
 .donateOrder_item{
     flex: 25%;
@@ -26,7 +26,7 @@
     /* background: #FF5757; */
     /* background: linear-gradient(45deg,#fbda61,#FF5757); */
     box-shadow: rgba(100, 100, 111, 0.2)0 7px 29px 0;
-    background: #e0a0a0;
+    background: #efefef;
 }
 .donateOrder_item hr{
     margin-bottom: 25px;
@@ -43,7 +43,7 @@
     color: #2c2c2c;
   }
   .donateOrder_item button{
-    color: #fff;
+    color: crimson;
     text-decoration: none;
     display: block;
     text-align: center;
