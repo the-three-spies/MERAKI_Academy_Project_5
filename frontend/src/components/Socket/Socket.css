@@ -148,9 +148,9 @@
   height: auto;
   min-height: 40px;
   max-width: 120px;
-  background-color: #43a047;
+  background-color: #F8C0C4;
   border-radius: 5px;
-  color: white;
+  color: #545454;
   display: flex;
   align-items: center;
   margin-right: 5px;
@@ -180,7 +180,10 @@
 
 #other .message-content {
   justify-content: flex-end;
-  background-color: cornflowerblue;
+  background-color: #908384;
+  color: #fff;
+  font-weight: bold;
+  font-size: 26px !important; 
 }
 
 #other .message-meta {
@@ -240,3 +243,13 @@
 
   background-image: url("./assets/images.pic5.png");
 } */
+
+/* socket_wrapper */
+.socket_wrapper{
+  padding: 7%;
+  justify-content: center;
+  align-items: center;
+  left: 0;
+  right: 0;
+  background: #FDF4F5;
+}

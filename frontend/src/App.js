@@ -171,7 +171,7 @@ NeedyMonyByUserId
 <Route path="/NeedyMonyByUserId"element={<><Header/><NavbarNew/><NeedyMonyByUserId/><Footer/></>}/>
 <Route path="/NewSoct" element={<><Header/><NavbarNew/><NewSoct/><Footer/></>}  ></Route>
 <Route path="/ApiPag" element={<><Header/><ApiPagination/><Footer/></>}  ></Route>
-<Route path="/check" element={<Checkout />} />
+<Route path="/check" element={<><Header/><Checkout /><Footer/></>} />
  {/* 
 
 
@@ -225,8 +225,8 @@ NeedyMonyByUserId
 } */}
  
  
- <Route path="success" element={<Success />} />
-          <Route path="cancel" element={<Cancel />} />
+ <Route path="success" element={<><Header/><Success /><Footer/></>} />
+          <Route path="cancel" element={<><Header/><Cancel /><Footer/></>} />
 
 </Routes>
 

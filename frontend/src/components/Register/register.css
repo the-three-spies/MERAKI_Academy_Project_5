@@ -85,6 +85,16 @@ background-position: center center;
     font-size: 19px;
     color: white;
 }
+#role_id_register{
+    font-size: 100%;
+    padding: 3% 20%;
+    outline: none;
+    border: none;
+    text-align: start;
+}
+
+
+
 /* ALERT MESSAGE SUCCESS*/
 /* .alert_success{
     z-index: 1;

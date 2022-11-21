@@ -116,7 +116,10 @@ background-position: center center;
     z-index: 2;
     cursor: pointer;
 }
-datalist {
+.role_input{
+    position: relative;
+}
+.select_role_select {
     position: absolute;
     max-height: 20em;
     border: 0 none;
@@ -124,7 +127,7 @@ datalist {
     overflow-y: auto;
   }
   
-  datalist option {
+  select option {
     font-size: 0.8em;
     padding: 0.3em 1em;
     background-color: #ccc;

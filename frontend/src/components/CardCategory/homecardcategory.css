@@ -9,7 +9,7 @@
 }
 .card-category-wrapper{
     height: 450px; /*500*/
-    margin: 30px; /*50*/
+    margin: 5px; /*50*/
     box-shadow: 5px 5px 20px black; 
     overflow: hidden;
     position: relative;
@@ -69,21 +69,16 @@ span{
     visibility: visible;
 }
 
-.header-cardcategory h1{
+.header-cardcategory{
     text-align: center !important;
     /* position: relative; */
-margin-top: 22px;
+margin-top: 33px !important;
 left: 35%;
-color: #000;
-
-
-
-
+color: #545454 !important;
     text-transform: uppercase ;
     font-weight: bold;
     text-align: center;
-    font-size: 60px;
-    color: #2c3a47 !important;
+    font-size: 30px;
     margin: 0;
     /* font-weight: bold; */
 
