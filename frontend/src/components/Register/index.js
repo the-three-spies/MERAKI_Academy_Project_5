@@ -158,9 +158,8 @@ const Register = () => {
           onChange={(e) => setCity(e.target.value)}
         />
         {/* <input type="text_register" name="" list="role" placeholder="Role" /> */}
-        <select
 
-
+        <select  id="role_id_register"
 onChange={(e) => {
     srtRolrId(e.target.value);
 }}

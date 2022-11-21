@@ -25,6 +25,7 @@
     padding: 60px 10px;
     width: 120%;
     height: 160px;
+    background: #FDF4F5;
 }
 .numbersss{
     display: flex;
@@ -34,13 +35,13 @@
     flex: 1;
     text-transform: uppercase;
     font-size: 18px;
-    color: #e0a0a0;
+    color: #908384;
     font-weight: bold;
     
 }
 .itemssss span{
     display: block;
-    color: #2c3a47;
+    color: #FD4A3F;
     font-size: 30px;
     margin-bottom: 10px;
 }

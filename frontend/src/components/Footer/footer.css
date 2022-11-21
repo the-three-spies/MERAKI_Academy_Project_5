@@ -6,10 +6,10 @@
     align-items: flex-start;
     justify-content: space-between;
     padding:30px;
-    background-color:  #efefef;
+    background-color:  #ccc;
     flex-wrap: wrap;
    /* position: relative; */
-  margin-top: 5%;
+  margin-top: 0.2%;
 }
 .footer-item{
     color: #545454;

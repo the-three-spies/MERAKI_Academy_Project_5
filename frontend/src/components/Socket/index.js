@@ -147,6 +147,7 @@ socket.connect()
 // console.log("mmmmmmmjjhjhj",messageReceived)
   },[])
   return (
+    <div className="socket_wrapper">
     <div className="chat-window">
       <div className="chat-header">
         <p>Live Chat</p>
@@ -187,6 +188,7 @@ socket.connect()
         />
         <button onClick={sendMessage}>&#9658;</button>
       </div>
+    </div>
     </div>
   );
 }

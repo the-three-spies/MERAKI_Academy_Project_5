@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./addNeedy2.css";
+// import "./style.css";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -145,12 +146,13 @@ const AddNeedy2 = ({ id }) => {
       });
   };
   //------------------return-----------------------
-  return(<div className="add_needy_body">
-    {catogeyStatus ?( <div className="add_needy_section">
-        <div className="add_needy_form">
-      <h2>post here what you need</h2>
-      <h2>And we will hear you</h2>
-      <form className="add_needy" action="" method="post">
+  return(<div className="ourNeedyCase-body">
+    {catogeyStatus ?( <div className="ourNeedyCase-section">
+        <div className="ourNeedyCase-inner-container">
+      
+      {/* <h2>And we will hear you</h2> */}
+      <form className="add_needy_form" action="" method="post">
+      <h2 className="needycase_hesder add_needy_form">post here what you need</h2>
         <input type="text_add_needy" name="name" className="text_box_add_needy" value={address}
  placeholder="Your Adress" onChange={(e) => {
                 setAddress(e.target.value);
@@ -158,14 +160,16 @@ const AddNeedy2 = ({ id }) => {
         <textarea name="message" rows="5" placeholder="description your case" onChange={(e) => {
                 setDescription(e.target.value);
               }} required></textarea>
+                      <imput type="" name="" className="send-btn " value="send" onClick={ AdderssfromGoogleLocation}>Your location through Google Map</imput>
         <input type="submit" name="submit" className="send-btn gnfgfgh" value="Create"  onClick={handleNeedyCase}/> 
-        <imput type="" name="" className="send-btn " value="send" onClick={ AdderssfromGoogleLocation}>Your location through Google Map</imput>
+
       </form>
     </div>
-    </div>):(<div className="add_needy_section">
+    </div>):(<div className="ourNeedyCase-section">
+    <div className="ourNeedyCase-inner-container">
         <div className="add_needy_form">
-      <h2>post here what you need</h2>
-      <h2>And we will hear you</h2>
+      <h2 className="needycase_hesder">post here what you need</h2>
+      {/* <h2>And we will hear you</h2> */}
       <form className="add_needy" action="" method="post">
         <input type="text_add_needy" name="name" className="text_box_add_needy" placeholder="The amout" onChange={(e) => {
                 setAmount(e.target.value);
@@ -177,7 +181,9 @@ const AddNeedy2 = ({ id }) => {
          {message}
       </form>
     </div>
-    </div>)}
+    </div>
+    </div>
+    )}
 
   </div>)
 };

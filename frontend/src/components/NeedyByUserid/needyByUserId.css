@@ -20,13 +20,13 @@
   .order_item{
     flex: 25%;
     margin: 5%;
-    padding: 10px;
+    padding: 12px;
     height: 450px;
     border-radius: 5px;
-    background: #e0a0a0;
+    background: #efefef;
     box-shadow: rgba(100, 100, 111, 0.2)0 7px 29px 0;
     /* width: 70%; */
-    
+    margin-right: 1%;
   }
   .order_item hr{
     margin-bottom: 25px;
@@ -36,7 +36,7 @@
     justify-content: space-between;
     margin-bottom: 30px;
     font-size: 20px;
-    color: #2c3a47;
+    color: #908384;
   }
   .order_item button{
     /* color: crimson; */
@@ -46,11 +46,11 @@
     height: 40px;
     font-weight: 900;
     font-size: 24px;
-    color: #fff;
+    color: crimson;
     cursor: pointer;
     border: none;
     font-weight: bold;
-    background: #e0a0a0;
+    background: #efefef;
 
   }
   .order_item i{
@@ -85,23 +85,23 @@
     /* position: relative; */
     margin-top: 22px;
 left: 35%;
-color: #2c3a47;
+color: #908384;
 }
 .desc_order{
     position: relative;
     margin-top: 22px;
 left: 40%;
-color: #2c3a47 !important;
+color: #908384 !important;
 font-size: 24px !important;
 }
 .divImageMonynew1{
     /* width: 100%; */
     margin: 10%;
-    margin-top: 40%;
+    margin-top: 13%;
 
 }
 .imgstyle{
     width: 400px;
-    height: 280px;
+    height: 460px;
 }
 

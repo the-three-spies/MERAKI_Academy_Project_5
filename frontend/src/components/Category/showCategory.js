@@ -45,7 +45,7 @@ const TheCategory = () => {
   return (
     <div className="body-body-body">
       {/* <h1 className="contact-form" >Choose the department you want to enter the aid application in</h1> */}
-      <h1 className="header-cardcategory" >Choose the section where you want to asked </h1>
+      <h1 className="header-cardcategory " >Choose the section where you want to asked </h1>
       
       {/* className="reservationH1" */}
       <div className="home-card-category-container">
