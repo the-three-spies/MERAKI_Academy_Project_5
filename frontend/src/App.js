@@ -1,6 +1,7 @@
 import "./App.css";
 import { Route, Routes,Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { createContext, useState, useEffect } from "react";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import CreateCase from './components/CreateCase'
@@ -98,6 +99,7 @@ import AddCampaign from "./components/DashboardAdmin/Campaign";
 import NeedyCase from "./components/DashboardAdmin/NeedyCase";
 import Donation from "./components/DashboardAdmin/Donation"
 import ChatAdmin from "./components/DashboardAdmin/chat";
+import HeaderAdmin from "./components/DashboardAdmin/header";
 
 
 
@@ -106,15 +108,24 @@ import ChatAdmin from "./components/DashboardAdmin/chat";
 
 
 
+export const MyContext = createContext();
 
 function App() {
-  const {stateRole} = useSelector((state) => {
-    return {
-        stateRole: state.auth.stateRole,
-    };
-  });
+  // const {stateRole} = useSelector((state) => {
+  //   return {
+  //       stateRole: state.auth.stateRole,
+  //   };
+  // });
+  const [selcet, setselcet] = useState(0);
+const [theme, setTheme] = useState("light");
+const state = {selcet,setselcet,theme,setTheme}
+const themeToggler = () => {
+  theme === "light" ? setTheme("dark") : setTheme("light");
+};
   return (
-   
+    <>
+    <MyContext.Provider value={state}>
+
   <div className="App">
 
  
@@ -195,14 +206,14 @@ NeedyMonyByUserId
 
 <Route path="/NewSoct" element={<><NewSoct/></>}  ></Route>
 
-<Route path="/admin/dashboard" element={<AdminPanel/>}/>
- <Route path="/admin/users" element={<User/>}/>
- <Route path="/admin/needy_case" element={<NeedyCase/>}/>
- <Route path="/admin/donation_order" element={<Donation/>}/>
- <Route path="/admin/analytics" element={<Analytics/>}/>
- <Route path="/admin/events" element={<Events/>}/>
- <Route path="/admin/support" element={<AddCampaign/>}/>
- <Route path="/admin/chat" element={<ChatAdmin/>}/>
+<Route path="/admin/dashboard" element={<><HeaderAdmin/><AdminPanel/></>}/>
+ <Route path="/admin/users" element={<><HeaderAdmin/><User/></>}/>
+ <Route path="/admin/needy_case" element={<><HeaderAdmin/><NeedyCase/></>}/>
+ <Route path="/admin/donation_order" element={<><HeaderAdmin/><Donation/></>}/>
+ <Route path="/admin/analytics" element={<><HeaderAdmin/><Analytics/></>}/>
+ <Route path="/admin/events" element={<><HeaderAdmin/><Events/></>}/>
+ <Route path="/admin/support" element={<><HeaderAdmin/><AddCampaign/></>}/>
+ <Route path="/admin/chat" element={<><HeaderAdmin/><ChatAdmin/></>}/>
 
 
 
@@ -231,6 +242,9 @@ NeedyMonyByUserId
 </Routes>
 
   </div>
+  </MyContext.Provider>
+      ;
+    </>
 );
 }
 

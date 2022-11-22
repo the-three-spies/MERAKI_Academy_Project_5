@@ -47,18 +47,27 @@ const Events = () => {
           <Sidebar />
           <div className='main_dashbored'>
             <h1> Event Schedule</h1>
-            <h1>FitratInsan App</h1>
-            {/* <div className='space'></div> */}
-            <div className='date'><span>If you would like to invite donors to the charity event, set a date</span>
-             <div><input type="date" required onChange={(e) => {
+            <div className='latest_Case1'>
+          <p>If you would like to invite donors to the charity event, set a date</p>
+             <div><input type="date" required className='input' onChange={(e) => {
                 setDate(e.target.value)
-              }}></input></div>
-          <div> <button onClick={senInvitation}> Send Invitation </button></div></div> 
+              }}></input>
+          <div> <button onClick={senInvitation} className='button'> Send Invitation </button></div></div> 
           {status
             ? message && <div className="SuccessMessage">{message}</div>
             : message && <div className="ErrorMessage">{message}</div>}
             </div>
-            
+            <div className='latest_Case3'>
+          <p>If you would like to  Send Email thanks to  Month Doner</p>
+             <div><input type="date" required onChange={(e) => {
+                setDate(e.target.value)
+              }}></input>
+          <div> <button> </button></div></div> 
+          {status
+            ? message && <div className="SuccessMessage">{message}</div>
+            : message && <div className="ErrorMessage">{message}</div>}
+            </div>
+            </div>  
         </div>
       </div>
     </>
