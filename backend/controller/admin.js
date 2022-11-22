@@ -235,5 +235,26 @@ const getNumNeedCase = (req, res) => {
             .json({ success: false, message: "Server Error", err: err.message });
         });
     };
+    const getRecentUpdate = (req, res) => {  
+      const query = `SELECT users.firstName FROM needy_Case INNER JOIN users ON needy_Case.needy_id = users.id ORDER BY needy_Case.id DESC LIMIT 1;
+      ;SELECT users.firstName FROM doner_givin INNER JOIN users ON doner_givin.doner_id = users.id ORDER BY doner_givin.id DESC LIMIT 1;SELECT firstName FROM users ORDER BY id DESC LIMIT 1;
+      `
+      pool
+        .query(query)
+        .then((result) => {
+          res.status(200).json({
+            success: true,
+            message: "state count in last Month",
+            result:{0:result[0].rows[0],1:result[1].rows[0],2:result[2].rows[0]}
+         
+         
+        })
+      })
+        .catch((err) => {
+          res
+            .status(500)
+            .json({ success: false, message: "Server Error", err: err.message });
+        });
+    };
 
-  module.exports={getNumNeedCase,getNumdonationOrder,getUserNumdonationOrder,getNumActiveCase,getCounter,getSearchAllNeedyCase,getlasetNeedyCase,getinfoUser,getState}
+  module.exports={getNumNeedCase,getNumdonationOrder,getUserNumdonationOrder,getNumActiveCase,getCounter,getSearchAllNeedyCase,getlasetNeedyCase,getinfoUser,getState,getRecentUpdate}
