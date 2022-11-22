@@ -10,6 +10,8 @@ import {
   deleteNeedyCase,
   updateActive,
 } from "../../redux/reducers/Needy";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 //---------------- The Needy ----------------
 const NeedyByUserId = () => {
   const dispatch = useDispatch();
@@ -143,7 +145,7 @@ const NeedyByUserId = () => {
       {things &&
         things?.map((element, i) => {
           return (
-            <div className="maiDivMonyTow">
+            <div key={`maiDivMonyTow${i}`} className="maiDivMonyTow">
               
               <div class="order_item">
                 <p className="desc_order">

@@ -185,3 +185,33 @@
     margin-left: 11%;
   
 }
+.newgnfgfgh{
+    margin-left: 11%;
+}
+.newsend-btn {
+ 
+    padding: 20px 155px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #908384;
+    border: none;
+    outline: none;
+    box-shadow: 0px 16px 32px 0px rgba(213, 173, 173, 0.06);
+    border-radius: 5px;
+    /* text-transform: uppercase; */
+    letter-spacing: 1px;
+    float: right;
+    box-shadow: 5px 5px 20px rgb(156, 111, 111);
+    font-family: poppins;
+    margin-bottom: 4%;
+    /* background-color: #F8C0C4; */
+    background: green;
+    cursor: none;
+
+}
+.newsend-btn:disabled,
+button[disabled]
+{
+  
+    
+}
