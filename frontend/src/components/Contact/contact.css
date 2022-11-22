@@ -3,13 +3,13 @@
 .contact-body{
     font-family: "poppins", sans-serif;
     min-height: 100Vh;
-    background: url('https://res.cloudinary.com/dqsg0zf1r/image/upload/v1668097554/samples/project%205/fitrat_iNsan_wn8qlh.png');
-    /* background-color: gray ; */
+    /* background: url('https://res.cloudinary.com/dqsg0zf1r/image/upload/v1668097554/samples/project%205/fitrat_iNsan_wn8qlh.png'); */
+    background-color: #F8C0C4 ;
     background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-position: center center;
+    /* background-position: center center; */
 }
 .contact-section{
     width: 100%;
@@ -18,12 +18,11 @@
     align-items: center;
 }
 .contact-info{
-    color: #111111; ;  /*#fff*/
     max-width: 500px;
     line-height: 65px;
     padding-left: 50px;
     font-size: 18px;
-    color: #2c3a47;
+    color: #908384;
 }
 .contact-info i{
     margin-right: 20px;
@@ -42,7 +41,7 @@
     font-size: 35px;
     text-transform: uppercase;
     margin-bottom: 30px;
-    color: #2c3a47;
+    color: #908384;
 }
 .contact-form .text-boxx{
     background: #fff;
@@ -84,15 +83,20 @@
     opacity: 1;
     color: #2c3a47;
   }
-.textarea::placeholder { 
+  #change_theplaceholder::placeholder{
     color: black;
     opacity: 1;
     color: #2c3a47;
   }
-  textarea::-webkit-input-placeholder {
+/* .textarea::placeholder { 
+    color: black;
+    opacity: 1;
+    color: #2c3a47;
+  } */
+  /* textarea::-webkit-input-placeholder {
     color: black;
     color: #2c3a47;
-  }
+  } */
 .contact-form .send-btn{
     background: #FFF5EB;
     padding: 20px 32px;
@@ -110,7 +114,7 @@
 }
 .contact-form .send-btn:hover{
     /* background: #545454; */
-    background-color: #292929;
+    background-color: #908384;
     color: #FFF5EB;
     transition: .3s;
     cursor: pointer;

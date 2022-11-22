@@ -5,11 +5,9 @@ const Footer =()=>{
 
          <div className='footer-item select-box-wrapper-img'>
             <div >
-            <h2 className="contact-form-title">Nawa Given</h2>
+            <h2 className="contact-form-title">Fitrat Insan</h2>
         <h2 className="contact-form-title">Together we make change happen</h2>
             </div>
-
-        {/* <h2 className="contact-form-title">Find a cause that ignites your heart</h2> */}
         <div className='name-footer-image'>
         <div className='footer-imgs'>
          <img className='footer-img' src= 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6r5wG-tgfCBvKgXk7FiknB7nUcd48tHx-Uw&usqp=CAU'  alt=""/>
@@ -32,7 +30,7 @@ const Footer =()=>{
                 <li className='footer-item-link'>Legal Notice</li>
                 <li className='footer-item-link'>Privacy Policy</li>
                 <li className='footer-item-link'>General Terms</li>
-                <li className='footer-item-link'>Sitemap</li>
+                {/* <li className='footer-item-link'>Sitemap</li> */}
             </ul>
         </div>
         <div className='footer-item'>
@@ -40,9 +38,6 @@ const Footer =()=>{
             <ul className='footer-item-list'>
                 <li className='footer-item-link'>About Us</li>
                 <li className='footer-item-link'>Careers</li>
-                <li className='footer-item-link'>Blog</li>
-                <li className='footer-item-link'>Press</li>
-                <li className='footer-item-link'>Cards</li>
                 <li className='footer-item-link'>Magazine</li>
                 <li className='footer-item-link'>Guides</li>
             </ul>
@@ -67,20 +62,8 @@ const Footer =()=>{
                     <i style={{color:"darkblue"}} className='bi bi-linkedin'></i>
                 </div>
             </div>
-            <div className='footer-copyright'>© 2021 NawaGiver. All rights reserved </div>
-            {/* <div className='footer-copyright'>© 2021 Khairah. All rights reserved </div> */}
+            <div className='footer-copyright'>© 2021 FitratInsan. All rights reserved </div>
         </div>
     </footer>)
 }
 export default Footer
-
-         {/* <div className='footer-item select-box-wrapper'>
-            <div className='select-box'>
-                <label className='select-box-label'>Languages</label>
-                < select className='select-box-input'></select>
-            </div>
-            <div className='select-box'>
-                <label className='select-box-label'>Currencies</label>
-                < select className='select-box-input'></select>
-            </div>
-         </div> */}

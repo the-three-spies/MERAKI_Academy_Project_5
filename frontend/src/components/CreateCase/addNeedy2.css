@@ -12,7 +12,7 @@
     height: 110vh;
     background-color: #fdfdfd;
     overflow: hidden;
-    padding:  0;
+    /* padding:  0; */
     padding: 100px 0;
   }
   .ourNeedyCase-inner-container{
@@ -149,8 +149,8 @@
   textarea::placeholder {
     color: #908384;
     opacity: 1;
-    font-weight: bold;
-    font-size: 18px;
+    /* font-weight: bold; */
+    font-size: 19px;
   }
 
 /* ALERT MESSAGE ERROR*/
