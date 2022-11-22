@@ -5,9 +5,9 @@ import { BiTask } from 'react-icons/bi';
 import { BsGraphUp } from 'react-icons/bs';
 import axios from 'axios'
 const Maindashboard = () => {
-    const iconlist = [{ icon: <FaUser />, title: "Count Of User", class: "primary_a" },
-    { icon: <BiTask />, title: "Count Of Donation Order", class: "warning_a" },
-    { icon: <BsGraphUp />, title: "Count Of Needy Casese", class: "success_a" }
+    const iconlist = [{ icon: <FaUser />, title: " User", class: "primary_a" },
+    { icon: <BiTask />, title: " Donation Order", class: "warning_a" },
+    { icon: <BsGraphUp />, title: "Needy Casese", class: "success_a" }
     ]
     const [counter, setCounter] = useState([])
     const [needyCase, setneedyCase] = useState([])
@@ -70,23 +70,16 @@ const Maindashboard = () => {
     return (
         <>
             <div className='main_dashbored'>
-                <h1>Admin Dashboard</h1>
-                <div className='date'><input type="date"></input> <span>Hi, Admin FitratInsan</span>
-                </div>
+                <h3>Admin Dashboard</h3>
                 <div className="insight">
 
                     {counter && counter.map((Element, i) => {
                         return (
                             <diV key={i} className="card_info_data">
                                 <span className={Element.class}>{Element.iconName}</span>
-
-                                <div className='left'>
+                                <h1>{Element.count}</h1>
                                     <h3>{Element.title} </h3>
-                                    <h1>{Element.count}</h1>
-
-                                </div>
-
-                                <div className='text_muted'> Last 24 hours</div>
+                                <div className='text_muted'> Last 2minutes ago</div>
                             </diV>
                         )
                     })

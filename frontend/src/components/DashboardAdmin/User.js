@@ -42,7 +42,7 @@ infoUser()
         <h1> User at FitratInsan App</h1>  
         <div className='latest_Case'>
             <table>
-                <tr> <th>user Name</th> <th>user lastName </th><th> Age</th> <th> city</th> <th> Email</th><th> Role</th> </tr>
+                <tr> <th>First Name</th> <th> Last Name </th><th> Age</th> <th> city</th> <th> Email</th><th> Role</th> </tr>
                 {
                     user && user.map((element, i) => {
                         return (

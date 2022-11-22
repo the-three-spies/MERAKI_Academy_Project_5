@@ -1,22 +1,19 @@
-import React, { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import React, { useState,useContext } from "react";
+import { useNavigate, Link,Params, useParams } from "react-router-dom";
 import {MdDashboard} from "react-icons/md"
-import {BiUser,BiTask,BiChat} from "react-icons/bi"
+import {BiUser,BiChat} from "react-icons/bi"
 import {BsXLg,BsCalendar2Check,BsGraphUp,BsMenuButtonWide} from "react-icons/bs"
 import {ImCalendar} from "react-icons/im"
-import {IoSettingsOutline} from "react-icons/io5"
 import {CiLogin} from "react-icons/ci"
 import {GrAdd} from "react-icons/gr"
-
 import { setLogout } from "../../redux/reducers/auth";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
+import { MyContext } from '../../App'
 
 const Sidebar = () => {
-  const [selcet, setselcet] = useState("");
+  const { selcet,setselcet} = useContext(MyContext)
   const navigate=useNavigate()
-
   const dispacth = useDispatch()
-
   const SidebarData = [
     {
       title: "Dashboard",
@@ -31,7 +28,6 @@ const Sidebar = () => {
     {
       title: "Needy Cases",
       path: "/admin/needy_case",
-      // icon:<BiTask />,
       icon:<BsMenuButtonWide/>,
     },
     {
@@ -66,19 +62,14 @@ const Sidebar = () => {
       icon: <CiLogin/>,
     }, 
   ];
-
   return (
     <>
           <div className="container_a">
-            <div className="image_admin_logo">
-{/* <img src="https://res.cloudinary.com/dqsg0zf1r/image/upload/v1668644461/fitrat_Insan12_vpxsjk.png" className="log_admin"></img> */}
-            
-          <span className="close"> <BsXLg/> </span> </div>
         <div  className="menuItem_admin">
         {SidebarData.map((e,index) => {
           return (
-            <div className={e.title===selcet?"menu_item_admin active":"menu_item_admin"}
-              onClick={() =>{ setselcet(e.title);
+            <div className={selcet==index?"menu_item_admin active":"menu_item_admin"}
+              onClick={() =>{ setselcet(index);
                 if(e.title=='Log Out')
                 {
                   dispacth(setLogout())
