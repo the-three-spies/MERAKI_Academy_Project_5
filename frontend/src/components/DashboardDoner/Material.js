@@ -146,6 +146,7 @@ const MaterialDonation = () => {
         <img src={donate.imgepathdoner} className="img_donate_img"></img>
         {/* <h3>${donate.deleveryDate}</h3> */}
         <p>Dilevery time:{donate.deleverydate}</p>  
+        
         <p>{donate.description}</p>
         {idupdate == donate.id ? (
                 <div>

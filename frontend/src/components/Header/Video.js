@@ -46,6 +46,7 @@ const Video =()=>{
             <h1>Fitrat Inasn</h1>
             <h3>A House Of Givivig & Power Generosity</h3>
             <Link to='/contact' className='box_video_Btn'>Contact Us</Link>
+            
         </section>
         </div>
     )

@@ -98,6 +98,7 @@ import AddCampaign from "./components/DashboardAdmin/Campaign";
 import NeedyCase from "./components/DashboardAdmin/NeedyCase";
 import Donation from "./components/DashboardAdmin/Donation"
 import ChatAdmin from "./components/DashboardAdmin/chat";
+import ChatDoner from "./components/DashboardDoner/ChatDoner";
 
 
 
@@ -192,7 +193,7 @@ NeedyMonyByUserId
 <Route path="/monydonation/:id" element={<><Header/><Navigation/><Money/><Footer/></>}/>
 <Route path="/mymonydonation" element={<><Header/> <Navigation/><MoneyDonationList/><Footer/></>}></Route>
 <Route path="/mythingdonation" element={<><Header/><Navigation/>< MaterialDonation/><Footer/></>}></Route>
-
+<Route path="/myChat" element={<><Header/><Navigation/><ChatDoner/><Footer/></>}/>
 <Route path="/NewSoct" element={<><NewSoct/></>}  ></Route>
 
 <Route path="/admin/dashboard" element={<AdminPanel/>}/>

@@ -161,9 +161,11 @@ background: #efefef;
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 15vw;
+    height: 23vh;
     object-fit: cover;
+    margin: 0 auto;
+    display: block;
 }
 .card_forDonate .infocard_donate{
     position: absolute;
