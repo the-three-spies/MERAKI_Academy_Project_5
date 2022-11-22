@@ -10,8 +10,8 @@ import axios from "axios";
 
 import { useDispatch, useSelector } from "react-redux";
 import { setLogin, setLogout, setSataRole, setUserId ,setSataUserName} from "../../redux/reducers/auth";
-
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 //===============================================================
 
 const Login = () => {
@@ -30,6 +30,7 @@ const Login = () => {
   const [googleToken, setGoogleToken] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [num, setNum] = useState(1);
+  const [toasboolean,setTtoasboolean]=useState(false)
   const {auth ,userId,token,userName,stateRole }= useSelector((state) => {
     return {
       auth: state.auth.isLoggedIn,
@@ -43,18 +44,18 @@ const Login = () => {
 
   const google = window.google;
   function handleCallbackResponse(response) {
-    console.log("googleToken", response.credential);
+   // console.log("googleToken", response.credential);
     var decoded = jwt_decode(response.credential);
     setGoogleToken(decoded);
-    console.log("userInfo", decoded.email);
-    console.log("userInfo", decoded);
+   // console.log("userInfo", decoded.email);
+    //console.log("userInfo", decoded);
 
     setStatusGO(false);
   }
 
   const AddNewUse = () => {
-    console.log("emmmmmmmm", googleToken.email);
-    console.log(googleToken, googleToken.email);
+    //console.log("emmmmmmmm", googleToken.email);
+    //console.log(googleToken, googleToken.email);
     axios
       .post(`http://localhost:5000/register`, {
         firstName: googleToken.given_name,
@@ -66,9 +67,9 @@ const Login = () => {
         role_id,
       })
       .then((result) => {
-        console.log("hind");
-        console.log(result);
-        console.log(result.data.success);
+       // console.log("hind");
+       // console.log(result);
+       // console.log(result.data.success);
         //console.log("result",result.data.result)
         if (result.data.success) {
           setStatus(true);
@@ -80,37 +81,37 @@ const Login = () => {
               password,
             })
             .then((result) => {
-              console.log("m", result.data.role);
+             // console.log("m", result.data.role);
               let roleNavigate = result.data.role;
               dispatch(setLogin(result.data.token));
               dispatch(setUserId(result.data.userId));
               dispatch(setSataUserName(result.data.firstName));
         dispatch(setSataRole(result.data.role))
-
-
-              console.log("auth", auth);
-              console.log("id", userId);
-              console.log("aut", token);
+        toast.success("Welcome")
+        setTtoasboolean(true)
+            //  console.log("auth", auth);
+             // console.log("id", userId);
+             // console.log("aut", token);
               // console.log( "mnmn", token)
 
               // {
               //   navgate("/Category");
               // }
-              console.log(roleNavigate);
+             // console.log(roleNavigate);
               if (roleNavigate == 1) {
-                console.log("admin");
-                navgate("/admin/dashboard");
+                //console.log("admin");
+                const myTimeout = setTimeout(()=>{navgate("/admin/dashboard")}, 500);
                 {
                 }
               } else if (roleNavigate == 2) {
-                console.log("needy");
+                //console.log("needy");
 
-                navgate("/Showcategories")
+                const myTimeout = setTimeout(()=>{navgate("/Showcategories")}, 500);
               } else if (roleNavigate == 3) {
-                console.log("doner");
+               // console.log("doner");
 
 
-                navgate("/donate")
+                const myTimeout = setTimeout(()=>{navgate("/donate")}, 500);
 
               }
             });
@@ -172,7 +173,7 @@ const Login = () => {
   const [message, setMesage] = useState("");
 
   const loginUser = (b) => {
-    console.log("poi");
+    //console.log("poi");
 
     axios
       .post(`http://localhost:5000/login/`, {
@@ -180,7 +181,7 @@ const Login = () => {
         password,
       })
       .then((result) => {
-        console.log("m", result.data.role);
+       // console.log("m", result.data.role);
         let roleNavigate = result.data.role;
         dispatch(setLogin(result.data.token));
         dispatch(setUserId(result.data.userId));
@@ -188,34 +189,34 @@ const Login = () => {
 //walaa add
 dispatch(setSataRole(result.data.role))
 dispatch(setSataUserName(result.data.firstName));
-
-//
-        console.log("auth", auth);
-        console.log("id", userId);
-        console.log("aut", token);
+toast.success("Welcome")
+              setTtoasboolean(true)
+       // console.log("auth", auth);
+       // console.log("id", userId);
+       // console.log("aut", token);
         // console.log( "mnmn", token)
 
         // {
         //   navgate("/Category");
         // }
-        console.log(roleNavigate);
+       // console.log(roleNavigate);
         if (roleNavigate == 1) {
-          console.log("admin");
-          navgate("/admin/dashboard");
+        //  console.log("admin");
+         ;const myTimeout = setTimeout(()=>{navgate("/admin/dashboard")}, 500);
           {
           }
         } else if (roleNavigate == 2) {
-          console.log("needy");
+        //  console.log("needy");
 
-          navgate("/Showcategories");
+           const myTimeout = setTimeout(()=>{navgate("/Showcategories")}, 500);
         } else if (roleNavigate == 3) {
-          console.log("doner");
+        //  console.log("doner");
 
-          navgate("/donate")
+          const myTimeout = setTimeout(()=>{navgate("/donate")}, 500);
         }
       })
       .catch((err) => {
-        console.log("err", err);
+       // console.log("err", err);
         setMesage(err.response.data.message);
         throw err;
       });
@@ -224,7 +225,7 @@ dispatch(setSataUserName(result.data.firstName));
   const changeRef = (e) => {
     // console.log(e);
     if (e.code === "Enter") {
-      console.log(e.code);
+     // console.log(e.code);
       x++;
       setNum(num + 1);
     }
@@ -236,6 +237,7 @@ dispatch(setSataUserName(result.data.firstName));
   //-------------return desigin----------------
   return (
     <div className="form_wrapper_login">
+      <ToastContainer/>
       {statusGO ? (
         <div
           // onSubmit={(event) => event.preventDefault()}
@@ -269,7 +271,7 @@ dispatch(setSataUserName(result.data.firstName));
             }}
             onKeyDown={(e) => {
               if (num == 2 && e.code == "Enter") {
-console.log("xcv")
+//console.log("xcv")
                 loginUser();
               }
             }}
@@ -285,11 +287,11 @@ console.log("xcv")
               className="bi bi-eye-slash-fill show-password-icon"
             ></i>
           )}
-          <button
+          <button className={toasboolean === false ? "form_login_btn" : "newform_login_btn"}
          
 
             onClick={ loginUser}
-            className="form_login_btn"
+           
           >
             Login
           </button>

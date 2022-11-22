@@ -29,7 +29,7 @@ const TheCategory = () => {
     axios
       .get(`http://localhost:5000/categories`)
       .then((result) => {
-        console.log("result", result.data.result);
+       // console.log("result", result.data.result);
         dispatch(setCategory(result.data.result)); 
        // console.log(newCategory) 
 
@@ -37,7 +37,7 @@ const TheCategory = () => {
 
       })
       .catch((err) => {
-        console.log(err);
+      //  console.log(err);
       });
   }, []);
   const navigate = useNavigate();
@@ -50,8 +50,8 @@ const TheCategory = () => {
       {/* className="reservationH1" */}
       <div className="home-card-category-container">
         {newCategory.length > 0 &&
-          newCategory.map((item) => (
-            <div className="card-category-wrapper">
+          newCategory.map((item,i) => (
+            <div key={`catehorymain${i}`} className="card-category-wrapper">
               <img
                 src={item.imgepath}
                 alt={item.title}

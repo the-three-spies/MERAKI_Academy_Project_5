@@ -12,16 +12,15 @@ import {
 } from "../../redux/reducers/Needy";
 import { setLogin, setUserId, setLogout } from "../../redux/reducers/auth";
 import { useFormik } from "formik";
-
-
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 
 
 //---------------- add Needy ----------------
 const AddNeedy2 = ({ id }) => {
   const navigate = useNavigate();
-  console.log("id", id);
+  //console.log("id", id);
   const dispatch = useDispatch();
   //useState
   const [description, setDescription] = useState("");
@@ -34,6 +33,7 @@ const AddNeedy2 = ({ id }) => {
   const [longitude, setLongitude] = useState("");
   const [newAdress,setNewAdress]=useState("")
   //useSelector
+  const [toasboolean,setTtoasboolean]=useState(false)
   const { reduxaddnewneddy } = useSelector((state) => {
     return {
       reduxaddnewneddy: state.needy.needy,
@@ -67,15 +67,15 @@ const AddNeedy2 = ({ id }) => {
       setLongitude(position.coords.longitude)
       setLatitude(position.coords.latitude)
 
-      console.log("pos",position.coords)
+     // console.log("pos",position.coords)
     })
     let API_finalendpoint=`${API_endPoint}lat=${latitude}&lon=${longitude}&exclude=hourly,daily&appid=${API_key}`
-    console.log("kpoint",API_finalendpoint)
+   // console.log("kpoint",API_finalendpoint)
     axios.get(`${API_endPoint}lat=${latitude}&lon=${longitude}&appid=${API_key}&lang=${longitude}`).then((result)=>{
-      console.log("m",result)
+    //  console.log("m",result)
       setNewAdress(result.data.name)
-      console.log("new",result.data.name)
-      console.log("new",newAdress)
+    //  console.log("new",result.data.name)
+     // console.log("new",newAdress)
     }).catch((err)=>{
       console.log(err)
     })
@@ -87,9 +87,9 @@ const AddNeedy2 = ({ id }) => {
   //---------------- handleNeedyCase ----------------
   const handleNeedyCase = async (e) => {
     e.preventDefault();
-    console.log("CategoryId", CategoryId);
+   // console.log("CategoryId", CategoryId);
     try {
-      console.log("asdfghjkl");
+      //console.log("asdfghjkl");
       const result = await axios.post(
         "http://localhost:5000/needycase",
         {
@@ -105,20 +105,22 @@ const AddNeedy2 = ({ id }) => {
         }
       );
       if (result.data.result) {
-        console.log("hind");
-        console.log(result.data.result);
+        //console.log("hind");
+        //console.log(result.data.result);
+        toast.success("Your Case has been created successfully")
+        setTtoasboolean(true)
         setMessage("Your Case has been created successfully");
         dispatch(addNeedyCase(result.data.result));
         if (result.data.result.category_id == 3) {
-          navigate("/NeedyMonyByUserId");
+          const myTimeout = setTimeout(()=>{navigate("/NeedyMonyByUserId")}, 500);
         } else {
-          navigate("/NeedyCaseById");
+          const myTimeout = setTimeout(()=>{navigate("/NeedyCaseById")}, 300);
         }
         result.data.result.category_id == 3
           ? SetcatogeyStatus(false)
           : SetcatogeyStatus(true);
-        console.log(catogeyStatus);
-        console.log("add,", reduxaddnewneddy);
+       // console.log(catogeyStatus);
+       // console.log("add,", reduxaddnewneddy);
       }
     } catch (error) {
       if (!error.response.data.success) {
@@ -128,11 +130,11 @@ const AddNeedy2 = ({ id }) => {
   };
   //---------------- Delete Needy ----------------
   const handleDleteNeedy = () => {
-    console.log("");
+   // console.log("");
     axios
       .delete(`http://localhost:5000/needycase/${id}`)
       .then((result) => {
-        console.log(result);
+       // console.log(result);
         dispatch(
           deleteNeedyCase({
             description,
@@ -147,6 +149,7 @@ const AddNeedy2 = ({ id }) => {
   };
   //------------------return-----------------------
   return(<div className="ourNeedyCase-body">
+    <ToastContainer/>
     {catogeyStatus ?( <div className="ourNeedyCase-section">
         <div className="ourNeedyCase-inner-container">
       
@@ -161,7 +164,7 @@ const AddNeedy2 = ({ id }) => {
                 setDescription(e.target.value);
               }} required></textarea>
                       <imput type="" name="" className="send-btn " value="send" onClick={ AdderssfromGoogleLocation}>Your location through Google Map</imput>
-        <input type="submit" name="submit" className="send-btn gnfgfgh" value="Create"  onClick={handleNeedyCase}/> 
+        <input type="submit" name="submit"  className={toasboolean === false ? "send-btn gnfgfgh" : "newsend-btn newgnfgfgh"} value="Create"  onClick={handleNeedyCase}/> 
 
       </form>
     </div>
@@ -177,7 +180,7 @@ const AddNeedy2 = ({ id }) => {
         <textarea name="message" rows="5" placeholder="description your case" onChange={(e) => {
                 setDescription(e.target.value);
               }} required></textarea>
-        <input type="submit" name="submit" className="send-btn" value="send"  onClick={handleNeedyCase}/>.
+        <input type="submit" name="submit" className={toasboolean === false ? "send-btn" : "newsend-btn"} value="Create"  onClick={handleNeedyCase}/>.
          {message}
       </form>
     </div>

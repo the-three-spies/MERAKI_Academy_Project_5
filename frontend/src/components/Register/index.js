@@ -5,6 +5,9 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import {
   setLogin,
   setLogout,
@@ -12,6 +15,7 @@ import {
   setSataUserName,
   setSataRole,
 } from "../../redux/reducers/auth";
+
 
 //===============================================================
 
@@ -30,6 +34,7 @@ const Register = () => {
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState(false);
   const [role_id, srtRolrId] = useState(0);
+  const [toasboolean,setTtoasboolean]=useState(false)
 
   const auth = useSelector((state) => {
     return {
@@ -59,7 +64,17 @@ const Register = () => {
       .catch((err) => {});
   };
 
-  const AddNewUse = () => {
+  const AddNewUse = (e) => {
+
+
+    if (!firstName) {
+      toast.error("firstName Is Required");
+      if (!lastName) {
+        toast.error("lastName Is Required");}
+        if (!email) {
+          toast.error("email Is Required");}
+      return;
+    }
     axios
       .post(`http://localhost:5000/register`, {
         firstName,
@@ -93,6 +108,8 @@ const Register = () => {
               console.log("id", userId);
               console.log("aut", token);
               // console.log( "mnmn", token)
+              toast.success("he user has been created successfully")
+              setTtoasboolean(true)
 
               // {
               //   navgate("/Category");
@@ -105,8 +122,8 @@ const Register = () => {
                 }
               } else if (roleNavigate == 2) {
                 // console.log("needy");
-
-                navgate("/Showcategories");
+                const myTimeout = setTimeout(()=>{navgate("/Showcategories")}, 1000);
+                // navgate("/Showcategories");
               } else if (roleNavigate == 3) {
                 // console.log("doner");
 
@@ -132,6 +149,8 @@ const Register = () => {
   //-------------return desigin----------------
   return (
     <div className="form_wrapper_register">
+      <ToastContainer/>
+
       <form
         onSubmit={(event) => event.preventDefault()}
         className="register_form"
@@ -167,7 +186,7 @@ onChange={(e) => {
 <option disabled selected value> -- select a User Type -- </option>
 { roles.length>0&&  roles.map((elem, i) => {
   return (
-    <option
+    <option  key={`register${i}`}
       value={elem.id}
 
       // textContent={elem.specialty}
@@ -216,7 +235,7 @@ onChange={(e) => {
           placeholder="Password"
         />
 
-        <button onClick={AddNewUse} className="form_register_btn">
+        <button className={toasboolean === false ? "form_register_btn" : "newform_register_btn"} onClick={AddNewUse} >
           Register
         </button>
         {status

@@ -174,7 +174,7 @@ const themeToggler = () => {
 <Route path="/about"element={<><Header/><About/><Footer/></>}/>
 <Route path="/ourTeam"element={<><Header/><OurTeam/><Banner/><Footer/></>}/>
 <Route path="/FAQs"element={<><Header/><FAQs/><Footer/></>}/>
-<Route path="AddNeedy2/:id"element={<><Header/><AddNeedy2/><Footer/></>}></Route>
+<Route path="AddNeedy2/:id"element={<><Header/><NavbarNew/><AddNeedy2/><Footer/></>}></Route>
 <Route path="/ourStory"element={<><Header/><OurStory/><OurTeam/><Footer/></>}/>
 <Route exact path="/" element={<Navigate replace to="/home" />}>
    </Route>
