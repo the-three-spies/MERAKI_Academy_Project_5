@@ -247,7 +247,7 @@ NeedyMonyByUserId
 
   </div>
   </MyContext.Provider>
-      ;
+      
     </>
 );
 }

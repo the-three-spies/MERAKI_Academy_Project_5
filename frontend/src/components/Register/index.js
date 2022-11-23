@@ -16,7 +16,6 @@ import {
   setSataRole,
 } from "../../redux/reducers/auth";
 
-
 //===============================================================
 
 const Register = () => {
@@ -34,7 +33,7 @@ const Register = () => {
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState(false);
   const [role_id, srtRolrId] = useState(0);
-  const [toasboolean,setTtoasboolean]=useState(false)
+  const [toasboolean, setTtoasboolean] = useState(false);
 
   const auth = useSelector((state) => {
     return {
@@ -65,11 +64,11 @@ const Register = () => {
   };
 
   const AddNewUse = (e) => {
-
-
     if (!firstName) {
       toast.error("firstName Is Required");
       if (!lastName) {
+
+
         toast.error("lastName Is Required");}
         if (!email) {
           toast.error("email Is Required");}
@@ -77,6 +76,7 @@ const Register = () => {
            else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email)) {
             toast.error( 'Invalid email address')
           }
+
       return;
     }
     axios
@@ -112,8 +112,8 @@ const Register = () => {
               console.log("id", userId);
               console.log("aut", token);
               // console.log( "mnmn", token)
-              toast.success("he user has been created successfully")
-              setTtoasboolean(true)
+              toast.success("he user has been created successfully");
+              setTtoasboolean(true);
 
               // {
               //   navgate("/Category");
@@ -126,12 +126,14 @@ const Register = () => {
                 }
               } else if (roleNavigate == 2) {
                 // console.log("needy");
-                const myTimeout = setTimeout(()=>{navgate("/Showcategories")}, 1000);
+                const myTimeout = setTimeout(() => {
+                  navgate("/Showcategories");
+                }, 1000);
                 // navgate("/Showcategories");
               } else if (roleNavigate == 3) {
                 // console.log("doner");
 
-                navgate("/donate")
+                navgate("/donate");
               }
             });
         }
@@ -153,7 +155,7 @@ const Register = () => {
   //-------------return desigin----------------
   return (
     <div className="form_wrapper_register">
-      <ToastContainer/>
+      <ToastContainer />
 
       <form
         onSubmit={(event) => event.preventDefault()}
@@ -182,33 +184,34 @@ const Register = () => {
         />
         {/* <input type="text_register" name="" list="role" placeholder="Role" /> */}
 
-        <select  id="role_id_register"
-onChange={(e) => {
-    srtRolrId(e.target.value);
-}}
->
-<option disabled selected value> -- select a User Type -- </option>
-{ roles.length>0&&  roles.map((elem, i) => {
-  return (
-    <option  key={`register${i}`}
-      value={elem.id}
-
-      // textContent={elem.specialty}
-    >
-      {elem.role}
-    </option>
-  );
-})}
-</select>
-
-
+        <select
+          id="role_id_register"
+          onChange={(e) => {
+            srtRolrId(e.target.value);
+          }}
+        >
+          <option disabled selected value id="option_role_is">
+            Select User Type
+          </option>
+          {roles.length > 0 &&
+            roles.map((elem, i) => {
+              return (
+                <option
+                  key={`register${i}`}
+                  value={elem.id}
+                >
+                  {elem.role}
+                </option>
+              );
+            })}
+        </select>
+        
         {/* <select id="selectRole" >
           {roles.length > 0 &&
             roles.map((elem, i) => {
               return <option value={elem.id}> {elem.role}</option>;
             })}
         </select> */}
-
 
         {/* </div> 
             <datalist id="role">
@@ -223,7 +226,7 @@ onChange={(e) => {
             </datalist>
         
         */}
-        
+
         <input
           onChange={(e) => {
             setEmail(e.target.value);
@@ -235,11 +238,16 @@ onChange={(e) => {
           onChange={(e) => {
             setPassword(e.target.value);
           }}
-          type="passwordd"
+          type="password"
           placeholder="Password"
         />
 
-        <button className={toasboolean === false ? "form_register_btn" : "newform_register_btn"} onClick={AddNewUse} >
+        <button
+          className={
+            toasboolean === false ? "form_register_btn" : "newform_register_btn"
+          }
+          onClick={AddNewUse}
+        >
           Register
         </button>
         {status

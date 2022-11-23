@@ -4,7 +4,8 @@
     font-family: "poppins", sans-serif;
     min-height: 100Vh;
     /* background: url('https://res.cloudinary.com/dqsg0zf1r/image/upload/v1668097554/samples/project%205/fitrat_iNsan_wn8qlh.png'); */
-    background-color: #F8C0C4 ;
+    /* background-color: #F8C0C4 ; */
+    background: url("https://res.cloudinary.com/dv3wzcjeh/image/upload/v1669211805/Beige_Simple_Contact_Us_Chat_Icons_Instagram_Story_7_ejgvgo.png");
     background-size: cover;
     display: flex;
     justify-content: center;
@@ -22,7 +23,7 @@
     line-height: 65px;
     padding-left: 50px;
     font-size: 18px;
-    color: #908384;
+    color: #545454;
 }
 .contact-info i{
     margin-right: 20px;
@@ -41,7 +42,7 @@
     font-size: 35px;
     text-transform: uppercase;
     margin-bottom: 30px;
-    color: #908384;
+    color: #545454;
 }
 .contact-form .text-boxx{
     background: #fff;
@@ -55,7 +56,7 @@
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
     opacity: 0.9;
-    color: #2c3a47;
+    color: #545454;
 }
 .contact-form .text-boxx:first-child{
     margin-right: 15px;
@@ -98,11 +99,10 @@
     color: #2c3a47;
   } */
 .contact-form .send-btn{
-    background: #FFF5EB;
+    background: #545454 !important;
     padding: 20px 32px;
     font-size: 16px;
     font-weight: bold;
-    color: #111111;
     border: none;
     outline: none;
     box-shadow: 0px 16px 32px 0px rgb(0 0 0 /6%);
@@ -110,7 +110,7 @@
     text-transform: uppercase;
     letter-spacing: 2px;
     float: right;
-    color: #2c3a47;
+    color: #fff !important;
 }
 .contact-form .send-btn:hover{
     /* background: #545454; */

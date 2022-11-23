@@ -260,8 +260,9 @@ toast.success("Welcome")
             type="passwordd"
             placeholder="Password"
           /> */}
-          {/* ---show hide passworf-- */}
+          {/* ---show hide password-- */}
           <input
+          className="stickTheEyePassword"
             ref={num === 2 ? inputRef : null}
             type={showPassword === true ? "text" : "password"}
             placeholder="Password"
@@ -293,6 +294,7 @@ toast.success("Welcome")
             onClick={ loginUser}
            
           >
+            
             Login
           </button>
 
@@ -316,7 +318,31 @@ toast.success("Welcome")
                   placeholder="City"
                   onChange={(e) => setCity(e.target.value)}
                 />
-                <input
+                
+                        <select
+          id="role_id_register"
+          onChange={(e) => {
+            srtRolrId(e.target.value);
+          }}
+        >
+          <option disabled selected  id="option_role_is" value="1">
+            Select User Type
+          </option >
+          {roles.length > 0 &&
+            roles.map((elem, i) => {
+              return (
+                <option
+                  key={`register${i}`}
+                  value={elem.id}
+                >
+                  {elem.role}
+                </option>
+              );
+            })}
+        </select>
+                
+               
+                {/* <input
                   type="text_register"
                   name=""
                   list="role"
@@ -327,9 +353,9 @@ toast.success("Welcome")
                     roles.map((elem, i) => {
                       return <option value={elem.id}>{elem.role}</option>;
                     })}
-                </select>
+                </select> */}
                 <input
-                  type="passwordd"
+                  type="password"
                   placeholder="Password"
                   onChange={(e) => setPassword(e.target.value)}
                 />
