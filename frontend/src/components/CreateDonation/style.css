@@ -9,7 +9,7 @@
 }
 .donate_card_category_wrapper{
   height: 450px; /*500*/
-  margin: 30px; /*50*/
+  margin: 5px; /*50*/
   box-shadow: 5px 5px 20px black; 
   overflow: hidden;
   position: relative;
@@ -17,14 +17,14 @@
 }
 .donate_card_category_image{
   height: 450px; /*500*/
-  width: 350px; /*350*/
+  width: 320px; /*350*/
   border-radius: 3px;
   transition: .5s;
 }
 .donate_card_category_intro{
   height: 70px;/*200px*/
   width: 350px; 
-  padding: 6px;
+  /* padding: 6px; */
   box-sizing: border-box;
   position: absolute;
   bottom: 240px;
@@ -41,12 +41,15 @@
 .donate_card_category_intro_title{
   margin: 10px;
   font-size: 40px;
+  text-align: center;
 }
 .donate_card_category_intro_p{
   font-size: 20px;
   margin: 20px;
   visibility: hidden;
   opacity: 0;
+text-align: start;
+padding-right: 20px;
 }
 span{
   font-weight: bold;
