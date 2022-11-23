@@ -1,5 +1,5 @@
 import "./App.css";
-import { Route, Routes,Navigate } from "react-router-dom";
+import { Route, Routes,Navigate, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { createContext, useState, useEffect } from "react";
 import Register from "./components/Register";
@@ -115,17 +115,37 @@ import HeaderAdmin from "./components/DashboardAdmin/header";
 export const MyContext = createContext();
 
 function App() {
-  // const {stateRole} = useSelector((state) => {
-  //   return {
-  //       stateRole: state.auth.stateRole,
-  //   };
-  // });
+  const {stateRole} = useSelector((state) => {
+    return {
+        stateRole: state.auth.stateRole,
+    };
+  });
   const [selcet, setselcet] = useState(0);
-const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState(
+    localStorage.getItem('theme') || 'light'
+  );
+const navigat=useNavigate();
 const state = {selcet,setselcet,theme,setTheme}
-const themeToggler = () => {
-  theme === "light" ? setTheme("dark") : setTheme("light");
+const toggleTheme = () => {
+  if (theme === 'light') {
+    setTheme('dark');
+  } else {
+    setTheme('light');
+  }
 };
+useEffect(() => {
+ if(stateRole=='1')
+ navigat("/admin/dashboard")
+ else if(stateRole=='2')
+ {
+  navigat("/Showcategories")
+ }
+ else if(stateRole=='3')
+ {
+  navigat("/donate")
+ }
+}, [])
+
   return (
     <>
     <MyContext.Provider value={state}>

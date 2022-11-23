@@ -1,18 +1,16 @@
 import React from "react";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { addDonationOrder } from "../../redux/reducers/doner";
+import { addDonationThingOrder } from "../../redux/reducers/doner";
 import "./style.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import Navigation from "../Navigation";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const Material = () => {
   const imagecase = [
-    "https://res.cloudinary.com/dqsg0zf1r/image/upload/v1668430984/person2_peh2ws.png",
-    "https://res.cloudinary.com/dqsg0zf1r/image/upload/v1668431004/per4_lx4ufh.png",
-    "https://res.cloudinary.com/dqsg0zf1r/image/upload/v1668430984/person333_bqjeif.png",
-    "https://res.cloudinary.com/dqsg0zf1r/image/upload/v1668430984/pers3_op46c2.png",
-  ];
+    '','https://res.cloudinary.com/dqsg0zf1r/image/upload/v1669149184/per4-removebg-preview_qa2wku.png','https://res.cloudinary.com/dqsg0zf1r/image/upload/v1669149184/pers3-removebg-preview_sm4ph8.png','https://res.cloudinary.com/dqsg0zf1r/image/upload/v1669150185/person1-removebg-preview_yoheca.png','https://res.cloudinary.com/dqsg0zf1r/image/upload/v1669150533/222-removebg-preview_wmxvoj.png','https://res.cloudinary.com/dqsg0zf1r/image/upload/v1669162717/person333-removebg-preview_wuqmsz.png','https://res.cloudinary.com/dqsg0zf1r/image/upload/v1669149184/per333-removebg-preview_n5joia.png'];
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const params = useParams();
@@ -27,7 +25,7 @@ const Material = () => {
   const [url, setUrl] = useState("");
   const [clickon, setclickon] = useState("");
   const [selectedImage, setSelectedImage] = useState(null);
-
+  const [toasboolean,setTtoasboolean]=useState(false)
   const { token } = useSelector((state) => {
     return {
       token: state.auth.token,
@@ -53,6 +51,9 @@ const Material = () => {
       .then((data) => {
         // setUrl(data.url)
         handelDonate(data.url);
+        toast.success("thank you form our heart , the process of donation done")
+        setTtoasboolean(true)
+        const myTimeout = setTimeout(()=>{navigate("/mythingdonation")}, 500);
         console.log(data.url);
       })
       .catch((err) => console.log(err));
@@ -109,9 +110,12 @@ const Material = () => {
         }
       );
       if (result.data.success) {
-        setStatus(true);
-        setMessage("thank you form our heart , the process of donation done");
-        dispatch(addDonationOrder(result.data.result));
+        // setStatus(true);
+        // setMessage("thank you form our heart , the process of donation done");
+   
+        // setMessage("Your Case has been created successfully");
+        dispatch(addDonationThingOrder(result.data.result));
+      
       } else {
         throw Error;
       }
@@ -132,6 +136,7 @@ const Material = () => {
   //..................START return Desigin return START.....................
   return (
     <div className="container_donate">
+        <ToastContainer/>
       {/* <Navigation/> */}
       {/* <h1>Material Form Donation</h1> */}
       {/* <h2>{cateagory.title}</h2> */}
@@ -141,9 +146,9 @@ const Material = () => {
           needCase.map((need, i) => {
             // console.log("needycase",needCase)
             return (
-              <div className="card_forDonate">
+              <div key={i} className="card_forDonate">
                 <div className="img_donate">
-                  <img src={imagecase[i]}></img>
+                  <img src={imagecase[need.id]}></img>
                 </div>
                 <div className="infocard_donate">
                   <div className="details">
@@ -159,7 +164,7 @@ const Material = () => {
            </div> */}
                     <div className="chosecasebtn_donate">
                       <button
-                        className={clickon == need.id ? "true" : ""}
+                        className={clickon == need.id ? "true" : "chosecasebtn_donate"}
                         onClick={() => {
                           setcase_id(need.id);
                           setclickon(need.id);
@@ -259,7 +264,7 @@ const Material = () => {
       )}
       {/* 77777777777777777777777777777777777777777777777777777777777*/}
       <div className="chosecasebtn2_donate">
-      <button className="" onClick={uploadImage}>
+      <button className={toasboolean === false ? "send-btn" : "newsend-btn"} onClick={uploadImage}>
         {" "}
         Donate Now
       </button>

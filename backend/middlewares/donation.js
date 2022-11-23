@@ -40,7 +40,7 @@ const UpdateNeedyCase = (req, res,next) => {
     };
     const FinalUpdateNeedyCase = (req, res) => {
       const value=[req.body.newcase.case_id]
-       const query = `UPDATE needy_Case SET statusdonation='inactive' WHERE id=$1 AND (amount IS NULL OR rest='0') RETURNING *;`;
+       const query = `UPDATE needy_Case SET statusdonation='inactive' WHERE id=$1 AND (amount IS NULL OR rest <='0') RETURNING *;`;
         pool
           .query(query, value)
           .then((result) => {

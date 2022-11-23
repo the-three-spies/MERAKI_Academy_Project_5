@@ -1,20 +1,16 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import {
-  setDonationOrder,
-  deleteDonationOrder,
-  updatDonationOrder,
-  setMaterialDonation,
+import {deletethingOrder, setDonationThing,updatDonationThingOrder,
 } from "../../redux/reducers/doner";
 import axios from "axios";
 import './materialDoner.css'
 //===============================================================
 const MaterialDonation = () => {
   const dispatch = useDispatch();
-  const { donation } = useSelector((state) => {
+  const {dontionthings } = useSelector((state) => {
     return {
-      donation: state.donation.donation,
+      dontionthings: state.donation.dontionthings,
     };
   });
   const { token } = useSelector((state) => {
@@ -25,30 +21,30 @@ const MaterialDonation = () => {
   const [Message, setMessage] = useState("");
   const [newdate, setnewdate] = useState("");
   const [idupdate, setidupdate] = useState("");
-  const [deleverydate, setDeleverydate] = useState("");
-  const [dontionthings, setdontionthings] = useState([]);
+  // const [deleverydate, setDeleverydate] = useState("");
+  // const [dontionthings, setdontionthings] = useState([]);
   //===============================================================
-  const getmydonation = async () => {
-    try {
-      const result = await axios.get(
-        "http://localhost:5000/dontes/myDonition",
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-      if (result.data.success) {
-        dispatch(setDonationOrder(result.data.result));
-        setMessage("");
-      } else throw Error;
-    } catch (error) {
-      if (error.response && error.response.data) {
-        return setMessage(error.response.data.message);
-      }
-      setMessage("Error happened while Get Data, please try again");
-    }
-  };
+  // const getmydonation = async () => {
+  //   try {
+  //     const result = await axios.get(
+  //       "http://localhost:5000/dontes/myDonition",
+  //       {
+  //         headers: {
+  //           Authorization: `Bearer ${token}`,
+  //         },
+  //       }
+  //     );
+  //     if (result.data.success) {
+  //       dispatch(setDonationOrder(result.data.result));
+  //       setMessage("");
+  //     } else throw Error;
+  //   } catch (error) {
+  //     if (error.response && error.response.data) {
+  //       return setMessage(error.response.data.message);
+  //     }
+  //     setMessage("Error happened while Get Data, please try again");
+  //   }
+  // };
   //==================================================================
   const getmyMatieraldonation = async () => {
     try {
@@ -61,8 +57,8 @@ const MaterialDonation = () => {
         }
       );
       if (result.data.success) {
-        setdontionthings(result.data.cases);
-        console.log(result.data.cases);
+        dispatch(setDonationThing(result.data.cases));
+        // console.log(result.data.cases);
         setMessage("");
       } else throw Error;
     } catch (error) {
@@ -80,15 +76,8 @@ const MaterialDonation = () => {
         deleveryDate: newdate,
       });
       if (result.data.success) {
-        console.log(result.data.result);
-
-        const newthingarry = dontionthings.map((element, i) => {
-          if (element.id == id) {
-            element.deleverydate = newdate;
-          }
-          return element;
-        });
-        setdontionthings(newthingarry);
+      
+        dispatch(updatDonationThingOrder({id,newdate}))
         setMessage("");
       } else throw Error;
     } catch (error) {
@@ -103,10 +92,7 @@ const MaterialDonation = () => {
     try {
       const result = await axios.delete(`http://localhost:5000/dontes/${id}`);
       if (result.data.success) {
-        const dontionnew = dontionthings.filter((elem) => {
-          return elem.id != id;
-        });
-        setdontionthings(dontionnew);
+        dispatch(deletethingOrder(id))
         setMessage("");
       } else throw Error;
     } catch (error) {
@@ -119,7 +105,7 @@ const MaterialDonation = () => {
   //===============================================================
 
   useEffect(() => {
-    getmydonation();
+    // getmydonation();
     getmyMatieraldonation();
   }, []);
   //===============================================================
@@ -129,7 +115,7 @@ const MaterialDonation = () => {
   <div className="mmaapp">
     {dontionthings && dontionthings.map((donate,i)=>{
       return(
-        <div >
+        <div key={i} >
         <div className="material_box">
                               <button onClick={() => setidupdate(donate.id)}  className="edit_donate" >
                     {" "}

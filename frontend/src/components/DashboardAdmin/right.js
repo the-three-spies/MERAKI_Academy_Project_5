@@ -40,34 +40,6 @@ infoUpdate()
 //===============================================================
   return (
     <div className='right_side'>
-        {/* <div className='top_admin'>
-            <button id='menu-btn'>
-<AiOutlineMenu/>
-            </button>
-            <div className='them-toggler_admin'>
-                <button
-                className='icon-light'>
-                    <span><FiSun/></span>
-
-                </button>
-               <button icon-light>
-                    <span><HiMoon/></span>
-
-                </button>
-            </div>
-    
-            <div className='profile'>
-                <div className='info_admin'>
-                <p> Hey,FitratInsan</p>
-<h5 className='text-muted'>Admin</h5>
-                </div>
-<div className='profile_img'>
-<img src=''></img>
-</div>
-            </div>
-
-            
-        </div> */}
         <div className='recent_update'>
             <h2>Recent updates</h2>
 <div className='update'>
@@ -76,7 +48,7 @@ infoUpdate()
         return (
             <div key={i}>
                 <div className='profile_img'>
-                    <img src='https://res.cloudinary.com/dqsg0zf1r/image/upload/v1669116697/eee_swrblc.png'></img>
+                    <img src='https://res.cloudinary.com/dqsg0zf1r/image/upload/v1669160965/eee-removebg-preview_byver4.png'></img>
                     </div>
                     <div className='messages'>
                         <h5>{e.firstName}</h5>

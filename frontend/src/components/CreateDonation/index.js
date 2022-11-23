@@ -51,8 +51,8 @@ const DonationOrder = () => {
     <div className="aonate_body_donate">
       <div className="donate_card_category_container">
         {donationCategory.length  &&
-          donationCategory.map((item) => (
-            <div className="donate_card_category_wrapper">
+          donationCategory.map((item,i) => (
+            <div key={i}className="donate_card_category_wrapper">
               <img
                 src={item.imgepath}
                 alt={item.title}

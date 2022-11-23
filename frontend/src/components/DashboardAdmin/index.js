@@ -14,8 +14,7 @@ const AdminPanel = () => {
     <>
   
     <div className='admin_panal'>
-      <div className='container_panel_a'>
-      {/* <div className={ theme === "light"? 'container_panel_a ' :'container_panel_a  dark-them'}> */}
+      <div className={theme==='dark'?'container_panel_a dark-them':'container_panel_a'}>
         <Sidebar/>
         <Maindashboard/>
         <RightSide/>

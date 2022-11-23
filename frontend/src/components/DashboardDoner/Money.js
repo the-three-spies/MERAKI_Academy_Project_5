@@ -1,43 +1,43 @@
 import React from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect,useState } from "react";
-import { setDonationOrder,deleteDonationOrder, updatDonationOrder,setMaterialDonation} from "../../redux/reducers/doner";
+import { deleteMoneyoderr, setDonationMoney} from "../../redux/reducers/doner";
 import axios from "axios";
  import './moneyDoner.css'
  //===============================================================
 const MoneyDonationList = () => {
   const dispatch = useDispatch();
-  // const { donation } = useSelector((state) => {
-  //   return {
-  //     donation: state.donation.donation,
-  //   };
-  // });
+  const { moneyDonation} = useSelector((state) => {
+    return {
+      moneyDonation: state.donation.moneyDonation,
+    };
+  });
   const {token} = useSelector((state) => {
     return {
       token: state.auth.token,
     };
   });
     const [Message, setMessage] = useState("");
-    const [moneyDonation, setmoneyDonation] = useState([])
+    // const [moneyDonation, setmoneyDonation] = useState([])
        //===============================================================
-       const getmydonation = async () => {
-        try {
-          const result = await axios.get("http://localhost:5000/dontes/myDonition", {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          });
-          if (result.data.success) {
-          dispatch(setDonationOrder(result.data.result));
-            setMessage("");
-          } else throw Error;
-        } catch (error) {
-          if (error.response && error.response.data)  {
-            return setMessage(error.response.data.message);
-          }
-          setMessage("Error happened while Get Data, please try again");
-        }
-      };
+      //  const getmydonation = async () => {
+      //   try {
+      //     const result = await axios.get("http://localhost:5000/dontes/myDonition", {
+      //       headers: {
+      //         Authorization: `Bearer ${token}`,
+      //       },
+      //     });
+      //     if (result.data.success) {
+      //     dispatch(setDonationOrder(result.data.result));
+      //       setMessage("");
+      //     } else throw Error;
+      //   } catch (error) {
+      //     if (error.response && error.response.data)  {
+      //       return setMessage(error.response.data.message);
+      //     }
+      //     setMessage("Error happened while Get Data, please try again");
+      //   }
+      // };
        //==================================================================
     const getmyMoneyonation = async () => {
       try {
@@ -47,8 +47,8 @@ const MoneyDonationList = () => {
           },
         });
         if (result.data.success) {
-          setmoneyDonation(result.data.cases)
-          setMessage("");
+          dispatch(setDonationMoney(result.data.cases))      
+              setMessage("");
         } else throw Error;
       } catch (error) {
         if (error.response && error.response.data)  {
@@ -63,10 +63,7 @@ const MoneyDonationList = () => {
     const result = await axios.delete(`http://localhost:5000/dontes/${id}`)
     if (result.data.success) {
     // dispatch(deleteDonationOrder(id));
-    const Monydonation = moneyDonation.filter((elem) => {
-      return elem.id != id;
-    });
-   setmoneyDonation(Monydonation);
+    dispatch(deleteMoneyoderr(id));
       setMessage("");
     } else throw Error;
   } catch (error) {
@@ -78,7 +75,7 @@ const MoneyDonationList = () => {
 };
    //===============================================================
     useEffect(() => {
-      getmydonation()
+      // getmydonation()
       getmyMoneyonation();
           }, [])
             
@@ -92,7 +89,7 @@ return (
     {moneyDonation &&
      moneyDonation.map((donate, i) => {
         return (
-          <div class="donateOrder_item">
+          <div key={i} class="donateOrder_item">
             <p><span>Description</span><span>{donate.description}</span></p>
             <hr></hr>
             <p><span>Donate Amout</span> <span>${donate.amount}</span></p>
