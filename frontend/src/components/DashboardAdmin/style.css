@@ -194,11 +194,15 @@ font-size: 1.3rem;
   margin-left: 0;
 
   }
+
   .main_dashbored h1{
     text-align: left;
     padding-bottom: 0.5rem;
   }
   .active:before {
+
+  .active::before {
+
     content: "";
     width: 8px;
     height: 100%;
