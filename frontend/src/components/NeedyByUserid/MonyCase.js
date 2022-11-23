@@ -11,6 +11,8 @@ import {
   deleteNeedyCase,
   updateActive
 } from "../../redux/reducers/Needy";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 //---------------- The Needy ----------------
 const NeedyMonyByUserId = () => {
   const dispatch = useDispatch();
@@ -33,19 +35,19 @@ const NeedyMonyByUserId = () => {
   });
   //---------------- Set The Needy ----------------
 
-const convertCaseUnactive=(id)=>{
+// const convertCaseUnactive=(id)=>{
 
-axios.put(`http://localhost:5000/needycase/unactive/${id}`)
-.then((then)=>{
-  dispatch(updateActive(id))
-console.log("hind")
-})
-.catch((err)=>{
+// axios.put(`http://localhost:5000/needycase/unactive/${id}`)
+// .then((then)=>{
+//   dispatch(updateActive(id))
+// //console.log("hind")
+// })
+// .catch((err)=>{
 
-})
+// })
 
 
-}
+// }
 
   const deleteCase =(id)=>{
 
@@ -54,7 +56,9 @@ console.log("hind")
     const arrayMony= mony.filter((elem)=>{
         return(elem.id!=id)
       })
+      
     setMony(arrayMony)
+    toast.success("Deleted successfully")
     })
     .catch((err)=>{
     
@@ -63,20 +67,20 @@ console.log("hind")
   }
 
 
-  const deleteTingsCase =(id)=>{
+  // const deleteTingsCase =(id)=>{
 
-    axios.delete(`http://localhost:5000/needycase/${id}`)
-    .then((then)=>{
-    const arrayTings= mony.filter((elem)=>{
-        return(elem.id!=id)
-      })
-    setThings(arrayTings)
-    })
-    .catch((err)=>{
+  //   axios.delete(`http://localhost:5000/needycase/${id}`)
+  //   .then((then)=>{
+  //   const arrayTings= mony.filter((elem)=>{
+  //       return(elem.id!=id)
+  //     })
+  //   setThings(arrayTings)
+  //   })
+  //   .catch((err)=>{
     
-    })
+  //   })
 
-  }
+  // }
 
   const gitMoneyCaseToUser=()=>{
   
@@ -88,7 +92,7 @@ console.log("hind")
       })
       .then((result)=>{
         setMony(result.data.cases)
-        console.log(result)
+       // console.log(result)
       })
       .catch((err)=>{
 
@@ -106,7 +110,7 @@ console.log("hind")
       })
       .then((result)=>{
         setThings(result.data.cases)
-        console.log(result)
+       // console.log(result)
       })
       .catch((err)=>{
 
@@ -124,12 +128,13 @@ console.log("hind")
   //----------------DESIGIN return DESIGIN----------------
   return (
         <div  className="case_order_summery">
+          <ToastContainer/>
           <h1>YOUR MONEY ORDER</h1>
           {/* <div className="caseorder-summery-title"> YOUR MONEY ORDER </div> */}
        {mony&&mony.map((element, i) => {
          return (
-           <div className="maiDivMonyTow">
-                <div class="order_item">
+           <div key={`monydivshow${i}`} className="maiDivMonyTow">
+                <div className="order_item">
                 <p><span>{element.description}</span></p>
       <p><span>Amout</span> <span>${element.amount}</span></p>
       <hr></hr>
@@ -139,7 +144,7 @@ console.log("hind")
       <hr></hr>
       <p><span> status</span> <span>{element.statusdonation}</span></p>
       <hr></hr>
-      <p><span> </span> <span><button onClick={()=>{deleteCase(element.id)}}  ><i class="bi bi-trash-fill"></i></button></span></p>
+      <p><span> </span> <span><button onClick={()=>{deleteCase(element.id)}}  ><i className="bi bi-trash-fill newbi-trash-fill"></i></button></span></p>
       
     </div>
     <div className="divImageMonynew   plus"><img src="./assets/images/pic5.png" ></img></div>

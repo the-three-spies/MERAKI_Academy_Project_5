@@ -15,12 +15,12 @@ import "react-toastify/dist/ReactToastify.css";
 //---------------- The Needy ----------------
 const NeedyByUserId = () => {
   const dispatch = useDispatch();
-  const [description, setTitle] = useState("");
-  const [amount, setAmount] = useState("");
-  const [address, setAddress] = useState("");
+  // const [description, setTitle] = useState("");
+  // const [amount, setAmount] = useState("");
+  // const [address, setAddress] = useState("");
   const [things, setThings] = useState([]);
   const [mony, setMony] = useState([]);
-
+  const [toasboolean,setTtoasboolean]=useState(false)
   //useSelector
   const { reduxaddnewneddy } = useSelector((state) => {
     return {
@@ -39,7 +39,7 @@ const NeedyByUserId = () => {
       .put(`http://localhost:5000/needycase/unactive/${id}`)
       .then((then) => {
         dispatch(updateActive(id));
-        console.log("hind");
+       // console.log("hind");
       })
       .catch((err) => {});
   };
@@ -63,6 +63,8 @@ const NeedyByUserId = () => {
     axios
       .delete(`http://localhost:5000/needycase/${id}`)
       .then((then) => {
+        toast.success("Deleted successfully")
+        setTtoasboolean(true)
         const arrayTings = things.filter((elem) => {
           return elem.id != id;
         });
@@ -80,7 +82,7 @@ const NeedyByUserId = () => {
       })
       .then((result) => {
         setMony(result.data.cases);
-        console.log(result);
+       // console.log(result);
       })
       .catch((err) => {
         console.log(err);
@@ -95,7 +97,7 @@ const NeedyByUserId = () => {
       })
       .then((result) => {
         setThings(result.data.cases);
-        console.log(result);
+       // console.log(result);
       })
       .catch((err) => {
         console.log(err);
@@ -140,6 +142,7 @@ const NeedyByUserId = () => {
   //----------------DESIGIN return DESIGIN----------------
   return (
     <div className="case_order_summery">
+      <ToastContainer/>
       <h1>YOUR MATERIAL ORDER</h1>
       {/* <div className="caseorder-summery-title"> YOUR MONEY ORDER </div> */}
       {things &&
@@ -172,7 +175,7 @@ const NeedyByUserId = () => {
                         deleteTingsCase(element.id);
                       }}
                     >
-                      <i class="bi bi-trash-fill"></i>
+                      <i className={toasboolean === false ? "bi bi-trash-fill" : "bi bi-trash-fill newbi-trash-fill"} ></i>
                     </button>
                   </span>
                 </p>
