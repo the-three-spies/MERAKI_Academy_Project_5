@@ -71,11 +71,11 @@ allNeedyCase()
         </div>
         <div className='latest_Case'>
             <table>
-                <tr></tr> <th>user Name</th> <th>Help Order </th><th> Name of Section </th> <th> Status of Order</th> <th> Amount Needed</th><th> Amount Donation</th> <th> Address</th> 
+                <tr> <th>user Name</th> <th>Help Order </th><th> Name of Section </th> <th> Status of Order</th> <th> Amount Needed</th><th> Amount Donation</th> <th> Address</th> </tr>
                 {
                     needyCase && needyCase.map((element, i) => {
                         return (
-                            <tr><td>{element.firstname}</td> <td>{element.description}</td>
+                            <tr key={i}><td>{element.firstname}</td> <td>{element.description}</td>
                                 <td>{element.title}</td><td>{element.statusdonation}</td> <td> {element.amount=='null'?'--':element.amount}</td>
                                 <td> {element.donation_amount}</td> 
                                 <td>{element.address} </td>

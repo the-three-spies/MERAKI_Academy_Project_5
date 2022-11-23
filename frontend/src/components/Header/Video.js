@@ -42,7 +42,9 @@ const Video =()=>{
             </ul>
         </header> */}
         <section className='box_video'>
-            <video src='./assets/images/video1.mp4' autoPlay muted loop ></video>
+         
+            <video src='https://res.cloudinary.com/dqsg0zf1r/video/upload/v1669150423/pexels-julia-m-cameron-6893879_cphdfi.mp4' autoPlay muted loop ></video>
+            {/* <video src='https://res.cloudinary.com/dqsg0zf1r/video/upload/v1669210453/pexels-gustavo-fring-7100869_zt37zh.mp4' autoPlay muted loop ></video> */}
             <h1>Fitrat Inasn</h1>
             <h3>A House Of Givivig & Power Generosity</h3>
             <Link to='/contact' className='box_video_Btn'>Contact Us</Link>

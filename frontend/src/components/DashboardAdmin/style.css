@@ -2,10 +2,10 @@
 
 :root{
 /* --color-primary:#e12aba;#e60b63; */
---color-primary:#FB91CF;
-/* --color-primary:#7380ec; */
---color-admin:#ff5757;
---color-danger:#11B6CC;
+--color-primary:#ea309c;
+/* --color-primary:#A360FF; */
+--color-danger:#ff5757;
+/* --color-danger:#11B6CC; */
 --color-success:#41f1b6;
 --color-warning:#ffbb55;
 --color-info-dark:#7d8da1;
@@ -25,7 +25,7 @@
 --box-shadow:0 2rem 3rem var(--color-light)
 
 }
-.dark-them{
+.dark{
   background-color:#181a1e;
   --color-white:#202528;
   --color-dark:#edeffd;
@@ -33,22 +33,16 @@
   --color-light:rgba(0,0,0,0.4);
   --box-shadow:0 2rem 3rem var(var(--color-light))
 }
-.body{
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-  box-sizing: border-box;
-}
-.container_panel{
+
+.container_panel .container_panel_a{
   font-size: 14px;
   width:100vw;
-  /* height: 100vh; */
-  font-family: "Roboto", sans-serif;
-   background-color: var((--colo-background));
-  /* background-color: #f6f6f9;; */
+  height: 100vh;
+  font-family: 'Poppins', sans-serif ;
+   background-color: var((--colo-background));  
   
 }
-.container_panel h3{
+.container_panel h3 .container_panel_a h3 container_panel_a h1{
   color: var(--color-dark);
 }
 .image_admin_logo img
@@ -57,40 +51,34 @@
   width: 100%;
 
 }
-.container_panel h1{
+.container_panel h1 .container_panel_a h1{
   font-weight: 500;
   font-size: 1.5rem;
+  text-align: left;
 
 
 }
-.admin_panal h3{
-  /* font-size: calc(0.87 rem + 1vh); */
+    .admin_panal h3  .right_side h3{
   font-weight: 500;
-
+font-size: 0.8rem;
 }
-.admin_panal h4{
+.admin_panal h4 .right_side h4{
 font-size: 0.77rem;
 
 
 }
-.admin_panal h5{
+.admin_panal h5 .right_side h5{
   font-size: 0.7rem
 
 }
-.admin_panal p .header{
+.admin_panal p .header_admin p{
 color: var(--color-dark_variant);
 }
 .admin_panal span{
   color: var(--color-dark);
   color:#363949;
+  color: var(--color-dark);
   }
-
-/* .profile_img{
-  width: 12rem;
-  height: 5rem;
-  overflow: hidden;
-  display: block;
- } */
 
  .text_muted{
   padding-top: .5rem;
@@ -116,9 +104,7 @@ color: var(--color-dark_variant);
      width:100;
     margin: 0 auto;
     gap:0.1rem;
-    /* grid-template-columns: 14rem auto 23rem; */
     grid-template-columns: 14rem auto ;
-
     overflow: hidden;
     border-radius: 2px
 
@@ -137,7 +123,7 @@ color: var(--color-dark_variant);
   .container_a
   {
     height: 100vh;
-    background-color:#fff;
+    background-color:var(--color-white)
   }
  
 .image_admin_logo
@@ -149,8 +135,6 @@ color: var(--color-dark_variant);
   margin-top: 1rem;
 }
 .log_admin{
-  /* width:12vw;
-  height:10vh */
 }
   .menu_item_admin:hover {
     cursor: pointer;
@@ -184,11 +168,10 @@ transition: all 300ms ease;
 .menu_item_admin h3
 {
 font-weight: 500;
-transition: all 300ms ease;
 font-weight: 700;
-color: #7d8da1;
+transition: all 300ms ease;
+color:var(--color-info-dark);
   font-size: 0.9rem;
-  /* font-size: calc(1.5rem +1.8vw); */
 
 
 }
@@ -204,27 +187,39 @@ font-size: 1.3rem;
   } 
   
   .active {
-  /* background-color:rgba(132,139,200,0.18);  */
-  background-color: var(--);
+  background-color:rgba(132,139,200,0.18); 
+  background-color: var(--color-light);
   /* color:#FF5757;  */
   color: var(--color-primary);
   margin-left: 0;
 
   }
+
+  .main_dashbored h1{
+    text-align: left;
+    padding-bottom: 0.5rem;
+  }
+  .active:before {
+
   .active::before {
+
     content: "";
     width: 8px;
     height: 100%;
-    background:#FF5757; 
+    /* background:#FF5757;  */
+    background-color: var(--color-primary);
   }
 .active span
 {
   color:#FF5757; 
+  color: var(--color-primary);
   margin-left: calc(1rem - 3px);
 
 }
 .menu_item_admin :hover{
   color:#FF5757;  
+
+  color: var(--color-primary);
 }
 .menu_item_admin span:hover{
 margin-left: 1rem;
@@ -233,7 +228,7 @@ margin-left: 1rem;
 /*------------------------------------------------------*/
 .main_dashbored{
   margin: 1.4rem;
-  /* text-align: center; */
+  /* text-align: left; */
 }
 .date
 {
@@ -275,12 +270,15 @@ box-shadow: none;
   /* background-color:var(--color-primary); */
   padding: 0.5rem;
   border-radius: 50%;
-  color: white;
+  color:var(--color-white);
   font-size: 2rem;
 
 }
 .primary_a{
   background-color: var(--color-primary);
+}
+.danger_a{
+  background-color: var(--color-danger);
 }
 .warning_a
 {

@@ -39,7 +39,7 @@ const createNewDonerGiving = (req, res,next) => {
 // In this function, you will return all donation requests to donors, regardless of the type of donation or the donor
 const getAllDonerGiving = (req, res) => {
         // const query = `SELECT doner_givin.*,users.id,users.firstName FROM doner_givin doner_givin INNER JOIN users ON doner_givin.doner_id = users.id WHERE doner_givin.is_deleted=0`;
-       const query= `SELECT doner_givin.*,donations_Category.title,users.firstName FROM doner_givin INNER JOIN donations_Category ON doner_givin.category_id = donations_Category.id INNER JOIN users ON doner_givin.doner_id = users.id`
+       const query= `SELECT doner_givin.*,donations_Category.title,users.firstName FROM doner_givin INNER JOIN donations_Category ON doner_givin.category_id = donations_Category.id INNER JOIN users ON doner_givin.doner_id = users.id ORDER BY doner_givin.id ASC;`
         pool
           .query(query)
           .then((result) => {
@@ -214,6 +214,38 @@ const getdonationOrderMeterialByUserId = (req, res) => {
       });
     });
 };
+const confirmDelvery=(req, res)=>{
+  console.log("lkokll")
+  const id = req.params.id;
+
+  const query = `UPDATE doner_givin SET confirm =TRUE WHERE id=$2 RETURNING *;`;
+  pool
+    .query(query, data)
+    .then((result) => {
+      if (result.rows.length === 0) {
+        return res.status(404).json({
+          success: false,
+          massage: `DonerGiving: ${id} is not found`,
+        });
+      } else {
+        res.status(200).json({
+          success: true,
+          massage: `Succeeded to updated DonerGiving with id: ${id}`,
+          result: result.rows[0],
+        });
+      }
+    })
+    .catch((err) => {
+      res.status(500).json({
+        success: false,
+        massage: "Server Error",
+        err: err,
+      });
+    });
 
 
-module.exports={createNewDonerGiving,getAllDonerGiving,updateDonerGiving,deletDonerGiving,getAllDonerGivingByDonerId,getdonationOrderMoneyByUserId,getdonationOrderMeterialByUserId}
+
+}
+
+
+module.exports={createNewDonerGiving,getAllDonerGiving,updateDonerGiving,deletDonerGiving,getAllDonerGivingByDonerId,getdonationOrderMoneyByUserId,getdonationOrderMeterialByUserId,confirmDelvery}

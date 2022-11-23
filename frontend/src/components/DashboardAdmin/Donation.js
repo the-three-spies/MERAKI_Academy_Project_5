@@ -1,5 +1,6 @@
 import React from "react";
 import Sidebar from "./Sidebar";
+import {FaCheck} from 'react-icons/fa'
 import "./style.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
@@ -7,6 +8,7 @@ const Donation = () => {
   const [donationOrder, setdonationOrder] = useState([]);
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState(false);
+
   //===============================================================
 
   const allDonationOrder = async () => {
@@ -28,6 +30,31 @@ const Donation = () => {
     }
   };
   //===============================================================
+
+  const confirmDelivery = async (id) => {
+    try {
+      const result = await axios.put(`http://localhost:5000/dontes/confirm/${id}`);
+      if (result.data.success) {
+        const data=donationOrder.filter((e,i)=>
+        {
+          if(e.id==id)
+          {
+            e.confirm=true;
+          }
+          return(e)
+        })
+        setdonationOrder(data)
+      } else {
+        throw Error;
+      }
+    } catch (error) {
+      if (!error.response.data.success) {
+        setStatus(false);
+        setMessage(error.response.data.message);
+      }
+    }
+  };
+  //====================================================
   useEffect(() => {
     allDonationOrder();
   }, []);
@@ -54,9 +81,12 @@ const Donation = () => {
                         <td>{element.case_id}</td>
                         <td>{element.description}</td>
                         <td>{element.deleverydate}</td>
-                        <td> {element.amount}$</td>
+                        <td> {element.amount}</td>
                         <td>{element.address} </td>
-                        <td>{}</td>
+                        <td>{element.confirm==false && element.title!='money'?<button onClick={()=>
+                        {
+                          confirmDelivery (element.id)
+                        }}><FaCheck/></button>:'Done'}</td>
                       </tr>
                     );
                   })}

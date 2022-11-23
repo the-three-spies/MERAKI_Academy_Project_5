@@ -13,7 +13,7 @@ const Analytics = () => {
       <div className='container_panel'>
         <Sidebar/>  
         <div className='main_dashbored'>
-        <h1>Analytics </h1>
+        <h1> Analytics </h1>
         <div className="pie_chart">
         <MyResponsivePie />
         <MyResponsivePie1 />

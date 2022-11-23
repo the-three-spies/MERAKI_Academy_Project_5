@@ -1,5 +1,5 @@
 const express = require("express");
-const { createNewDonerGiving, getAllDonerGiving, updateDonerGiving ,getAllDonerGivingByDonerId, deletDonerGiving, getdonationOrderMoneyByUserId, getdonationOrderMeterialByUserId, } = require("../controller/donerGiving");
+const { createNewDonerGiving, getAllDonerGiving, updateDonerGiving ,getAllDonerGivingByDonerId, deletDonerGiving, getdonationOrderMoneyByUserId, getdonationOrderMeterialByUserId, confirmDelvery, } = require("../controller/donerGiving");
 const authentication = require("../middlewares/authentication");
 const authorization = require("../middlewares/authorization");
 const { UpdateNeedyCase, FinalUpdateNeedyCase } = require("../middlewares/donation");
@@ -14,7 +14,7 @@ donteRouter.get("/", getAllDonerGiving);
  donteRouter.get("/myDonition",authentication,getAllDonerGivingByDonerId)
  donteRouter.get("/myDonition/money",authentication,getdonationOrderMoneyByUserId)
  donteRouter.get("/myDonition/material",authentication,getdonationOrderMeterialByUserId)
-
+ donteRouter.put("/confirm/:id/",confirmDelvery)
 donteRouter.put("/:id",updateDonerGiving)
 donteRouter.delete("/:id",deletDonerGiving)
 module.exports = donteRouter;

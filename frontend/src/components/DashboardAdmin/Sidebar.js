@@ -68,7 +68,7 @@ const Sidebar = () => {
         <div  className="menuItem_admin">
         {SidebarData.map((e,index) => {
           return (
-            <div className={selcet==index?"menu_item_admin active":"menu_item_admin"}
+            <div key={index} className={selcet==index?"menu_item_admin active":"menu_item_admin"}
               onClick={() =>{ setselcet(index);
                 if(e.title=='Log Out')
                 {

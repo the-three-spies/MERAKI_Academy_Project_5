@@ -5,7 +5,7 @@ import { BiTask } from 'react-icons/bi';
 import { BsGraphUp } from 'react-icons/bs';
 import axios from 'axios'
 const Maindashboard = () => {
-    const iconlist = [{ icon: <FaUser />, title: " User", class: "primary_a" },
+    const iconlist = [{ icon: <FaUser />, title: " User", class: "danger_a" },
     { icon: <BiTask />, title: " Donation Order", class: "warning_a" },
     { icon: <BsGraphUp />, title: "Needy Casese", class: "success_a" }
     ]
@@ -70,9 +70,8 @@ const Maindashboard = () => {
     return (
         <>
             <div className='main_dashbored'>
-                <h3>Admin Dashboard</h3>
+                <h1>Dashboard</h1>
                 <div className="insight">
-
                     {counter && counter.map((Element, i) => {
                         return (
                             <diV key={i} className="card_info_data">
@@ -87,7 +86,7 @@ const Maindashboard = () => {
                 </div>
 
                 <div className='latest_Case'>
-                    <h1> Recent updates Needy Cases</h1>
+                    <h1> Recent Needy Cases</h1>
                     <table>
                         <th>user Name</th> <th>Help Order </th><th> Name of Section </th> <th> Status of Order</th> <th> Amount Needed</th><th> Amount Donation</th> <th> Address</th>
                         {

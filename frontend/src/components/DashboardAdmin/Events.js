@@ -38,6 +38,31 @@ const Events = () => {
   }
     
   }
+  //===============================================================
+
+  const sendthanks = async () => {
+    try {
+      const result = await axios.post(
+        `http://localhost:5000/email/thanks`,date,{
+          headers: {
+            Authorization: `Bearer ${token}`,
+          }});
+      if (result.data.success) {
+        setStatus(true);
+        setMessage("Email Sent");
+      } else {
+        throw Error;
+      }
+    } catch (error) {
+      if (!error.response.data.success) 
+      {
+        setStatus(false);
+        setMessage(error.response.data.message);
+      }
+    
+    }
+      
+    }
 
 //===============================================================
   return (
@@ -52,21 +77,16 @@ const Events = () => {
              <div><input type="date" required className='input' onChange={(e) => {
                 setDate(e.target.value)
               }}></input>
-          <div> <button onClick={senInvitation} className='button'> Send Invitation </button></div></div> 
+        <button onClick={senInvitation} className='button'> Send Invitation </button></div> 
           {status
             ? message && <div className="SuccessMessage">{message}</div>
             : message && <div className="ErrorMessage">{message}</div>}
-            </div>
-            <div className='latest_Case3'>
+            
           <p>If you would like to  Send Email thanks to  Month Doner</p>
-             <div><input type="date" required onChange={(e) => {
-                setDate(e.target.value)
-              }}></input>
-          <div> <button> </button></div></div> 
-          {status
-            ? message && <div className="SuccessMessage">{message}</div>
-            : message && <div className="ErrorMessage">{message}</div>}
-            </div>
+  
+           <button className='button'>Send thanks</button>
+
+           </div>
             </div>  
         </div>
       </div>
