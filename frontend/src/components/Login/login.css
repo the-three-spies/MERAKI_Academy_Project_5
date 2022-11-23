@@ -128,10 +128,11 @@ background-position: center center;
   }
   
   select option {
-    font-size: 0.8em;
+    /* font-size: 0.8em;
     padding: 0.3em 1em;
     background-color: #ccc;
-    cursor: pointer;
+    cursor: pointer; */
+    
   }
 /* ALERT MESSAGE SUCCESS*/
 /* .alert_success{
@@ -181,6 +182,12 @@ button[disabled]
     
 }
 
-
+#role{
+    font-size: 100%;
+    padding: 3% 35%;
+    outline: none;
+    border: none;
+    text-align: start;
+}
 
 
