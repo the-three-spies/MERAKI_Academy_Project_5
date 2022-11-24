@@ -1,33 +1,33 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import {  useSelector } from "react-redux";
+//import { useNavigate } from "react-router-dom";
 // import "./style.css"
 import './needyByUserId.css'
-import {
-  setNeedyCase,
-  addNeedyCase,
-  updateNeedyCase,
-  deleteNeedyCase,
-  updateActive
-} from "../../redux/reducers/Needy";
+// import {
+//   setNeedyCase,
+//   addNeedyCase,
+//   updateNeedyCase,
+//   deleteNeedyCase,
+//   updateActive
+// } from "../../redux/reducers/Needy";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 //---------------- The Needy ----------------
 const NeedyMonyByUserId = () => {
-  const dispatch = useDispatch();
-  const [description, setTitle] = useState("");
-  const [amount, setAmount] = useState("");
-  const [address, setAddress] = useState("");
-  const[things,setThings]=useState([])
+ // const dispatch = useDispatch();
+ // const [description, setTitle] = useState("");
+ // const [amount, setAmount] = useState("");
+  //const [address, setAddress] = useState("");
+ // const[things,setThings]=useState([])
   const[mony,setMony]=useState([])
 
   //useSelector
-  const { reduxaddnewneddy } = useSelector((state) => {
-    return {
-      reduxaddnewneddy: state.needy.needy,
-    };
-  });
+  // const { reduxaddnewneddy } = useSelector((state) => {
+  //   return {
+  //     reduxaddnewneddy: state.needy.needy,
+  //   };
+  // });
   const { token } = useSelector((state) => {
     return {
       token: state.auth.token,
@@ -54,7 +54,7 @@ const NeedyMonyByUserId = () => {
     axios.delete(`http://localhost:5000/needycase/${id}`)
     .then((then)=>{
     const arrayMony= mony.filter((elem)=>{
-        return(elem.id!=id)
+        return(elem.id!==id)
       })
       
     setMony(arrayMony)
@@ -99,32 +99,32 @@ const NeedyMonyByUserId = () => {
         console.log(err)
       })
   }
-  const gitThingsCaseToUser=()=>{
+  // const gitThingsCaseToUser=()=>{
 
 
-    axios
-      .get("http://localhost:5000/needycase/thingCase", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((result)=>{
-        setThings(result.data.cases)
-       // console.log(result)
-      })
-      .catch((err)=>{
+  //   axios
+  //     .get("http://localhost:5000/needycase/thingCase", {
+  //       headers: {
+  //         Authorization: `Bearer ${token}`,
+  //       },
+  //     })
+  //     .then((result)=>{
+  //       setThings(result.data.cases)
+  //      // console.log(result)
+  //     })
+  //     .catch((err)=>{
 
-        console.log(err)
-      })
+  //       console.log(err)
+  //     })
 
-  }   
+  // }   
      
 
   useEffect(() => {
     gitMoneyCaseToUser()
-    gitThingsCaseToUser()
+   // gitThingsCaseToUser()
   }, []);
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
   //----------------DESIGIN return DESIGIN----------------
   return (
         <div  className="case_order_summery">
@@ -147,7 +147,7 @@ const NeedyMonyByUserId = () => {
       <p><span> </span> <span><button onClick={()=>{deleteCase(element.id)}}  ><i className="bi bi-trash-fill newbi-trash-fill"></i></button></span></p>
       
     </div>
-    <div className="divImageMonynew   plus"><img src="./assets/images/pic5.png" ></img></div>
+    <div className="divImageMonynew   plus"><img alt="mon" src="https://res.cloudinary.com/ddsrkj1dx/image/upload/v1669291287/pic5_pyiqtz.png" ></img></div>
             
            </div>
            
