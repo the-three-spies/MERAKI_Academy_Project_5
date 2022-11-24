@@ -123,68 +123,6 @@
   overflow-y: auto;
 }
 
-.Form_Link{
-    text-decoration: none;
-    font-size: 19px;
-    color: white;
-    font-family: 'Roboto', sans-serif !important;
-}
-.show-password-icon{
-    position: absolute;
-    top: 326px;
-    right:595px;
-    font-size: 21px;
-    color: white;
-    z-index: 2;
-    cursor: pointer;
-}
-.role_input{
-    position: relative;
-}
-.select_role_select {
-    position: absolute;
-    max-height: 20em;
-    border: 0 none;
-    overflow-x: hidden;
-    overflow-y: auto;
-  }
-  
-  select option {
-    /* font-size: 0.8em;
-    padding: 0.3em 1em;
-    background-color: #ccc;
-    cursor: pointer; */
-    
-  }
-/* ALERT MESSAGE SUCCESS*/
-/* .alert_success{
-    z-index: 1;
-    background: #D4EDDA;
-    font-size: 18px;
-    padding: 20px 40px;
-    min-width: 420px;
-    position: fixed;
-    right: 0;
-    top: 10px;
-    border-left: 8px solid #3ad66e;
-    border-radius: 4px;
-} */
-/* ALERT MESSAGE ERROR*/
-/* .alert_error{
-    z-index: 1;
-    background: #FFF3CD;
-    font-size: 18px;
-    padding: 20px 40px;
-    min-width: 420px;
-    position: fixed;
-    right: 0;
-    top: 10px;
-    border-left: 8px solid #FFA502;
-    border-radius: 4px;
-} */
-.newform_login_btn{
-
-
 select option {
   font-size: 0.8em;
   padding: 0.3em 1em;
@@ -217,4 +155,4 @@ button[disabled]
 {
   
     
-
+} */

@@ -7,8 +7,6 @@ import category, {
   setCategory,
   setCategoryId,
 } from "../../redux/reducers/category";
-import AddNeedy from "../CreateCase";
-import NeedyByCategoy from "../DashboardNeedy/GetNeedyByCategoryId";
 //---------------- AddCategory ----------------
 const HomeCardCategory = () => {
   const dispatch = useDispatch();
@@ -70,4 +68,4 @@ const HomeCardCategory = () => {
   );
 };
 export default HomeCardCategory;
-//note: need to add "p" in the category table(BEnd) ...  then in postman ... after that(FEnd) add it here with styling
+

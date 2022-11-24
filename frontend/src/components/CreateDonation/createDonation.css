@@ -4,8 +4,6 @@
     justify-content: left;
     align-items: center;
     min-height: 100vh;
-    /* background: linear-gradient(45deg,#fbda61,#FF5757); */
-    /* padding-top: 175px; */
 background: #efefef;
 }
 .map{
@@ -15,15 +13,13 @@ background: #efefef;
     align-items: stretch;
     padding-top: 150px;
     row-gap: 10vh;
-
+    /* column-gap: 1vh; */
     position: relative;
     width: 75%;
     float: left;
     height: 100%;
-    /* background-color: #282828; */
     z-index: 1010101010
 }
-
 /*------------start pt2 in money--------------*/
 .part22{
     position: fixed;
@@ -39,6 +35,7 @@ background: #efefef;
     margin-top: 300px;
     align-items: flex-start;
     justify-content: start;
+    /* justify-content: space-between; */
 }
 .cardpt2_forDonate{
     position: relative;
@@ -82,7 +79,7 @@ background: #efefef;
     border-radius: 5px;
     border: none;
     outline: none;
-    font-size: 15px ; /*1em*/
+    font-size: 15px ; 
     font-weight: 500;
     background: #e0a0a0;
     color: #fff;
@@ -90,7 +87,10 @@ background: #efefef;
 }
 .cardpt2material_forDonate{
     align-items: stretch;
-    position: relative;
+    position: relative !important;
+    /* bottom: 00px !important;
+    top: 300px; */
+    
     width: 350px;
     /* height: 250px; */
     background: #fff;
@@ -123,13 +123,11 @@ background: #efefef;
 .info_donate input {
     margin-top: 3px;
 }
-
-
 /* ---------------END pt2 in money--------------- */
 .card_forDonate{
     position: relative;
-    width: 350px;
-    height: 390px; /* 190||490||390 if we dont need hover just take the hover height and replace it here that will stop the hover animation dont forgrt to remove the height from the hover to stop it*/
+    width: 320px;
+    height: 350px; /* 190||490||390 if we dont need hover just take the hover height and replace it here that will stop the hover animation dont forgrt to remove the height from the hover to stop it*/
     background: #fff;
     border-radius: 20px;
     box-shadow: 0 35px 80px rgba(63, 6, 6, 0.15);
@@ -137,15 +135,15 @@ background: #efefef;
     /* margin-bottom: 7px; */
 }
 .card_forDonate:hover{
-    height: 450px;
+    height: 375px;
 }
 .img_donate{
     position: absolute;
     left: 50%;
     top: -50px;
     transform: translateX(-50%);
-    width: 150px;
-    height: 150px;
+    width: 130px;
+    height: 130px;
     background: #fff;
     border-radius: 20px;
     box-shadow: 0 15px 50px rgba(106, 94, 94, 0.35);
@@ -154,14 +152,14 @@ background: #efefef;
     z-index: 1000;
 }
 .card_forDonate:hover .img_donate{ /* if u dont foucs on img remove it*/
-    width: 250px;
-    height: 250px;
+    width: 175px;
+    height: 175px;
 }
 .img_donate img{
     position: absolute;
     top: 0;
     left: 0;
-    width:100%;
+    width:90%;
     height:90%;
     object-fit: cover;
     margin: 0 auto;
