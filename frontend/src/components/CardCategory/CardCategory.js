@@ -59,4 +59,4 @@ const CardCategory = () => {
   );
 };
 export default CardCategory;
-//note: need to add "p" in the category table(BEnd) ...  then in postman ... after that(FEnd) add it here with styling
+
