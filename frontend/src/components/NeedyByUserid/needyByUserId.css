@@ -73,7 +73,7 @@
 .maiDivMonyTow{
     display: grid;
     /* grid-template-columns: 1fr 1fr; */
-    grid-template-columns: 70% 25%; 
+    grid-template-columns: 65% 25%; 
 
 }
 .divImageMonynew{

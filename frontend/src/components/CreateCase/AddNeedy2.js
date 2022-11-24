@@ -26,7 +26,7 @@ const AddNeedy2 = ({ id }) => {
   const [description, setDescription] = useState("");
   const [amount, setAmount] = useState("");
   const [address, setAddress] = useState("");
-  const [category_id, setCategory_id] = useState("");
+  //const [category_id, setCategory_id] = useState("");
   const [message, setMessage] = useState("");
   const [catogeyStatus, SetcatogeyStatus] = useState(true);
   const [latitude, setLatitude] = useState("");
@@ -34,11 +34,11 @@ const AddNeedy2 = ({ id }) => {
   const [newAdress,setNewAdress]=useState("")
   //useSelector
   const [toasboolean,setTtoasboolean]=useState(false)
-  const { reduxaddnewneddy } = useSelector((state) => {
-    return {
-      reduxaddnewneddy: state.needy.needy,
-    };
-  });
+  // const { reduxaddnewneddy } = useSelector((state) => {
+  //   return {
+  //     reduxaddnewneddy: state.needy.needy,
+  //   };
+  // });
 
 
   const { token } = useSelector((state) => {
@@ -87,7 +87,8 @@ const AddNeedy2 = ({ id }) => {
   //---------------- handleNeedyCase ----------------
   const handleNeedyCase = async (e) => {
     e.preventDefault();
-   // console.log("CategoryId", CategoryId);
+    if(CategoryId===3){
+    if(!amount){return toast.error("Amount is requier")}}
     try {
       //console.log("asdfghjkl");
       const result = await axios.post(
@@ -174,7 +175,7 @@ const AddNeedy2 = ({ id }) => {
       <h2 className="needycase_hesder">post here what you need</h2>
       {/* <h2>And we will hear you</h2> */}
       <form className="add_needy" action="" method="post">
-        <input type="text_add_needy" name="name" className="text_box_add_needy" placeholder="The amout" onChange={(e) => {
+        <input type="number" name="name" min={1} className="text_box_add_needy" placeholder="The amout" onChange={(e) => {
                 setAmount(e.target.value);
               }}   required/>
         <textarea name="message" rows="5" placeholder="description your case" onChange={(e) => {
