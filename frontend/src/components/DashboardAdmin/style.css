@@ -200,7 +200,7 @@ font-size: 1.3rem;
     padding-bottom: 0.5rem;
   }
   .active:before {
-
+  }
   .active::before {
 
     content: "";
