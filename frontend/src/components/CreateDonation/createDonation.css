@@ -4,7 +4,7 @@
     justify-content: left;
     align-items: center;
     min-height: 100vh;
-background: #efefef;
+/* background: #efefef; */
 }
 .map{
     display: grid;
@@ -33,6 +33,7 @@ background: #efefef;
     left: -3;
     bottom: 0;
     margin-top: 300px;
+    /* margin-bottom: 300px; */
     align-items: flex-start;
     justify-content: start;
     /* justify-content: space-between; */
@@ -40,17 +41,23 @@ background: #efefef;
 .cardpt2_forDonate{
     position: relative;
     width: 350px;
-    height: 190px;
+    height: 190px ;
     /* background: #fff; */
     /* background: linear-gradient(45deg,#fbda61,#FF5757); */
+    background: #fff;
     border-radius: 20px;
-    box-shadow: 0 35px 80px rgba(92, 38, 95, 0.15);
+    box-shadow: 0 35px 80px rgba(228, 212, 228, 0.15);
     transition: 0.5s;
     padding: 20px;
-    align-items: flex-start;
+    /* align-items: flex-start; */
+    text-align: start;
+    box-shadow: 0 35px 80px rgb(0 0 0 / 15%);
+    box-shadow: 5px 5px 20px rgb(171, 48, 48);
+
+
 }
 .info_donate{
-    margin: 10px;
+    margin: 2px;
 }
 .info_donate label{
     font-weight: bold;
@@ -85,8 +92,14 @@ background: #efefef;
     color: #fff;
     cursor: pointer;
 }
+.chosecasebtn2_donate button:hover
+{
+    box-shadow: 5px 5px 20px rgb(171, 48, 48);
+    color: #fff;
+    
+}
 .cardpt2material_forDonate{
-    align-items: stretch;
+    align-items:rgb(247, 174, 174)h;
     position: relative !important;
     /* bottom: 00px !important;
     top: 300px; */
@@ -97,17 +110,20 @@ background: #efefef;
     border-radius: 20px;
     box-shadow: 0 35px 80px rgba(0,0,0,0.15);
     transition: 0.5s;
-    padding: 20px;
+    padding: 10px;
+    text-align: start;
     /* box-shadow:rgba(199, 140, 140, 0.5); */
+    box-shadow: 5px 5px 20px rgb(171, 48, 48);
+
     
 }
 .chooseImg_donate{
     display: flex;
     justify-content: right;
-    margin-top: 5px;
-    background: #000;
+    /* margin-top: 5px;
+    background: #000; */
 }
-.chooseImg_donate button
+.chooseImg_donate button  /*this remove button*/
 {
     padding: 2px 5px;
     border-radius: 5px;
@@ -120,6 +136,11 @@ background: #efefef;
     cursor: pointer;
     
 }
+.chooseImg_donate button:hover
+{
+    background: rgb(197, 66, 66);
+    color: #fff;
+}
 .info_donate input {
     margin-top: 3px;
 }
@@ -129,9 +150,10 @@ background: #efefef;
     width: 320px;
     height: 350px; /* 190||490||390 if we dont need hover just take the hover height and replace it here that will stop the hover animation dont forgrt to remove the height from the hover to stop it*/
     background: #fff;
-    border-radius: 20px;
-    box-shadow: 0 35px 80px rgba(63, 6, 6, 0.15);
+    border-radius: 20px !important;
+    box-shadow: 0 35px 80px rgba(229, 223, 223, 0.15);
     transition: 0.5s;
+    border-radius: 20px !important;
     /* margin-bottom: 7px; */
 }
 .card_forDonate:hover{
@@ -172,7 +194,9 @@ background: #efefef;
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    /* background: linear-gradient(45deg,#aaa4a4,#efefef); */
+    background: linear-gradient(45deg,#e6e6e6,#ffe9eb);
+    border-radius: 20px;
+
     /* background: #efefef; */
     /* overflow: hidden;  */
     /*suggest to remove*/
@@ -189,16 +213,31 @@ background: #efefef;
 /* .card_forDonate:hover .infocard_donate .details{ 
     transform: translateY(0px);
 } */
-.card_forDonate .infocard_donate .details h2{
+.card_forDonate .infocard_donate .details
+.moveit h2{
     font-size: 1.25em;
-    font-weight: 600;
+    font-weight: 500;
     color: #555;
     line-height: 1.2em;
+    font-weight: 500;
+    color: #555;
+    padding-bottom: 50px  !important;
+
 }
 .card_forDonate .infocard_donate .details h2 span{
-    font-size: 0.75em;
+    /* font-size: 0.75em; */
     font-weight: 500;
-    opacity: 0.5;
+    /* opacity: 0.5; */
+    /* font-size: 1.25em; */
+    /* font-weight: 600; */
+    color: #555;
+    /* line-height: 1.2em; */
+    /* padding-bottom: 10px  !important; */
+}
+.moveit{
+    font-weight: 500;
+    color: #555;
+    padding-bottom: 55px  !important; /*-----------------------------------------------*/
 }
 .card_forDonate .infocard_donate .details .data_donate{
     display: flex;
@@ -232,6 +271,11 @@ background: #efefef;
     color: #fff;
     cursor: pointer;
 }
+.card_forDonate .infocard_donate .details .chosecasebtn_donate button:hover{
+    background: rgb(191, 224, 191);
+    color: #fff;
+
+}
 .card_forDonate .infocard_donate .details .chosecasebtn_donate button:nth-child(2){
     border: 1px solid #999;
     color: #999;
@@ -243,4 +287,30 @@ Link{
 .true{
     background-color: rgb(33, 224, 74);
   }
- 
+  input::file-selector-button {
+    font-weight: bold;
+    color: #F8BDC1;
+    padding: 0.5em;
+    border: thin solid #F8BDC1 !important;
+    border-radius: 3px;
+    cursor: pointer;
+    border: none;
+}
+.udateDatedonate
+{
+    /* padding: 2px 5px; */
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    font-weight: 500;
+    background: #e0a0a0 !important;
+    color: #000;
+    cursor: pointer;
+    padding: 4px;
+}
+.udateDatedonate:hover{
+    /* background: #ab2020 !important; */
+    /* box-shadow: #ffe9eb !important; */
+    box-shadow: 5px 5px 20px rgb(171, 48, 48);
+}

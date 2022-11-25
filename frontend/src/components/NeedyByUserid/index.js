@@ -145,6 +145,7 @@ const NeedyByUserId = () => {
       <ToastContainer/>
       <h1>YOUR MATERIAL ORDER</h1>
       {/* <div className="caseorder-summery-title"> YOUR MONEY ORDER </div> */}
+      <div className="newtestmoney" >
       {things &&
         things?.map((element, i) => {
           return (
@@ -186,6 +187,7 @@ const NeedyByUserId = () => {
             </div>
           );
         })}
+        </div>
     </div>
   );
   //----------------DESIGIN return DESIGIN----------------

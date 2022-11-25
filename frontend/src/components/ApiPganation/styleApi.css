@@ -118,7 +118,7 @@
   transform: all 0.2s;
   font-size: 19px;
   border: none;
-  background-color: #908384;
+  background-color: #545454;
   color: #fff5eb;
   transition: 0.3s;
   cursor: pointer;
@@ -165,20 +165,20 @@
   padding: 10px;
   margin: 8px;
   border-radius: 5px;
-  border: 1px solid PINK;
+  border: 1px solid #F8BDC1;
   color: black;
   cursor: pointer;
 }
 .paginationBttns a:hover {
   color: white;
-  background-color: PINK;
+  background-color: #F8BDC1;
 }
 .paginationActive a {
   color: white;
-  background-color: palevioletred;
+  background-color: #545454;
 }
 
 .paginationDisabled a {
   color: white;
-  background-color: rgb(7, 4, 4);
+  background-color:#545454 ; /*rgb(7, 4, 4)*/
 }
