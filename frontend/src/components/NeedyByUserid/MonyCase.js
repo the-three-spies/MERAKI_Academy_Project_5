@@ -131,8 +131,10 @@ const NeedyMonyByUserId = () => {
           <ToastContainer/>
           <h1>YOUR MONEY ORDER</h1>
           {/* <div className="caseorder-summery-title"> YOUR MONEY ORDER </div> */}
+          <div className="newtestmoney" >
        {mony&&mony.map((element, i) => {
          return (
+          
            <div key={`monydivshow${i}`} className="maiDivMonyTow">
                 <div className="order_item">
                 <p><span>{element.description}</span></p>
@@ -147,12 +149,14 @@ const NeedyMonyByUserId = () => {
       <p><span> </span> <span><button onClick={()=>{deleteCase(element.id)}}  ><i className="bi bi-trash-fill newbi-trash-fill"></i></button></span></p>
       
     </div>
+   
     <div className="divImageMonynew   plus"><img alt="mon" src="https://res.cloudinary.com/ddsrkj1dx/image/upload/v1669291287/pic5_pyiqtz.png" ></img></div>
             
            </div>
-           
+          
          );
        })}
+       </div>
      </div>
    );
 

@@ -261,6 +261,7 @@ toast.success("Welcome")
             placeholder="Password"
           /> */}
           {/* ---show hide password-- */}
+          <div className="sticktheicon">
           <input
           className="stickTheEyePassword"
             ref={num === 2 ? inputRef : null}
@@ -282,12 +283,14 @@ toast.success("Welcome")
               onClick={showHidePassword}
               className="bi bi-eye-fill show-password-icon"
             ></i>
+            
           ) : (
             <i
               onClick={showHidePassword}
               className="bi bi-eye-slash-fill show-password-icon"
             ></i>
           )}
+          </div>
           <button className={toasboolean === false ? "form_login_btn" : "newform_login_btn"}
          
 

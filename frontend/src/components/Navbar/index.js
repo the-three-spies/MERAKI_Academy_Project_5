@@ -26,8 +26,8 @@ const NavbarNew = () => {
         <ul className="navbar-links">
         
         <Link to="/Showcategories" className="navbar-link" onClick={()=>{setToggle(false)}}>Category</Link>
-        <Link to="/NeedyCaseById" className="navbar-link" onClick={()=>{setToggle(false)}}>Show Request for in-kind aid</Link>
-        <Link to="/NeedyMonyByUserId" className="navbar-link" onClick={()=>{setToggle(false)}}>Show Request for Mony</Link>
+        <Link to="/NeedyCaseById" className="navbar-link" onClick={()=>{setToggle(false)}}>Material</Link>
+        <Link to="/NeedyMonyByUserId" className="navbar-link" onClick={()=>{setToggle(false)}}>Money</Link>
         <Link to="/newSoct" className="navbar-link" onClick={()=>{setToggle(false)}}>Send Message </Link>
         
           {/* <li onClick={()=>{setToggle(false)}} className="navbar-link">FAQs</li> */}

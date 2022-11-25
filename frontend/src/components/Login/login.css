@@ -4,14 +4,15 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 100vh;
+  /* height: 100vh; */
   background-size: cover;
   font-family: "Roboto", sans-serif !important;
   background: linear-gradient(rgba(17, 5, 5, 0.58), rgba(1, 1, 23, 0.58)),
-    url("https://res.cloudinary.com/ddsrkj1dx/image/upload/v1669291518/Donation_ENG_orttfu.png");
+    url("https://res.cloudinary.com/ddsrkj1dx/image/upload/v1669291518/Donation_ENG_orttfu.png") no-repeat;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
+  /* margin-bottom: 10px; */
 }
 .login_form {
   margin-top: 50px;
@@ -29,9 +30,6 @@
   background: transparent;
   color: white;
   /*-----------------------------------------*/
-}
-.stickTheEyePassword{
-  position: relative;
 }
 .form_login_btn {
   width: 350px;
@@ -96,6 +94,8 @@
   font-size: 20px;
   font-weight: 600;
   font-family: "Roboto", sans-serif !important;
+  height: 5%;
+  margin-bottom: 50px;
 }
 .Form_Link {
   text-decoration: none;
@@ -106,11 +106,14 @@
 .show-password-icon {
   position: absolute;/*---------------------------------------------------------*/
   top: 293px;
-  right: 590px;
+  right: 510px;
   font-size: 21px;
   color: white;
   z-index: 2;
   cursor: pointer;
+}
+.stickTheEyePassword{
+  position: relative;
 }
 .role_input {
   position: relative;

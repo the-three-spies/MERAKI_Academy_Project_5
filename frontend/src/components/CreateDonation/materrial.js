@@ -152,10 +152,10 @@ const Material = () => {
                 </div>
                 <div className="infocard_donate">
                   <div className="details">
-                    <h2>
-                      Needy Name
-                      <br />
-                      <span>{need?.description}</span>
+                    <h2 className="moveit">
+                    {need.description}
+                      {/* Needy Name */}
+                      <span className="moveit"></span>
                     </h2>
                     {/* <div className='data_donate'>
              <h3>{need.amount}<br/><span>Amout</span></h3>
@@ -186,7 +186,7 @@ const Material = () => {
       <div className='cardpt2material_forDonate'>
         <div className='details_box'></div>
       {/*1111111111111111111111111111111111111111111111*/}
-      <div className="info_donate">
+      <span className="info_donate">
         <label for="date">Date</label>
         <input
         
@@ -195,13 +195,13 @@ const Material = () => {
             setdeleveryDate(e.target.value);
           }}
         ></input>
-      </div>
+      </span>
      
 
        {/* 2222222222222222222222222222222222222222222222 NOT APPEAR???????????????????  */}
 
      {/* 3333333333333333333333333333333333333333333333  */}
-      <div className="info_donate">
+      <span className="info_donate">
       <label for="data">Adress</label>
         <input
           type="text"
@@ -210,13 +210,13 @@ const Material = () => {
             setaddress(e.target.value);
           }}
         ></input>
-      </div>
+      </span>
       {/* 444444444444444444444444444444444444444444444444444444           */}
       <div className="info_donate">
       <label for="data">Message</label>
         <input
           type="text"
-          placeholder="Donation Message"
+          placeholder="your Message"
           onChange={(e) => {
             setdescription(e.target.value);
           }}

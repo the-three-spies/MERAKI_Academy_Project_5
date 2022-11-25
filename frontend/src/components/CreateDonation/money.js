@@ -115,7 +115,7 @@ const Money = () => {
             </div>
             <div className='infocard_donate'>
               <div className='details'>
-                <h2>Needy Name<br/><span>{need.description}</span></h2>
+                <h2><span>{need.description}</span></h2>
                 <div className='data_donate'>
                   <h3>{need.amount}<br/><span>Amout</span></h3>
                   <h3>{need.donation_amount}<br/><span>Dnoation</span></h3>

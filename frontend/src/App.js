@@ -15,7 +15,6 @@ import Header from "./components/Header/header"
 import Navbar from './components/Header/navbar'
 import Contact from './components/Contact/Contact'
 import Footer from './components/Footer/Footer'
-import CardCategory from './components/CardCategory/CardCategory'
 import OurTeam from './components/OurTeam/OurTeam'
 import FAQs from './components/FAQs/FAQs'
 
@@ -204,7 +203,7 @@ useEffect(() => {
 NeedyMonyByUserId
 <Route path="/NeedyMonyByUserId"element={<><Header/><NavbarNew/><NeedyMonyByUserId/><Footer/></>}/>
 <Route path="/NewSoct" element={<><Header/><NavbarNew/><ChatDoner/><Footer/></>}  ></Route>
-<Route path="/ApiPag" element={<><Header/><ApiPagination/><Footer/></>}  ></Route>
+<Route path="/ApiPag" element={<><Header/><ApiPagination/><Footer/></>}></Route>
 <Route path="/check" element={<><Header/><Checkout /><Footer/></>} />
  {/* 
 

@@ -75,17 +75,17 @@
   opacity: 0.9;
   resize: none;
   outline: none;
-  color: #2c3a47;
+  color: #545454 !important;
 }
 .text-boxx::placeholder {
   color: black;
   opacity: 1;
-  color: #2c3a47;
+  color: #545454;
 }
 #change_theplaceholder::placeholder {
   color: black;
   opacity: 1;
-  color: #2c3a47;
+  color: #545454;
 }
 /* .textarea::placeholder { 
     color: black;
@@ -112,7 +112,7 @@
 }
 .contact-form .send-btn:hover {
   /* background: #545454; */
-  background-color: #908384;
+  background-color: #908384 !important;
   color: #fff5eb;
   transition: 0.3s;
   cursor: pointer;
