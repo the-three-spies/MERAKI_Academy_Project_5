@@ -110,7 +110,7 @@ const AddNeedy2 = ({ id }) => {
         //console.log(result.data.result);
         toast.success("Your Case has been created successfully")
         setTtoasboolean(true)
-        setMessage("Your Case has been created successfully");
+       // setMessage("Your Case has been created successfully");
         dispatch(addNeedyCase(result.data.result));
         if (result.data.result.category_id == 3) {
           const myTimeout = setTimeout(()=>{navigate("/NeedyMonyByUserId")}, 500);
