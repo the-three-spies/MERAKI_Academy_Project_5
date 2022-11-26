@@ -145,15 +145,14 @@ const NeedyByUserId = () => {
       <ToastContainer/>
       <h1>YOUR MATERIAL ORDER</h1>
       {/* <div className="caseorder-summery-title"> YOUR MONEY ORDER </div> */}
+      <div className="newtestmoney" >
       {things &&
         things?.map((element, i) => {
           return (
             <div key={`maiDivMonyTow${i}`} className="maiDivMonyTow">
               
               <div class="order_item">
-                <p className="desc_order">
-                  <span>{element.description}</span>
-                </p>
+              <p><span>{element.description}</span></p>
                 <p>
                   <span>Category</span> <span>{element.title}</span>
                 </p>
@@ -185,7 +184,7 @@ const NeedyByUserId = () => {
               </div>
             </div>
           );
-        })}
+        })}</div>
     </div>
   );
   //----------------DESIGIN return DESIGIN----------------
