@@ -7,8 +7,8 @@ const authorization = require("../middlewares/authorization");
 
 const emailRouter = express.Router();
 emailRouter.get('/',getemaildoner)
-emailRouter.post("/invitation",authentication,authorization("ADMIN"),getemaildoner,sendInvitationEmail)
-emailRouter.get("/thanks",authentication,authorization("ADMIN"),getUserMaxdonationOrder,thanksEmail)
+emailRouter.post("/invitation",authentication,getemaildoner,sendInvitationEmail)
+emailRouter.get("/thanks",authentication,getUserMaxdonationOrder,thanksEmail)
 
 
 module.exports = emailRouter
