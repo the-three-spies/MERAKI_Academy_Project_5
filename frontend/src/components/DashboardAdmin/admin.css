@@ -447,3 +447,7 @@ grid-template-columns: 7rem auto 23rem ;
   cursor: pointer;
   width: 3vh;
 };
+.SuccessMessage
+{
+  background-color: var(--color-success);
+}
