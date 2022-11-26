@@ -143,9 +143,9 @@ const Money = () => {
         <div className='details_box'>
         </div>
       <div className='info_donate'><label>The Amout</label>
-      <input type="number" placeholder="$" min="1" max="50" required onChange={(e)=>{setamount(e.target.value)}}/></div>
+      <input className="placeMaterial bgplacehoder" type="number" placeholder="$" min="1" max="50" required onChange={(e)=>{setamount(e.target.value)}}/></div>
           <div className='info_donate'>
-          <label>Message</label><input className='change' type="text" placeholder=" your message"onChange={(e)=>{setdescription(e.target.value)}}/> </div>
+          <label>Message</label><input className='change placeMaterial bgplacehoder' type="text" placeholder=" your message"onChange={(e)=>{setdescription(e.target.value)}}/> </div>
           <div className='chosecasebtn2_donate'><button className={toasboolean === false ? "send-btn" : "newsend-btn"} onClick={handelDonate}> Donate Now</button></div>
           
           {/* {status

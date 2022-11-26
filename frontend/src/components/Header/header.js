@@ -73,7 +73,7 @@ const Header = () => {
             Register <i class="bi bi-person-fill"></i>
           </Link>
         </div>
-: <div> <Link to="/login" onClick={()=>{ dispacth(setLogout())}} className="logout" > Logout <i class="bi bi-box-arrow-left"></i></Link>
+: <div> <Link to="/login" onClick={()=>{ dispacth(setLogout())}} className="logout" > Logout</Link>
 <div>
 <Link  className="logout" onClick={()=>{navigate(-1)}}><i class="bi bi-skip-backward-fill"></i></Link>
 </div>

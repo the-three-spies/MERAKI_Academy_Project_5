@@ -201,22 +201,24 @@ const Material = () => {
        {/* 2222222222222222222222222222222222222222222222 NOT APPEAR???????????????????  */}
 
      {/* 3333333333333333333333333333333333333333333333  */}
-      <span className="info_donate">
+      <div className="info_donate">
       <label for="data">Adress</label>
         <input
+        className="placeMaterial"
           type="text"
           placeholder="Your Adress"
           onChange={(e) => {
             setaddress(e.target.value);
           }}
         ></input>
-      </span>
+      </div>
       {/* 444444444444444444444444444444444444444444444444444444           */}
       <div className="info_donate">
-      <label for="data">Message</label>
+      <label for="data">Mesage</label>
         <input
+        className="placeMaterial"
           type="text"
-          placeholder="your Message"
+          placeholder="Your Message"
           onChange={(e) => {
             setdescription(e.target.value);
           }}
@@ -234,7 +236,7 @@ const Material = () => {
       )}
  {/*66666666666666666666666666666666666666666666666666666666666*/}
 <div className="info_donate">
-        <label for="data">Select Image</label>
+        <label for="data">Image</label>
         <input
           type="file"
           onChange={(e) => {

@@ -5,20 +5,22 @@
     align-items: center;
     min-height: 100vh;
 /* background: #efefef; */
+padding-right: 10px;
+margin-right: 20%;
 }
 .map{
     display: grid;
-    grid-template-columns: repeat(3, minmax(280px, 1fr));
-    grid-gap: 20px;
+    grid-template-columns: repeat(2, minmax(280px, 1fr));
+    grid-gap: 7px;
     align-items: stretch;
     padding-top: 150px;
-    row-gap: 10vh;
+    row-gap: 15vh;
     /* column-gap: 1vh; */
     position: relative;
     width: 75%;
     float: left;
     height: 100%;
-    z-index: 1010101010
+    z-index: 1010101010;
 }
 /*------------start pt2 in money--------------*/
 .part22{
@@ -40,7 +42,7 @@
 }
 .cardpt2_forDonate{
     position: relative;
-    width: 350px;
+    width: 260px;
     height: 190px ;
     /* background: #fff; */
     /* background: linear-gradient(45deg,#fbda61,#FF5757); */
@@ -57,19 +59,21 @@
 
 }
 .info_donate{
-    margin: 2px;
+    /* margin: 2px; */
 }
 .info_donate label{
     font-weight: bold;
-    margin-right: 10px;
+    margin-right: 50px;
+    width: 300px !important;
 }
 .info_donate input{
-    background: #e0a0a0   ;
+    /* background: #e0a0a0   ; */
     width: 100px;
     font-size: 15px;
     border: none;
     outline: none;
     border-radius: 5px;
+    padding: 2%;
 }
 .info_donate .change{
     height: 30px;
@@ -114,7 +118,7 @@
     text-align: start;
     /* box-shadow:rgba(199, 140, 140, 0.5); */
     box-shadow: 5px 5px 20px rgb(171, 48, 48);
-
+    margin: -32%;
     
 }
 .chooseImg_donate{
@@ -143,6 +147,8 @@
 }
 .info_donate input {
     margin-top: 3px;
+    /* align-items: flex-end !important; */
+    text-align: left;
 }
 /* ---------------END pt2 in money--------------- */
 .card_forDonate{
@@ -181,8 +187,8 @@
     position: absolute;
     top: 0;
     left: 0;
-    width:90%;
-    height:90%;
+    width:120%;
+    height:100%;
     object-fit: cover;
     margin: 0 auto;
     display: block;
@@ -194,8 +200,9 @@
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    background: linear-gradient(45deg,#e6e6e6,#ffe9eb);
+    background: linear-gradient(45deg,pink,#e6e6e6);
     border-radius: 20px;
+    margin-left: 5%;
 
     /* background: #efefef; */
     /* overflow: hidden;  */
@@ -220,7 +227,7 @@
     color: #555;
     line-height: 1.2em;
     font-weight: 500;
-    color: #555;
+    color: #545454;
     padding-bottom: 50px  !important;
 
 }
@@ -230,13 +237,13 @@
     /* opacity: 0.5; */
     /* font-size: 1.25em; */
     /* font-weight: 600; */
-    color: #555;
+    color: #000;
     /* line-height: 1.2em; */
     /* padding-bottom: 10px  !important; */
 }
 .moveit{
     font-weight: 500;
-    color: #555;
+    color: #000 !important;
     padding-bottom: 55px  !important; /*-----------------------------------------------*/
 }
 .card_forDonate .infocard_donate .details .data_donate{
@@ -246,7 +253,7 @@
 }
 .card_forDonate .infocard_donate .details .data_donate h3{
     font-size: 1em;
-    color: #555;
+    color: #000 !important;
     line-height: 1.2em;
     font-weight: 600;
 }
@@ -254,6 +261,7 @@
     font-size: 0.85em;
     font-weight: 400;
     opacity: 0.5;
+    color: #000 !important;
 }
 .card_forDonate .infocard_donate .details .chosecasebtn_donate{
     display: flex;
@@ -268,7 +276,7 @@
     font-size: 1em;
     font-weight: 500;
     background: #e0a0a0;
-    color: #fff;
+    color: #000;
     cursor: pointer;
 }
 .card_forDonate .infocard_donate .details .chosecasebtn_donate button:hover{
@@ -277,8 +285,8 @@
 
 }
 .card_forDonate .infocard_donate .details .chosecasebtn_donate button:nth-child(2){
-    border: 1px solid #999;
-    color: #999;
+    border: 1px solid #000;
+    color: #000;
     background: #fff;
 }
 Link{
@@ -313,4 +321,12 @@ Link{
     /* background: #ab2020 !important; */
     /* box-shadow: #ffe9eb !important; */
     box-shadow: 5px 5px 20px rgb(171, 48, 48);
+}
+.placeMaterial::placeholder{
+    color:  #545455 !important;
+    text-align: start !important;
+    /* align-items: center; */
+}
+.bgplacehoder{
+    background: #efefef;
 }
