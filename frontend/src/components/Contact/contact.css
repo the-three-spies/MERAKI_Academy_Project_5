@@ -164,3 +164,9 @@
     width: 100%;
   }
 }
+.contact_info_menue
+{
+  display: flex;
+  align-self: center;
+  justify-content: flex-start;
+}

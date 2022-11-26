@@ -217,10 +217,10 @@ const getdonationOrderMeterialByUserId = (req, res) => {
 const confirmDelvery=(req, res)=>{
   console.log("lkokll")
   const id = req.params.id;
-
-  const query = `UPDATE doner_givin SET confirm =TRUE WHERE id=$2 RETURNING *;`;
+const value=[id]
+  const query = `UPDATE doner_givin SET confirm =TRUE WHERE id=$1 RETURNING *;`;
   pool
-    .query(query, data)
+    .query(query,value)
     .then((result) => {
       if (result.rows.length === 0) {
         return res.status(404).json({

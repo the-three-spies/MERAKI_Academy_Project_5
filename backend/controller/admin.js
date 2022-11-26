@@ -209,15 +209,25 @@ const getNumNeedCase = (req, res) => {
         });
     };
     const getState = (req, res) => {  
-      const query = `select extract(hour from created_at) as x, 
-      count(id) as y
-     from  needy_Case
-     group by extract(hour from created_at )
-     order by 1;select extract(hour from created_at) as x, 
-     count(id) as y
- from  doner_givin
- group by extract(hour from created_at )
- order by 1;`
+//       const query = `select extract(hour from created_at) as x, 
+//       count(id) as y
+//      from  needy_Case
+//      group by extract(hour from created_at )
+//      order by 1;select extract(hour from created_at) as x, 
+//      count(id) as y
+//  from  doner_givin
+//  group by extract(hour from created_at )
+//  order by 1;`
+ const query = `select extract(MINUTE from created_at) as x, 
+ count(id) as y
+from  needy_Case
+where extract(MINUTE from created_at ) between 1 and 11
+group by extract(MINUTE from created_at )
+order by 1;select extract(MINUTE from created_at) as x, 
+count(id) as y from  doner_givin
+where extract(MINUTE from created_at ) between 1 and 11
+group by extract(MINUTE from created_at ) 
+order by 1;`
       pool
         .query(query)
         .then((result) => {

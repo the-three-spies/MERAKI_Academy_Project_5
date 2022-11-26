@@ -110,7 +110,7 @@ CREATE TABLE doner_givin(
     doner_id INT,
     case_id INT,
     is_deleted SMALLINT DEFAULT 0,
-confirm BOOLEAN DEFAULT FALSE;
+confirm BOOLEAN DEFAULT FALSE,
     deleveryDate VARCHAR(255),
      imgePathDoner TEXT,
      category_id INT,

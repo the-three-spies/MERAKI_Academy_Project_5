@@ -19,7 +19,7 @@ const createTable = () => {
       doner_id INT,
       case_id INT,
       is_deleted SMALLINT DEFAULT 0,
-  
+  confirm BOOLEAN DEFAULT FALSE,
       deleveryDate VARCHAR(255),
        imgePathDoner TEXT,
        category_id INT,
@@ -28,7 +28,9 @@ const createTable = () => {
        FOREIGN KEY(case_id) REFERENCES needy_Case(id),
        FOREIGN KEY (doner_id) REFERENCES users(id),
        PRIMARY KEY (id)
-     );`)
+     );`
+  
+  )  
   .then((result) => {
     console.log("result", result);
   })

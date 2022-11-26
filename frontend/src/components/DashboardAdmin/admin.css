@@ -1,9 +1,10 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
 
 :root{
 /* --color-primary:#e12aba;#e60b63; */
---color-primary:#ea309c;
-/* --color-primary:#A360FF; */
+/* --color-primary:#ea309c;*/
+--color-primary:#EA4C89;
 --color-danger:#ff5757;
 /* --color-danger:#11B6CC; */
 --color-success:#41f1b6;
@@ -26,14 +27,27 @@
 
 }
 .dark{
-  background-color:#181a1e;
+  --colo-background:#181a1e;
+  background:#181a1e; ;
   --color-white:#202528;
   --color-dark:#edeffd;
   --color-dark-variant:#a3bdcc;
   --color-light:rgba(0,0,0,0.4);
-  --box-shadow:0 2rem 3rem var(var(--color-light))
-}
+  --box-shadow:0 2rem 3rem var(var(--color-light))}
 
+.dark h1{
+  color:#fff;
+}
+.dark h3{
+  color: #fff;
+}
+.dark p{
+  color: #f6f6f9;;
+}
+.dark table th
+{
+  color: #fff;
+}
 .container_panel .container_panel_a{
   font-size: 14px;
   width:100vw;
@@ -71,7 +85,7 @@ font-size: 0.77rem;
   font-size: 0.7rem
 
 }
-.admin_panal p .header_admin p{
+.admin_panal p .header_admin p .recent_update p{
 color: var(--color-dark_variant);
 }
 .admin_panal span{
@@ -199,8 +213,7 @@ font-size: 1.3rem;
     text-align: left;
     padding-bottom: 0.5rem;
   }
-  .active:before {
-  }
+
   .active::before {
 
     content: "";
@@ -211,8 +224,7 @@ font-size: 1.3rem;
   }
 .active span
 {
-  color:#FF5757; 
-  color: var(--color-primary);
+ 
   margin-left: calc(1rem - 3px);
 
 }
@@ -375,7 +387,7 @@ box-shadow: none;
     
   }
 
-/* @media screen  and (max-width:1200px){
+@media screen  and (max-width:1200px){
   .container_panel{
     width:93%;
 grid-template-columns: 7rem auto 23rem ;
@@ -388,14 +400,13 @@ grid-template-columns: 7rem auto 23rem ;
     display: none;
   }
   /* */
-  /* .insight
+   .insight
   {
     grid-template-columns: 1fr;
     gap:0
   }
-}  */
-/* @media screen  and (max-width:1200px){
-
+} 
+ @media screen  and (max-width:1200px){
   .container_panel{
     width:100%;
   }
@@ -419,16 +430,20 @@ grid-template-columns: 7rem auto 23rem ;
   {
 
   }
-/* 
+ }
 .show{
   display: block;
 } */
-
-
-.logo_name
-{
-  color: var(--color-primary);
-}
 .card_info_data h1{
   text-align: left;
 }
+.logo_name {
+  color: var(--color-primary);
+}
+.check{
+  background: #fff;
+  color:var(--color-primary);
+  font-size: 0.9rem;
+  cursor: pointer;
+  width: 3vh;
+};
