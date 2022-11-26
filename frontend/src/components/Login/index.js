@@ -312,11 +312,13 @@ toast.success("Welcome")
               <>
                 <h1 className="form-title">Register</h1>
                 <input
+                className="inputPlacecholder"
                   type="number_register"
                   placeholder="Age"
                   onChange={(e) => setAge(e.target.value)}
                 />
                 <input
+                className="inputPlacecholder"
                   type="text_register"
                   placeholder="City"
                   onChange={(e) => setCity(e.target.value)}
@@ -358,6 +360,7 @@ toast.success("Welcome")
                     })}
                 </select> */}
                 <input
+                className="inputPlacecholder"
                   type="password"
                   placeholder="Password"
                   onChange={(e) => setPassword(e.target.value)}
