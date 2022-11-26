@@ -278,7 +278,7 @@ toast.success("Welcome")
               }
             }}
           />
-          {showPassword ? (
+          {/* {showPassword ? (
             <i
               onClick={showHidePassword}
               className="bi bi-eye-fill show-password-icon"
@@ -289,7 +289,7 @@ toast.success("Welcome")
               onClick={showHidePassword}
               className="bi bi-eye-slash-fill show-password-icon"
             ></i>
-          )}
+          )} */}
           </div>
           <button className={toasboolean === false ? "form_login_btn" : "newform_login_btn"}
          
