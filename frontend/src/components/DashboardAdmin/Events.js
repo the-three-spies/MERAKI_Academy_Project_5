@@ -1,18 +1,21 @@
 import React from 'react'
 import Sidebar from './Sidebar';
-import { useState } from 'react';
+import { useState,useContext } from 'react';
 import axios from 'axios';
 import { useSelector } from "react-redux";
-import "./style.css";
+import { MyContext } from '../../App';
+import "./admin.css";
 const Events = () => {
   const [date, setDate] = useState("");
   const [status, setStatus] = useState(false);
   const [message, setMessage] = useState("");
+  const {theme}=useContext(MyContext)
   const { token } = useSelector((state) => {
     return {
       token: state.auth.token,
     };
   });
+
   //===============================================================
 
   const senInvitation = async () => {
@@ -43,7 +46,7 @@ const Events = () => {
   const sendthanks = async () => {
     try {
       const result = await axios.post(
-        `http://localhost:5000/email/thanks`,date,{
+        `http://localhost:5000/email/thanks`,{
           headers: {
             Authorization: `Bearer ${token}`,
           }});
@@ -67,7 +70,7 @@ const Events = () => {
 //===============================================================
   return (
     <>
-      <div className='admin_panal'>
+   <div className={theme==='dark'?'dark adminpanel':'adminpanel'}>
         <div className='container_panel'>
           <Sidebar />
           <div className='main_dashbored'>
@@ -84,7 +87,7 @@ const Events = () => {
             
           <p>If you would like to  Send Email thanks to  Month Doner</p>
   
-           <button className='button'>Send thanks</button>
+           <button className='button' onClick={sendthanks}>Send thanks</button>
 
            </div>
             </div>  

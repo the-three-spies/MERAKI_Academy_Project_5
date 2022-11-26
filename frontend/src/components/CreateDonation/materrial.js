@@ -10,7 +10,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 const Material = () => {
   const imagecase = [
-    '','https://res.cloudinary.com/dqsg0zf1r/image/upload/v1669149184/per4-removebg-preview_qa2wku.png','https://res.cloudinary.com/dqsg0zf1r/image/upload/v1669149184/pers3-removebg-preview_sm4ph8.png','https://res.cloudinary.com/dqsg0zf1r/image/upload/v1669150185/person1-removebg-preview_yoheca.png','https://res.cloudinary.com/dqsg0zf1r/image/upload/v1669150533/222-removebg-preview_wmxvoj.png','https://res.cloudinary.com/dqsg0zf1r/image/upload/v1669162717/person333-removebg-preview_wuqmsz.png','https://res.cloudinary.com/dqsg0zf1r/image/upload/v1669149184/per333-removebg-preview_n5joia.png'];
+    'https://res.cloudinary.com/dqsg0zf1r/image/upload/v1669149184/per4-removebg-preview_qa2wku.png','https://res.cloudinary.com/dqsg0zf1r/image/upload/v1669149184/pers3-removebg-preview_sm4ph8.png','https://res.cloudinary.com/dqsg0zf1r/image/upload/v1669150185/person1-removebg-preview_yoheca.png','https://res.cloudinary.com/dqsg0zf1r/image/upload/v1669150533/222-removebg-preview_wmxvoj.png','https://res.cloudinary.com/dqsg0zf1r/image/upload/v1669162717/person333-removebg-preview_wuqmsz.png','https://res.cloudinary.com/dqsg0zf1r/image/upload/v1669149184/per333-removebg-preview_n5joia.png'];
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const params = useParams();
@@ -54,7 +54,7 @@ const Material = () => {
         toast.success("thank you form our heart , the process of donation done")
         setTtoasboolean(true)
         const myTimeout = setTimeout(()=>{navigate("/mythingdonation")}, 500);
-        console.log(data.url);
+    
       })
       .catch((err) => console.log(err));
   };
@@ -148,7 +148,7 @@ const Material = () => {
             return (
               <div key={i} className="card_forDonate">
                 <div className="img_donate">
-                  <img src={imagecase[need.id]}></img>
+                  <img src={imagecase[i]}></img>
                 </div>
                 <div className="infocard_donate">
                   <div className="details">

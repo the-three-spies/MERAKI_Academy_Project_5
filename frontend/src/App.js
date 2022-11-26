@@ -227,7 +227,8 @@ NeedyMonyByUserId
 <Route path="/mythingdonation" element={<><Header/><Navigation/>< MaterialDonation/><Footer/></>}></Route>
 <Route path="/myChat" element={<><Header/><Navigation/><ChatDoner/><Footer/></>}/>
 <Route path="/NewSoct" element={<><NewSoct/></>}  ></Route>
-
+<>
+{stateRole=='1'?<>
 <Route path="/admin/dashboard" element={<><HeaderAdmin/><AdminPanel/></>}/>
  <Route path="/admin/users" element={<><HeaderAdmin/><User/></>}/>
  <Route path="/admin/needy_case" element={<><HeaderAdmin/><NeedyCase/></>}/>
@@ -236,9 +237,10 @@ NeedyMonyByUserId
  <Route path="/admin/events" element={<><HeaderAdmin/><Events/></>}/>
  <Route path="/admin/support" element={<><HeaderAdmin/><AddCampaign/></>}/>
  <Route path="/admin/chat" element={<><HeaderAdmin/><ChatAdmin/></>}/>
-
-
-
+ </>
+ :""
+}
+</>
 
 
 {/* 

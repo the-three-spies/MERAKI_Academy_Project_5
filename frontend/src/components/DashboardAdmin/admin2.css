@@ -10,12 +10,14 @@
     border: 0;
   }
   .search button{
-    padding: 1.5vh;
+    padding: 2vh;
     border-radius: 2%;
     color: #000;
   color:var(--color-primary);
-    background-color: #fff;
+    /* background-color: #fff; */
     border: 0;
+    width:9vh;
+    font-size: 1.8rem;
   
   }
   .right_side
@@ -28,7 +30,7 @@
 .top_admin
 {
 display: flex;
-justify-content: end;
+justify-content:flex-end;
 gap: 2rem;
 /* padding-top: 0.9rem; */
 margin-top: 1rem;
@@ -50,8 +52,8 @@ border-radius: var(--border-radius-1);
 }
 
 .them-toggler_admin button{
-font-size: 1.6rem;
-width: 50%;
+font-size: 1.8rem;
+width: 60%;
 height: 100%;
 display: flex;
 align-items: center;
@@ -61,7 +63,7 @@ background: transparent;
 border: none;
 
 } 
-.them-toggler_admin span.active{
+.them-toggler_admin span{
   background-color: var(--color-primary);
   color: #fff;
   border-radius: var(--border-radius-1);
@@ -100,9 +102,13 @@ border: none;
 align-self: center;
   justify-content:space-between;
   height: 10vh;
-  /* background-color: #000; */
+   background-color: #181a1e;
+   color:#fff;;
 }
+.logo_name
+{
 
+}
 .input {
   padding: 0.6rem;
   margin-top: 1rem;
@@ -125,4 +131,11 @@ color: #fff;
 font-size: 1.4rem;
 margin-bottom: 3rem;
 font-family: 'po';
+}
+
+.profile_img img
+{
+display: block;
+height: 6rem;
+width:6rem;
 }
